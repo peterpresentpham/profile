@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import IconImg from 'public/favicon.ico';
+import IconImg from 'public/icon.ico';
 import { ReactNode } from 'react';
 import './globals.css';
 

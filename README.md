@@ -1,4 +1,4 @@
-## My Profile
+## My Profile <a href="./public/heart.png" width="20" height="20"></a>
 
 ### Get start
 
@@ -13,3 +13,7 @@ bun install
 ```shell
 bun dev
 ```
+
+### Reference
+
+- https://www.figma.com/design/u3qIU806Bz0N49GlobTlRv/2024-Portfolios-(Community)?node-id=1-914&t=tZSFUCcCvOa6xNfT-0
