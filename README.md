@@ -1,4 +1,4 @@
-## My Profile <img href="./public/heart.png" width="20" height="20"></img>
+## My Profile ![heart](public/heart.png)
 
 ### Get start
 

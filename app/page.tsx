@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#fefff0] relative">
       <Header />
-      <Overview />
+      <Overview className="mt-[5rem]" />
       <AbsoluteItems />
     </main>
   );
