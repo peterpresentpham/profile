@@ -1,4 +1,4 @@
-## My Profile <a href="./public/heart.png" width="20" height="20"></a>
+## My Profile <img href="./public/heart.png" width="20" height="20"></img>
 
 ### Get start
 

@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import LeftBackwaterImg from 'public/left-backwater.png';
-import CornerBackwaterImg from 'public/corner-backwater.png';
+import CornerBackwaterImg from 'public/backwater/corner-backwater.png';
+import LeftBackwaterImg from 'public/backwater/left-backwater.png';
 
 export default function AbsoluteItems() {
   return (
@@ -8,7 +8,7 @@ export default function AbsoluteItems() {
       <Image
         src={LeftBackwaterImg}
         alt="left-backwater"
-        className="absolute top-[100px] w-[60px] h-auto"
+        className="absolute top-[70px] w-[60px] h-auto"
       />
       <Image
         src={CornerBackwaterImg}
