@@ -4,11 +4,7 @@ import type { Config } from 'tailwindcss';
 const config: Config = {
   important: true,
   darkMode: ['class', '[data-theme="light"]'],
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     screens: {
       xs: '600px',
@@ -17,7 +13,19 @@ const config: Config = {
       lg: '1280px',
       xl: '1440px',
     },
-    extend: {},
+    extend: {
+      colors: {
+        gray: {
+          50: '#ABB2BF',
+        },
+        purple: {
+          50: '#C778DD',
+        },
+        black: {
+          50: '#282C33',
+        },
+      },
+    },
   },
   plugins: [],
 };

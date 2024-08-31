@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.css-heading {
+  width: 50%;
+  @media screen and (max-width: 760px) {
+    width: 75%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 80%;
+  }
+}
+.css-heading:hover {
+  width: 60%;
+  @media screen and (max-width: 760px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+#overview {
+  .item1 {
+    width: 40%;
+  }
+  .item2 {
+    width: 60%;
+  }
+}
