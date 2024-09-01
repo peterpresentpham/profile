@@ -1,11 +1,8 @@
-import CommonContainer from 'src/components/box/CommonContainer';
-import PurpleButton from 'src/components/button/PurpleButton';
-import { Fira_Mono } from 'next/font/google';
-import QuoteImg from 'public/quote.svg';
 import Image from 'next/image';
+import QuoteImg from 'public/quote.svg';
+import CommonContainer from 'src/components/box/CommonContainer';
+import ColorButton from 'src/components/button/ColorButton';
 import { DivProps } from 'src/globals';
-
-const fira = Fira_Mono({ weight: '400', subsets: ['latin'] });
 
 export default function Overview(params: DivProps) {
   return (
@@ -18,13 +15,13 @@ export default function Overview(params: DivProps) {
           <p className="text-base text-gray-50 mt-[2rem]">
             with experience in developing, implementing, and optimizing web applications.
           </p>
-          <PurpleButton className="mt-[1rem]">Contact me!!!!</PurpleButton>
+          <ColorButton className="mt-[1rem]">Contact me!!!!</ColorButton>
         </div>
         <div className="item2" />
       </div>
       <div className="container md:max-w-[50rem] flex justify-center mx-auto mt-[5rem]">
         <div className="relative border-[1px] border-gray-50 block-inline px-[0.75rem] py-[1.25rem]">
-          <p className={`${fira.className} text-[20px] font-medium text-center text-white`}>
+          <p className="text-[20px] font-medium text-center text-white">
             People who are unable to motivate themselves must be content with mediocrity no matter
             how impressive their other talents
           </p>

@@ -2,19 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  scroll-behavior: smooth;
+}
+
 .css-heading {
-  width: 50%;
+  width: 30%;
   @media screen and (max-width: 760px) {
-    width: 75%;
+    width: 50%;
   }
   @media screen and (max-width: 600px) {
     width: 80%;
   }
 }
 .css-heading:hover {
-  width: 60%;
+  width: 40%;
   @media screen and (max-width: 760px) {
-    width: 90%;
+    width: 60%;
   }
   @media screen and (max-width: 600px) {
     width: 100%;

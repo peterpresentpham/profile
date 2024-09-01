@@ -1,4 +1,4 @@
-## My Profile ![heart](public/heart.png)
+## My Profile ![heart](public/star.svg)
 
 ### Get start
 
@@ -16,4 +16,4 @@ bun dev
 
 ### Reference
 
-- https://www.figma.com/design/u3qIU806Bz0N49GlobTlRv/2024-Portfolios-(Community)?node-id=1-914&t=tZSFUCcCvOa6xNfT-0
+- https://www.figma.com/design/mKwiPti4DNL2vZWSj95Ifl/Portfolio-(Community)?node-id=0-1&node-type=CANVAS&t=VtTjGoJHUkh5VBGm-0
