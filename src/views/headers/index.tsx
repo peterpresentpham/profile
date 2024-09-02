@@ -32,7 +32,14 @@ export default function Header() {
       }}
     >
       <CommonContainer className="flex items-center justify-between relative">
-        <ContactLine className="absolute left-[-4rem]" />
+        <ContactLine
+          className="absolute left-[-4rem] duration-500 z-[400]"
+          style={
+            direction == 'down' && position.y > 60
+              ? { top: '60px', height: '200px' }
+              : { top: '60px', height: '140px' }
+          }
+        />
         <div
           className="flex items-center gap-x-2"
           onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}

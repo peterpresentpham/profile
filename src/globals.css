@@ -24,12 +24,51 @@ body {
     width: 100%;
   }
 }
-
 #overview {
   .item1 {
-    width: 40%;
+    width: calc(40% - 16px);
+    @media screen and (max-width: 1000px) {
+      width: calc(50% - 8px);
+    }
+    @media screen and (max-width: 960px) {
+      width: 100%;
+    }
   }
   .item2 {
+    width: calc(60% - 16px);
+    display: flex;
+    justify-content: flex-end;
+    @media screen and (max-width: 1000px) {
+      width: calc(50% - 8px);
+      justify-content: flex-end;
+    }
+    @media screen and (max-width: 960px) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  .animation-caro {
     width: 60%;
+    @media screen and (max-width: 1000px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 960px) {
+      width: 60%;
+    }
+    @media screen and (max-width: 750px) {
+      width: 100%;
+    }
+  }
+  .grid1 {
+    background-color: #ffffff;
+  }
+  .grid2 {
+    background-color: #abb2bf;
+  }
+  .grid3 {
+    background-color: #3636ad;
+  }
+  .grid4 {
+    background-color: #ad6636;
   }
 }

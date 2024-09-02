@@ -6,9 +6,9 @@ export default function ContactLine(params: DivProps) {
   return (
     <div
       {...params}
-      className={twMerge('flex flex-col items-center w-[25px] gap-2 h-fit', params.className)}
+      className={twMerge('flex flex-col items-center w-[25px] gap-2', params.className)}
     >
-      <div className="h-[10rem] w-[1px] bg-gray-50" />
+      <div className="h-full bg-gray-50 w-[1px]" />
       {ContactConfig.map((item) => {
         const Icon = item.icon;
 
@@ -20,7 +20,7 @@ export default function ContactLine(params: DivProps) {
             rel="noreferrer"
             className="cursor-pointer"
           >
-            <Icon className="transition-all	w-[25px] h-[25px] hover:w-[35px] hover:h-[35px]" />
+            <Icon className="w-[25px] h-[25px]" />
           </a>
         );
       })}

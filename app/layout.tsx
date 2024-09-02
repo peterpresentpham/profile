@@ -1,3 +1,4 @@
+import '@peter-present/led-caro/dist/assets/style.css';
 import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
 import 'src/globals.css';

@@ -10,8 +10,9 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@peter-present/react-hook-utils": "^0.0.132",
-    "next": "14.2.5",
+    "@peter-present/led-caro": "^0.0.11",
+    "@peter-present/react-hook-utils": "0.0.132-alpha1",
+    "next": "14.2.7",
     "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",

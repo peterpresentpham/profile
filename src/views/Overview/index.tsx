@@ -3,11 +3,12 @@ import QuoteImg from 'public/quote.svg';
 import CommonContainer from 'src/components/box/CommonContainer';
 import ColorButton from 'src/components/button/ColorButton';
 import { DivProps } from 'src/globals';
+import CaroSpot from './CaroSpot';
 
 export default function Overview(params: DivProps) {
   return (
     <CommonContainer id="overview" {...params}>
-      <div className="flex items-center justify-between pt-[4rem]">
+      <div className="flex flex-wrap gap-4 justify-between pt-[10rem]">
         <div className="item1">
           <p className="font-semibold text-[32px] text-white leading-[34px]">
             Peter is a <span className="text-purple-50">Fullstack Developer</span>
@@ -17,7 +18,9 @@ export default function Overview(params: DivProps) {
           </p>
           <ColorButton className="mt-[1rem]">Contact me!!!!</ColorButton>
         </div>
-        <div className="item2" />
+        <div className="item2">
+          <CaroSpot />
+        </div>
       </div>
       <div className="container md:max-w-[50rem] flex justify-center mx-auto mt-[5rem]">
         <div className="relative border-[1px] border-gray-50 block-inline px-[0.75rem] py-[1.25rem]">
