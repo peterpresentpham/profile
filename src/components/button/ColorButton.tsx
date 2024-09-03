@@ -10,18 +10,38 @@ export default function ColorButton({ color = 'purple', ...props }: Props) {
   return (
     <div
       {...styleMerge(
-        { className: 'relative overflow-hidden isolate inline-block cursor-pointer' },
+        { className: 'relative isolate inline-block cursor-pointer overflow-hidden' },
         props
       )}
     >
-      <div className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-full aspect-square">
-        <div className="color-button-glow" />
-        <div className="color-button-glow-star-masker" />
+      <div className="glowing-box-animations">
+        <div
+          className={twMerge(
+            'glowing-box-glow',
+            color == 'purple' ? 'glowing-box-purple-bg' : 'glowing-box-white-bg'
+          )}
+        />
+        <div className="glowing-box-stars-masker">
+          <div
+            className={twMerge(
+              'glowing-box-stars',
+              color == 'purple' ? 'glowing-box-purple-bg' : 'glowing-box-white-bg'
+            )}
+          />
+        </div>
+      </div>
+      <div className="glowing-box-borders-masker">
+        <div
+          className={twMerge(
+            'glowing-box-borders',
+            color == 'purple' ? 'glowing-box-purple-bg' : 'glowing-box-white-bg'
+          )}
+        />
       </div>
       <div
         className={twMerge(
-          'border-[1px] text-white px-4 py-1',
-          color == 'purple' ? 'border-purple-50' : 'border-gray-50'
+          'glowing-box-button text-white',
+          color == 'purple' ? 'glowing-box-button-purple-bg' : 'glowing-box-button-white-bg'
         )}
       >
         {props.children}
