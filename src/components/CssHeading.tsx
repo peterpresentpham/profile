@@ -1,8 +1,8 @@
+import { styleMerge, twMerge } from '@peter-present/led-caro';
 import Image from 'next/image';
 import SharpImg from 'public/sharp.svg';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { DivProps } from 'src/globals';
-import { twMerge } from 'tailwind-merge';
 
 interface HeaderItemProps extends DivProps {
   title: string;
@@ -13,13 +13,12 @@ interface HeaderItemProps extends DivProps {
 
 export function HeaderItem({ title, active, imgClass, textProps, ...props }: HeaderItemProps) {
   return (
-    <div {...props} className={twMerge('flex items-center', props.className)}>
+    <div {...styleMerge({ className: 'flex items-center' }, props)}>
       <Image src={SharpImg} alt="sharp-img" className={twMerge('w-[16px] h-[16px]', imgClass)} />
       <p
-        {...textProps}
-        className={twMerge(
-          `text-base ${active ? 'text-white font-medium' : 'text-gray-50'}`,
-          textProps?.className
+        {...styleMerge(
+          { className: `text-base ${active ? 'text-white font-medium' : 'text-gray-50'}` },
+          textProps
         )}
       >
         {title}
@@ -34,7 +33,7 @@ interface Props extends DivProps {
 
 export default function CssHeading({ title, ...props }: Props) {
   return (
-    <div {...props} className={twMerge('css-heading duration-500 transition-all', props.className)}>
+    <div {...styleMerge({ className: 'css-heading duration-500 transition-all' }, props)}>
       <HeaderItem
         title={title}
         active={true}

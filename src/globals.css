@@ -5,7 +5,6 @@
 body {
   scroll-behavior: smooth;
 }
-
 .css-heading {
   width: 30%;
   @media screen and (max-width: 760px) {
