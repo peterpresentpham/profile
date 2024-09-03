@@ -1,6 +1,5 @@
-import { styleMerge } from '@peter-present/led-caro';
+import { DivProps, styleMerge } from '@peter-present/led-caro';
 import { ContactConfig } from 'src/configs/constance';
-import { DivProps } from 'src/globals';
 
 export default function ContactLine(params: DivProps) {
   return (

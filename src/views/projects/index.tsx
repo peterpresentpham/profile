@@ -1,8 +1,8 @@
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { ProjectConfig } from 'src/configs/constance';
-import { DivProps } from 'src/globals';
 import Item from './item';
+import { DivProps } from '@peter-present/led-caro';
 
 export default function Projects(params: DivProps) {
   return (

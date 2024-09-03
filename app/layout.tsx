@@ -1,6 +1,7 @@
 import '@peter-present/led-caro/dist/assets/style.css';
 import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
+import 'react-modern-drawer/dist/index.css';
 import 'src/globals.css';
 import NextSeo from 'src/views/NextSeo';
 

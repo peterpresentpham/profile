@@ -2,21 +2,23 @@ import Image from 'next/image';
 import QuoteImg from 'public/quote.svg';
 import CommonContainer from 'src/components/box/CommonContainer';
 import ColorButton from 'src/components/button/ColorButton';
-import { DivProps } from 'src/globals';
 import CaroSpot from './CaroSpot';
+import { DivProps } from '@peter-present/led-caro';
 
-export default function Overview(params: DivProps) {
+export default function Banner(params: DivProps) {
   return (
     <CommonContainer id="overview" {...params}>
-      <div className="flex flex-wrap gap-4 justify-between pt-[10rem]">
+      <div className="flex flex-wrap gap-4 justify-between sm:pt-[10rem] pt-[5rem]">
         <div className="item1">
-          <p className="font-semibold text-[32px] text-white leading-[34px]">
+          <p className="font-semibold text-[32px] text-white leading-[34px] md:text-start text-center">
             Peter is a <span className="text-purple-50">Fullstack Developer</span>
           </p>
-          <p className="text-base text-gray-50 mt-[2rem]">
+          <p className="text-base text-gray-50 mt-[2rem] md:text-start text-center">
             with experience in developing, implementing, and optimizing web applications.
           </p>
-          <ColorButton className="mt-[1rem]">Contact me!!!!</ColorButton>
+          <div className="md:block flex">
+            <ColorButton className="mt-[1rem] mx-auto">Contact me!!!!</ColorButton>
+          </div>
         </div>
         <div className="item2">
           <CaroSpot />

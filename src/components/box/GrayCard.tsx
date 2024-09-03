@@ -1,5 +1,4 @@
-import { styleMerge } from '@peter-present/led-caro';
-import { DivProps } from 'src/globals';
+import { DivProps, styleMerge } from '@peter-present/led-caro';
 
 export default function GrayCard(params: DivProps) {
   return (

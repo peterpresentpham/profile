@@ -1,5 +1,4 @@
-import { styleMerge, twMerge } from '@peter-present/led-caro';
-import { DivProps } from 'src/globals';
+import { DivProps, styleMerge, twMerge } from '@peter-present/led-caro';
 import 'src/styles/color-button.style.css';
 
 interface Props extends DivProps {

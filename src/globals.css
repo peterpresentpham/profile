@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scrollbar-width: none;
+}
+
 body {
   scroll-behavior: smooth;
 }

@@ -1,6 +1,7 @@
+import { DivProps } from '@peter-present/led-caro';
 import GrayCard from 'src/components/box/GrayCard';
 import ColorButton from 'src/components/button/ColorButton';
-import { DivProps, ProjectType } from 'src/globals';
+import { ProjectType } from 'src/globals';
 
 type Props = ProjectType & DivProps & { mode: 0 | 1 };
 

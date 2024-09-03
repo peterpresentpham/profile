@@ -1,7 +1,6 @@
-import { DetailedHTMLProps, FunctionComponent, HTMLAttributes, SVGProps } from 'react';
+import { FunctionComponent, SVGProps } from 'react';
 
 export type LanguageType = 'en' | 'vi';
-export type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 export type SvgPropsType = SVGProps<SVGSVGElement>;
 
 export type ProjectType = {

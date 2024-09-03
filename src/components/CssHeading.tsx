@@ -1,8 +1,7 @@
-import { styleMerge, twMerge } from '@peter-present/led-caro';
+import { DivProps, styleMerge, twMerge } from '@peter-present/led-caro';
 import Image from 'next/image';
 import SharpImg from 'public/sharp.svg';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { DivProps } from 'src/globals';
 
 interface HeaderItemProps extends DivProps {
   title: string;

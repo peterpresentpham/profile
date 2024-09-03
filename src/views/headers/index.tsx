@@ -1,15 +1,18 @@
 'use client';
 
 import { useMousePosition, useScrollPosition } from '@peter-present/react-hook-utils';
+import { useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { HeaderItem } from 'src/components/CssHeading';
-import { LogoIcon } from 'src/components/icons';
+import { LogoIcon, MenuIcon } from 'src/components/icons';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
 import ContactLine from './ContactLine';
+import SmallPopover from './SmallPopover';
 
 export default function Header() {
   const { position } = useMousePosition();
   const { direction } = useScrollPosition();
+  const [open, setOpen] = useState(false);
 
   function onScrollClick(id: string) {
     const element = document.getElementById(id);
@@ -33,12 +36,8 @@ export default function Header() {
     >
       <CommonContainer className="flex items-center justify-between relative">
         <ContactLine
-          className="absolute left-[-4rem] duration-500 z-[400]"
-          style={
-            direction == 'down' && position.y > 60
-              ? { top: '60px', height: '200px' }
-              : { top: '60px', height: '140px' }
-          }
+          className="absolute left-[-4rem] duration-500 z-[400] top-[60px]"
+          style={direction == 'down' && position.y > 60 ? { height: '200px' } : { height: '140px' }}
         />
         <div
           className="flex items-center gap-x-2"
@@ -47,20 +46,31 @@ export default function Header() {
           <LogoIcon />
           <p className="text-white font-bold">{MY_NAME}</p>
         </div>
-        <div className="flex items-center gap-x-4">
+        <div className="md:flex hidden items-center gap-x-4">
           {HeaderConfig.map((item) => {
             return (
               <HeaderItem
                 key={item.id}
                 title={item.title}
-                active={true}
                 className="cursor-pointer"
                 onClick={() => onScrollClick(item.id)}
               />
             );
           })}
         </div>
+        <MenuIcon
+          className="md:hidden block"
+          width="18"
+          height="18"
+          onClick={() => setOpen(true)}
+        />
       </CommonContainer>
+      <SmallPopover
+        open={open}
+        onClose={() => setOpen(false)}
+        onScrollClick={onScrollClick}
+        className="md:hidden block"
+      />
     </div>
   );
 }

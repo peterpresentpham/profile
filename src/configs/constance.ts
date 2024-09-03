@@ -14,6 +14,7 @@ export const LS_KEY = { LAN: 'language' };
 export const HeaderConfig: Array<{ id: string; title: string }> = [
   { id: 'projects', title: 'projects' },
   { id: 'skill', title: 'skills' },
+  { id: 'certification', title: 'certification' },
   { id: 'contact', title: 'contact' },
 ];
 
