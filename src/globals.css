@@ -4,10 +4,10 @@
 
 * {
   scrollbar-width: none;
-}
-
-body {
   scroll-behavior: smooth;
+}
+body {
+  background-color: #282c33;
 }
 .css-heading {
   width: 30%;
@@ -25,6 +25,20 @@ body {
   }
   @media screen and (max-width: 600px) {
     width: 100%;
+  }
+}
+#header {
+  .rectangle-line {
+    @media screen and (min-width: 960px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media screen and (min-width: 760px) {
+      right: 0;
+    }
+    @media screen and (max-width: 760px) {
+      display: none !important;
+    }
   }
 }
 #overview {
@@ -62,16 +76,16 @@ body {
       width: 100%;
     }
   }
-  .grid1 {
-    background-color: #ffffff;
-  }
-  .grid2 {
-    background-color: #abb2bf;
-  }
-  .grid3 {
-    background-color: #3636ad;
-  }
-  .grid4 {
-    background-color: #ad6636;
-  }
+}
+.grid1 {
+  background-color: #ffffff;
+}
+.grid2 {
+  background-color: #abb2bf;
+}
+.grid3 {
+  background-color: #3636ad;
+}
+.grid4 {
+  background-color: #ad6636;
 }

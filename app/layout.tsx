@@ -10,7 +10,7 @@ type Props = Readonly<{ children: ReactNode }>;
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <NextSeo />
       <body className={fira.className}>{children}</body>
     </html>

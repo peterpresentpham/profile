@@ -1,13 +1,13 @@
+import { DivProps, styleMerge } from '@peter-present/led-caro';
 import Image from 'next/image';
 import QuoteImg from 'public/quote.svg';
 import CommonContainer from 'src/components/box/CommonContainer';
 import ColorButton from 'src/components/button/ColorButton';
 import CaroSpot from './CaroSpot';
-import { DivProps } from '@peter-present/led-caro';
 
 export default function Banner(params: DivProps) {
   return (
-    <CommonContainer id="overview" {...params}>
+    <CommonContainer id="overview" {...styleMerge({ className: 'relative' }, params)}>
       <div className="flex flex-wrap gap-4 justify-between sm:pt-[10rem] pt-[5rem]">
         <div className="item1">
           <p className="font-semibold text-[32px] text-white leading-[34px] md:text-start text-center">

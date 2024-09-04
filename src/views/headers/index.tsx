@@ -8,11 +8,14 @@ import { LogoIcon, MenuIcon } from 'src/components/icons';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
 import ContactLine from './ContactLine';
 import SmallPopover from './SmallPopover';
+import RectangleLine from './RectangleLine';
 
 export default function Header() {
   const { position } = useMousePosition();
-  const { direction } = useScrollPosition();
+  const { direction, position: scrollPosition } = useScrollPosition();
   const [open, setOpen] = useState(false);
+  const isTransform = direction == 'down' && position.y > 60;
+  const scrollUp = direction == 'down' && scrollPosition > 356;
 
   function onScrollClick(id: string) {
     const element = document.getElementById(id);
@@ -30,14 +33,20 @@ export default function Header() {
     <div
       id="header"
       className="h-[60px] fixed top-0 w-screen shadow-md z-[1000000] duration-500 bg-black-50"
-      style={{
-        transform: direction == 'down' && position.y > 60 ? 'translateY(-100%)' : '',
-      }}
+      style={{ transform: isTransform ? 'translateY(-100%)' : '' }}
     >
       <CommonContainer className="flex items-center justify-between relative">
         <ContactLine
-          className="absolute left-[-4rem] duration-500 z-[400] top-[60px]"
-          style={direction == 'down' && position.y > 60 ? { height: '200px' } : { height: '140px' }}
+          className="absolute left-[-4rem] duration-500 z-[400] top-[60px] md:flex hidden"
+          style={isTransform ? { height: '200px' } : { height: '140px' }}
+        />
+        <RectangleLine
+          className={`absolute top-[60px] z-[400] rectangle-line ${isTransform ? 'duration-500 h-[260px]' : 'duration-500 h-[200px]'}`}
+          style={
+            scrollUp
+              ? { transform: 'translateX(-50%) translateY(-100%)' }
+              : { transform: 'translateX(-50%)' }
+          }
         />
         <div
           className="flex items-center gap-x-2"
