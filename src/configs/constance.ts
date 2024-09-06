@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { GithubIcon, LinkInIcon } from 'src/components/icons';
+import { GithubIcon, LinkInIcon, MailIcon } from 'src/components/icons';
 import {
   EthGraphQuery,
   LedCaroDescription,
@@ -13,7 +13,7 @@ export const LS_KEY = { LAN: 'language' };
 
 export const HeaderConfig: Array<{ id: string; title: string }> = [
   { id: 'projects', title: 'projects' },
-  { id: 'skill', title: 'skills' },
+  { id: 'skills', title: 'skills' },
   { id: 'certification', title: 'certification' },
   { id: 'contact', title: 'contact' },
 ];
@@ -25,6 +25,7 @@ export const ContactConfig: Array<{
 }> = [
   { id: 'github', to: 'https://github.com/phamhongphuc1999', icon: GithubIcon },
   { id: 'linkin', to: 'https://www.linkedin.com/in/peter-present/', icon: LinkInIcon },
+  { id: 'mail', to: 'mailto:phamhongphuc1999.mywork@gmail.com', icon: MailIcon },
 ];
 
 export const ProjectConfig: Array<ProjectType> = [

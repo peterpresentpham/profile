@@ -5,7 +5,7 @@ interface Props extends DivProps {
   color?: 'purple' | 'gray';
 }
 
-export default function ColorButton({ color = 'purple', ...props }: Props) {
+export default function ColorfulBox({ color = 'purple', ...props }: Props) {
   return (
     <div
       {...styleMerge(

@@ -1,15 +1,16 @@
 import { DivProps, styleMerge } from '@peter-present/led-caro';
 import Image from 'next/image';
 import QuoteImg from 'public/quote.svg';
+import ColorfulBox from 'src/components/box/ColorfulBox';
 import CommonContainer from 'src/components/box/CommonContainer';
-import ColorButton from 'src/components/button/ColorButton';
 import CaroSpot from './CaroSpot';
+import RectangleLine from './RectangleLine';
 
 export default function Banner(params: DivProps) {
   return (
     <CommonContainer id="overview" {...styleMerge({ className: 'relative' }, params)}>
-      <div className="flex flex-wrap gap-4 justify-between sm:pt-[10rem] pt-[5rem]">
-        <div className="item1">
+      <div className="flex flex-wrap gap-4 justify-between">
+        <div className="item1 sm:pt-[10rem] pt-[5rem]">
           <p className="font-semibold text-[32px] text-white leading-[34px] md:text-start text-center">
             Peter is a <span className="text-purple-50">Fullstack Developer</span>
           </p>
@@ -17,11 +18,14 @@ export default function Banner(params: DivProps) {
             with experience in developing, implementing, and optimizing web applications.
           </p>
           <div className="md:block flex">
-            <ColorButton className="mt-[1rem] mx-auto">Contact me!!!!</ColorButton>
+            <ColorfulBox className="mt-[1rem] mx-auto">Contact me!!!!</ColorfulBox>
           </div>
         </div>
         <div className="item2">
-          <CaroSpot />
+          <RectangleLine className="h-[260px] sticky top-0 md:flex hidden" />
+          <div className="w-full md:pt-[10rem] pt-[2rem] flex md:justify-end justify-center">
+            <CaroSpot />
+          </div>
         </div>
       </div>
       <div className="container md:max-w-[50rem] flex justify-center mx-auto mt-[5rem]">

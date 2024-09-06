@@ -20,7 +20,17 @@ export default function Footer() {
               {ContactConfig.map((item) => {
                 const Icon = item.icon;
 
-                return <Icon key={item.id} className="w-[24px] h-[24px]" />;
+                return (
+                  <a
+                    key={item.id}
+                    href={item.to}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="cursor-pointer"
+                  >
+                    <Icon className="w-[25px] h-[25px]" />
+                  </a>
+                );
               })}
             </div>
           </div>

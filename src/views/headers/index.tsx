@@ -1,6 +1,6 @@
 'use client';
 
-import { useMousePosition, useScrollPosition } from '@peter-present/react-hook-utils';
+import { useScrollPosition } from '@peter-present/react-hook-utils';
 import { useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { HeaderItem } from 'src/components/CssHeading';
@@ -8,14 +8,11 @@ import { LogoIcon, MenuIcon } from 'src/components/icons';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
 import ContactLine from './ContactLine';
 import SmallPopover from './SmallPopover';
-import RectangleLine from './RectangleLine';
 
 export default function Header() {
-  const { position } = useMousePosition();
-  const { direction, position: scrollPosition } = useScrollPosition();
+  const { position } = useScrollPosition();
   const [open, setOpen] = useState(false);
-  const isTransform = direction == 'down' && position.y > 60;
-  const scrollUp = direction == 'down' && scrollPosition > 356;
+  const isTransform = position > 60;
 
   function onScrollClick(id: string) {
     const element = document.getElementById(id);
@@ -37,19 +34,11 @@ export default function Header() {
     >
       <CommonContainer className="flex items-center justify-between relative">
         <ContactLine
-          className="absolute left-[-4rem] duration-500 z-[400] top-[60px] md:flex hidden"
-          style={isTransform ? { height: '200px' } : { height: '140px' }}
-        />
-        <RectangleLine
-          className={`absolute top-[60px] z-[400] rectangle-line ${isTransform ? 'duration-500 h-[260px]' : 'duration-500 h-[200px]'}`}
-          style={
-            scrollUp
-              ? { transform: 'translateX(-50%) translateY(-100%)' }
-              : { transform: 'translateX(-50%)' }
-          }
+          className="absolute left-[-4rem] duration-1000 z-[400] top-0 md:flex hidden"
+          style={isTransform ? { height: '260px' } : { height: '200px' }}
         />
         <div
-          className="flex items-center gap-x-2"
+          className="flex items-center gap-x-2 cursor-pointer"
           onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
           <LogoIcon />

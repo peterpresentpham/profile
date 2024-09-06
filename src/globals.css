@@ -5,9 +5,10 @@
 * {
   scrollbar-width: none;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 body {
-  background-color: #282c33;
+  background-color: #0a0118;
 }
 .css-heading {
   width: 30%;
@@ -27,19 +28,14 @@ body {
     width: 100%;
   }
 }
-#header {
-  .rectangle-line {
-    @media screen and (min-width: 960px) {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    @media screen and (min-width: 760px) {
-      right: 0;
-    }
-    @media screen and (max-width: 760px) {
-      display: none !important;
-    }
-  }
+#header::before {
+  background: linear-gradient(90deg, #fff0, #ffffff29, #fff0);
+  bottom: 0;
+  content: '';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }
 #overview {
   .item1 {
@@ -54,7 +50,7 @@ body {
   .item2 {
     width: calc(60% - 16px);
     display: flex;
-    justify-content: flex-end;
+    padding-left: 2rem;
     @media screen and (max-width: 1000px) {
       width: calc(50% - 8px);
       justify-content: flex-end;

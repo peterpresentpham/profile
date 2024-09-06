@@ -41,17 +41,19 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
           <ContactLine className="absolute right-[12px] top-[60px] h-[140px]" />
         </CommonContainer>
       </div>
-      <CommonContainer className="mt-[1rem] bg-black-50 mx-auto px-[1rem]">
-        {HeaderConfig.map((item) => {
-          return (
-            <HeaderItem
-              key={item.id}
-              title={item.title}
-              className="cursor-pointer mt-[1rem]"
-              onClick={() => onScroll(item.id)}
-            />
-          );
-        })}
+      <CommonContainer className="mt-[1rem] bg-black-50 mx-auto px-[1rem] flex flex-col justify-between h-[calc(100%-100px)]">
+        <div>
+          {HeaderConfig.map((item) => {
+            return (
+              <HeaderItem
+                key={item.id}
+                title={item.title}
+                className="cursor-pointer mt-[1rem]"
+                onClick={() => onScroll(item.id)}
+              />
+            );
+          })}
+        </div>
         <div className="flex justify-center mt-[1rem]">
           <PopoverCaro />
         </div>

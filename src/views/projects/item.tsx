@@ -1,6 +1,6 @@
 import { DivProps } from '@peter-present/led-caro';
+import ColorfulBox from 'src/components/box/ColorfulBox';
 import GrayCard from 'src/components/box/GrayCard';
-import ColorButton from 'src/components/button/ColorButton';
 import { ProjectType } from 'src/globals';
 
 type Props = ProjectType & DivProps & { mode: 0 | 1 };
@@ -25,9 +25,9 @@ export default function Item({ technologies, title, description, links, mode, ..
 
               return (
                 <a key={link.id} href={link.to} target="_blank" rel="noreferrer">
-                  <ColorButton
+                  <ColorfulBox
                     color={isEven ? 'purple' : 'gray'}
-                  >{`${link.title} ${isEven ? '<~>' : '>='}`}</ColorButton>
+                  >{`${link.title} ${isEven ? '<~>' : '>='}`}</ColorfulBox>
                 </a>
               );
             })}

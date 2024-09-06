@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+import Image from 'next/image';
+
 export function ProfileDescription() {
-  return <p className="text-base text-gray-50">My personal profile</p>;
+  return <p className="text-base text-gray-50">My personal profile.</p>;
 }
 
 export function EthGraphQuery() {
@@ -12,7 +15,7 @@ export function EthGraphQuery() {
         rel="noreferrer"
         className="text-purple-50 underline"
       >
-        the GraphQl
+        the GraphQL
       </a>
       .
     </p>
@@ -21,10 +24,34 @@ export function EthGraphQuery() {
 
 export function ReactHookUtils() {
   return (
-    <p className="text-base text-gray-50">Simple package which provides some utility hooks.</p>
+    <p className="text-base text-gray-50">
+      Simple{' '}
+      <Image
+        unoptimized={true}
+        src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Lady%20Beetle.png"
+        alt="beetle"
+        width="16"
+        height="16"
+        className="inline-block"
+      />{' '}
+      package which provides some utility hooks.
+    </p>
   );
 }
 
 export function LedCaroDescription() {
-  return <p className="text-base text-gray-50">Simple caro</p>;
+  return (
+    <p className="text-base text-gray-50">
+      Simple{' '}
+      <Image
+        unoptimized={true}
+        src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Jellyfish.png"
+        alt="jellyfish"
+        width="16"
+        height="16"
+        className="inline-block"
+      />{' '}
+      caro.
+    </p>
+  );
 }
