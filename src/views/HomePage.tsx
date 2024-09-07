@@ -1,4 +1,3 @@
-import ConfigProvider from 'src/context/ConfigContext';
 import Banner from './banner';
 import Certification from './certifications';
 import Contact from './contact';
@@ -9,7 +8,7 @@ import Skills from './skills';
 
 export default function HomePage() {
   return (
-    <ConfigProvider>
+    <>
       <Header />
       <Banner />
       <Projects />
@@ -17,6 +16,6 @@ export default function HomePage() {
       <Certification />
       <Contact />
       <Footer />
-    </ConfigProvider>
+    </>
   );
 }

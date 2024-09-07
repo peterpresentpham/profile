@@ -1,6 +1,5 @@
 import { FunctionComponent, SVGProps } from 'react';
 
-export type LanguageType = 'en' | 'vi';
 export type SvgPropsType = SVGProps<SVGSVGElement>;
 
 export type ProjectType = {

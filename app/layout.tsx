@@ -3,6 +3,7 @@ import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
 import 'react-modern-drawer/dist/index.css';
 import 'src/globals.css';
+import 'src/styles/magic-border.style.css';
 import NextSeo from 'src/views/NextSeo';
 
 const fira = Fira_Code({ subsets: ['latin'] });

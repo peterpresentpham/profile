@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@peter-present/led-caro": "0.0.11-alpha1",
-    "@peter-present/react-hook-utils": "0.0.132-alpha1",
     "next": "14.2.7",
     "next-sitemap": "^4.2.3",
     "react": "^18",

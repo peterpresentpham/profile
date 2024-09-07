@@ -1,12 +1,24 @@
+'use client';
+
 import { DivProps, styleMerge } from '@peter-present/led-caro';
 import Image from 'next/image';
 import QuoteImg from 'public/quote.svg';
+import { CSSProperties, MouseEvent, useState } from 'react';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CaroSpot from './CaroSpot';
 import RectangleLine from './RectangleLine';
 
 export default function Banner(params: DivProps) {
+  const [scale, setScale] = useState<{ x: string; y: string }>({ x: '-1px', y: '-1px' });
+
+  function onMouseMove(event: MouseEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    setScale({ x: `${x}px`, y: `${y}px` });
+  }
+
   return (
     <CommonContainer id="overview" {...styleMerge({ className: 'relative' }, params)}>
       <div className="flex flex-wrap gap-4 justify-between">
@@ -28,17 +40,25 @@ export default function Banner(params: DivProps) {
           </div>
         </div>
       </div>
-      <div className="container md:max-w-[50rem] flex justify-center mx-auto mt-[5rem]">
-        <div className="relative border-[1px] border-gray-50 block-inline px-[0.75rem] py-[1.25rem]">
-          <p className="text-[20px] font-medium text-center text-white">
-            People who are unable to motivate themselves must be content with mediocrity no matter
-            how impressive their other talents
-          </p>
-          <div className="absolute top-[-10px] left-[5%] bg-black-50 px-[5px]">
-            <Image src={QuoteImg} alt="quote" className="w-[30px] h-[20px]" />
+      <div
+        className="container md:max-w-[50rem] flex justify-center mx-auto mt-[5rem] magical-borders-content"
+        onMouseMove={onMouseMove}
+      >
+        <div
+          className="relative flex p-[1px] tags-automation"
+          style={{ '--mouse-x': scale.x, '--mouse-y': scale.y } as CSSProperties}
+        >
+          <div className="magical-borders-inner tags-automation-inner">
+            <p className="text-[20px] font-medium text-center text-white">
+              People who are unable to motivate themselves must be content with mediocrity no matter
+              how impressive their other talents
+            </p>
           </div>
-          <div className="absolute bottom-[-10px] right-[5%] bg-black-50 px-[5px]">
-            <Image src={QuoteImg} alt="quote" className="w-[30px] h-[20px]" />
+          <div className="absolute top-[-10px] left-[5%] px-[5px] z-[200]">
+            <Image src={QuoteImg} alt="quote" className="w-auto h-[20px]" />
+          </div>
+          <div className="absolute bottom-[-10px] right-[5%] px-[5px] z-[200]">
+            <Image src={QuoteImg} alt="quote" className="w-auto h-[20px]" />
           </div>
         </div>
       </div>

@@ -74,14 +74,14 @@ body {
   }
 }
 .grid1 {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .grid2 {
   background-color: #abb2bf;
 }
 .grid3 {
-  background-color: #3636ad;
+  background-color: #c778dd;
 }
 .grid4 {
-  background-color: #ad6636;
+  background-color: rgba(173, 102, 54, 0.8);
 }
