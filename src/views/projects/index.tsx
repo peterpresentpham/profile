@@ -8,7 +8,7 @@ export default function Projects(params: DivProps) {
   return (
     <CommonContainer {...params} id="projects">
       <CssHeading title="projects" className="cursor-pointer" />
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-col2-1 gap-4 mt-[2rem]">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-[2rem]">
         {ProjectConfig.map((item, index) => {
           return <Item key={item.id} {...item} mode={(index % 2) as 0 | 1} />;
         })}

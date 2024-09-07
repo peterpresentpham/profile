@@ -1,6 +1,5 @@
-import { DivProps } from '@peter-present/led-caro';
+import { DivProps, twMerge } from '@peter-present/led-caro';
 import ColorfulBox from 'src/components/box/ColorfulBox';
-import GrayCard from 'src/components/box/GrayCard';
 import { ProjectType } from 'src/globals';
 
 type Props = ProjectType & DivProps & { mode: 0 | 1 };
@@ -9,7 +8,7 @@ export default function Item({ technologies, title, description, links, mode, ..
   const DescriptionComponent = description;
 
   return (
-    <GrayCard {...props}>
+    <div {...props} className={twMerge('border-[1px] border-gray-50', props.className)}>
       <div className="p-[1rem]">
         <p className="text-base text-gray-50">{technologies.join(', ')}</p>
       </div>
@@ -34,6 +33,6 @@ export default function Item({ technologies, title, description, links, mode, ..
           </div>
         )}
       </div>
-    </GrayCard>
+    </div>
   );
 }

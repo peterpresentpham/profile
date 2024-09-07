@@ -81,7 +81,6 @@
 .glowing-box-borders-masker {
   opacity: 1;
   content: '';
-  height: 100%;
   inset: 0;
   left: 0;
   mask:
@@ -93,6 +92,7 @@
   position: absolute;
   top: 0;
   transition: 1s ease opacity;
+  height: 100%;
   width: 100%;
 }
 .glowing-box-borders {

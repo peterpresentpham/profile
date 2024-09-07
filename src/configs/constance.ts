@@ -1,3 +1,4 @@
+import UdemyImg from 'public/certifications/udemy.png';
 import { FunctionComponent } from 'react';
 import { GithubIcon, LinkInIcon, MailIcon } from 'src/components/icons';
 import {
@@ -6,7 +7,7 @@ import {
   ProfileDescription,
   ReactHookUtils,
 } from 'src/components/ProjectDescription';
-import { ProjectType, SvgPropsType } from 'src/globals';
+import { CertificationType, ProjectType, SvgPropsType } from 'src/globals';
 
 export const MY_NAME = 'Peter';
 
@@ -63,5 +64,17 @@ export const ProjectConfig: Array<ProjectType> = [
     links: [
       { id: 'npm', title: 'More', to: 'https://www.npmjs.com/package/@peter-present/led-caro' },
     ],
+  },
+];
+
+export const CertificationConfig: Array<CertificationType> = [
+  {
+    id: 'apache-kafka',
+    name: 'Apache Kafka Series - Learn Apache Kafka for Beginners v3',
+    credentialId: 'UC-bb291460-3f7b-496e-94da-ed6090dbd63a',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-bb291460-3f7b-496e-94da-ed6090dbd63a/',
+    skills: [{ id: 'apache-kafka', name: 'Apache Kafka' }],
+    issuingOrganization: { icon: UdemyImg, name: 'Udemy' },
+    issueDate: { month: 'Aug', year: 2024 },
   },
 ];
