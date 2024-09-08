@@ -1,4 +1,3 @@
-import { StaticImageData } from 'next/image';
 import UdemyImg from 'public/certifications/udemy.png';
 import CPlusPlusImg from 'public/language/cplusplus.svg';
 import CSharpImg from 'public/language/csharp.svg';
@@ -28,7 +27,7 @@ import {
   ProfileDescription,
   ReactHookUtils,
 } from 'src/components/ProjectDescription';
-import { CertificationType, ProjectType, SvgPropsType } from 'src/globals';
+import { CertificationType, ProjectType, SvgPropsType, ToolType } from 'src/globals';
 
 export const MY_NAME = 'Peter';
 
@@ -88,30 +87,30 @@ export const ProjectConfig: Array<ProjectType> = [
   },
 ];
 
-export const LanguageConfig: Array<{ id: string; icon: StaticImageData; isWhite?: boolean }> = [
-  { id: 'c++', icon: CPlusPlusImg },
-  { id: 'c#', icon: CSharpImg },
-  { id: 'f#', icon: FSharpImg },
-  { id: 'java', icon: JavaImg },
-  { id: 'js', icon: JavascriptImg },
-  { id: 'python', icon: PythonImg },
-  { id: 'solidity', icon: SolidityImg, isWhite: true },
+export const LanguageConfig: Array<ToolType> = [
+  { id: 'c++', icon: CPlusPlusImg, link: 'https://cplusplus.com/' },
+  { id: 'c#', icon: CSharpImg, link: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
+  { id: 'f#', icon: FSharpImg, link: 'https://fsharp.org/' },
+  { id: 'java', icon: JavaImg, link: 'https://dev.java/' },
+  { id: 'js', icon: JavascriptImg, link: 'https://www.javascript.com/' },
+  { id: 'python', icon: PythonImg, link: 'https://www.python.org/' },
+  { id: 'solidity', icon: SolidityImg, link: 'https://soliditylang.org/', isWhite: true },
 ];
 
-export const ToolsConfig: Array<{ id: string; icon: StaticImageData; isWhite?: boolean }> = [
-  { id: 'docker', icon: DockerImg },
-  { id: 'react', icon: ReactImg },
-  { id: 'next', icon: NextImg },
-  { id: 'typescript', icon: TypescriptImg },
-  { id: 'mui', icon: MaterialUIImg },
-  { id: 'tailwind', icon: TailwindImg },
-  { id: 'github', icon: GithubImg },
-  { id: 'gitlab', icon: GitlabImg },
-  { id: 'mysql', icon: MySqlImg },
-  { id: 'visual-studio', icon: VisualStudioImg },
-  { id: 'vscode', icon: VSCodeImg },
-  { id: 'latex', icon: LatexImg, isWhite: true },
-  { id: 'mongo', icon: MongoImg },
+export const ToolsConfig: Array<ToolType> = [
+  { id: 'docker', icon: DockerImg, link: 'https://www.docker.com/' },
+  { id: 'react', icon: ReactImg, link: 'https://react.dev/' },
+  { id: 'next', icon: NextImg, link: 'https://nextjs.org/' },
+  { id: 'typescript', icon: TypescriptImg, link: 'https://www.typescriptlang.org/' },
+  { id: 'mui', icon: MaterialUIImg, link: 'https://mui.com/' },
+  { id: 'tailwind', icon: TailwindImg, link: 'https://tailwindcss.com/' },
+  { id: 'github', icon: GithubImg, link: 'https://github.com/phamhongphuc1999' },
+  { id: 'gitlab', icon: GitlabImg, link: 'https://gitlab.com/phamhongphuc1999' },
+  { id: 'mysql', icon: MySqlImg, link: 'https://www.mysql.com/' },
+  { id: 'visual-studio', icon: VisualStudioImg, link: 'https://visualstudio.microsoft.com/' },
+  { id: 'vscode', icon: VSCodeImg, link: 'https://code.visualstudio.com/' },
+  { id: 'latex', icon: LatexImg, link: 'https://www.latex-project.org/', isWhite: true },
+  { id: 'mongo', icon: MongoImg, link: 'https://www.mongodb.com/' },
 ];
 
 export const CertificationConfig: Array<CertificationType> = [

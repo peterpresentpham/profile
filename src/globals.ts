@@ -11,6 +11,8 @@ export type ProjectType = {
   links?: Array<{ id: string; title: string; to: string }>;
 };
 
+export type ToolType = { id: string; icon: StaticImageData; link: string; isWhite?: boolean };
+
 export type SkillLinkMode = 'scroll' | 'external';
 export type SkillIdType =
   | 'apache-kafka'
