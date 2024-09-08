@@ -1,9 +1,10 @@
+import DockerImg from 'public/tools/docker.svg';
 import KafkaApacheImg from 'public/skills/apache-kafka.png';
-import DockerImg from 'public/skills/docker.png';
+import DotnetImg from 'public/skills/dotnet.png';
+import JavaImg from 'public/skills/java.webp';
 import NextImg from 'public/skills/next.svg';
 import ReactImg from 'public/skills/react.svg';
 import { CoreSkillsType, SkillsType, SubSkillType } from 'src/globals';
-import DotnetImg from 'public/skills/dotnet.png';
 
 const ApacheKafka: CoreSkillsType = {
   id: 'apache-kafka',
@@ -35,6 +36,12 @@ const DotNetApi: CoreSkillsType = {
   nameLink: 'https://dotnet.microsoft.com/en-us/apps/aspnet/apis',
   icon: DotnetImg,
 };
+const JavaSkill: CoreSkillsType = {
+  id: 'java',
+  name: 'java',
+  nameLink: 'https://dev.java/learn/getting-started/',
+  icon: JavaImg,
+};
 const Ethers: SubSkillType = {
   id: 'ethers',
   name: 'Ethers',
@@ -57,17 +64,6 @@ const MUISkill: SubSkillType = {
 };
 
 export const SkillsConfig: Array<SkillsType> = [
-  {
-    ...ApacheKafka,
-    links: [
-      {
-        id: 'udemy-course',
-        to: 'certification-apache-kafka',
-        mode: 'scroll',
-        title: 'Apache Kafka Series - Learn Apache Kafka for Beginners v3',
-      },
-    ],
-  },
   {
     ...React,
     relevantSkills: [Next, Ethers, AntDesign, MUISkill, Tailwind],
@@ -99,13 +95,35 @@ export const SkillsConfig: Array<SkillsType> = [
     ],
   },
   {
+    ...ApacheKafka,
+    links: [
+      {
+        id: 'udemy-course',
+        to: 'certification-apache-kafka',
+        mode: 'scroll',
+        title: 'Apache Kafka Series - Learn Apache Kafka for Beginners v3',
+      },
+    ],
+  },
+  {
     ...DotNetApi,
     links: [
       {
         id: 'user-api',
         to: 'https://github.com/phamhongphuc1999/UserAPI',
         mode: 'external',
-        title: 'Simple API connect to SQL and Mongo database',
+        title: 'Simple API written by C# interacts with mongodb and mysql',
+      },
+    ],
+  },
+  {
+    ...JavaSkill,
+    links: [
+      {
+        id: 'java-practice',
+        to: 'https://github.com/phamhongphuc1999/JavaPractice',
+        mode: 'external',
+        title: 'Java practice',
       },
     ],
   },

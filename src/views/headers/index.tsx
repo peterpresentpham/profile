@@ -11,7 +11,6 @@ import SmallPopover from './SmallPopover';
 export default function Header() {
   const [position, setPosition] = useState(typeof window != 'undefined' ? window.scrollY : 0);
   const [open, setOpen] = useState(false);
-  const isTransform = position > 60;
 
   useEffect(() => {
     if (typeof window != 'undefined') {
@@ -29,7 +28,6 @@ export default function Header() {
         lastScrollY = scrollY > 0 ? scrollY : 0;
         ticking = false;
       };
-
       const onScroll = () => {
         if (!ticking) {
           window.requestAnimationFrame(updateScrollDir);
@@ -47,7 +45,7 @@ export default function Header() {
     if (position && typeof window !== 'undefined') {
       window.scrollTo({
         left: position.left,
-        top: position.top + window.scrollY - 60,
+        top: position.top + window.scrollY,
         behavior: 'smooth',
       });
     }
@@ -56,21 +54,20 @@ export default function Header() {
   return (
     <div
       id="header"
-      className="h-[60px] fixed top-0 w-screen shadow-md z-[1000000] duration-500 bg-black-50"
-      style={{ transform: isTransform ? 'translateY(-100%)' : '' }}
+      className={`h-[60px] fixed top-0 w-screen shadow-md z-[1000000] duration-500 bg-black-50 ${position > 60 && 'translate-y-[-100%]'}`}
     >
       <CommonContainer className="flex items-center justify-between relative">
         <ContactLine
           className="absolute left-[-4rem] duration-1000 z-[400] top-0 md:flex hidden"
-          style={isTransform ? { height: '260px' } : { height: '200px' }}
+          style={position > 60 ? { height: '260px' } : { height: '200px' }}
         />
-        <div
+        <button
           className="flex items-center gap-x-2 cursor-pointer"
           onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
           <LogoIcon />
           <p className="text-white font-bold">{MY_NAME}</p>
-        </div>
+        </button>
         <div className="md:flex hidden items-center gap-x-4">
           {HeaderConfig.map((item) => {
             return (

@@ -1,10 +1,11 @@
+import { DivProps, styleMerge } from '@peter-present/led-caro';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { LogoIcon } from 'src/components/icons';
 import { ContactConfig, MY_NAME } from 'src/configs/constance';
 
-export default function Footer() {
+export default function Footer(props: DivProps) {
   return (
-    <div className="border-t-[1px] border-t-gray-50 h-[150px]">
+    <div {...styleMerge({ className: 'border-t-[1px] border-t-gray-50 h-[150px]' }, props)}>
       <CommonContainer className="h-full flex flex-col justify-between">
         <div className="flex justify-between items-center">
           <div>

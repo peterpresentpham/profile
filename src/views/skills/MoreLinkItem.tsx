@@ -27,7 +27,7 @@ export default function MoreLinkItem({ to, mode, title }: Props) {
     if (position && typeof window !== 'undefined') {
       window.scrollTo({
         left: position.left,
-        top: position.top + window.scrollY - 60,
+        top: position.top + window.scrollY,
         behavior: 'smooth',
       });
     }

@@ -18,6 +18,7 @@ export type SkillIdType =
   | 'nextjs'
   | 'docker'
   | 'dotnet-api'
+  | 'java'
   | 'ethers'
   | 'tailwind'
   | 'ant-design'

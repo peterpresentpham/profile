@@ -1,4 +1,25 @@
+import { StaticImageData } from 'next/image';
 import UdemyImg from 'public/certifications/udemy.png';
+import CPlusPlusImg from 'public/language/cplusplus.svg';
+import CSharpImg from 'public/language/csharp.svg';
+import FSharpImg from 'public/language/fsharp.svg';
+import JavaImg from 'public/language/java.svg';
+import JavascriptImg from 'public/language/javascript.svg';
+import PythonImg from 'public/language/python.svg';
+import SolidityImg from 'public/language/solidity.svg';
+import NextImg from 'public/skills/next.svg';
+import ReactImg from 'public/skills/react.svg';
+import DockerImg from 'public/tools/docker.svg';
+import GithubImg from 'public/tools/github.webp';
+import GitlabImg from 'public/tools/gitlab.svg';
+import LatexImg from 'public/tools/latex.svg';
+import MaterialUIImg from 'public/tools/materialui.svg';
+import MongoImg from 'public/tools/mongodb.svg';
+import MySqlImg from 'public/tools/mysql.svg';
+import TailwindImg from 'public/tools/tailwindcss.svg';
+import TypescriptImg from 'public/tools/typescript.svg';
+import VisualStudioImg from 'public/tools/visualstudio.svg';
+import VSCodeImg from 'public/tools/vscode.svg';
 import { FunctionComponent } from 'react';
 import { GithubIcon, LinkInIcon, MailIcon } from 'src/components/icons';
 import {
@@ -65,6 +86,32 @@ export const ProjectConfig: Array<ProjectType> = [
       { id: 'npm', title: 'More', to: 'https://www.npmjs.com/package/@peter-present/led-caro' },
     ],
   },
+];
+
+export const LanguageConfig: Array<{ id: string; icon: StaticImageData; isWhite?: boolean }> = [
+  { id: 'c++', icon: CPlusPlusImg },
+  { id: 'c#', icon: CSharpImg },
+  { id: 'f#', icon: FSharpImg },
+  { id: 'java', icon: JavaImg },
+  { id: 'js', icon: JavascriptImg },
+  { id: 'python', icon: PythonImg },
+  { id: 'solidity', icon: SolidityImg, isWhite: true },
+];
+
+export const ToolsConfig: Array<{ id: string; icon: StaticImageData; isWhite?: boolean }> = [
+  { id: 'docker', icon: DockerImg },
+  { id: 'react', icon: ReactImg },
+  { id: 'next', icon: NextImg },
+  { id: 'typescript', icon: TypescriptImg },
+  { id: 'mui', icon: MaterialUIImg },
+  { id: 'tailwind', icon: TailwindImg },
+  { id: 'github', icon: GithubImg },
+  { id: 'gitlab', icon: GitlabImg },
+  { id: 'mysql', icon: MySqlImg },
+  { id: 'visual-studio', icon: VisualStudioImg },
+  { id: 'vscode', icon: VSCodeImg },
+  { id: 'latex', icon: LatexImg, isWhite: true },
+  { id: 'mongo', icon: MongoImg },
 ];
 
 export const CertificationConfig: Array<CertificationType> = [

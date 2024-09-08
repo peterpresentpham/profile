@@ -69,13 +69,13 @@ export default function Item(params: Props) {
           <div className="flex items-center gap-x-4">
             {skills.map((skill) => {
               return (
-                <div
+                <button
                   key={skill.id}
                   className="text-gray-50 text-base hover-text"
                   onClick={() => onScrollClick(`skill-${skill.id}`)}
                 >
                   {skill.name}
-                </div>
+                </button>
               );
             })}
           </div>
