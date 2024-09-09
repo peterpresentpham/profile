@@ -25,6 +25,7 @@ export default function Item({ technologies, title, description, links, mode, ..
               return (
                 <a key={link.id} href={link.to} target="_blank" rel="noreferrer">
                   <ColorfulBox
+                    className="mr-[16px]"
                     color={isEven ? 'purple' : 'gray'}
                   >{`${link.title} ${isEven ? '<~>' : '>='}`}</ColorfulBox>
                 </a>

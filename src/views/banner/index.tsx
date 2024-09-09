@@ -5,7 +5,6 @@ import Image from 'next/image';
 import QuoteImg from 'public/quote.svg';
 import { CSSProperties, MouseEvent, useState } from 'react';
 import ColorfulBox from 'src/components/box/ColorfulBox';
-import CommonContainer from 'src/components/box/CommonContainer';
 import CaroSpot from './CaroSpot';
 import RectangleLine from './RectangleLine';
 
@@ -20,7 +19,16 @@ export default function Banner(params: DivProps) {
   }
 
   return (
-    <CommonContainer id="overview" {...styleMerge({ className: 'relative min-h-[100vh]' }, params)}>
+    <div
+      id="overview"
+      {...styleMerge(
+        {
+          className:
+            'container md:max-w-[80rem] mx-auto md:px-5 md:pb-5 px-[1rem] pb-[1rem] relative min-h-[100vh] mt-[-60px]',
+        },
+        params
+      )}
+    >
       <div className="flex flex-wrap gap-4 justify-between">
         <div className="item1 sm:pt-[10rem] pt-[5rem]">
           <p className="font-semibold text-[32px] text-white leading-[34px] md:text-start text-center">
@@ -62,6 +70,6 @@ export default function Banner(params: DivProps) {
           </div>
         </div>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

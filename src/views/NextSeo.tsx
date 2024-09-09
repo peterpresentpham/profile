@@ -16,7 +16,7 @@ interface Props {
 export default function NextSeo(params: Props) {
   const {
     title = 'Peter - Fullstack Developer',
-    url = '',
+    url = 'https://peter-present.xyz/',
     description = Description,
     preview,
     timestamp,
@@ -33,12 +33,12 @@ export default function NextSeo(params: Props) {
       <meta property="og:title" content={title} key="title" />
       <meta property="og:description" content={description} key="ogdescription" />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Movementum Accelerator" />
-      <meta name="application-name" content="Movementum Accelerator" />
+      <meta property="og:site_name" content="My Personal Profile" />
+      <meta name="application-name" content="My Personal Profile" />
       {preview && <meta property="og:image" content={preview} key="ogimage" />}
       {preview && <meta name="twitter:image" content={preview} key="twitterimage" />}
       {preview && <meta name="twitter:image:alt" content="cover image" key="twitteralt" />}
-      <meta name="twitter:site" content="https://x.com/AptosMovementum" key="twittersite" />
+      <meta name="twitter:site" content="https://x.com/PhamHon08928762" key="twittersite" />
       <meta
         name="twitter:card"
         content={preview ? 'summary_large_image' : 'summary'}
