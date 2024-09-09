@@ -3,8 +3,9 @@
 import { DivProps, styleMerge } from '@peter-present/led-caro';
 import Image from 'next/image';
 import QuoteImg from 'public/quote.svg';
-import { CSSProperties, MouseEvent, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import ColorfulBox from 'src/components/box/ColorfulBox';
+import MagicalBorderBox from 'src/components/box/MagicalBorderBox';
 import CaroSpot from './CaroSpot';
 import RectangleLine from './RectangleLine';
 
@@ -52,23 +53,27 @@ export default function Banner(params: DivProps) {
         className="container md:max-w-[50rem] flex justify-center mx-auto mt-[5rem] magical-borders-content"
         onMouseMove={onMouseMove}
       >
-        <div
-          className="relative flex p-[1px] tags-automation"
-          style={{ '--mouse-x': scale.x, '--mouse-y': scale.y } as CSSProperties}
+        <MagicalBorderBox
+          scale={scale}
+          containerClassName="p-[32px]"
+          components={{
+            footer: (
+              <>
+                <div className="absolute top-[-10px] left-[5%] px-[5px] z-[200]">
+                  <Image src={QuoteImg} alt="quote" className="w-auto h-[20px]" />
+                </div>
+                <div className="absolute bottom-[-10px] right-[5%] px-[5px] z-[200]">
+                  <Image src={QuoteImg} alt="quote" className="w-auto h-[20px]" />
+                </div>
+              </>
+            ),
+          }}
         >
-          <div className="magical-borders-inner tags-automation-inner">
-            <p className="text-[20px] font-medium text-center text-white">
-              People who are unable to motivate themselves must be content with mediocrity no matter
-              how impressive their other talents
-            </p>
-          </div>
-          <div className="absolute top-[-10px] left-[5%] px-[5px] z-[200]">
-            <Image src={QuoteImg} alt="quote" className="w-auto h-[20px]" />
-          </div>
-          <div className="absolute bottom-[-10px] right-[5%] px-[5px] z-[200]">
-            <Image src={QuoteImg} alt="quote" className="w-auto h-[20px]" />
-          </div>
-        </div>
+          <p className="text-[20px] font-medium text-center text-white">
+            People who are unable to motivate themselves must be content with mediocrity no matter
+            how impressive their other talents
+          </p>
+        </MagicalBorderBox>
       </div>
     </div>
   );

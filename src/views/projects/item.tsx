@@ -1,4 +1,4 @@
-import { DivProps, twMerge } from '@peter-present/led-caro';
+import { DivProps, styleMerge } from '@peter-present/led-caro';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import { ProjectType } from 'src/globals';
 
@@ -8,11 +8,11 @@ export default function Item({ technologies, title, description, links, mode, ..
   const DescriptionComponent = description;
 
   return (
-    <div {...props} className={twMerge('border-[1px] border-gray-50', props.className)}>
+    <div {...styleMerge({ className: 'relative flex flex-col p-[1px]' }, props as DivProps)}>
       <div className="p-[1rem]">
         <p className="text-base text-gray-50">{technologies.join(', ')}</p>
       </div>
-      <div className="p-[1rem] border-t-[1px] border-t-gray-50">
+      <div className="p-[1rem]">
         <p className="text-[24px] text-white text-medium">{title}</p>
         <div className="mt-[1rem]">
           <DescriptionComponent />

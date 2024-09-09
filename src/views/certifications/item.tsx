@@ -38,10 +38,7 @@ export default function Item(params: Props) {
     <div
       {...props}
       id={`certification-${id}`}
-      className={twMerge(
-        'border-[1px] border-gray-50 grid grid-cols-10 gap-4 p-[1rem]',
-        props.className
-      )}
+      className={twMerge('grid grid-cols-10 gap-4', props.className)}
     >
       <div>
         <a href={credentialUrl} target="_blank" rel="noreferrer">
