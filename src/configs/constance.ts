@@ -54,7 +54,10 @@ export const ProjectConfig: Array<ProjectType> = [
     technologies: ['nextjs', 'reactjs', 'vercel'],
     title: 'Personal profile',
     description: ProfileDescription,
-    links: [{ id: 'github', title: 'github', to: 'https://github.com/phamhongphuc1999/profile' }],
+    links: [
+      { id: 'hosting', title: 'live', to: 'https://peter-present.xyz/' },
+      { id: 'github', title: 'github', to: 'https://github.com/phamhongphuc1999/profile' },
+    ],
   },
   {
     id: 'eth-graph-query',

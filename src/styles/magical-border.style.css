@@ -1,8 +1,11 @@
 .tags-automation {
-  background: linear-gradient(180deg, #a9a3c247, #a9a3c211);
+  background: linear-gradient(180deg, #a9a3c247, #a9a3c226);
   position: relative;
   width: 100%;
   z-index: 10;
+}
+.none-liner-tag-automation {
+  background: #a9a3c247 !important;
 }
 .tags-boxes {
   display: flex;
@@ -35,19 +38,12 @@
   height: 100%;
 }
 .magical-borders-content > * .magical-borders-inner {
-  background-color: #0a0118;
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
-  top: 1px;
-  right: 1px;
-  bottom: 1px;
-  left: 1px;
+  background-color: #0a0118;
   z-index: 2;
 }
 .tags-automation-inner {
   isolation: isolate;
   overflow: hidden;
   background: linear-gradient(180deg, #0b021700 22.69%, #16092a33);
-  padding: 32px;
 }

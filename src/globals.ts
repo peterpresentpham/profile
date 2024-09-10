@@ -2,6 +2,7 @@ import { StaticImageData } from 'next/image';
 import { FunctionComponent, SVGProps } from 'react';
 
 export type SvgPropsType = SVGProps<SVGSVGElement>;
+export type PositionType = { x: string; y: string };
 
 export type ProjectType = {
   id: string;
@@ -39,6 +40,7 @@ export interface CoreSkillsType extends SubSkillType {
 export interface SkillsType extends CoreSkillsType {
   relevantSkills?: Array<SubSkillType>;
   links?: Array<{ id: string; to: string; mode: SkillLinkMode; title: string }>;
+  position: [number, number];
 }
 
 export type CertificationType = {
