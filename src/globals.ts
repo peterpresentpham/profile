@@ -40,6 +40,7 @@ export interface CoreSkillsType extends SubSkillType {
 export interface SkillsType extends CoreSkillsType {
   relevantSkills?: Array<SubSkillType>;
   links?: Array<{ id: string; to: string; mode: SkillLinkMode; title: string }>;
+  position: [number, number];
 }
 
 export type CertificationType = {

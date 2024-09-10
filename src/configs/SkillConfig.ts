@@ -81,6 +81,7 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Simple package which draw caro.',
       },
     ],
+    position: [0, 3],
   },
   {
     ...Next,
@@ -93,6 +94,7 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'My profile written by Next',
       },
     ],
+    position: [3, 6],
   },
   {
     ...ApacheKafka,
@@ -104,6 +106,7 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Apache Kafka Series - Learn Apache Kafka for Beginners v3',
       },
     ],
+    position: [6, 8],
   },
   {
     ...DotNetApi,
@@ -115,6 +118,7 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Simple API written by C# interacts with mongodb and mysql',
       },
     ],
+    position: [8, 10],
   },
   {
     ...JavaSkill,
@@ -126,6 +130,7 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Java practice',
       },
     ],
+    position: [10, 12],
   },
-  Docker,
+  { ...Docker, position: [12, 13] },
 ];

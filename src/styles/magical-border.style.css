@@ -4,6 +4,9 @@
   width: 100%;
   z-index: 10;
 }
+.none-liner-tag-automation {
+  background: #a9a3c247 !important;
+}
 .tags-boxes {
   display: flex;
 }
@@ -35,6 +38,7 @@
   height: 100%;
 }
 .magical-borders-content > * .magical-borders-inner {
+  flex-grow: 1;
   background-color: #0a0118;
   z-index: 2;
 }

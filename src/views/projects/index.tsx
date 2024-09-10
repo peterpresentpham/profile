@@ -3,7 +3,6 @@
 import { DivProps } from '@peter-present/led-caro';
 import { useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
-import MagicalBorderBox from 'src/components/box/MagicalBorderBox';
 import CssHeading from 'src/components/CssHeading';
 import { ProjectConfig } from 'src/configs/constance';
 import { PositionType } from 'src/globals';
@@ -22,16 +21,17 @@ export default function Projects(params: DivProps) {
         onMouseMove={onMouseMove}
       >
         {ProjectConfig.map((item, index) => {
-          const position = positions[index] ?? { x: '-1px', y: '-1px' };
+          const position1 = positions[index * 2] ?? { x: '-1px', y: '-1px' };
+          const position2 = positions[index * 2 + 1] ?? { x: '-1px', y: '-1px' };
 
           return (
-            <MagicalBorderBox
+            <Item
               key={item.id}
-              containerClassName="p-[1rem] project-magical-item"
-              scale={position}
-            >
-              <Item {...item} mode={(index % 2) as 0 | 1} />
-            </MagicalBorderBox>
+              {...item}
+              mode={(index % 2) as 0 | 1}
+              position1={position1}
+              position2={position2}
+            />
           );
         })}
       </div>

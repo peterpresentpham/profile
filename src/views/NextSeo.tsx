@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-head-element */
 import IconImg from 'public/star.svg';
+import ThumbImg from 'public/thumbnail.png';
 
 const Description =
   'I am a full-stack developer with three years of experience in developing, implementing, and optimizing web applications. Proficient in front-end technologies including HTML, CSS, JavaScript, Typescript, and frameworks such as ReactJs, NextJs, and VueJs as well as backend technologies like Nodejs, Python. I want to find a dynamic environment to continuously improve my knowledge, enabling effective collaboration with team members and achieve project objectives, drive innovation.';
@@ -18,7 +19,7 @@ export default function NextSeo(params: Props) {
     title = 'Peter - Fullstack Developer',
     url = 'https://peter-present.xyz/',
     description = Description,
-    preview,
+    preview = ThumbImg.src,
     timestamp,
     keywords,
   } = params;
