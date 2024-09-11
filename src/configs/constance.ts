@@ -30,6 +30,7 @@ import {
 import { CertificationType, ProjectType, SvgPropsType, ToolType } from 'src/globals';
 
 export const MY_NAME = 'Peter';
+export const DEFAULT_SCALE = { x: '-1px', y: '-1px' };
 
 export const HeaderConfig: Array<{ id: string; title: string }> = [
   { id: 'projects', title: 'projects' },

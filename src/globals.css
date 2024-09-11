@@ -75,6 +75,7 @@ body {
     @media screen and (max-width: 960px) {
       width: 100%;
       justify-content: center;
+      padding-left: 0px;
     }
   }
   .animation-caro {
@@ -122,5 +123,40 @@ body {
       text-decoration: underline;
       color: #c778dd !important;
     }
+  }
+}
+#certification {
+  .credential-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .credential-container-item {
+    width: calc(50% - 8px);
+    @media screen and (max-width: 965px) {
+      width: 100%;
+    }
+  }
+  .credential-info-component {
+    display: initial;
+    @media screen and (max-width: 450px) {
+      display: none;
+    }
+  }
+  .credential-info-component-small {
+    display: none;
+    @media screen and (max-width: 450px) {
+      display: initial;
+    }
+  }
+  .credential-item {
+    display: flex;
+  }
+  .credential-item-item1 {
+    width: 48px;
+    margin-right: 1rem;
+  }
+  .credential-item-item2 {
+    width: calc(100% - 64px);
   }
 }

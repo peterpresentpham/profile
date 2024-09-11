@@ -4,7 +4,7 @@ import { DivProps } from '@peter-present/led-caro';
 import { useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
-import { ProjectConfig } from 'src/configs/constance';
+import { DEFAULT_SCALE, ProjectConfig } from 'src/configs/constance';
 import { PositionType } from 'src/globals';
 import useMagicalBorderScale from 'src/hooks/useMagicalBorderScale';
 import Item from './item';
@@ -21,8 +21,8 @@ export default function Projects(params: DivProps) {
         onMouseMove={onMouseMove}
       >
         {ProjectConfig.map((item, index) => {
-          const position1 = positions[index * 2] ?? { x: '-1px', y: '-1px' };
-          const position2 = positions[index * 2 + 1] ?? { x: '-1px', y: '-1px' };
+          const position1 = positions[index * 2] ?? DEFAULT_SCALE;
+          const position2 = positions[index * 2 + 1] ?? DEFAULT_SCALE;
 
           return (
             <Item

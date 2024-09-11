@@ -2,6 +2,7 @@
 import { DivProps } from '@peter-present/led-caro';
 import Image from 'next/image';
 import MagicalBorderBox from 'src/components/box/MagicalBorderBox';
+import { DEFAULT_SCALE } from 'src/configs/constance';
 import { PositionType, SkillsType } from 'src/globals';
 import MoreLinkItem from './MoreLinkItem';
 import RelevantSkills from './RelevantSkills';
@@ -15,7 +16,7 @@ export default function Item(params: Props) {
     <div {...props} id={`skill-${id}`}>
       <div className="magical-borders-content">
         <MagicalBorderBox
-          scale={positions[0] ?? { x: '-1px', y: '-1px' }}
+          scale={positions[0] ?? DEFAULT_SCALE}
           className="none-liner-tag-automation"
           containerClassName="p-[1rem] flex items-center gap-x-2 skill-magical-item"
         >
@@ -33,7 +34,7 @@ export default function Item(params: Props) {
       {relevantSkills && (
         <div className="magical-borders-content">
           <MagicalBorderBox
-            scale={positions[1] ?? { x: '-1px', y: '-1px' }}
+            scale={positions[1] ?? DEFAULT_SCALE}
             className="pt-0 none-liner-tag-automation"
             containerClassName="skill-magical-item"
           >
@@ -44,7 +45,7 @@ export default function Item(params: Props) {
       {links && (
         <div className="magical-borders-content">
           <MagicalBorderBox
-            scale={positions[relevantSkills ? 2 : 1] ?? { x: '-1px', y: '-1px' }}
+            scale={positions[relevantSkills ? 2 : 1] ?? DEFAULT_SCALE}
             className="pt-0 none-liner-tag-automation"
             containerClassName="p-[1rem] skill-magical-item"
           >

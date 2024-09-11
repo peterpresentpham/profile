@@ -6,11 +6,12 @@ import QuoteImg from 'public/quote.svg';
 import { MouseEvent, useState } from 'react';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import MagicalBorderBox from 'src/components/box/MagicalBorderBox';
+import { DEFAULT_SCALE } from 'src/configs/constance';
 import CaroSpot from './CaroSpot';
 import RectangleLine from './RectangleLine';
 
 export default function Banner(params: DivProps) {
-  const [scale, setScale] = useState<{ x: string; y: string }>({ x: '-1px', y: '-1px' });
+  const [scale, setScale] = useState<{ x: string; y: string }>(DEFAULT_SCALE);
 
   function onMouseMove(event: MouseEvent<HTMLDivElement>) {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -25,7 +26,7 @@ export default function Banner(params: DivProps) {
       {...styleMerge(
         {
           className:
-            'container md:max-w-[80rem] mx-auto md:px-5 md:pb-5 px-[1rem] pb-[1rem] relative min-h-[100vh] mt-[-60px]',
+            'container md:max-w-[80rem] mx-auto md:px-5 md:pb-5 px-[1rem] pb-[1rem] pt-[60px] relative min-h-[100vh] mt-[-60px]',
         },
         params
       )}
