@@ -21,11 +21,20 @@ export type SkillIdType =
   | 'nextjs'
   | 'docker'
   | 'dotnet-api'
-  | 'java'
+  | 'java-spring'
   | 'ethers'
   | 'tailwind'
   | 'ant-design'
-  | 'mui';
+  | 'mui'
+  | 'mongodb'
+  | 'mysql'
+  | 'maven'
+  | 'graph'
+  | 'redux'
+  | 'blockchain'
+  | 'account-abstraction'
+  | 'solidity-smart-contract'
+  | 'zk-circom';
 export type CredentialId = 'apache-kafka';
 
 export type SubSkillType = {
@@ -43,7 +52,7 @@ export interface SkillsType extends CoreSkillsType {
   position: [number, number];
 }
 
-export type CertificationType = {
+export type CredentialType = {
   id: CredentialId;
   name: string;
   credentialId: string;

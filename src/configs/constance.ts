@@ -20,14 +20,14 @@ import TypescriptImg from 'public/tools/typescript.svg';
 import VisualStudioImg from 'public/tools/visualstudio.svg';
 import VSCodeImg from 'public/tools/vscode.svg';
 import { FunctionComponent } from 'react';
-import { GithubIcon, LinkInIcon, MailIcon } from 'src/components/icons';
+import { GithubIcon, LeetCodeIcon, LinkInIcon, MailIcon } from 'src/components/icons';
 import {
   EthGraphQuery,
   LedCaroDescription,
   ProfileDescription,
   ReactHookUtils,
 } from 'src/components/ProjectDescription';
-import { CertificationType, ProjectType, SvgPropsType, ToolType } from 'src/globals';
+import { CredentialType, ProjectType, SvgPropsType, ToolType } from 'src/globals';
 
 export const MY_NAME = 'Peter';
 export const DEFAULT_SCALE = { x: '-1px', y: '-1px' };
@@ -46,6 +46,7 @@ export const ContactConfig: Array<{
 }> = [
   { id: 'github', to: 'https://github.com/phamhongphuc1999', icon: GithubIcon },
   { id: 'linkin', to: 'https://www.linkedin.com/in/peter-present/', icon: LinkInIcon },
+  { id: 'leetcode', to: 'https://leetcode.com/u/peter-present/', icon: LeetCodeIcon },
   { id: 'mail', to: 'mailto:phamhongphuc1999.mywork@gmail.com', icon: MailIcon },
 ];
 
@@ -117,7 +118,7 @@ export const ToolsConfig: Array<ToolType> = [
   { id: 'mongo', icon: MongoImg, link: 'https://www.mongodb.com/' },
 ];
 
-export const CertificationConfig: Array<CertificationType> = [
+export const CredentialConfig: Array<CredentialType> = [
   {
     id: 'apache-kafka',
     name: 'Apache Kafka Series - Learn Apache Kafka for Beginners v3',

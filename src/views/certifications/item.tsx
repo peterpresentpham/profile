@@ -4,15 +4,15 @@
 import { DivProps } from '@peter-present/led-caro';
 import Image from 'next/image';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
-import { CertificationType } from 'src/globals';
+import { CredentialType } from 'src/globals';
 
-type Props = CertificationType & DivProps;
+type Props = CredentialType & DivProps;
 
 type InfoComponentProps = {
   credentialId: string;
   credentialUrl: string;
-  skills: CertificationType['skills'];
-  issueDate: CertificationType['issueDate'];
+  skills: CredentialType['skills'];
+  issueDate: CredentialType['issueDate'];
 } & DivProps;
 
 function InfoComponent(params: InfoComponentProps) {
