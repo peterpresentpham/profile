@@ -1,6 +1,5 @@
 import Banner from './banner';
 import Certification from './certifications';
-import Contact from './contact';
 import Footer from './footer';
 import Header from './headers';
 import Projects from './projects';
@@ -16,7 +15,6 @@ export default function HomePage() {
       <Tools className="mt-[2rem]" />
       <Skills className="mt-[2rem]" />
       <Certification className="mt-[2rem]" />
-      <Contact className="mt-[2rem]" />
       <Footer className="mt-[1rem]" />
     </>
   );

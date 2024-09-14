@@ -1,6 +1,32 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import Image from 'next/image';
 
+export function AccountAbstractionDescription() {
+  return (
+    <p className="text-base text-gray-50">
+      Recovery Account Abstraction Wallet that uses EDDSA signature. You can see more about{' '}
+      <a
+        href="https://github.com/phamhongphuc1999/account-abstraction-contract"
+        target="_blank"
+        rel="noreferrer"
+        className="text-purple-50 underline"
+      >
+        smart contract system
+      </a>{' '}
+      and{' '}
+      <a
+        href="https://github.com/phamhongphuc1999/bundler"
+        target="_blank"
+        rel="noreferrer"
+        className="text-purple-50 underline"
+      >
+        bundler
+      </a>
+      .
+    </p>
+  );
+}
+
 export function ProfileDescription() {
   return <p className="text-base text-gray-50">My personal profile.</p>;
 }

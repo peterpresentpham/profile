@@ -25,6 +25,50 @@ const {
   ZKContract,
 } = SubSkills;
 
+export const SkillsLayoutConfig: {
+  [key: string]: Array<Array<{ index: number; layoutIndex: [number, number] }>>;
+} = {
+  md: [
+    [
+      { index: 0, layoutIndex: [0, 3] },
+      { index: 3, layoutIndex: [3, 5] },
+      { index: 6, layoutIndex: [5, 6] },
+    ],
+    [
+      { index: 1, layoutIndex: [6, 9] },
+      { index: 4, layoutIndex: [9, 12] },
+    ],
+    [
+      { index: 2, layoutIndex: [12, 15] },
+      { index: 5, layoutIndex: [15, 18] },
+    ],
+  ],
+  sm: [
+    [
+      { index: 0, layoutIndex: [0, 3] },
+      { index: 2, layoutIndex: [3, 6] },
+      { index: 4, layoutIndex: [6, 9] },
+      { index: 6, layoutIndex: [9, 10] },
+    ],
+    [
+      { index: 1, layoutIndex: [10, 13] },
+      { index: 3, layoutIndex: [13, 15] },
+      { index: 5, layoutIndex: [15, 18] },
+    ],
+  ],
+  xs: [
+    [
+      { index: 0, layoutIndex: [0, 3] },
+      { index: 1, layoutIndex: [3, 6] },
+      { index: 2, layoutIndex: [6, 9] },
+      { index: 3, layoutIndex: [9, 11] },
+      { index: 4, layoutIndex: [11, 14] },
+      { index: 5, layoutIndex: [14, 17] },
+      { index: 6, layoutIndex: [17, 18] },
+    ],
+  ],
+};
+
 export const SkillsConfig: Array<SkillsType> = [
   {
     ...React,

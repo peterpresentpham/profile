@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-head-element */
+import Script from 'next/script';
 import IconImg from 'public/star.svg';
-import ThumbImg from 'public/thumbnail.png';
+import ThumbImg from 'public/thumbnail.webp';
 
 const Description =
   'I am a full-stack developer with three years of experience in developing, implementing, and optimizing web applications. Proficient in front-end technologies including HTML, CSS, JavaScript, Typescript, and frameworks such as ReactJs, NextJs, and VueJs as well as backend technologies like Nodejs, Python. I want to find a dynamic environment to continuously improve my knowledge, enabling effective collaboration with team members and achieve project objectives, drive innovation.';
@@ -49,6 +50,19 @@ export default function NextSeo(params: Props) {
       <meta name="twitter:description" content={description} key="twitterdescription" />
       {timestamp && <meta name="revised" content={timestamp} key="timestamp" />}
       <meta name="keywords" key="keywords" content={keywords} />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W6VHX4S7');
+  `,
+        }}
+      />
     </head>
   );
 }

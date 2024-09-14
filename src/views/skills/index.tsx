@@ -1,38 +1,61 @@
 'use client';
 
-import { DivProps } from '@peter-present/led-caro';
+import { DivProps, twMerge } from '@peter-present/led-caro';
 import { useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
-import { SkillsConfig } from 'src/configs/SkillConfig';
+import { SkillsConfig, SkillsLayoutConfig } from 'src/configs/SkillConfig';
 import { PositionType } from 'src/globals';
 import useMagicalBorderScale from 'src/hooks/useMagicalBorderScale';
 import Item from './item';
 
-export default function Skills(params: DivProps) {
+type SkillsLayoutProps = {
+  type: 'md' | 'sm' | 'xs';
+  className?: string;
+};
+
+function SkillsLayout({ type, className }: SkillsLayoutProps) {
   const [positions, setPositions] = useState<Array<PositionType>>([]);
   const { onMouseMove } = useMagicalBorderScale(setPositions, 'skill-magical-item');
 
   return (
+    <div
+      className={twMerge('magical-borders-content flex flex-wrap gap-4 mt-[2rem]', className)}
+      onMouseMove={onMouseMove}
+    >
+      {SkillsLayoutConfig[type].map((layout, index) => {
+        return (
+          <div
+            key={index}
+            className="h-fit flex flex-col gap-4 md:w-[calc(33.33333%-16px)] sm:w-[calc(50%-16px)] w-[100%]"
+          >
+            {layout.map((itemInfo) => {
+              const item = SkillsConfig[itemInfo.index];
+              const [start, end] = itemInfo.layoutIndex;
+
+              return (
+                <Item
+                  key={item.id}
+                  positions={positions.slice(start, end)}
+                  {...item}
+                  className="h-fit w-[100%]"
+                />
+              );
+            })}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default function Skills(params: DivProps) {
+  return (
     <CommonContainer {...params} id="skills">
       <CssHeading title="skills" className="cursor-pointer" />
-      <div
-        className="flex flex-wrap gap-4 mt-[2rem] magical-borders-content"
-        onMouseMove={onMouseMove}
-      >
-        {SkillsConfig.map((item) => {
-          const range = item.position;
-
-          return (
-            <Item
-              key={item.id}
-              positions={positions.slice(range[0], range[1])}
-              {...item}
-              className="h-fit md:max-w-[calc(33.33333%-16px)] sm:max-w-[calc(50%-16px)] max-w-[100%]"
-            />
-          );
-        })}
-      </div>
+      <SkillsLayout type="md" className="hidden md:flex" />
+      <SkillsLayout type="sm" className="hidden sm:flex md:hidden" />
+      <SkillsLayout type="xs" className="flex sm:hidden" />
     </CommonContainer>
   );
 }

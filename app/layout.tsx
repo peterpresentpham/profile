@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 import '@peter-present/led-caro/dist/assets/style.css';
 import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
@@ -13,7 +14,17 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" suppressHydrationWarning>
       <NextSeo />
-      <body className={fira.className}>{children}</body>
+      <body className={fira.className}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W6VHX4S7"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }

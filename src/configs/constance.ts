@@ -3,7 +3,7 @@ import CPlusPlusImg from 'public/language/cplusplus.svg';
 import CSharpImg from 'public/language/csharp.svg';
 import FSharpImg from 'public/language/fsharp.svg';
 import JavaImg from 'public/language/java.svg';
-import JavascriptImg from 'public/language/javascript.svg';
+import JavascriptImg from 'public/language/js.webp';
 import PythonImg from 'public/language/python.svg';
 import SolidityImg from 'public/language/solidity.svg';
 import NextImg from 'public/skills/next.svg';
@@ -21,13 +21,7 @@ import VisualStudioImg from 'public/tools/visualstudio.svg';
 import VSCodeImg from 'public/tools/vscode.svg';
 import { FunctionComponent } from 'react';
 import { GithubIcon, LeetCodeIcon, LinkInIcon, MailIcon } from 'src/components/icons';
-import {
-  EthGraphQuery,
-  LedCaroDescription,
-  ProfileDescription,
-  ReactHookUtils,
-} from 'src/components/ProjectDescription';
-import { CredentialType, ProjectType, SvgPropsType, ToolType } from 'src/globals';
+import { CredentialType, SvgPropsType, ToolType } from 'src/globals';
 
 export const MY_NAME = 'Peter';
 export const DEFAULT_SCALE = { x: '-1px', y: '-1px' };
@@ -36,7 +30,6 @@ export const HeaderConfig: Array<{ id: string; title: string }> = [
   { id: 'projects', title: 'projects' },
   { id: 'skills', title: 'skills' },
   { id: 'certification', title: 'certification' },
-  { id: 'contact', title: 'contact' },
 ];
 
 export const ContactConfig: Array<{
@@ -48,48 +41,6 @@ export const ContactConfig: Array<{
   { id: 'linkin', to: 'https://www.linkedin.com/in/peter-present/', icon: LinkInIcon },
   { id: 'leetcode', to: 'https://leetcode.com/u/peter-present/', icon: LeetCodeIcon },
   { id: 'mail', to: 'mailto:phamhongphuc1999.mywork@gmail.com', icon: MailIcon },
-];
-
-export const ProjectConfig: Array<ProjectType> = [
-  {
-    id: 'profile',
-    technologies: ['nextjs', 'reactjs', 'vercel'],
-    title: 'Personal profile',
-    description: ProfileDescription,
-    links: [
-      { id: 'hosting', title: 'live', to: 'https://peter-present.xyz/' },
-      { id: 'github', title: 'github', to: 'https://github.com/phamhongphuc1999/profile' },
-    ],
-  },
-  {
-    id: 'eth-graph-query',
-    technologies: ['vite', 'the graph', 'rest full api'],
-    title: 'Eth graph query',
-    description: EthGraphQuery,
-    links: [{ id: 'npm', title: 'More', to: 'https://www.npmjs.com/package/eth-graph-query' }],
-  },
-  {
-    id: 'react-hooks-util',
-    technologies: ['vite', 'react hooks'],
-    title: 'React hook utils',
-    description: ReactHookUtils,
-    links: [
-      {
-        id: 'npm',
-        title: 'More',
-        to: 'https://www.npmjs.com/package/@peter-present/react-hook-utils',
-      },
-    ],
-  },
-  {
-    id: 'led-caro',
-    technologies: ['vite', 'bun', 'react', 'css'],
-    title: 'Led caro',
-    description: LedCaroDescription,
-    links: [
-      { id: 'npm', title: 'More', to: 'https://www.npmjs.com/package/@peter-present/led-caro' },
-    ],
-  },
 ];
 
 export const LanguageConfig: Array<ToolType> = [
