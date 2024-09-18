@@ -3,8 +3,8 @@ import { ContactConfig } from 'src/configs/constance';
 
 export default function ContactLine(params: DivProps) {
   return (
-    <div {...styleMerge({ className: 'flex flex-col items-center w-[25px] gap-2' }, params)}>
-      <div className="h-full bg-gray-50 w-[1px]" />
+    <div {...styleMerge({ className: 'flex w-[25px] flex-col items-center gap-2' }, params)}>
+      <div className="h-full w-[1px] bg-gray-50" />
       {ContactConfig.map((item) => {
         const Icon = item.icon;
 
@@ -16,7 +16,7 @@ export default function ContactLine(params: DivProps) {
             rel="noreferrer"
             className="cursor-pointer"
           >
-            <Icon className="w-[25px] h-[25px]" />
+            <Icon className="h-[25px] w-[25px]" />
           </a>
         );
       })}

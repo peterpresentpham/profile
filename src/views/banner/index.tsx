@@ -26,32 +26,32 @@ export default function Banner(params: DivProps) {
       {...styleMerge(
         {
           className:
-            'container md:max-w-[80rem] mx-auto md:px-5 md:pb-5 px-[1rem] pb-[1rem] pt-[60px] relative min-h-[100vh] mt-[-60px]',
+            'container relative mx-auto mt-[-60px] min-h-[100vh] px-[1rem] pb-[1rem] pt-[60px] md:max-w-[80rem] md:px-5 md:pb-5',
         },
         params
       )}
     >
-      <div className="flex flex-wrap gap-4 justify-between">
-        <div className="item1 sm:pt-[10rem] pt-[5rem]">
-          <p className="font-semibold text-[32px] text-white leading-[34px] md:text-start text-center">
+      <div className="flex flex-wrap justify-between gap-4">
+        <div className="item1 pt-[5rem] sm:pt-[10rem]">
+          <p className="text-center text-[32px] font-semibold leading-[34px] text-white md:text-start">
             Peter is a <span className="text-purple-50">Fullstack Developer</span>
           </p>
-          <p className="text-base text-gray-50 mt-[2rem] md:text-start text-center">
+          <p className="mt-[2rem] text-center text-base text-gray-50 md:text-start">
             with experience in developing, implementing, and optimizing web applications.
           </p>
-          <div className="md:block flex">
-            <ColorfulBox className="mt-[1rem] mx-auto">Contact me!!!!</ColorfulBox>
+          <div className="flex md:block">
+            <ColorfulBox className="mx-auto mt-[1rem]">Contact me!!!!</ColorfulBox>
           </div>
         </div>
         <div className="item2">
-          <RectangleLine className="h-[260px] sticky top-0 md:flex hidden" />
-          <div className="w-full md:pt-[10rem] pt-[2rem] flex md:justify-end justify-center">
+          <RectangleLine className="sticky top-0 hidden h-[260px] md:flex" />
+          <div className="flex w-full justify-center pt-[2rem] md:justify-end md:pt-[10rem]">
             <CaroSpot />
           </div>
         </div>
       </div>
       <div
-        className="container md:max-w-[50rem] flex justify-center mx-auto mt-[5rem] magical-borders-content"
+        className="magical-borders-content container mx-auto mt-[5rem] flex justify-center md:max-w-[50rem]"
         onMouseMove={onMouseMove}
       >
         <MagicalBorderBox
@@ -60,17 +60,17 @@ export default function Banner(params: DivProps) {
           components={{
             footer: (
               <>
-                <div className="absolute top-[-10px] left-[5%] px-[5px] z-[200]">
-                  <Image src={QuoteImg} alt="quote" className="w-auto h-[20px]" />
+                <div className="absolute left-[5%] top-[-10px] z-[200] px-[5px]">
+                  <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
                 </div>
-                <div className="absolute bottom-[-10px] right-[5%] px-[5px] z-[200]">
-                  <Image src={QuoteImg} alt="quote" className="w-auto h-[20px]" />
+                <div className="absolute bottom-[-10px] right-[5%] z-[200] px-[5px]">
+                  <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
                 </div>
               </>
             ),
           }}
         >
-          <p className="text-[20px] font-medium text-center text-white">
+          <p className="text-center text-[20px] font-medium text-white">
             People who are unable to motivate themselves must be content with mediocrity no matter
             how impressive their other talents
           </p>

@@ -23,7 +23,7 @@ export default function Item(params: Props) {
           className="pt-0"
           containerClassName="p-[1rem] project-magical-item"
         >
-          <p className="text-[24px] text-white text-medium">{title}</p>
+          <p className="text-medium text-[24px] text-white">{title}</p>
           <div className="mt-[1rem]">
             <DescriptionComponent />
           </div>

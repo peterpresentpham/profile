@@ -18,7 +18,7 @@ export default function Certification(params: DivProps) {
     <CommonContainer {...params} id="certification">
       <CssHeading title="certifications" className="cursor-pointer" />
       <div
-        className="credential-container mt-[2rem] magical-borders-content"
+        className="credential-container magical-borders-content mt-[2rem]"
         onMouseMove={onMouseMove}
       >
         {CredentialConfig.map((item, index) => {

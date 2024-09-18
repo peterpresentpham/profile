@@ -22,39 +22,39 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
 
   return (
     <Drawer
-      className={twMerge('h-screen w-screen transition-all duration-500 bg-black-50', className)}
+      className={twMerge('h-screen w-screen bg-black-50 transition-all duration-500', className)}
       open={open}
       onClose={onClose}
       direction="right"
       lockBackgroundScroll={true}
     >
       <div className="shadow-md">
-        <CommonContainer className="flex items-center justify-between sm:justify-end h-[60px] relative">
+        <CommonContainer className="relative flex h-[60px] items-center justify-between sm:justify-end">
           <div
-            className="flex sm:hidden items-center gap-x-2"
+            className="flex items-center gap-x-2 sm:hidden"
             onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
           >
             <LogoIcon />
-            <p className="text-white font-bold">{MY_NAME}</p>
+            <p className="font-bold text-white">{MY_NAME}</p>
           </div>
           <CloseIcon width={18} height={18} onClick={onClose} />
           <ContactLine className="absolute right-[12px] top-[60px] h-[140px]" />
         </CommonContainer>
       </div>
-      <CommonContainer className="mt-[1rem] bg-black-50 mx-auto px-[1rem] flex flex-col justify-between h-[calc(100%-100px)]">
+      <CommonContainer className="mx-auto mt-[1rem] flex h-[calc(100%-100px)] flex-col justify-between bg-black-50 px-[1rem]">
         <div>
           {HeaderConfig.map((item) => {
             return (
               <HeaderItem
                 key={item.id}
                 title={item.title}
-                className="cursor-pointer mt-[1rem]"
+                className="mt-[1rem] cursor-pointer"
                 onClick={() => onScroll(item.id)}
               />
             );
           })}
         </div>
-        <div className="flex justify-center mt-[1rem]">
+        <div className="mt-[1rem] flex justify-center">
           <PopoverCaro />
         </div>
       </CommonContainer>

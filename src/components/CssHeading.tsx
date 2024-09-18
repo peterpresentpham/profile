@@ -13,10 +13,10 @@ interface HeaderItemProps extends DivProps {
 export function HeaderItem({ title, active, imgClass, textProps, ...props }: HeaderItemProps) {
   return (
     <div {...styleMerge({ className: 'flex items-center' }, props)}>
-      <Image src={SharpImg} alt="sharp-img" className={twMerge('w-[16px] h-[16px]', imgClass)} />
+      <Image src={SharpImg} alt="sharp-img" className={twMerge('h-[16px] w-[16px]', imgClass)} />
       <p
         {...styleMerge(
-          { className: `text-base ${active ? 'text-white font-medium' : 'text-gray-50'}` },
+          { className: `text-base ${active ? 'font-medium text-white' : 'text-gray-50'}` },
           textProps
         )}
       >
@@ -32,14 +32,14 @@ interface Props extends DivProps {
 
 export default function CssHeading({ title, ...props }: Props) {
   return (
-    <div {...styleMerge({ className: 'css-heading duration-500 transition-all' }, props)}>
+    <div {...styleMerge({ className: 'css-heading transition-all duration-500' }, props)}>
       <HeaderItem
         title={title}
         active={true}
         imgClass="w-[28px] h-[28px]"
         textProps={{ className: 'text-[32px]' }}
       />
-      <div className="h-[1px] bg-purple-50 w-full" />
+      <div className="h-[1px] w-full bg-purple-50" />
     </div>
   );
 }

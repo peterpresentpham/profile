@@ -12,7 +12,7 @@ interface Props {
 function CoreLinkItem({ title }: { title: string }) {
   return (
     <div className="skill-link-container flex gap-x-2">
-      <div className="w-[20px] h-[20px]">
+      <div className="h-[20px] w-[20px]">
         <StarIcon width={20} height={20} className="skill-star-icon inline-block" />
       </div>
       <span className="skill-link-text inline-block text-gray-50">{`${title}`}</span>

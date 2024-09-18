@@ -20,7 +20,7 @@ export default function Item(params: Props) {
           className="none-liner-tag-automation"
           containerClassName="p-[1rem] flex items-center gap-x-2 skill-magical-item"
         >
-          <Image src={icon} alt={id} className="w-[24px] h-auto" />
+          <Image src={icon} alt={id} className="h-auto w-[24px]" />
           <a
             href={nameLink}
             target="_blank"
@@ -35,7 +35,7 @@ export default function Item(params: Props) {
         <div className="magical-borders-content">
           <MagicalBorderBox
             scale={positions[1] ?? DEFAULT_SCALE}
-            className="pt-0 none-liner-tag-automation"
+            className="none-liner-tag-automation pt-0"
             containerClassName="skill-magical-item"
           >
             <RelevantSkills skills={relevantSkills} />
@@ -46,7 +46,7 @@ export default function Item(params: Props) {
         <div className="magical-borders-content">
           <MagicalBorderBox
             scale={positions[relevantSkills ? 2 : 1] ?? DEFAULT_SCALE}
-            className="pt-0 none-liner-tag-automation"
+            className="none-liner-tag-automation pt-0"
             containerClassName="p-[1rem] skill-magical-item"
           >
             {links.map((link) => {

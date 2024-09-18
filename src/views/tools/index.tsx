@@ -17,7 +17,7 @@ function SlideComponent({ data, ...props }: SlideComponentProps) {
       speed={50}
       autoFill={true}
       pauseOnHover={true}
-      className={twMerge('cursor-pointer relative overlay', props.className)}
+      className={twMerge('overlay relative cursor-pointer', props.className)}
     >
       {data.map((item) => {
         const isWhite = Boolean(item.isWhite);
@@ -28,14 +28,14 @@ function SlideComponent({ data, ...props }: SlideComponentProps) {
               className={twMerge(
                 'mr-[4rem]',
                 isWhite
-                  ? 'bg-white rounded-[50%] w-[100px] h-[100px] flex items-center justify-center'
+                  ? 'flex h-[100px] w-[100px] items-center justify-center rounded-[50%] bg-white'
                   : ''
               )}
             >
               <Image
                 src={item.icon}
                 alt={item.id}
-                className={isWhite ? 'w-[80px] h-auto' : 'w-[100px] h-auto'}
+                className={isWhite ? 'h-auto w-[80px]' : 'h-auto w-[100px]'}
               />
             </div>
           </a>

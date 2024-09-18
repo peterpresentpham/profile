@@ -54,21 +54,21 @@ export default function Header() {
   return (
     <div
       id="header"
-      className={`h-[60px] fixed top-0 w-screen shadow-md z-[1000000] duration-500 bg-black-50 ${position > 60 && 'translate-y-[-100%]'}`}
+      className={`fixed top-0 z-[1000000] h-[60px] w-screen bg-black-50 shadow-md duration-500 ${position > 60 && 'translate-y-[-100%]'}`}
     >
-      <CommonContainer className="flex items-center justify-between relative">
+      <CommonContainer className="relative flex items-center justify-between">
         <ContactLine
-          className="absolute left-[-4rem] duration-1000 z-[400] top-0 md:flex hidden"
+          className="absolute left-[-4rem] top-0 z-[400] hidden duration-1000 md:flex"
           style={position > 60 ? { height: '260px' } : { height: '200px' }}
         />
         <button
-          className="flex items-center gap-x-2 cursor-pointer"
+          className="flex cursor-pointer items-center gap-x-2"
           onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
           <LogoIcon />
-          <p className="text-white font-bold">{MY_NAME}</p>
+          <p className="font-bold text-white">{MY_NAME}</p>
         </button>
-        <div className="md:flex hidden items-center gap-x-4">
+        <div className="hidden items-center gap-x-4 md:flex">
           {HeaderConfig.map((item) => {
             return (
               <HeaderItem
@@ -81,7 +81,7 @@ export default function Header() {
           })}
         </div>
         <MenuIcon
-          className="md:hidden block"
+          className="block md:hidden"
           width="18"
           height="18"
           onClick={() => setOpen(true)}
@@ -91,7 +91,7 @@ export default function Header() {
         open={open}
         onClose={() => setOpen(false)}
         onScrollClick={onScrollClick}
-        className="md:hidden block"
+        className="block md:hidden"
       />
     </div>
   );

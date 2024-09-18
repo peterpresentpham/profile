@@ -34,14 +34,14 @@ function InfoComponent(params: InfoComponentProps) {
   return (
     <div {...props}>
       <a href={credentialUrl} target="_blank" rel="noreferrer">
-        <p className="text-gray-50 text-base">{`Issued ${month} ${year}`}</p>
-        <p className="text-gray-50 text-base">{`Credential ID ${credentialId}`}</p>
+        <p className="text-base text-gray-50">{`Issued ${month} ${year}`}</p>
+        <p className="text-base text-gray-50">{`Credential ID ${credentialId}`}</p>
       </a>
       <a
         href={credentialUrl}
         target="_blank"
         rel="noreferrer"
-        className="cursor-pointer inline-flex items-center gap-x-2 border-[1px] border-[rgba(255, 255, 255, 0.5)] px-[0.5rem] py-[0.25rem] mt-[1rem] mb-[0.5rem]"
+        className="border-[rgba(255, 255, 255, 0.5)] mb-[0.5rem] mt-[1rem] inline-flex cursor-pointer items-center gap-x-2 border-[1px] px-[0.5rem] py-[0.25rem]"
       >
         <p className="text-gray-50">Show credential</p>
         <RocketIcon width={16} height={16} />
@@ -53,7 +53,7 @@ function InfoComponent(params: InfoComponentProps) {
             return (
               <button
                 key={skill.id}
-                className="text-gray-50 text-base hover-text"
+                className="hover-text text-base text-gray-50"
                 onClick={() => onScrollClick(`skill-${skill.id}`)}
               >
                 {skill.name}
@@ -84,13 +84,13 @@ export default function Item(params: Props) {
       <div className="credential-item">
         <div className="credential-item-item1">
           <a href={credentialUrl} target="_blank" rel="noreferrer">
-            <Image src={icon} alt={nameOrganization} className="w-[48px] h-[48px]" />
+            <Image src={icon} alt={nameOrganization} className="h-[48px] w-[48px]" />
           </a>
         </div>
         <div className="credential-item-item2">
           <a href={credentialUrl} target="_blank" rel="noreferrer">
-            <p className="hover-text text-white text-base font-semibold">{name}</p>
-            <p className="text-white text-base">{nameOrganization}</p>
+            <p className="hover-text text-base font-semibold text-white">{name}</p>
+            <p className="text-base text-white">{nameOrganization}</p>
           </a>
           <InfoComponent
             className="credential-info-component"

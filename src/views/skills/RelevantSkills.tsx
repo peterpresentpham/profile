@@ -9,7 +9,7 @@ export default function RelevantSkills({ skills }: Props) {
   const _max = skills.length - 1;
 
   return (
-    <div className="p-[1rem] flex flex-wrap items-center gap-x-2">
+    <div className="flex flex-wrap items-center gap-x-2 p-[1rem]">
       {skills.map((skill, index) => {
         return (
           <div key={skill.id} className="flex items-center gap-x-2">
@@ -17,11 +17,11 @@ export default function RelevantSkills({ skills }: Props) {
               href={skill.nameLink}
               target="_blank"
               rel="noreferrer"
-              className="text-gray-50 text-base hover-text"
+              className="hover-text text-base text-gray-50"
             >
               {skill.name}
             </a>
-            {_max > index && <UnitIcon className="w-[5px] h-[5px]" />}
+            {_max > index && <UnitIcon className="h-[5px] w-[5px]" />}
           </div>
         );
       })}

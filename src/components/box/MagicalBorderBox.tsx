@@ -17,7 +17,7 @@ export default function MagicalBorderBox(params: Props) {
     <div
       {...styleMerge(
         {
-          className: 'relative flex p-[1px] tags-automation',
+          className: 'tags-automation relative flex p-[1px]',
           style: { '--mouse-x': scale.x, '--mouse-y': scale.y } as CSSProperties,
         },
         props

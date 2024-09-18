@@ -20,14 +20,14 @@ function SkillsLayout({ type, className }: SkillsLayoutProps) {
 
   return (
     <div
-      className={twMerge('magical-borders-content flex flex-wrap gap-4 mt-[2rem]', className)}
+      className={twMerge('magical-borders-content mt-[2rem] flex flex-wrap gap-4', className)}
       onMouseMove={onMouseMove}
     >
       {SkillsLayoutConfig[type].map((layout, index) => {
         return (
           <div
             key={index}
-            className="h-fit flex flex-col gap-4 md:w-[calc(33.33333%-16px)] sm:w-[calc(50%-16px)] w-[100%]"
+            className="flex h-fit w-[100%] flex-col gap-4 sm:w-[calc(50%-16px)] md:w-[calc(33.33333%-16px)]"
           >
             {layout.map((itemInfo) => {
               const item = SkillsConfig[itemInfo.index];
