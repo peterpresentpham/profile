@@ -5,19 +5,19 @@ import Image from 'next/image';
 import QuoteImg from 'public/quote.svg';
 import { MouseEvent, useState } from 'react';
 import ColorfulBox from 'src/components/box/ColorfulBox';
-import MagicalBorderBox from 'src/components/box/MagicalBorderBox';
+import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
 import { DEFAULT_SCALE } from 'src/configs/constance';
 import CaroSpot from './CaroSpot';
 import RectangleLine from './RectangleLine';
 
 export default function Banner(params: DivProps) {
-  const [scale, setScale] = useState<{ x: string; y: string }>(DEFAULT_SCALE);
+  const [mouse, setMouse] = useState<{ x: string; y: string }>(DEFAULT_SCALE);
 
   function onMouseMove(event: MouseEvent<HTMLDivElement>) {
     const rect = event.currentTarget.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    setScale({ x: `${x}px`, y: `${y}px` });
+    setMouse({ x: `${x}px`, y: `${y}px` });
   }
 
   return (
@@ -50,32 +50,24 @@ export default function Banner(params: DivProps) {
           </div>
         </div>
       </div>
-      <div
-        className="magical-borders-content container mx-auto mt-[5rem] flex justify-center md:max-w-[50rem]"
+      <VibeBox
+        mouse={mouse}
+        className="container mx-auto mt-[5rem] flex justify-center md:max-w-[50rem]"
         onMouseMove={onMouseMove}
       >
-        <MagicalBorderBox
-          scale={scale}
-          containerClassName="p-[32px]"
-          components={{
-            footer: (
-              <>
-                <div className="absolute left-[5%] top-[-10px] z-[200] px-[5px]">
-                  <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
-                </div>
-                <div className="absolute bottom-[-10px] right-[5%] z-[200] px-[5px]">
-                  <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
-                </div>
-              </>
-            ),
-          }}
-        >
+        <VibeContent containerProps={{ className: 'p-[32px]' }}>
           <p className="text-center text-[20px] font-medium text-white">
             People who are unable to motivate themselves must be content with mediocrity no matter
             how impressive their other talents
           </p>
-        </MagicalBorderBox>
-      </div>
+          <div className="absolute left-[5%] top-[-10px] z-[200] px-[5px]">
+            <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
+          </div>
+          <div className="absolute bottom-[-10px] right-[5%] z-[200] px-[5px]">
+            <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
+          </div>
+        </VibeContent>
+      </VibeBox>
     </div>
   );
 }

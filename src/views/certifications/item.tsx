@@ -3,10 +3,9 @@
 
 import { DivProps } from '@peter-present/led-caro';
 import Image from 'next/image';
+import { VibeContent } from 'src/components/box/VibeBox';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
 import { CredentialType } from 'src/globals';
-
-type Props = CredentialType & DivProps;
 
 type InfoComponentProps = {
   credentialId: string;
@@ -66,21 +65,15 @@ function InfoComponent(params: InfoComponentProps) {
   );
 }
 
-export default function Item(params: Props) {
-  const {
-    id,
-    name,
-    credentialId,
-    credentialUrl,
-    skills,
-    issueDate,
-    issuingOrganization,
-    ...props
-  } = params;
+export default function Item(params: CredentialType) {
+  const { id, name, credentialId, credentialUrl, skills, issueDate, issuingOrganization } = params;
   const { icon, name: nameOrganization } = issuingOrganization;
 
   return (
-    <div {...props} id={`certification-${id}`}>
+    <VibeContent
+      containerProps={{ className: 'p-[1rem] credential-magical-item' }}
+      id={`certification-${id}`}
+    >
       <div className="credential-item">
         <div className="credential-item-item1">
           <a href={credentialUrl} target="_blank" rel="noreferrer">
@@ -108,6 +101,6 @@ export default function Item(params: Props) {
         skills={skills}
         issueDate={issueDate}
       />
-    </div>
+    </VibeContent>
   );
 }

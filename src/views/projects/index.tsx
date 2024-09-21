@@ -1,12 +1,10 @@
 'use client';
 
 import { DivProps, twMerge } from '@peter-present/led-caro';
-import { useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { DEFAULT_SCALE } from 'src/configs/constance';
 import { ProjectConfig, ProjectLayoutConfig } from 'src/configs/ProjectConfig';
-import { PositionType } from 'src/globals';
 import useMagicalBorderScale from 'src/hooks/useMagicalBorderScale';
 import Item from './item';
 
@@ -16,14 +14,10 @@ type ProjectLayoutProps = {
 };
 
 function ProjectsLayout({ type, className }: ProjectLayoutProps) {
-  const [positions, setPositions] = useState<Array<PositionType>>([]);
-  const { onMouseMove } = useMagicalBorderScale(setPositions, 'project-magical-item');
+  const { positions, onMouseMove } = useMagicalBorderScale();
 
   return (
-    <div
-      className={twMerge('magical-borders-content mt-[2rem] flex flex-wrap gap-4', className)}
-      onMouseMove={onMouseMove}
-    >
+    <div className={twMerge('mt-[2rem] flex flex-wrap gap-4', className)} onMouseMove={onMouseMove}>
       {ProjectLayoutConfig[type].map((layout, index) => {
         return (
           <div
@@ -32,19 +26,9 @@ function ProjectsLayout({ type, className }: ProjectLayoutProps) {
           >
             {layout.map((itemInfo) => {
               const item = ProjectConfig[itemInfo.index];
-              const position1 = positions[itemInfo.layoutIndex * 2] ?? DEFAULT_SCALE;
-              const position2 = positions[itemInfo.layoutIndex * 2 + 1] ?? DEFAULT_SCALE;
+              const mouse = positions[itemInfo.layoutIndex] ?? DEFAULT_SCALE;
 
-              return (
-                <Item
-                  key={item.id}
-                  {...item}
-                  mode={(itemInfo.index % 2) as 0 | 1}
-                  position1={position1}
-                  position2={position2}
-                  className="h-fit w-[100%]"
-                />
-              );
+              return <Item key={item.id} {...item} mouse={mouse} />;
             })}
           </div>
         );

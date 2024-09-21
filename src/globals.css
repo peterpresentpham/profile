@@ -79,6 +79,7 @@ body {
     }
   }
   .animation-caro {
+    transform: rotate(90deg);
     width: 60%;
     @media screen and (max-width: 1000px) {
       width: 90%;

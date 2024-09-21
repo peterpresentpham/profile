@@ -1,0 +1,49 @@
+.vibe-container {
+  position: relative;
+}
+.vibe-container::before,
+.vibe-container::after {
+  content: '';
+  transition: opacity 0.5s;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.vibe-container::before {
+  background: radial-gradient(
+    var(--circle-size, 600px) circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  z-index: 15;
+}
+.vibe-container::after {
+  background: radial-gradient(
+    var(--circle-size, 600px) circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.4),
+    transparent 40%
+  );
+  z-index: 1;
+}
+.vibe-container > * .magical-borders-inner {
+  background-color: #0a0118;
+  z-index: 2;
+}
+.vibe-content-container {
+  background: linear-gradient(180deg, #a9a3c247, #a9a3c226);
+  z-index: 10;
+  position: relative;
+}
+.simple-vibe-content-container {
+  background: #a9a3c247;
+  z-index: 10;
+  position: relative;
+}
+.vibe-content {
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b021700 22.69%, #16092a33);
+}

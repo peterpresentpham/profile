@@ -1,18 +1,15 @@
 'use client';
 
 import { DivProps } from '@peter-present/led-caro';
-import { useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
-import MagicalBorderBox from 'src/components/box/MagicalBorderBox';
+import VibeBox from 'src/components/box/VibeBox';
 import CssHeading from 'src/components/CssHeading';
 import { CredentialConfig, DEFAULT_SCALE } from 'src/configs/constance';
-import { PositionType } from 'src/globals';
 import useMagicalBorderScale from 'src/hooks/useMagicalBorderScale';
 import Item from './item';
 
 export default function Certification(params: DivProps) {
-  const [positions, setPositions] = useState<Array<PositionType>>([]);
-  const { onMouseMove } = useMagicalBorderScale(setPositions, 'credential-magical-item');
+  const { positions, onMouseMove } = useMagicalBorderScale();
 
   return (
     <CommonContainer {...params} id="certification">
@@ -25,14 +22,9 @@ export default function Certification(params: DivProps) {
           const position = positions[index] ?? DEFAULT_SCALE;
 
           return (
-            <MagicalBorderBox
-              key={item.id}
-              containerClassName="p-[1rem] credential-magical-item"
-              className="credential-container-item"
-              scale={position}
-            >
+            <VibeBox key={item.id} mouse={position}>
               <Item {...item} />
-            </MagicalBorderBox>
+            </VibeBox>
           );
         })}
       </div>

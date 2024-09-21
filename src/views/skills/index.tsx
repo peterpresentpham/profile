@@ -1,11 +1,10 @@
 'use client';
 
 import { DivProps, twMerge } from '@peter-present/led-caro';
-import { useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
+import { DEFAULT_SCALE } from 'src/configs/constance';
 import { SkillsConfig, SkillsLayoutConfig } from 'src/configs/SkillConfig';
-import { PositionType } from 'src/globals';
 import useMagicalBorderScale from 'src/hooks/useMagicalBorderScale';
 import Item from './item';
 
@@ -15,8 +14,7 @@ type SkillsLayoutProps = {
 };
 
 function SkillsLayout({ type, className }: SkillsLayoutProps) {
-  const [positions, setPositions] = useState<Array<PositionType>>([]);
-  const { onMouseMove } = useMagicalBorderScale(setPositions, 'skill-magical-item');
+  const { positions, onMouseMove } = useMagicalBorderScale();
 
   return (
     <div
@@ -31,16 +29,9 @@ function SkillsLayout({ type, className }: SkillsLayoutProps) {
           >
             {layout.map((itemInfo) => {
               const item = SkillsConfig[itemInfo.index];
-              const [start, end] = itemInfo.layoutIndex;
+              const mouse = positions[itemInfo.layoutIndex] ?? DEFAULT_SCALE;
 
-              return (
-                <Item
-                  key={item.id}
-                  positions={positions.slice(start, end)}
-                  {...item}
-                  className="h-fit w-[100%]"
-                />
-              );
+              return <Item key={item.id} mouse={mouse} {...item} />;
             })}
           </div>
         );

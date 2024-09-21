@@ -52,8 +52,20 @@ export const ProjectConfig: Array<ProjectType> = [
     title: 'Personal profile',
     description: ProfileDescription,
     links: [
-      { id: 'hosting', title: 'live', to: 'https://peter-present.xyz/' },
-      { id: 'github', title: 'github', to: 'https://github.com/phamhongphuc1999/profile' },
+      {
+        id: 'hosting',
+        title: 'live',
+        to: 'https://peter-present.xyz/',
+        symbol: 'Γ',
+        color: 'gray',
+      },
+      {
+        id: 'github',
+        title: 'github',
+        to: 'https://github.com/phamhongphuc1999/profile',
+        symbol: 'Δ',
+        color: 'purple',
+      },
     ],
   },
   {
@@ -66,6 +78,8 @@ export const ProjectConfig: Array<ProjectType> = [
         id: 'github',
         title: 'github',
         to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
+        symbol: 'Θ',
+        color: 'gray',
       },
     ],
   },
@@ -79,6 +93,8 @@ export const ProjectConfig: Array<ProjectType> = [
         id: 'npm',
         title: 'More',
         to: 'https://www.npmjs.com/package/@peter-present/react-hook-utils',
+        symbol: 'Π',
+        color: 'purple',
       },
     ],
   },
@@ -87,7 +103,15 @@ export const ProjectConfig: Array<ProjectType> = [
     technologies: ['vite', 'the graph', 'rest full api'],
     title: 'Eth graph query',
     description: EthGraphQuery,
-    links: [{ id: 'npm', title: 'More', to: 'https://www.npmjs.com/package/eth-graph-query' }],
+    links: [
+      {
+        id: 'npm',
+        title: 'More',
+        to: 'https://www.npmjs.com/package/eth-graph-query',
+        symbol: 'Σ',
+        color: 'gray',
+      },
+    ],
   },
   {
     id: 'led-caro',
@@ -95,7 +119,13 @@ export const ProjectConfig: Array<ProjectType> = [
     title: 'Led caro',
     description: LedCaroDescription,
     links: [
-      { id: 'npm', title: 'More', to: 'https://www.npmjs.com/package/@peter-present/led-caro' },
+      {
+        id: 'npm',
+        title: 'More',
+        to: 'https://www.npmjs.com/package/@peter-present/led-caro',
+        symbol: 'Ω',
+        color: 'purple',
+      },
     ],
   },
 ];

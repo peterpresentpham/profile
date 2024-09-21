@@ -1,62 +1,43 @@
 /* eslint-disable react/prop-types */
-import { DivProps } from '@peter-present/led-caro';
 import Image from 'next/image';
-import MagicalBorderBox from 'src/components/box/MagicalBorderBox';
-import { DEFAULT_SCALE } from 'src/configs/constance';
+import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
 import { PositionType, SkillsType } from 'src/globals';
 import MoreLinkItem from './MoreLinkItem';
 import RelevantSkills from './RelevantSkills';
 
-type Props = SkillsType & DivProps & { positions: Array<PositionType> };
+type Props = SkillsType & { mouse: PositionType };
 
 export default function Item(params: Props) {
-  const { id, name, nameLink, icon, relevantSkills, links, positions, ...props } = params;
+  const { id, name, nameLink, icon, relevantSkills, links, mouse } = params;
 
   return (
-    <div {...props} id={`skill-${id}`}>
-      <div className="magical-borders-content">
-        <MagicalBorderBox
-          scale={positions[0] ?? DEFAULT_SCALE}
-          className="none-liner-tag-automation"
-          containerClassName="p-[1rem] flex items-center gap-x-2 skill-magical-item"
+    <VibeBox mouse={mouse} id={`skill-${id}`}>
+      <VibeContent
+        mode="simple"
+        containerProps={{ className: 'p-[1rem] flex items-center gap-x-2' }}
+      >
+        <Image src={icon} alt={id} className="h-auto w-[24px]" />
+        <a
+          href={nameLink}
+          target="_blank"
+          rel="noreferrer"
+          className="hover-text text-base text-white"
         >
-          <Image src={icon} alt={id} className="h-auto w-[24px]" />
-          <a
-            href={nameLink}
-            target="_blank"
-            rel="noreferrer"
-            className="hover-text text-base text-white"
-          >
-            {name}
-          </a>
-        </MagicalBorderBox>
-      </div>
+          {name}
+        </a>
+      </VibeContent>
       {relevantSkills && (
-        <div className="magical-borders-content">
-          <MagicalBorderBox
-            scale={positions[1] ?? DEFAULT_SCALE}
-            className="none-liner-tag-automation pt-0"
-            containerClassName="skill-magical-item"
-          >
-            <RelevantSkills skills={relevantSkills} />
-          </MagicalBorderBox>
-        </div>
+        <VibeContent mode="simple" className="pt-0">
+          <RelevantSkills skills={relevantSkills} />
+        </VibeContent>
       )}
       {links && (
-        <div className="magical-borders-content">
-          <MagicalBorderBox
-            scale={positions[relevantSkills ? 2 : 1] ?? DEFAULT_SCALE}
-            className="none-liner-tag-automation pt-0"
-            containerClassName="p-[1rem] skill-magical-item"
-          >
-            {links.map((link) => {
-              return (
-                <MoreLinkItem key={link.id} to={link.to} mode={link.mode} title={link.title} />
-              );
-            })}
-          </MagicalBorderBox>
-        </div>
+        <VibeContent mode="simple" className="pt-0" containerProps={{ className: 'p-[1rem]' }}>
+          {links.map((link) => {
+            return <MoreLinkItem key={link.id} to={link.to} mode={link.mode} title={link.title} />;
+          })}
+        </VibeContent>
       )}
-    </div>
+    </VibeBox>
   );
 }

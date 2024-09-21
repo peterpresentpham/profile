@@ -9,7 +9,13 @@ export type ProjectType = {
   technologies: Array<string>;
   title: string;
   description: FunctionComponent;
-  links?: Array<{ id: string; title: string; to: string }>;
+  links?: Array<{
+    id: string;
+    title: string;
+    to: string;
+    symbol: string;
+    color: 'purple' | 'gray';
+  }>;
 };
 
 export type ToolType = { id: string; icon: StaticImageData; link: string; isWhite?: boolean };
@@ -49,7 +55,6 @@ export interface CoreSkillsType extends SubSkillType {
 export interface SkillsType extends CoreSkillsType {
   relevantSkills?: Array<SubSkillType>;
   links?: Array<{ id: string; to: string; mode: SkillLinkMode; title: string }>;
-  position: [number, number];
 }
 
 export type CredentialType = {

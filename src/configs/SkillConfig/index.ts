@@ -26,45 +26,45 @@ const {
 } = SubSkills;
 
 export const SkillsLayoutConfig: {
-  [key: string]: Array<Array<{ index: number; layoutIndex: [number, number] }>>;
+  [key: string]: Array<Array<{ index: number; layoutIndex: number }>>;
 } = {
   md: [
     [
-      { index: 0, layoutIndex: [0, 3] },
-      { index: 3, layoutIndex: [3, 5] },
-      { index: 6, layoutIndex: [5, 6] },
+      { index: 0, layoutIndex: 0 },
+      { index: 3, layoutIndex: 1 },
+      { index: 6, layoutIndex: 2 },
     ],
     [
-      { index: 1, layoutIndex: [6, 9] },
-      { index: 4, layoutIndex: [9, 12] },
+      { index: 1, layoutIndex: 3 },
+      { index: 4, layoutIndex: 4 },
     ],
     [
-      { index: 2, layoutIndex: [12, 15] },
-      { index: 5, layoutIndex: [15, 18] },
+      { index: 2, layoutIndex: 5 },
+      { index: 5, layoutIndex: 6 },
     ],
   ],
   sm: [
     [
-      { index: 0, layoutIndex: [0, 3] },
-      { index: 2, layoutIndex: [3, 6] },
-      { index: 4, layoutIndex: [6, 9] },
-      { index: 6, layoutIndex: [9, 10] },
+      { index: 0, layoutIndex: 0 },
+      { index: 2, layoutIndex: 1 },
+      { index: 4, layoutIndex: 2 },
+      { index: 6, layoutIndex: 3 },
     ],
     [
-      { index: 1, layoutIndex: [10, 13] },
-      { index: 3, layoutIndex: [13, 15] },
-      { index: 5, layoutIndex: [15, 18] },
+      { index: 1, layoutIndex: 4 },
+      { index: 3, layoutIndex: 5 },
+      { index: 5, layoutIndex: 6 },
     ],
   ],
   xs: [
     [
-      { index: 0, layoutIndex: [0, 3] },
-      { index: 1, layoutIndex: [3, 6] },
-      { index: 2, layoutIndex: [6, 9] },
-      { index: 3, layoutIndex: [9, 11] },
-      { index: 4, layoutIndex: [11, 14] },
-      { index: 5, layoutIndex: [14, 17] },
-      { index: 6, layoutIndex: [17, 18] },
+      { index: 0, layoutIndex: 0 },
+      { index: 1, layoutIndex: 1 },
+      { index: 2, layoutIndex: 2 },
+      { index: 3, layoutIndex: 3 },
+      { index: 4, layoutIndex: 4 },
+      { index: 5, layoutIndex: 5 },
+      { index: 6, layoutIndex: 6 },
     ],
   ],
 };
@@ -93,7 +93,6 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Simple package which draw caro.',
       },
     ],
-    position: [0, 3],
   },
   {
     ...Next,
@@ -106,7 +105,6 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'My profile written by Next',
       },
     ],
-    position: [3, 6],
   },
   {
     ...BlockchainSkill,
@@ -137,7 +135,6 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Smart Contract Practice',
       },
     ],
-    position: [6, 9],
   },
   {
     ...ApacheKafka,
@@ -149,7 +146,6 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Apache Kafka Series - Learn Apache Kafka for Beginners v3',
       },
     ],
-    position: [9, 11],
   },
   {
     ...DotNetApi,
@@ -162,7 +158,6 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Simple API written by C# interacts with mongodb and mysql',
       },
     ],
-    position: [11, 14],
   },
   {
     ...JavaSkill,
@@ -175,7 +170,6 @@ export const SkillsConfig: Array<SkillsType> = [
         title: 'Simple API written by Java spring boot interacts with mysql',
       },
     ],
-    position: [14, 17],
   },
-  { ...Docker, position: [17, 18] },
+  Docker,
 ];
