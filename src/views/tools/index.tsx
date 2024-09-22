@@ -49,7 +49,7 @@ export default function Tools(params: DivProps) {
   return (
     <CommonContainer {...params} id="tools">
       <CssHeading title="tools" className="cursor-pointer" />
-      <SlideComponent data={LanguageConfig} className="mt-[5rem]" />
+      <SlideComponent data={LanguageConfig} className="mt-[6rem]" />
       <SlideComponent data={ToolsConfig} direction="right" className="mt-[8rem]" />
     </CommonContainer>
   );

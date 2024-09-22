@@ -1,49 +1,53 @@
 'use client';
 
-import { DivProps, twMerge } from '@peter-present/led-caro';
+import { DivProps } from '@peter-present/led-caro';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { DEFAULT_SCALE } from 'src/configs/constance';
 import { ProjectConfig, ProjectLayoutConfig } from 'src/configs/ProjectConfig';
-import useMagicalBorderScale from 'src/hooks/useMagicalBorderScale';
+import { PositionType } from 'src/globals';
+import useVibeMouses from 'src/hooks/useVibeMouses';
 import Item from './item';
 
 type ProjectLayoutProps = {
   type: 'md' | 'sm' | 'xs';
+  mouses: Array<PositionType>;
   className?: string;
 };
 
-function ProjectsLayout({ type, className }: ProjectLayoutProps) {
-  const { positions, onMouseMove } = useMagicalBorderScale();
-
+function ProjectsLayout({ type, mouses, className }: ProjectLayoutProps) {
   return (
-    <div className={twMerge('mt-[2rem] flex flex-wrap gap-4', className)} onMouseMove={onMouseMove}>
-      {ProjectLayoutConfig[type].map((layout, index) => {
-        return (
-          <div
-            key={index}
-            className="flex h-fit w-[100%] flex-col gap-4 sm:w-[calc(50%-16px)] md:w-[calc(33.33333%-16px)]"
-          >
-            {layout.map((itemInfo) => {
-              const item = ProjectConfig[itemInfo.index];
-              const mouse = positions[itemInfo.layoutIndex] ?? DEFAULT_SCALE;
+    <CommonContainer className={className}>
+      <CssHeading title="projects" className="cursor-pointer" />
+      <div className="mt-[3rem] flex flex-wrap gap-[1.25rem]">
+        {ProjectLayoutConfig[type].map((layout, index) => {
+          return (
+            <div
+              key={index}
+              className="flex h-fit w-[100%] flex-col gap-[1.25rem] sm:w-[calc(50%-20px)] md:w-[calc(33.33333%-20px)]"
+            >
+              {layout.map((itemInfo) => {
+                const item = ProjectConfig[itemInfo.index];
+                const mouse = mouses[itemInfo.layoutIndex] ?? DEFAULT_SCALE;
 
-              return <Item key={item.id} {...item} mouse={mouse} />;
-            })}
-          </div>
-        );
-      })}
-    </div>
+                return <Item key={item.id} {...item} mouse={mouse} />;
+              })}
+            </div>
+          );
+        })}
+      </div>
+    </CommonContainer>
   );
 }
 
 export default function Projects(params: DivProps) {
+  const { mouses, onMouseMove } = useVibeMouses();
+
   return (
-    <CommonContainer {...params} id="projects">
-      <CssHeading title="projects" className="cursor-pointer" />
-      <ProjectsLayout type="md" className="hidden md:flex" />
-      <ProjectsLayout type="sm" className="hidden sm:flex md:hidden" />
-      <ProjectsLayout type="xs" className="flex sm:hidden" />
-    </CommonContainer>
+    <div {...params} id="projects" onMouseMove={onMouseMove}>
+      <ProjectsLayout type="md" mouses={mouses} className="hidden md:block" />
+      <ProjectsLayout type="sm" mouses={mouses} className="hidden sm:block md:hidden" />
+      <ProjectsLayout type="xs" mouses={mouses} className="block sm:hidden" />
+    </div>
   );
 }

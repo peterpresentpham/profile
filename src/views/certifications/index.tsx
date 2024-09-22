@@ -5,29 +5,28 @@ import CommonContainer from 'src/components/box/CommonContainer';
 import VibeBox from 'src/components/box/VibeBox';
 import CssHeading from 'src/components/CssHeading';
 import { CredentialConfig, DEFAULT_SCALE } from 'src/configs/constance';
-import useMagicalBorderScale from 'src/hooks/useMagicalBorderScale';
+import useVibeMouses from 'src/hooks/useVibeMouses';
 import Item from './item';
 
 export default function Certification(params: DivProps) {
-  const { positions, onMouseMove } = useMagicalBorderScale();
+  const { mouses, onMouseMove } = useVibeMouses();
 
   return (
-    <CommonContainer {...params} id="certification">
-      <CssHeading title="certifications" className="cursor-pointer" />
-      <div
-        className="credential-container magical-borders-content mt-[2rem]"
-        onMouseMove={onMouseMove}
-      >
-        {CredentialConfig.map((item, index) => {
-          const position = positions[index] ?? DEFAULT_SCALE;
+    <div {...params} id="certification" onMouseMove={onMouseMove}>
+      <CommonContainer>
+        <CssHeading title="certifications" className="cursor-pointer" />
+        <div className="credential-container magical-borders-content mt-[3rem]">
+          {CredentialConfig.map((item, index) => {
+            const mouse = mouses[index] ?? DEFAULT_SCALE;
 
-          return (
-            <VibeBox key={item.id} mouse={position}>
-              <Item {...item} />
-            </VibeBox>
-          );
-        })}
-      </div>
-    </CommonContainer>
+            return (
+              <VibeBox key={item.id} mouse={mouse}>
+                <Item {...item} />
+              </VibeBox>
+            );
+          })}
+        </div>
+      </CommonContainer>
+    </div>
   );
 }

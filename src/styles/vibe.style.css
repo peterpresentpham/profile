@@ -14,7 +14,7 @@
 }
 .vibe-container::before {
   background: radial-gradient(
-    var(--circle-size, 600px) circle at var(--mouse-x) var(--mouse-y),
+    var(--circle-size, 200px) circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.06),
     transparent 40%
   );
@@ -22,7 +22,7 @@
 }
 .vibe-container::after {
   background: radial-gradient(
-    var(--circle-size, 600px) circle at var(--mouse-x) var(--mouse-y),
+    var(--circle-size, 200px) circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.4),
     transparent 40%
   );

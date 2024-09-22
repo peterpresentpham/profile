@@ -11,11 +11,11 @@ export default function HomePage() {
     <>
       <Header />
       <Banner />
-      <Projects className="mt-[2rem]" />
-      <Tools className="mt-[2rem]" />
-      <Skills className="mt-[2rem]" />
-      <Certification className="mt-[2rem]" />
-      <Footer className="mt-[1rem]" />
+      <Projects className="pb-[4rem] pt-[4rem]" />
+      <Tools className="pb-[4rem] pt-[2rem]" />
+      <Skills className="pb-[4rem] pt-[2rem]" />
+      <Certification className="pb-[4rem] pt-[2rem]" />
+      <Footer />
     </>
   );
 }
