@@ -23,6 +23,8 @@ const {
   AccountAbstraction,
   SoliditySmartContract,
   ZKContract,
+  Dockerfile,
+  DockerCompose,
 } = SubSkills;
 
 export const SkillsLayoutConfig: {
@@ -171,5 +173,5 @@ export const SkillsConfig: Array<SkillsType> = [
       },
     ],
   },
-  Docker,
+  { ...Docker, relevantSkills: [Dockerfile, DockerCompose] },
 ];

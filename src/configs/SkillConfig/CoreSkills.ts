@@ -110,6 +110,16 @@ const ZKContract: SubSkillType = {
   name: 'Zero Knowledge',
   nameLink: 'https://docs.circom.io/background/background/',
 };
+const DockerCompose: SubSkillType = {
+  id: 'docker-compose',
+  name: 'Docker Compose',
+  nameLink: 'https://docs.docker.com/compose/',
+};
+const Dockerfile: SubSkillType = {
+  id: 'docker-file',
+  name: 'Dockerfile',
+  nameLink: 'https://docs.docker.com/reference/dockerfile/',
+};
 export const SubSkills = {
   Ethers,
   Tailwind,
@@ -123,4 +133,6 @@ export const SubSkills = {
   AccountAbstraction,
   SoliditySmartContract,
   ZKContract,
+  DockerCompose,
+  Dockerfile,
 };

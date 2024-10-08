@@ -40,7 +40,9 @@ export type SkillIdType =
   | 'blockchain'
   | 'account-abstraction'
   | 'solidity-smart-contract'
-  | 'zk-circom';
+  | 'zk-circom'
+  | 'docker-compose'
+  | 'docker-file';
 export type CredentialId = 'apache-kafka';
 
 export type SubSkillType = {
