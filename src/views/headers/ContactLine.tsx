@@ -14,7 +14,7 @@ export default function ContactLine(params: DivProps) {
             href={item.to}
             target="_blank"
             rel="noreferrer"
-            className="cursor-pointer"
+            className="contact-icon cursor-pointer"
           >
             <Icon className="h-[25px] w-[25px]" />
           </a>

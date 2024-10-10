@@ -1,8 +1,13 @@
 import { DivProps, styleMerge } from '@peter-present/led-caro';
+import { Fira_Sans } from 'next/font/google';
 import ColorfulBox from 'src/components/box/ColorfulBox';
+import CssTooltip from 'src/components/CssTooltip';
+import { InfoIcon } from 'src/components/icons';
 import CaroSpot from './CaroSpot';
 import QuoteSpot from './QuoteSpot';
 import RectangleLine from './RectangleLine';
+
+const fira = Fira_Sans({ weight: '400', subsets: ['latin'] });
 
 export default function Banner(params: DivProps) {
   return (
@@ -18,9 +23,23 @@ export default function Banner(params: DivProps) {
     >
       <div className="flex flex-wrap justify-between gap-4">
         <div className="item1 pt-[5rem] sm:pt-[10rem]">
-          <p className="text-center text-[32px] font-semibold leading-[34px] text-white md:text-start">
-            Peter is a <span className="text-purple-50">Fullstack Developer</span>
-          </p>
+          <div>
+            <div className="relative inline-block">
+              <p className="text-center text-[32px] font-semibold leading-[34px] text-white md:text-start">
+                Peter
+              </p>
+              <CssTooltip
+                title="Phạm Hồng Phúc"
+                className={`${fira.className} absolute right-[-16px] top-0`}
+              >
+                <InfoIcon className="h-[16px] w-[16px] cursor-pointer" />
+              </CssTooltip>
+            </div>
+            &nbsp;&nbsp;
+            <p className="inline text-center text-[32px] font-semibold leading-[34px] text-white md:text-start">
+              is a <span className="text-purple-50">Fullstack Developer</span>
+            </p>
+          </div>
           <p className="mt-[2rem] text-center text-base text-gray-50 md:text-start">
             with experience in developing, implementing, and optimizing web applications.
           </p>
