@@ -12,7 +12,7 @@ const NEXT_SSG_FILES = [
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://aptosbuilder.io/',
+  siteUrl: 'https://peter-present.xyz/',
   generateRobotsTxt: true,
   exclude,
   robotsTxtOptions: {

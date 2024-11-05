@@ -2,8 +2,8 @@ import {
   AccountAbstractionDescription,
   EthGraphQuery,
   LedCaroDescription,
+  NextAppDescription,
   ProfileDescription,
-  ReactHookUtils,
 } from 'src/components/ProjectDescription';
 import { ProjectType } from 'src/globals';
 
@@ -84,15 +84,15 @@ export const ProjectConfig: Array<ProjectType> = [
     ],
   },
   {
-    id: 'react-hooks-util',
-    technologies: ['vite', 'react hooks'],
-    title: 'React hook utils',
-    description: ReactHookUtils,
+    id: 'next-app',
+    technologies: ['next'],
+    title: 'Next app',
+    description: NextAppDescription,
     links: [
       {
-        id: 'npm',
-        title: 'More',
-        to: 'https://www.npmjs.com/package/@peter-present/react-hook-utils',
+        id: 'hosting',
+        title: 'live',
+        to: 'https://my-next-app-one-topaz.vercel.app/',
         symbol: 'Π',
         color: 'purple',
       },
