@@ -4,7 +4,7 @@ import Image from 'next/image';
 export function AccountAbstractionDescription() {
   return (
     <p className="text-base text-gray-50">
-      Recovery Account Abstraction Wallet that uses EDDSA signature. You can see more about{' '}
+      Recovery Account Abstraction Wallet that uses zero-knowledge proof. You can see more about{' '}
       <a
         href="https://github.com/phamhongphuc1999/account-abstraction-contract"
         target="_blank"

@@ -105,9 +105,9 @@ const SoliditySmartContract: SubSkillType = {
   name: 'Smart Contract',
   nameLink: 'https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html',
 };
-const ZKContract: SubSkillType = {
-  id: 'zk-circom',
-  name: 'Zero Knowledge',
+const Circom: SubSkillType = {
+  id: 'circom',
+  name: 'Circom',
   nameLink: 'https://docs.circom.io/background/background/',
 };
 const DockerCompose: SubSkillType = {
@@ -132,7 +132,7 @@ export const SubSkills = {
   Redux,
   AccountAbstraction,
   SoliditySmartContract,
-  ZKContract,
+  Circom,
   DockerCompose,
   Dockerfile,
 };

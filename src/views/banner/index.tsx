@@ -43,9 +43,11 @@ export default function Banner(params: DivProps) {
           <p className="mt-[2rem] text-center text-base text-gray-50 md:text-start">
             with experience in developing, implementing, and optimizing web applications.
           </p>
-          <div className="flex md:block">
-            <ColorfulBox className="mx-auto mt-[1rem]">Contact me!!!!</ColorfulBox>
-          </div>
+          <a href="https://www.linkedin.com/in/peter-present/" target="_blank" rel="noreferrer">
+            <div className="flex md:block">
+              <ColorfulBox className="mx-auto mt-[1rem]">Contact me!!!!</ColorfulBox>
+            </div>
+          </a>
         </div>
         <div className="item2">
           <RectangleLine className="sticky top-0 hidden h-[260px] md:flex" />

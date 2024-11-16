@@ -22,7 +22,7 @@ const {
   Redux,
   AccountAbstraction,
   SoliditySmartContract,
-  ZKContract,
+  Circom,
   Dockerfile,
   DockerCompose,
 } = SubSkills;
@@ -80,7 +80,7 @@ export const SkillsConfig: Array<SkillsType> = [
         id: 'account-abstraction-app',
         to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
         mode: 'external',
-        title: 'Recovery Account Abstraction Wallet that uses EDDSA signature',
+        title: 'Recovery Account Abstraction Wallet that uses zero-knowledge proof',
       },
       {
         id: 'react-hook-utils',
@@ -110,13 +110,13 @@ export const SkillsConfig: Array<SkillsType> = [
   },
   {
     ...BlockchainSkill,
-    relevantSkills: [AccountAbstraction, SoliditySmartContract, ZKContract],
+    relevantSkills: [AccountAbstraction, SoliditySmartContract, Circom],
     links: [
       {
         id: 'account-abstraction-app',
         to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
         mode: 'external',
-        title: 'Recovery Account Abstraction Wallet that uses EDDSA signature',
+        title: 'Recovery Account Abstraction Wallet that uses zero-knowledge proof',
       },
       {
         id: 'account-abstraction-contract',
@@ -135,6 +135,12 @@ export const SkillsConfig: Array<SkillsType> = [
         to: 'https://github.com/phamhongphuc1999/smart-contract-practice',
         mode: 'external',
         title: 'Smart Contract Practice',
+      },
+      {
+        id: 'snark',
+        to: 'https://my-next-app-one-topaz.vercel.app/',
+        mode: 'external',
+        title: 'Zero-Knowledge Succinct Non-interactive Argument of Knowledge',
       },
     ],
   },

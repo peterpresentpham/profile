@@ -4,6 +4,9 @@ import { LogoIcon } from 'src/components/icons';
 import { ContactConfig, MY_NAME } from 'src/configs/constance';
 
 export default function Footer(props: DivProps) {
+  const dt = new Date();
+  const date = `${dt.getDate()} ${dt.toLocaleString('default', { month: 'short' })} ${dt.getFullYear()}`;
+
   return (
     <div {...styleMerge({ className: 'h-[150px] border-t-[1px] border-t-gray-50' }, props)}>
       <CommonContainer className="flex h-full flex-col justify-between">
@@ -36,8 +39,9 @@ export default function Footer(props: DivProps) {
             </div>
           </div>
         </div>
-        <div className="flex justify-center">
-          <p className="text-base text-gray-50">© Copyright {new Date().getFullYear()}</p>
+        <div className="flex flex-col items-center justify-center">
+          <p className="text-base text-gray-50">Hi, welcome in!</p>
+          <p className="text-base text-gray-50">© Copyright {date}</p>
         </div>
       </CommonContainer>
     </div>
