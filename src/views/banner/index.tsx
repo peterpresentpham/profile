@@ -23,7 +23,7 @@ export default function Banner(params: DivProps) {
     >
       <div className="flex flex-wrap justify-between gap-4">
         <div className="item1 pt-[5rem] sm:pt-[10rem]">
-          <div>
+          <div className="flex flex-wrap items-center justify-center md:block md:flex-nowrap">
             <div className="relative inline-block">
               <p className="text-center text-[32px] font-semibold leading-[34px] text-white md:text-start">
                 Peter
@@ -40,7 +40,7 @@ export default function Banner(params: DivProps) {
               is a <span className="text-purple-50">Fullstack Developer</span>
             </p>
           </div>
-          <p className="mt-[2rem] text-center text-base text-gray-50 md:text-start">
+          <p className="mt-[1rem] text-center text-base text-gray-50 md:text-start">
             with experience in developing, implementing, and optimizing web applications.
           </p>
           <a href="https://www.linkedin.com/in/peter-present/" target="_blank" rel="noreferrer">

@@ -5,19 +5,19 @@ import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { DEFAULT_SCALE } from 'src/configs/constance';
 import { ProjectConfig, ProjectLayoutConfig } from 'src/configs/ProjectConfig';
-import { PositionType } from 'src/globals';
 import useVibeMouses from 'src/hooks/useVibeMouses';
 import Item from './item';
 
 type ProjectLayoutProps = {
   type: 'md' | 'sm' | 'xs';
-  mouses: Array<PositionType>;
   className?: string;
 };
 
-function ProjectsLayout({ type, mouses, className }: ProjectLayoutProps) {
+function ProjectsLayout({ type, className }: ProjectLayoutProps) {
+  const { mouses, onMouseMove } = useVibeMouses();
+
   return (
-    <CommonContainer className={className}>
+    <CommonContainer className={className} onMouseMove={onMouseMove}>
       <CssHeading title="projects" className="cursor-pointer" />
       <div className="mt-[3rem] flex flex-wrap gap-[1.25rem]">
         {ProjectLayoutConfig[type].map((layout, index) => {
@@ -41,13 +41,11 @@ function ProjectsLayout({ type, mouses, className }: ProjectLayoutProps) {
 }
 
 export default function Projects(params: DivProps) {
-  const { mouses, onMouseMove } = useVibeMouses();
-
   return (
-    <div {...params} id="projects" onMouseMove={onMouseMove}>
-      <ProjectsLayout type="md" mouses={mouses} className="hidden md:block" />
-      <ProjectsLayout type="sm" mouses={mouses} className="hidden sm:block md:hidden" />
-      <ProjectsLayout type="xs" mouses={mouses} className="block sm:hidden" />
+    <div {...params} id="projects">
+      <ProjectsLayout type="md" className="hidden md:block" />
+      <ProjectsLayout type="sm" className="hidden sm:block md:hidden" />
+      <ProjectsLayout type="xs" className="block sm:hidden" />
     </div>
   );
 }

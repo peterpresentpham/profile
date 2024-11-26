@@ -5,19 +5,19 @@ import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { DEFAULT_SCALE } from 'src/configs/constance';
 import { SkillsConfig, SkillsLayoutConfig } from 'src/configs/SkillConfig';
-import { PositionType } from 'src/globals';
 import useVibeMouses from 'src/hooks/useVibeMouses';
 import Item from './item';
 
 type SkillsLayoutProps = {
   type: 'md' | 'sm' | 'xs';
-  mouses: Array<PositionType>;
   className?: string;
 };
 
-function SkillsLayout({ type, mouses, className }: SkillsLayoutProps) {
+function SkillsLayout({ type, className }: SkillsLayoutProps) {
+  const { mouses, onMouseMove } = useVibeMouses();
+
   return (
-    <CommonContainer className={className}>
+    <CommonContainer className={className} onMouseMove={onMouseMove}>
       <CssHeading title="skills" className="cursor-pointer" />
       <div className="magical-borders-content mt-[3rem] flex flex-wrap gap-[1.25rem]">
         {SkillsLayoutConfig[type].map((layout, index) => {
@@ -41,13 +41,11 @@ function SkillsLayout({ type, mouses, className }: SkillsLayoutProps) {
 }
 
 export default function Skills(params: DivProps) {
-  const { mouses, onMouseMove } = useVibeMouses();
-
   return (
-    <div {...params} id="skills" onMouseMove={onMouseMove}>
-      <SkillsLayout type="md" mouses={mouses} className="hidden md:block" />
-      <SkillsLayout type="sm" mouses={mouses} className="hidden sm:block md:hidden" />
-      <SkillsLayout type="xs" mouses={mouses} className="block sm:hidden" />
+    <div {...params} id="skills">
+      <SkillsLayout type="md" className="hidden md:block" />
+      <SkillsLayout type="sm" className="hidden sm:block md:hidden" />
+      <SkillsLayout type="xs" className="block sm:hidden" />
     </div>
   );
 }

@@ -49,13 +49,13 @@ export const SkillsLayoutConfig: {
     [
       { index: 0, layoutIndex: 0 },
       { index: 2, layoutIndex: 1 },
-      { index: 4, layoutIndex: 2 },
-      { index: 6, layoutIndex: 3 },
+      { index: 6, layoutIndex: 2 },
     ],
     [
-      { index: 1, layoutIndex: 4 },
-      { index: 3, layoutIndex: 5 },
-      { index: 5, layoutIndex: 6 },
+      { index: 1, layoutIndex: 3 },
+      { index: 3, layoutIndex: 4 },
+      { index: 5, layoutIndex: 5 },
+      { index: 4, layoutIndex: 6 },
     ],
   ],
   xs: [
