@@ -6,6 +6,7 @@ import { ContactConfig, MY_NAME } from 'src/configs/constance';
 export default function Footer(props: DivProps) {
   const dt = new Date();
   const date = `${dt.getDate()} ${dt.toLocaleString('default', { month: 'short' })} ${dt.getFullYear()}`;
+  const currentHour = dt.getHours();
 
   return (
     <div {...styleMerge({ className: 'h-[150px] border-t-[1px] border-t-gray-50' }, props)}>
@@ -40,7 +41,7 @@ export default function Footer(props: DivProps) {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <p className="text-base text-gray-50">Hi, welcome in!</p>
+          <p className="text-base text-gray-50">{`Hi, ${currentHour < 12 && currentHour > 5 ? 'Good morning' : currentHour >= 12 ? 'Good afternoon' : currentHour >= 19 && currentHour < 23 ? 'Good night' : 'Sleep peacefully'}`}</p>
           <p className="text-base text-gray-50">© Copyright {date}</p>
         </div>
       </CommonContainer>

@@ -106,6 +106,12 @@ export const SkillsConfig: Array<SkillsType> = [
         mode: 'external',
         title: 'My profile written by Next',
       },
+      {
+        id: 'document',
+        to: 'https://my-next-app-one-topaz.vercel.app/',
+        mode: 'external',
+        title: 'My document',
+      },
     ],
   },
   {

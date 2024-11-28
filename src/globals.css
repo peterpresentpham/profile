@@ -174,3 +174,19 @@ body {
     width: calc(100% - 64px);
   }
 }
+@keyframes animated-string {
+  0% {
+    transform: translateX(calc(-50% - var(--width)));
+  }
+  100% {
+    transform: translateX(calc(50% + var(--width)));
+  }
+}
+.animated-string-line {
+  transform: translateX(calc(-50% - var(--width)));
+  animation: animated-string 8s infinite linear;
+  transition: all 1s;
+}
+.tool-animated-bg {
+  background: linear-gradient(0.33332turn, transparent, #c778dd, transparent);
+}
