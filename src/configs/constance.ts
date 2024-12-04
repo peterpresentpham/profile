@@ -1,7 +1,9 @@
 import UdemyImg from 'public/certifications/udemy.png';
+import CircomImg from 'public/language/circom.svg';
 import CPlusPlusImg from 'public/language/cplusplus.svg';
 import CSharpImg from 'public/language/csharp.svg';
 import FSharpImg from 'public/language/fsharp.svg';
+import GoImg from 'public/language/go.png';
 import JavaImg from 'public/language/java.svg';
 import JavascriptImg from 'public/language/js.webp';
 import PythonImg from 'public/language/python.svg';
@@ -48,9 +50,11 @@ export const LanguageConfig: Array<ToolType> = [
   { id: 'c#', icon: CSharpImg, link: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
   { id: 'f#', icon: FSharpImg, link: 'https://fsharp.org/' },
   { id: 'java', icon: JavaImg, link: 'https://dev.java/' },
+  { id: 'circom', icon: CircomImg, link: 'https://docs.circom.io/', isWhite: true },
   { id: 'js', icon: JavascriptImg, link: 'https://www.javascript.com/' },
   { id: 'python', icon: PythonImg, link: 'https://www.python.org/' },
   { id: 'solidity', icon: SolidityImg, link: 'https://soliditylang.org/', isWhite: true },
+  { id: 'golang', icon: GoImg, link: 'https://go.dev/' },
 ];
 
 export const ToolsConfig: Array<ToolType> = [
