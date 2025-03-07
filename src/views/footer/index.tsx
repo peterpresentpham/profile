@@ -1,3 +1,5 @@
+'use client';
+
 import { DivProps, styleMerge } from '@peter-present/led-caro';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { LogoIcon } from 'src/components/icons';
