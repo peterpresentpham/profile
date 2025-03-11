@@ -22,6 +22,7 @@ export type ToolType = { id: string; icon: StaticImageData; link: string; isWhit
 
 export type SkillLinkMode = 'scroll' | 'external';
 export type SkillIdType =
+  | 'mobx'
   | 'apache-kafka'
   | 'reactjs'
   | 'nextjs'
@@ -42,7 +43,10 @@ export type SkillIdType =
   | 'solidity-smart-contract'
   | 'circom'
   | 'docker-compose'
-  | 'docker-file';
+  | 'docker-file'
+  | 'vuejs'
+  | 'prime-vue'
+  | 'pinia';
 export type CredentialId = 'apache-kafka';
 
 export type SubSkillType = {

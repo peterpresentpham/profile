@@ -8,6 +8,7 @@ import {
   Next,
   React,
   SubSkills,
+  Vue,
 } from './CoreSkills';
 
 const {
@@ -25,6 +26,9 @@ const {
   Circom,
   Dockerfile,
   DockerCompose,
+  MobX,
+  PrimeVue,
+  Pinia,
 } = SubSkills;
 
 export const SkillsLayoutConfig: {
@@ -39,10 +43,11 @@ export const SkillsLayoutConfig: {
     [
       { index: 1, layoutIndex: 3 },
       { index: 4, layoutIndex: 4 },
+      { index: 7, layoutIndex: 5 },
     ],
     [
-      { index: 2, layoutIndex: 5 },
-      { index: 5, layoutIndex: 6 },
+      { index: 2, layoutIndex: 6 },
+      { index: 5, layoutIndex: 7 },
     ],
   ],
   sm: [
@@ -56,6 +61,7 @@ export const SkillsLayoutConfig: {
       { index: 3, layoutIndex: 4 },
       { index: 5, layoutIndex: 5 },
       { index: 4, layoutIndex: 6 },
+      { index: 7, layoutIndex: 7 },
     ],
   ],
   xs: [
@@ -67,6 +73,7 @@ export const SkillsLayoutConfig: {
       { index: 4, layoutIndex: 4 },
       { index: 5, layoutIndex: 5 },
       { index: 6, layoutIndex: 6 },
+      { index: 7, layoutIndex: 7 },
     ],
   ],
 };
@@ -74,7 +81,7 @@ export const SkillsLayoutConfig: {
 export const SkillsConfig: Array<SkillsType> = [
   {
     ...React,
-    relevantSkills: [Next, Redux, Ethers, AntDesign, MUI, Tailwind],
+    relevantSkills: [Next, Redux, MobX, Ethers, AntDesign, MUI, Tailwind],
     links: [
       {
         id: 'account-abstraction-app',
@@ -151,6 +158,18 @@ export const SkillsConfig: Array<SkillsType> = [
     ],
   },
   {
+    ...Vue,
+    relevantSkills: [PrimeVue, Pinia],
+    links: [
+      {
+        id: 'vue-word-project',
+        to: 'https://github.com/phamhongphuc1999/vue-project',
+        mode: 'external',
+        title: 'VueApp',
+      },
+    ],
+  },
+  {
     ...ApacheKafka,
     links: [
       {
@@ -185,5 +204,16 @@ export const SkillsConfig: Array<SkillsType> = [
       },
     ],
   },
-  { ...Docker, relevantSkills: [Dockerfile, DockerCompose] },
+  {
+    ...Docker,
+    relevantSkills: [Dockerfile, DockerCompose],
+    links: [
+      {
+        id: 'java-practice',
+        to: 'https://github.com/phamhongphuc1999/JavaPractice',
+        mode: 'external',
+        title: 'Java practice with docker',
+      },
+    ],
+  },
 ];

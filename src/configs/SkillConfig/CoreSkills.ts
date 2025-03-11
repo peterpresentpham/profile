@@ -4,6 +4,7 @@ import DotnetImg from 'public/skills/dotnet.png';
 import NextImg from 'public/skills/next.svg';
 import ReactImg from 'public/skills/react.svg';
 import JavaSpringImg from 'public/skills/spring-boot.png';
+import VueImg from 'public/skills/vuejs.png';
 import DockerImg from 'public/tools/docker.svg';
 import { CoreSkillsType, SubSkillType } from 'src/globals';
 
@@ -24,6 +25,12 @@ export const Next: CoreSkillsType = {
   name: 'Next',
   nameLink: 'https://nextjs.org/',
   icon: NextImg,
+};
+export const Vue: CoreSkillsType = {
+  id: 'vuejs',
+  name: 'Vue',
+  nameLink: 'https://vuejs.org/',
+  icon: VueImg,
 };
 export const Docker: CoreSkillsType = {
   id: 'docker',
@@ -49,7 +56,6 @@ export const BlockchainSkill: CoreSkillsType = {
   nameLink: '',
   icon: BlockchainImg,
 };
-
 const Ethers: SubSkillType = {
   id: 'ethers',
   name: 'Ethers',
@@ -95,6 +101,11 @@ const Redux: SubSkillType = {
   name: 'Redux',
   nameLink: 'https://redux.js.org/',
 };
+const MobX: SubSkillType = {
+  id: 'mobx',
+  name: 'MobX',
+  nameLink: 'https://redux.js.org/',
+};
 const AccountAbstraction: SubSkillType = {
   id: 'account-abstraction',
   name: 'Account Abstraction',
@@ -120,7 +131,18 @@ const Dockerfile: SubSkillType = {
   name: 'Dockerfile',
   nameLink: 'https://docs.docker.com/reference/dockerfile/',
 };
+const PrimeVue: SubSkillType = {
+  id: 'prime-vue',
+  name: 'PrimeVue',
+  nameLink: 'https://primevue.org/',
+};
+const Pinia: SubSkillType = {
+  id: 'pinia',
+  name: 'Pinia',
+  nameLink: 'https://pinia.vuejs.org/',
+};
 export const SubSkills = {
+  Pinia,
   Ethers,
   Tailwind,
   AntDesign,
@@ -135,4 +157,6 @@ export const SubSkills = {
   Circom,
   DockerCompose,
   Dockerfile,
+  MobX,
+  PrimeVue,
 };
