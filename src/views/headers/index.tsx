@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import throttle from 'lodash.throttle';
+import { useCallback, useEffect, useState } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { HeaderItem } from 'src/components/CssHeading';
 import { LogoIcon, MenuIcon } from 'src/components/icons';
@@ -9,47 +10,34 @@ import ContactLine from './ContactLine';
 import SmallPopover from './SmallPopover';
 
 export default function Header() {
-  const [position, setPosition] = useState(typeof window != 'undefined' ? window.scrollY : 0);
+  const [position, setPosition] = useState(0);
   const [open, setOpen] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const updateScrollDir = useCallback(
+    throttle(() => {
+      const scrollY = window.scrollY;
+      setPosition(scrollY);
+    }, 200),
+    []
+  );
+
   useEffect(() => {
-    if (typeof window != 'undefined') {
-      const threshold = 0;
-      let lastScrollY = window.scrollY;
-      let ticking = false;
+    window.addEventListener('scroll', updateScrollDir);
+    return () => window.removeEventListener('scroll', updateScrollDir);
+  }, [updateScrollDir]);
 
-      const updateScrollDir = () => {
-        const scrollY = window.scrollY;
-        setPosition(scrollY);
-        if (Math.abs(scrollY - lastScrollY) < threshold) {
-          ticking = false;
-          return;
-        }
-        lastScrollY = scrollY > 0 ? scrollY : 0;
-        ticking = false;
-      };
-      const onScroll = () => {
-        if (!ticking) {
-          window.requestAnimationFrame(updateScrollDir);
-          ticking = true;
-        }
-      };
-      window.addEventListener('scroll', onScroll);
-      return () => window.removeEventListener('scroll', onScroll);
-    }
-  }, []);
-
-  function onScrollClick(id: string) {
+  const onScrollClick = useCallback((id: string) => {
     const element = document.getElementById(id);
-    const position = element?.getBoundingClientRect();
-    if (position && typeof window !== 'undefined') {
+    if (element && typeof window !== 'undefined') {
+      const position = element.getBoundingClientRect();
       window.scrollTo({
         left: position.left,
         top: position.top + window.scrollY,
         behavior: 'smooth',
       });
     }
-  }
+  }, []);
 
   return (
     <div
