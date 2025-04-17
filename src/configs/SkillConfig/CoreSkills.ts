@@ -141,6 +141,31 @@ const Pinia: SubSkillType = {
   name: 'Pinia',
   nameLink: 'https://pinia.vuejs.org/',
 };
+const VercelSkill: SubSkillType = {
+  id: 'vercel',
+  name: 'Vercel',
+  nameLink: 'https://vercel.com/docs',
+};
+const WagmiSkill: SubSkillType = {
+  id: 'wagmi',
+  name: 'Wagmi',
+  nameLink: 'https://wagmi.sh/',
+};
+const ViteSkill: SubSkillType = {
+  id: 'vite',
+  name: 'Vite',
+  nameLink: 'https://vite.dev/',
+};
+const TheGraphSkill: SubSkillType = {
+  id: 'the-graph',
+  name: 'The graph',
+  nameLink: 'https://thegraph.com/',
+};
+const ShadcnSkill: SubSkillType = {
+  id: 'shadcn',
+  name: 'shadcn/ui',
+  nameLink: 'https://ui.shadcn.com/',
+};
 export const SubSkills = {
   Pinia,
   Ethers,
@@ -159,4 +184,9 @@ export const SubSkills = {
   Dockerfile,
   MobX,
   PrimeVue,
+  VercelSkill,
+  WagmiSkill,
+  ViteSkill,
+  TheGraphSkill,
+  ShadcnSkill,
 };

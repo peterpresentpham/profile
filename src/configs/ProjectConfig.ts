@@ -6,6 +6,7 @@ import {
   ProfileDescription,
 } from 'src/components/ProjectDescription';
 import { ProjectType } from 'src/globals';
+import { Next, React, SubSkills } from './SkillConfig/CoreSkills';
 
 type Type = {
   [key: string]: Array<Array<{ index: number; layoutIndex: number }>>;
@@ -45,10 +46,12 @@ export const ProjectLayoutConfig: Type = {
   ],
 };
 
+const { VercelSkill, Ethers, MUI, WagmiSkill, ViteSkill, TheGraphSkill, ShadcnSkill } = SubSkills;
+
 export const ProjectConfig: Array<ProjectType> = [
   {
     id: 'profile',
-    technologies: ['next', 'react', 'vercel'],
+    technologies: [Next, React, VercelSkill],
     title: 'Personal profile',
     description: ProfileDescription,
     links: [
@@ -70,7 +73,7 @@ export const ProjectConfig: Array<ProjectType> = [
   },
   {
     id: 'account-abstraction-app',
-    technologies: ['react', 'ethers', 'mui', 'wagmi'],
+    technologies: [React, Ethers, MUI, WagmiSkill],
     title: 'Account Abstraction App',
     description: AccountAbstractionDescription,
     links: [
@@ -85,8 +88,8 @@ export const ProjectConfig: Array<ProjectType> = [
   },
   {
     id: 'next-app',
-    technologies: ['next'],
-    title: 'Next app',
+    technologies: [Next, ShadcnSkill],
+    title: 'My blog app',
     description: NextAppDescription,
     links: [
       {
@@ -100,7 +103,7 @@ export const ProjectConfig: Array<ProjectType> = [
   },
   {
     id: 'eth-graph-query',
-    technologies: ['vite', 'the graph', 'rest full api'],
+    technologies: [ViteSkill, TheGraphSkill],
     title: 'Eth graph query',
     description: EthGraphQuery,
     links: [
@@ -115,7 +118,7 @@ export const ProjectConfig: Array<ProjectType> = [
   },
   {
     id: 'led-caro',
-    technologies: ['vite', 'bun', 'react', 'css'],
+    technologies: [ViteSkill, React],
     title: 'Led caro',
     description: LedCaroDescription,
     links: [

@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-head-element */
+/* eslint-disable quotes */
 import Script from 'next/script';
 import IconImg from 'public/star.svg';
 import ThumbImg from 'public/thumbnail.webp';
 
 const Description =
-  'I am a full-stack developer with three years of experience in developing, implementing, and optimizing web applications. Proficient in front-end technologies including HTML, CSS, JavaScript, Typescript, and frameworks such as ReactJs, NextJs, and VueJs as well as backend technologies like Nodejs, Python. I want to find a dynamic environment to continuously improve my knowledge, enabling effective collaboration with team members and achieve project objectives, drive innovation.';
+  "I am a full-stack developer with over three years of experience in building, optimizing, and deploying web applications. I specialize in front-end technologies such as HTML, CSS, JavaScript, and TypeScript, and have hands-on experience with frameworks like React.js, Next.js, and Vue.js. On the backend, I work with Node.js and Python to create robust and scalable solutions. I'm seeking a dynamic and collaborative environment where I can continuously expand my skill set, contribute effectively to team goals, and help drive innovation across projects.";
 
 interface Props {
   title?: string;

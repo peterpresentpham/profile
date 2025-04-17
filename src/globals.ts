@@ -4,20 +4,6 @@ import { FunctionComponent, SVGProps } from 'react';
 export type SvgPropsType = SVGProps<SVGSVGElement>;
 export type PositionType = { x: string; y: string };
 
-export type ProjectType = {
-  id: string;
-  technologies: Array<string>;
-  title: string;
-  description: FunctionComponent;
-  links?: Array<{
-    id: string;
-    title: string;
-    to: string;
-    symbol: string;
-    color: 'purple' | 'gray';
-  }>;
-};
-
 export type ToolType = { id: string; icon: StaticImageData; link: string; isWhite?: boolean };
 
 export type SkillLinkMode = 'scroll' | 'external';
@@ -46,7 +32,12 @@ export type SkillIdType =
   | 'docker-file'
   | 'vuejs'
   | 'prime-vue'
-  | 'pinia';
+  | 'pinia'
+  | 'vercel'
+  | 'wagmi'
+  | 'vite'
+  | 'the-graph'
+  | 'shadcn';
 export type CredentialId = 'apache-kafka';
 
 export type SubSkillType = {
@@ -57,6 +48,20 @@ export type SubSkillType = {
 export interface CoreSkillsType extends SubSkillType {
   icon: StaticImageData;
 }
+
+export type ProjectType = {
+  id: string;
+  technologies: Array<SubSkillType>;
+  title: string;
+  description: FunctionComponent;
+  links?: Array<{
+    id: string;
+    title: string;
+    to: string;
+    symbol: string;
+    color: 'purple' | 'gray';
+  }>;
+};
 
 export interface SkillsType extends CoreSkillsType {
   relevantSkills?: Array<SubSkillType>;

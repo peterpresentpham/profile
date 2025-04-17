@@ -1,6 +1,7 @@
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
 import { PositionType, ProjectType } from 'src/globals';
+import RelevantSkills from '../skills/RelevantSkills';
 
 type Props = ProjectType & { mouse: PositionType };
 
@@ -10,8 +11,8 @@ export default function Item(params: Props) {
 
   return (
     <VibeBox mouse={mouse}>
-      <VibeContent mode="simple" containerProps={{ className: 'p-[1rem]' }}>
-        <p className="text-base text-gray-50">{technologies.join(', ')}</p>
+      <VibeContent mode="simple">
+        <RelevantSkills skills={technologies} />
       </VibeContent>
       <VibeContent mode="simple" className="pt-0" containerProps={{ className: 'p-[1rem]' }}>
         <p className="text-medium text-[24px] text-white">{title}</p>

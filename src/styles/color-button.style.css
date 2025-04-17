@@ -124,7 +124,8 @@
   z-index: 1;
 }
 .glowing-box-button-purple-bg {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       107.5% 107.5% at 50% 215%,
       rgba(199, 120, 221, 0.48) 0%,
       rgba(199, 120, 221, 0) 100%
@@ -140,7 +141,8 @@
   );
 }
 .glowing-box-button-white-bg {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       107.5% 107.5% at 50% 215%,
       rgba(255, 255, 255, 0.24) 0%,
       rgba(255, 255, 255, 0) 100%

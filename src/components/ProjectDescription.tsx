@@ -49,7 +49,7 @@ export function EthGraphQuery() {
 }
 
 export function NextAppDescription() {
-  return <p className="text-base text-gray-50">My document</p>;
+  return <p className="text-base text-gray-50">My blog app</p>;
 }
 
 export function LedCaroDescription() {
