@@ -1,28 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-require-imports */
 import Image from 'next/image';
 
 export function AccountAbstractionDescription() {
   return (
     <p className="text-base text-gray-50">
-      Recovery Account Abstraction Wallet that uses zero-knowledge proof. You can see more about{' '}
-      <a
-        href="https://github.com/phamhongphuc1999/account-abstraction-contract"
-        target="_blank"
-        rel="noreferrer"
-        className="text-purple-50 underline"
-      >
-        smart contract system
-      </a>{' '}
-      and{' '}
-      <a
-        href="https://github.com/phamhongphuc1999/bundler"
-        target="_blank"
-        rel="noreferrer"
-        className="text-purple-50 underline"
-      >
-        bundler
-      </a>
-      .
+      Recovery Account Abstraction Wallet based on ERC04337 that uses zero-knowledge proof for
+      hiding guardian's information.
     </p>
   );
 }

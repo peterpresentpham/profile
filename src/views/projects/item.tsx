@@ -25,7 +25,7 @@ export default function Item(params: Props) {
               return (
                 <a key={link.id} href={link.to} target="_blank" rel="noreferrer">
                   <ColorfulBox
-                    className="mr-[16px]"
+                    className="mr-[8px]"
                     color={link.color}
                   >{`${link.symbol} ${link.title}`}</ColorfulBox>
                 </a>

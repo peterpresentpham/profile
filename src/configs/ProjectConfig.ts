@@ -18,11 +18,11 @@ export const ProjectLayoutConfig: Type = {
       { index: 0, layoutIndex: 0 },
       { index: 3, layoutIndex: 1 },
     ],
+    [{ index: 1, layoutIndex: 2 }],
     [
-      { index: 1, layoutIndex: 2 },
-      { index: 4, layoutIndex: 3 },
+      { index: 2, layoutIndex: 3 },
+      { index: 4, layoutIndex: 4 },
     ],
-    [{ index: 2, layoutIndex: 4 }],
   ],
   sm: [
     [
@@ -78,10 +78,24 @@ export const ProjectConfig: Array<ProjectType> = [
     description: AccountAbstractionDescription,
     links: [
       {
-        id: 'github',
-        title: 'github',
+        id: 'frontend-github',
+        title: 'User Interface',
         to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
-        symbol: 'Θ',
+        symbol: 'ξ',
+        color: 'gray',
+      },
+      {
+        id: 'smart-contract',
+        title: 'Smart Contract',
+        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract',
+        symbol: 'Ξ',
+        color: 'purple',
+      },
+      {
+        id: 'bundler',
+        title: 'Bundler',
+        to: 'https://github.com/phamhongphuc1999/bundler',
+        symbol: 'Ψ',
         color: 'gray',
       },
     ],
@@ -96,7 +110,7 @@ export const ProjectConfig: Array<ProjectType> = [
         id: 'hosting',
         title: 'live',
         to: 'https://my-next-app-one-topaz.vercel.app/',
-        symbol: 'Π',
+        symbol: 'δ',
         color: 'purple',
       },
     ],
@@ -109,7 +123,7 @@ export const ProjectConfig: Array<ProjectType> = [
     links: [
       {
         id: 'npm',
-        title: 'More',
+        title: 'Npm package',
         to: 'https://www.npmjs.com/package/eth-graph-query',
         symbol: 'Σ',
         color: 'gray',
@@ -124,7 +138,7 @@ export const ProjectConfig: Array<ProjectType> = [
     links: [
       {
         id: 'npm',
-        title: 'More',
+        title: 'Npm package',
         to: 'https://www.npmjs.com/package/@peter-present/led-caro',
         symbol: 'Ω',
         color: 'purple',

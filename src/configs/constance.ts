@@ -31,6 +31,7 @@ export const DEFAULT_SCALE = { x: '-200px', y: '-200px' };
 export const HeaderConfig: Array<{ id: string; title: string }> = [
   { id: 'projects', title: 'projects' },
   { id: 'skills', title: 'skills' },
+  { id: 'education', title: 'education' },
   { id: 'certification', title: 'certification' },
 ];
 

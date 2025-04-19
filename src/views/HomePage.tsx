@@ -1,5 +1,6 @@
 import Banner from './banner';
 import Certification from './certifications';
+import Education from './education';
 import Footer from './footer';
 import Header from './headers';
 import Projects from './projects';
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Projects className="pb-[4rem] pt-[4rem]" />
       <Tools className="pb-[4rem] pt-[2rem]" />
       <Skills className="pb-[4rem] pt-[2rem]" />
+      <Education className="pb-[4rem] pt-[2rem]" />
       <Certification className="pb-[4rem] pt-[2rem]" />
       <Footer />
     </>

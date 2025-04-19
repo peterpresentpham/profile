@@ -38,6 +38,7 @@ export type SkillIdType =
   | 'vite'
   | 'the-graph'
   | 'shadcn';
+export type EducationId = 'hust-bachelor';
 export type CredentialId = 'apache-kafka';
 
 export type SubSkillType = {
@@ -68,18 +69,24 @@ export interface SkillsType extends CoreSkillsType {
   links?: Array<{ id: string; to: string; mode: SkillLinkMode; title: string }>;
 }
 
+export type EducationType = {
+  id: EducationId;
+  school: string;
+  url: string;
+  degree: string;
+  fieldOfStudy: string;
+  startDate: { year: number };
+  endDate?: { year: number };
+  grade: string;
+  icon: StaticImageData;
+};
+
 export type CredentialType = {
   id: CredentialId;
   name: string;
   credentialId: string;
   credentialUrl: string;
   skills: Array<{ id: SkillIdType; name: string }>;
-  issuingOrganization: {
-    icon: StaticImageData;
-    name: string;
-  };
-  issueDate: {
-    month: string;
-    year: number;
-  };
+  issuingOrganization: { icon: StaticImageData; name: string };
+  issueDate: { month: string; year: number };
 };
