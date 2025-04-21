@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-require-imports */
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function AccountAbstractionDescription() {
   return (
@@ -19,14 +20,14 @@ export function EthGraphQuery() {
   return (
     <p className="text-base text-gray-50">
       Simple package for creating query to{' '}
-      <a
+      <Link
         href="https://thegraph.com/"
         target="_blank"
         rel="noreferrer"
         className="text-purple-50 underline"
       >
         the GraphQL
-      </a>
+      </Link>
       .
     </p>
   );

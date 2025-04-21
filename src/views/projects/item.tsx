@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
 import { PositionType, ProjectType } from 'src/globals';
@@ -23,12 +24,12 @@ export default function Item(params: Props) {
           <div className="mt-[1rem]">
             {links?.map((link) => {
               return (
-                <a key={link.id} href={link.to} target="_blank" rel="noreferrer">
+                <Link key={link.id} href={link.to} target="_blank" rel="noreferrer">
                   <ColorfulBox
                     className="mr-[8px]"
                     color={link.color}
                   >{`${link.symbol} ${link.title}`}</ColorfulBox>
-                </a>
+                </Link>
               );
             })}
           </div>

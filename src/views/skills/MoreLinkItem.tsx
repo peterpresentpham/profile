@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { StarIcon } from 'src/components/icons';
 import { SkillLinkMode } from 'src/globals';
 
@@ -38,8 +39,8 @@ export default function MoreLinkItem({ to, mode, title }: Props) {
       <CoreLinkItem title={title} />
     </div>
   ) : (
-    <a href={to} target="_blank" rel="noreferrer">
+    <Link href={to} target="_blank" rel="noreferrer">
       <CoreLinkItem title={title} />
-    </a>
+    </Link>
   );
 }

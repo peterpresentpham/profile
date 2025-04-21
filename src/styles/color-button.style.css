@@ -59,6 +59,15 @@
     rgba(255, 255, 255, 0.5) 360deg
   );
 }
+.glowing-box-orange-bg {
+  background-image: conic-gradient(
+    from 0 at 50% 50%,
+    rgba(173, 102, 54, 0.5) 0deg,
+    rgba(173, 102, 54, 0.15) 60deg,
+    rgba(173, 102, 54, 0.15) 310deg,
+    rgba(173, 102, 54, 0.5) 360deg
+  );
+}
 .glowing-box-glow {
   filter: blur(8px);
   opacity: 0.12;
@@ -155,6 +164,23 @@
     85% 120% at 50% 120%,
     rgba(255, 255, 255, 0.24) 0%,
     rgba(255, 255, 255, 0) 100%
+  );
+}
+.glowing-box-button-orange-bg {
+  background:
+    radial-gradient(
+      107.5% 107.5% at 50% 215%,
+      rgba(173, 102, 54, 0.12) 0%,
+      rgba(173, 102, 54, 0.025) 100%
+    ),
+    rgba(173, 102, 54, 0.02);
+  border: 1px solid rgb(173, 102, 54, 0.05);
+}
+.glowing-box-button-orange-bg::after {
+  background: radial-gradient(
+    85% 120% at 50% 120%,
+    rgba(173, 102, 54, 0.12) 0%,
+    rgba(173, 102, 54, 0.025) 100%
   );
 }
 .glowing-box-button::after {

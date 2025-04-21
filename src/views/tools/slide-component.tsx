@@ -1,5 +1,6 @@
 import { twMerge } from '@peter-present/led-caro';
 import Image from 'next/image';
+import Link from 'next/link';
 import Marquee, { MarqueeProps } from 'react-fast-marquee';
 import { ToolType } from 'src/globals';
 
@@ -20,7 +21,7 @@ export default function SlideComponent({ data, ...props }: Props) {
         const isWhite = Boolean(item.isWhite);
 
         return (
-          <a key={item.id} href={item.link} target="_blank" rel="noreferrer">
+          <Link key={item.id} href={item.link} target="_blank" rel="noreferrer">
             <div
               className={twMerge(
                 'mr-[4rem]',
@@ -35,7 +36,7 @@ export default function SlideComponent({ data, ...props }: Props) {
                 className={isWhite ? 'h-auto w-[80px]' : 'h-auto w-[100px]'}
               />
             </div>
-          </a>
+          </Link>
         );
       })}
     </Marquee>
