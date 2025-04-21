@@ -16,7 +16,7 @@ export default function Education(params: DivProps) {
     <div {...params} id="education" onMouseMove={onMouseMove}>
       <CommonContainer>
         <CssHeading title="education" className="cursor-pointer" />
-        <div className="magical-borders-content mt-[3rem]">
+        <div className="mt-[3rem]">
           {EducationConfig.map((item, index) => {
             const mouse = mouses[index] ?? DEFAULT_SCALE;
 

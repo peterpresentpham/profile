@@ -3,9 +3,9 @@
 
 import { DivProps } from '@peter-present/led-caro';
 import Image from 'next/image';
-import { VibeContent } from 'src/components/box/VibeBox';
+import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
-import { CredentialType } from 'src/globals';
+import { CredentialType, PositionType } from 'src/globals';
 
 type InfoComponentProps = {
   credentialId: string;
@@ -65,42 +65,47 @@ function InfoComponent(params: InfoComponentProps) {
   );
 }
 
-export default function Item(params: CredentialType) {
-  const { id, name, credentialId, credentialUrl, skills, issueDate, issuingOrganization } = params;
+type Props = CredentialType & { mouse: PositionType };
+
+export default function Item(params: Props) {
+  const { id, name, credentialId, credentialUrl, skills, issueDate, issuingOrganization, mouse } =
+    params;
   const { icon, name: nameOrganization } = issuingOrganization;
 
   return (
-    <VibeContent
-      containerProps={{ className: 'p-[1rem] credential-magical-item' }}
-      id={`certification-${id}`}
-    >
-      <div className="credential-item">
-        <div className="credential-item-item1">
-          <a href={credentialUrl} target="_blank" rel="noreferrer">
-            <Image src={icon} alt={nameOrganization} className="h-[48px] w-[48px]" />
-          </a>
+    <VibeBox mouse={mouse}>
+      <VibeContent
+        containerProps={{ className: 'p-[1rem] credential-magical-item' }}
+        id={`certification-${id}`}
+      >
+        <div className="credential-item">
+          <div className="credential-item-item1">
+            <a href={credentialUrl} target="_blank" rel="noreferrer">
+              <Image src={icon} alt={nameOrganization} className="h-[48px] w-[48px]" />
+            </a>
+          </div>
+          <div className="credential-item-item2">
+            <a href={credentialUrl} target="_blank" rel="noreferrer">
+              <p className="hover-text text-base font-semibold text-white">{name}</p>
+              <p className="text-base text-white">{nameOrganization}</p>
+            </a>
+            <InfoComponent
+              className="credential-info-component"
+              credentialId={credentialId}
+              credentialUrl={credentialUrl}
+              skills={skills}
+              issueDate={issueDate}
+            />
+          </div>
         </div>
-        <div className="credential-item-item2">
-          <a href={credentialUrl} target="_blank" rel="noreferrer">
-            <p className="hover-text text-base font-semibold text-white">{name}</p>
-            <p className="text-base text-white">{nameOrganization}</p>
-          </a>
-          <InfoComponent
-            className="credential-info-component"
-            credentialId={credentialId}
-            credentialUrl={credentialUrl}
-            skills={skills}
-            issueDate={issueDate}
-          />
-        </div>
-      </div>
-      <InfoComponent
-        className="credential-info-component-small"
-        credentialId={credentialId}
-        credentialUrl={credentialUrl}
-        skills={skills}
-        issueDate={issueDate}
-      />
-    </VibeContent>
+        <InfoComponent
+          className="credential-info-component-small"
+          credentialId={credentialId}
+          credentialUrl={credentialUrl}
+          skills={skills}
+          issueDate={issueDate}
+        />
+      </VibeContent>
+    </VibeBox>
   );
 }
