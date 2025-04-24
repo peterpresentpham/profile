@@ -3,6 +3,7 @@
 
 import { DivProps } from '@peter-present/led-caro';
 import Image from 'next/image';
+import Link from 'next/link';
 import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
 import { CredentialType, PositionType } from 'src/globals';
@@ -32,11 +33,11 @@ function InfoComponent(params: InfoComponentProps) {
 
   return (
     <div {...props}>
-      <a href={credentialUrl} target="_blank" rel="noreferrer">
+      <Link href={credentialUrl} target="_blank" rel="noreferrer">
         <p className="text-base text-gray-50">{`Issued ${month} ${year}`}</p>
         <p className="text-base text-gray-50">{`Credential ID ${credentialId}`}</p>
-      </a>
-      <a
+      </Link>
+      <Link
         href={credentialUrl}
         target="_blank"
         rel="noreferrer"
@@ -44,7 +45,7 @@ function InfoComponent(params: InfoComponentProps) {
       >
         <p className="text-gray-50">Show credential</p>
         <RocketIcon width={16} height={16} />
-      </a>
+      </Link>
       <div className="flex items-center gap-x-1">
         <DiamondIcon width={16} height={16} />
         <div className="flex items-center gap-x-4">
@@ -80,15 +81,15 @@ export default function Item(params: Props) {
       >
         <div className="credential-item">
           <div className="credential-item-item1">
-            <a href={credentialUrl} target="_blank" rel="noreferrer">
+            <Link href={credentialUrl} target="_blank" rel="noreferrer">
               <Image src={icon} alt={nameOrganization} className="h-[48px] w-[48px]" />
-            </a>
+            </Link>
           </div>
           <div className="credential-item-item2">
-            <a href={credentialUrl} target="_blank" rel="noreferrer">
+            <Link href={credentialUrl} target="_blank" rel="noreferrer">
               <p className="hover-text text-base font-semibold text-white">{name}</p>
               <p className="text-base text-white">{nameOrganization}</p>
-            </a>
+            </Link>
             <InfoComponent
               className="credential-info-component"
               credentialId={credentialId}

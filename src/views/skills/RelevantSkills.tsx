@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { UnitIcon } from 'src/components/icons';
 import { SubSkillType } from 'src/globals';
 
@@ -13,14 +14,14 @@ export default function RelevantSkills({ skills }: Props) {
       {skills.map((skill, index) => {
         return (
           <div key={skill.id} className="flex items-center gap-x-2">
-            <a
+            <Link
               href={skill.nameLink}
               target="_blank"
               rel="noreferrer"
               className="hover-text text-base text-gray-50"
             >
               {skill.name}
-            </a>
+            </Link>
             {_max > index && <UnitIcon className="h-[5px] w-[5px]" />}
           </div>
         );

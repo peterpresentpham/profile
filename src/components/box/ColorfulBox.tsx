@@ -1,8 +1,23 @@
 import { DivProps, styleMerge, twMerge } from '@peter-present/led-caro';
-import 'src/styles/color-button.style.css';
+import { ButtonColorType } from 'src/globals';
+
+type StyleType = 'box' | 'button';
+
+const ColorConfig: { [key in StyleType]: { [key1 in ButtonColorType]: string } } = {
+  box: {
+    purple: 'glowing-box-purple-bg',
+    gray: 'glowing-box-white-bg',
+    orange: 'glowing-box-orange-bg',
+  },
+  button: {
+    purple: 'glowing-box-button-purple-bg',
+    gray: 'glowing-box-button-white-bg',
+    orange: 'glowing-box-button-orange-bg',
+  },
+};
 
 interface Props extends DivProps {
-  color?: 'purple' | 'gray';
+  color?: ButtonColorType;
 }
 
 export default function ColorfulBox({ color = 'purple', ...props }: Props) {
@@ -14,35 +29,15 @@ export default function ColorfulBox({ color = 'purple', ...props }: Props) {
       )}
     >
       <div className="glowing-box-animations">
-        <div
-          className={twMerge(
-            'glowing-box-glow',
-            color == 'purple' ? 'glowing-box-purple-bg' : 'glowing-box-white-bg'
-          )}
-        />
+        <div className={twMerge('glowing-box-glow', ColorConfig.box[color])} />
         <div className="glowing-box-stars-masker">
-          <div
-            className={twMerge(
-              'glowing-box-stars',
-              color == 'purple' ? 'glowing-box-purple-bg' : 'glowing-box-white-bg'
-            )}
-          />
+          <div className={twMerge('glowing-box-stars', ColorConfig.box[color])} />
         </div>
       </div>
       <div className="glowing-box-borders-masker">
-        <div
-          className={twMerge(
-            'glowing-box-borders',
-            color == 'purple' ? 'glowing-box-purple-bg' : 'glowing-box-white-bg'
-          )}
-        />
+        <div className={twMerge('glowing-box-borders', ColorConfig.box[color])} />
       </div>
-      <div
-        className={twMerge(
-          'glowing-box-button text-white',
-          color == 'purple' ? 'glowing-box-button-purple-bg' : 'glowing-box-button-white-bg'
-        )}
-      >
+      <div className={twMerge('glowing-box-button text-white', ColorConfig.button[color])}>
         {props.children}
       </div>
     </div>

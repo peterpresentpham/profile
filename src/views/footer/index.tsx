@@ -1,6 +1,7 @@
 'use client';
 
 import { DivProps, styleMerge } from '@peter-present/led-caro';
+import Link from 'next/link';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { LogoIcon } from 'src/components/icons';
 import { ContactConfig, MY_NAME } from 'src/configs/constance';
@@ -28,7 +29,7 @@ export default function Footer(props: DivProps) {
                 const Icon = item.icon;
 
                 return (
-                  <a
+                  <Link
                     key={item.id}
                     href={item.to}
                     target="_blank"
@@ -36,7 +37,7 @@ export default function Footer(props: DivProps) {
                     className="contact-icon cursor-pointer"
                   >
                     <Icon className="h-[25px] w-[25px]" />
-                  </a>
+                  </Link>
                 );
               })}
             </div>

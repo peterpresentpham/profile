@@ -1,4 +1,5 @@
 import { DivProps, styleMerge } from '@peter-present/led-caro';
+import Link from 'next/link';
 import { ContactConfig } from 'src/configs/constance';
 
 export default function ContactLine(params: DivProps) {
@@ -9,7 +10,7 @@ export default function ContactLine(params: DivProps) {
         const Icon = item.icon;
 
         return (
-          <a
+          <Link
             key={item.id}
             href={item.to}
             target="_blank"
@@ -17,7 +18,7 @@ export default function ContactLine(params: DivProps) {
             className="contact-icon cursor-pointer"
           >
             <Icon className="h-[25px] w-[25px]" />
-          </a>
+          </Link>
         );
       })}
     </div>

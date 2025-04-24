@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import Image from 'next/image';
+import Link from 'next/link';
 import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
 import { PositionType, SkillsType } from 'src/globals';
 import MoreLinkItem from './MoreLinkItem';
@@ -17,14 +18,14 @@ export default function Item(params: Props) {
         containerProps={{ className: 'p-[1rem] flex items-center gap-x-2' }}
       >
         <Image src={icon} alt={id} className="h-auto w-[24px]" />
-        <a
+        <Link
           href={nameLink}
           target="_blank"
           rel="noreferrer"
           className="hover-text text-base text-white"
         >
           {name}
-        </a>
+        </Link>
       </VibeContent>
       {relevantSkills && (
         <VibeContent mode="simple" className="pt-0">

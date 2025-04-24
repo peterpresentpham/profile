@@ -1,5 +1,6 @@
 import { DivProps, styleMerge } from '@peter-present/led-caro';
 import { Fira_Sans } from 'next/font/google';
+import Link from 'next/link';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import CssTooltip from 'src/components/CssTooltip';
 import { InfoIcon } from 'src/components/icons';
@@ -43,11 +44,15 @@ export default function Banner(params: DivProps) {
           <p className="mt-[1rem] text-center text-base text-gray-50 md:text-start">
             with experience in developing, implementing, and optimizing web applications.
           </p>
-          <a href="https://www.linkedin.com/in/peter-present/" target="_blank" rel="noreferrer">
-            <div className="flex md:block">
-              <ColorfulBox className="mx-auto mt-[1rem]">Contact me!!!!</ColorfulBox>
-            </div>
-          </a>
+          <div className="mt-[1rem] flex items-center justify-center gap-[8px] md:justify-start">
+            <Link
+              href="https://www.linkedin.com/in/peter-present/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <ColorfulBox className="mx-auto mt-[1rem]">Contact me!</ColorfulBox>
+            </Link>
+          </div>
         </div>
         <div className="item2">
           <RectangleLine className="sticky top-0 hidden h-[260px] md:flex" />
