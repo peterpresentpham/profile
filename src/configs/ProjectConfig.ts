@@ -109,7 +109,7 @@ export const ProjectConfig: Array<ProjectType> = [
       {
         id: 'hosting',
         title: 'live',
-        to: 'https://my-next-app-one-topaz.vercel.app/',
+        to: 'https://blog.peter-present.xyz/',
         symbol: 'δ',
         color: 'purple',
       },
