@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { DivProps, styleMerge } from '@peter-present/led-caro';
 import { CSSProperties } from 'react';
 import { PositionType } from 'src/globals';

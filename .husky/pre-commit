@@ -1,2 +1,2 @@
-bunx lint-staged --concurrent false
 bun run build
+bunx eslint --config ./eslint.config.js --cache --fix

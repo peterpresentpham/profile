@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 'use client';
 
 import { DivProps } from '@peter-present/led-caro';

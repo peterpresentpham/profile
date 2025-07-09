@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-head-element */
 import Script from 'next/script';
 import { siteMetadata } from 'src/configs/siteMetadata';
 
