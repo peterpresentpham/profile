@@ -1,8 +1,8 @@
 'use client';
 
 import { AnimationCaro, CounterType } from '@peter-present/led-caro';
-import { squares } from './CaroSquareConfig';
 import { useState } from 'react';
+import { squares } from './CaroSquareConfig';
 
 export default function CaroSpot() {
   const [stickColor, setStickColor] = useState('#abb2bf');
