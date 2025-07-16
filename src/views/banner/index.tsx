@@ -17,7 +17,7 @@ export default function Banner(params: DivProps) {
       {...styleMerge(
         {
           className:
-            'container relative mx-auto mt-[-60px] min-h-[100vh] px-[1rem] pt-[60px] md:max-w-[80rem] md:px-5',
+            'relative container mx-auto mt-[-60px] min-h-[100vh] px-[1rem] pt-[60px] md:max-w-[80rem] md:px-5',
         },
         params
       )}
@@ -26,18 +26,18 @@ export default function Banner(params: DivProps) {
         <div className="item1 pt-[5rem] sm:pt-[10rem]">
           <div className="flex flex-wrap items-center justify-center md:block md:flex-nowrap">
             <div className="relative inline-block">
-              <p className="text-center text-[32px] font-semibold leading-[34px] text-white md:text-start">
+              <p className="text-center text-[32px] leading-[34px] font-semibold text-white md:text-start">
                 Peter
               </p>
               <CssTooltip
                 title="Phạm Hồng Phúc"
-                className={`${fira.className} absolute right-[-16px] top-0`}
+                className={`${fira.className} absolute top-0 right-[-16px]`}
               >
                 <InfoIcon className="h-[16px] w-[16px] cursor-pointer" />
               </CssTooltip>
             </div>
             &nbsp;&nbsp;
-            <p className="inline text-center text-[32px] font-semibold leading-[34px] text-white md:text-start">
+            <p className="inline text-center text-[32px] leading-[34px] font-semibold text-white md:text-start">
               is a <span className="text-purple-50">Fullstack Developer</span>
             </p>
           </div>

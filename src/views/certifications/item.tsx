@@ -40,7 +40,7 @@ function InfoComponent(params: InfoComponentProps) {
         href={credentialUrl}
         target="_blank"
         rel="noreferrer"
-        className="border-[rgba(255, 255, 255, 0.5)] mb-[0.5rem] mt-[1rem] inline-flex cursor-pointer items-center gap-x-2 border-[1px] px-[0.5rem] py-[0.25rem]"
+        className="border-[rgba(255, 255, 255, 0.5)] mt-4 mb-2 inline-flex cursor-pointer items-center gap-x-2 border-[1px] px-2 py-1"
       >
         <p className="text-gray-50">Show credential</p>
         <RocketIcon width={16} height={16} />

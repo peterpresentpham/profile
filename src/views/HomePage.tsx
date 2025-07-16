@@ -12,11 +12,11 @@ export default function HomePage() {
     <>
       <Header />
       <Banner />
-      <Projects className="pb-[4rem] pt-[4rem]" />
-      <Tools className="pb-[4rem] pt-[2rem]" />
-      <Skills className="pb-[4rem] pt-[2rem]" />
-      <Education className="pb-[4rem] pt-[2rem]" />
-      <Certification className="pb-[4rem] pt-[2rem]" />
+      <Projects className="pt-[4rem] pb-[4rem]" />
+      <Tools className="pt-[2rem] pb-[4rem]" />
+      <Skills className="pt-[2rem] pb-[4rem]" />
+      <Education className="pt-[2rem] pb-[4rem]" />
+      <Certification className="pt-[2rem] pb-[4rem]" />
       <Footer />
     </>
   );

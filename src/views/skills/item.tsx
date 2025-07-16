@@ -16,7 +16,7 @@ export default function Item(params: Props) {
         mode="simple"
         containerProps={{ className: 'p-[1rem] flex items-center gap-x-2' }}
       >
-        <Image src={icon} alt={id} className="h-auto w-[24px]" />
+        {icon && <Image src={icon} alt={id} className="h-auto w-[24px]" />}
         <Link
           href={nameLink}
           target="_blank"

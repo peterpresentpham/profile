@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { UnitIcon } from 'src/components/icons';
-import { SubSkillType } from 'src/globals';
+import { CoreSkillsType } from 'src/globals';
 
 interface Props {
-  skills: Array<SubSkillType>;
+  skills: Array<CoreSkillsType>;
 }
 
 export default function RelevantSkills({ skills }: Props) {

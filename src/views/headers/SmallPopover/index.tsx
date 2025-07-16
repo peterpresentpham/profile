@@ -22,7 +22,7 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
 
   return (
     <Drawer
-      className={twMerge('h-screen w-screen bg-black-50 transition-all duration-500', className)}
+      className={twMerge('bg-black-50 h-screen w-screen transition-all duration-500', className)}
       open={open}
       onClose={onClose}
       direction="right"
@@ -38,10 +38,10 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
             <p className="font-bold text-white">{MY_NAME}</p>
           </div>
           <CloseIcon width={18} height={18} onClick={onClose} />
-          <ContactLine className="absolute right-[12px] top-[60px] h-[140px]" />
+          <ContactLine className="absolute top-[60px] right-[12px] h-[140px]" />
         </CommonContainer>
       </div>
-      <CommonContainer className="mx-auto mt-[1rem] flex h-[calc(100%-100px)] flex-col justify-between bg-black-50 px-[1rem]">
+      <CommonContainer className="bg-black-50 mx-auto mt-[1rem] flex h-[calc(100%-100px)] flex-col justify-between px-[1rem]">
         <div>
           {HeaderConfig.map((item) => {
             return (

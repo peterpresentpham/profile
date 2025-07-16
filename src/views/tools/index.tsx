@@ -13,12 +13,12 @@ export default function Tools(params: DivProps) {
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
-          className="absolute left-0 right-0 h-[0.5px] rotate-180"
+          className="absolute right-0 left-0 h-[0.5px] rotate-180"
         />
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
-          className="absolute left-0 right-0 h-[0.5px] rotate-180"
+          className="absolute right-0 left-0 h-[0.5px] rotate-180"
           animationProps={{ style: { animationDelay: '3s' } }}
         />
       </div>
@@ -27,23 +27,23 @@ export default function Tools(params: DivProps) {
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
-          className="absolute left-0 right-0 h-[0.5px] rotate-180"
+          className="absolute right-0 left-0 h-[0.5px] rotate-180"
         />
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
-          className="absolute left-0 right-0 h-[0.5px] rotate-180"
+          className="absolute right-0 left-0 h-[0.5px] rotate-180"
           animationProps={{ style: { animationDelay: '3s' } }}
         />
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
-          className="absolute left-0 right-0 h-[0.5px]"
+          className="absolute right-0 left-0 h-[0.5px]"
         />
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
-          className="absolute left-0 right-0 h-[0.5px]"
+          className="absolute right-0 left-0 h-[0.5px]"
           animationProps={{ style: { animationDelay: '3s' } }}
         />
       </div>
@@ -52,12 +52,12 @@ export default function Tools(params: DivProps) {
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
-          className="absolute left-0 right-0 h-[0.5px]"
+          className="absolute right-0 left-0 h-[0.5px]"
         />
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
-          className="absolute left-0 right-0 h-[0.5px]"
+          className="absolute right-0 left-0 h-[0.5px]"
           animationProps={{ style: { animationDelay: '3s' } }}
         />
       </div>

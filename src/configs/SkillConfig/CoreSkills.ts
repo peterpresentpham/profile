@@ -6,7 +6,7 @@ import ReactImg from 'public/skills/react.svg';
 import JavaSpringImg from 'public/skills/spring-boot.png';
 import VueImg from 'public/skills/vuejs.png';
 import DockerImg from 'public/tools/docker.svg';
-import { CoreSkillsType, SubSkillType } from 'src/globals';
+import { CoreSkillsType } from 'src/globals';
 
 export const ApacheKafka: CoreSkillsType = {
   id: 'apache-kafka',
@@ -56,117 +56,125 @@ export const BlockchainSkill: CoreSkillsType = {
   nameLink: '',
   icon: BlockchainImg,
 };
-const Ethers: SubSkillType = {
+const Ethers: CoreSkillsType = {
   id: 'ethers',
   name: 'Ethers',
   nameLink: 'https://docs.ethers.org/v6/',
 };
-const Tailwind: SubSkillType = {
+const Tailwind: CoreSkillsType = {
   id: 'tailwind',
   name: 'Tailwind',
   nameLink: 'https://tailwindcss.com/',
 };
-const AntDesign: SubSkillType = {
+const AntDesign: CoreSkillsType = {
   id: 'ant-design',
   name: 'Ant Design',
   nameLink: 'https://ant.design/',
 };
-const MUI: SubSkillType = {
+const MUI: CoreSkillsType = {
   id: 'mui',
   name: 'Material UI',
   nameLink: 'https://mui.com/',
 };
-const MongoDb: SubSkillType = {
+const MongoDb: CoreSkillsType = {
   id: 'mongodb',
   name: 'MongoDB',
   nameLink: 'https://www.mongodb.com/',
 };
-const MySqlDb: SubSkillType = {
+const MySqlDb: CoreSkillsType = {
   id: 'mysql',
   name: 'MySQL',
   nameLink: 'https://www.mysql.com/',
 };
-const Maven: SubSkillType = {
+const Maven: CoreSkillsType = {
   id: 'maven',
   name: 'Maven',
   nameLink: 'https://maven.apache.org/guides/index.html',
 };
-const Graph: SubSkillType = {
+const Graph: CoreSkillsType = {
   id: 'graph',
   name: 'Graph',
   nameLink: 'https://www.javatpoint.com/java-graph',
 };
-const Redux: SubSkillType = {
+const Redux: CoreSkillsType = {
   id: 'redux',
   name: 'Redux',
   nameLink: 'https://redux.js.org/',
 };
-const MobX: SubSkillType = {
+const MobX: CoreSkillsType = {
   id: 'mobx',
   name: 'MobX',
   nameLink: 'https://redux.js.org/',
 };
-const AccountAbstraction: SubSkillType = {
+const AccountAbstraction: CoreSkillsType = {
   id: 'account-abstraction',
   name: 'Account Abstraction',
   nameLink: 'https://eips.ethereum.org/EIPS/eip-4337',
 };
-const SoliditySmartContract: SubSkillType = {
+const SoliditySmartContract: CoreSkillsType = {
   id: 'solidity-smart-contract',
   name: 'Smart Contract',
   nameLink: 'https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html',
 };
-const Circom: SubSkillType = {
+const Circom: CoreSkillsType = {
   id: 'circom',
   name: 'Circom',
   nameLink: 'https://docs.circom.io/background/background/',
 };
-const DockerCompose: SubSkillType = {
+const DockerCompose: CoreSkillsType = {
   id: 'docker-compose',
   name: 'Docker Compose',
   nameLink: 'https://docs.docker.com/compose/',
 };
-const Dockerfile: SubSkillType = {
+const Dockerfile: CoreSkillsType = {
   id: 'docker-file',
   name: 'Dockerfile',
   nameLink: 'https://docs.docker.com/reference/dockerfile/',
 };
-const PrimeVue: SubSkillType = {
+const PrimeVue: CoreSkillsType = {
   id: 'prime-vue',
   name: 'PrimeVue',
   nameLink: 'https://primevue.org/',
 };
-const Pinia: SubSkillType = {
+const Pinia: CoreSkillsType = {
   id: 'pinia',
   name: 'Pinia',
   nameLink: 'https://pinia.vuejs.org/',
 };
-const VercelSkill: SubSkillType = {
+const VercelSkill: CoreSkillsType = {
   id: 'vercel',
   name: 'Vercel',
   nameLink: 'https://vercel.com/docs',
 };
-const WagmiSkill: SubSkillType = {
+const WagmiSkill: CoreSkillsType = {
   id: 'wagmi',
   name: 'Wagmi',
   nameLink: 'https://wagmi.sh/',
 };
-const ViteSkill: SubSkillType = {
+const ViteSkill: CoreSkillsType = {
   id: 'vite',
   name: 'Vite',
   nameLink: 'https://vite.dev/',
 };
-const TheGraphSkill: SubSkillType = {
+const TheGraphSkill: CoreSkillsType = {
   id: 'the-graph',
   name: 'The graph',
   nameLink: 'https://thegraph.com/',
 };
-const ShadcnSkill: SubSkillType = {
+const ShadcnSkill: CoreSkillsType = {
   id: 'shadcn',
   name: 'shadcn/ui',
   nameLink: 'https://ui.shadcn.com/',
 };
-export const SubSkills = {
+export const CoreSkills = {
+  ApacheKafka,
+  React,
+  Next,
+  Vue,
+  Docker,
+  DotNetApi,
+  JavaSkill,
+  BlockchainSkill,
   Pinia,
   Ethers,
   Tailwind,

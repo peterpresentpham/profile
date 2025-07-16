@@ -19,12 +19,12 @@ function ProjectsLayout({ type, className }: ProjectLayoutProps) {
   return (
     <CommonContainer className={className} onMouseMove={onMouseMove}>
       <CssHeading title="projects" className="cursor-pointer" />
-      <div className="mt-[3rem] flex flex-wrap gap-[20px]">
+      <div className="mt-4 grid grid-cols-12 gap-5">
         {ProjectLayoutConfig[type].map((layout, index) => {
           return (
             <div
               key={index}
-              className="flex h-fit w-[100%] flex-col gap-[20px] sm:w-[calc(50%-10px)] md:w-[calc(100%/3-40px/3)]"
+              className="col-span-12 flex h-fit flex-col gap-5 sm:col-span-6 md:col-span-4"
             >
               {layout.map((itemInfo) => {
                 const item = ProjectConfig[itemInfo.index];

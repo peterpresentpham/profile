@@ -39,21 +39,19 @@ export type SkillIdType =
   | 'vite'
   | 'the-graph'
   | 'shadcn';
-export type EducationId = 'hust-bachelor';
+export type EducationId = 'hust-bachelor' | 'hust-master';
 export type CredentialId = 'apache-kafka';
 
-export type SubSkillType = {
+export interface CoreSkillsType {
   id: SkillIdType;
   name: string;
   nameLink: string;
-};
-export interface CoreSkillsType extends SubSkillType {
-  icon: StaticImageData;
+  icon?: StaticImageData;
 }
 
 export type ProjectType = {
   id: string;
-  technologies: Array<SubSkillType>;
+  technologies: Array<CoreSkillsType>;
   title: string;
   description: FunctionComponent;
   links?: Array<{
@@ -66,20 +64,22 @@ export type ProjectType = {
 };
 
 export interface SkillsType extends CoreSkillsType {
-  relevantSkills?: Array<SubSkillType>;
+  relevantSkills?: Array<CoreSkillsType>;
   links?: Array<{ id: string; to: string; mode: SkillLinkMode; title: string }>;
 }
 
 export type EducationType = {
   id: EducationId;
   school: string;
-  url: string;
+  schoolUrl: string;
   degree: string;
   fieldOfStudy: string;
   startDate: { year: number };
   endDate?: { year: number };
   grade: string;
   icon: StaticImageData;
+  skills?: Array<CoreSkillsType>;
+  metadata?: { url: string; title: string };
 };
 
 export type CredentialType = {

@@ -17,13 +17,14 @@ export default function QuoteSpot() {
       >
         <VibeContent containerProps={{ className: 'p-[32px]' }}>
           <p className="text-center text-[20px] font-medium text-white">
-            People who are unable to motivate themselves must be content with mediocrity no matter
-            how impressive their other talents
+            {
+              'People who are unable to motivate themselves must be content with mediocrity no matter how impressive their other talents'
+            }
           </p>
-          <div className="absolute left-[5%] top-[-10px] z-[200] px-[5px]">
+          <div className="absolute top-[-10px] left-[5%] z-[200] px-[5px]">
             <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
           </div>
-          <div className="absolute bottom-[-10px] right-[5%] z-[200] px-[5px]">
+          <div className="absolute right-[5%] bottom-[-10px] z-[200] px-[5px]">
             <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
           </div>
         </VibeContent>

@@ -1,14 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-* {
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  box-sizing: border-box;
+@theme inline {
+  --color-gray-50: #abb2bf;
+  --color-purple-50: #c778dd;
+  --color-black-50: #0a0118;
 }
-body {
-  background-color: #0a0118;
+@layer base {
+  * {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-black-50;
+  }
 }
 .css-heading {
   width: 30%;

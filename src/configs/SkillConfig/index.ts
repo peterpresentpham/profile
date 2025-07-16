@@ -7,7 +7,7 @@ import {
   JavaSkill,
   Next,
   React,
-  SubSkills,
+  CoreSkills,
   Vue,
 } from './CoreSkills';
 
@@ -29,7 +29,7 @@ const {
   MobX,
   PrimeVue,
   Pinia,
-} = SubSkills;
+} = CoreSkills;
 
 export const SkillsLayoutConfig: {
   [key: string]: Array<Array<{ index: number; layoutIndex: number }>>;

@@ -14,15 +14,15 @@ export default function Footer(props: DivProps) {
   return (
     <div {...styleMerge({ className: 'h-[150px] border-t-[1px] border-t-gray-50' }, props)}>
       <CommonContainer className="flex h-full flex-col justify-between">
-        <div className="flex flex-col items-center justify-between gap-3 xs:flex-row">
-          <div className="flex w-full flex-row justify-between xs:w-auto xs:flex-col">
+        <div className="xs:flex-row flex flex-col items-center justify-between gap-3">
+          <div className="xs:w-auto xs:flex-col flex w-full flex-row justify-between">
             <div className="flex items-center gap-x-2">
               <LogoIcon />
               <p className="text-[18px] font-bold text-white">{MY_NAME}</p>
             </div>
             <p className="text-base text-white">Fullstack developer</p>
           </div>
-          <div className="flex w-full flex-row justify-between xs:w-auto xs:flex-col">
+          <div className="xs:w-auto xs:flex-col flex w-full flex-row justify-between">
             <p className="text-bold text-[18px] text-white">Media</p>
             <div className="flex items-center gap-x-4">
               {ContactConfig.map((item) => {

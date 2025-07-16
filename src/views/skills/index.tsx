@@ -19,12 +19,12 @@ function SkillsLayout({ type, className }: SkillsLayoutProps) {
   return (
     <CommonContainer className={className} onMouseMove={onMouseMove}>
       <CssHeading title="skills" className="cursor-pointer" />
-      <div className="mt-[3rem] flex flex-wrap gap-[20px]">
+      <div className="mt-12 grid grid-cols-12 gap-5">
         {SkillsLayoutConfig[type].map((layout, index) => {
           return (
             <div
               key={index}
-              className="flex h-fit w-[100%] flex-col gap-[20px] sm:w-[calc(50%-10px)] md:w-[calc(100%/3-40px/3)]"
+              className="col-span-12 flex h-fit flex-col gap-5 sm:col-span-6 md:col-span-4"
             >
               {layout.map((itemInfo) => {
                 const item = SkillsConfig[itemInfo.index];

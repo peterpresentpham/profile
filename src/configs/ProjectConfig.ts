@@ -6,7 +6,7 @@ import {
   ProfileDescription,
 } from 'src/components/ProjectDescription';
 import { ProjectType } from 'src/globals';
-import { Next, React, SubSkills } from './SkillConfig/CoreSkills';
+import { Next, React, CoreSkills } from './SkillConfig/CoreSkills';
 
 type Type = {
   [key: string]: Array<Array<{ index: number; layoutIndex: number }>>;
@@ -46,7 +46,7 @@ export const ProjectLayoutConfig: Type = {
   ],
 };
 
-const { VercelSkill, Ethers, MUI, WagmiSkill, ViteSkill, TheGraphSkill, ShadcnSkill } = SubSkills;
+const { VercelSkill, Ethers, MUI, WagmiSkill, ViteSkill, TheGraphSkill, ShadcnSkill } = CoreSkills;
 
 export const ProjectConfig: Array<ProjectType> = [
   {
