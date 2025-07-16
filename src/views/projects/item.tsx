@@ -16,7 +16,7 @@ export default function Item(params: Props) {
         <RelevantSkills skills={technologies} />
       </VibeContent>
       <VibeContent mode="simple" className="pt-0" containerProps={{ className: 'p-[1rem]' }}>
-        <p className="text-medium text-[24px] text-white">{title}</p>
+        <p className="text-medium text-[24px]">{title}</p>
         <div className="mt-[1rem]">
           <DescriptionComponent />
         </div>

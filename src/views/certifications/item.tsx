@@ -33,8 +33,8 @@ function InfoComponent(params: InfoComponentProps) {
   return (
     <div {...props}>
       <Link href={credentialUrl} target="_blank" rel="noreferrer">
-        <p className="text-base text-gray-50">{`Issued ${month} ${year}`}</p>
-        <p className="text-base text-gray-50">{`Credential ID ${credentialId}`}</p>
+        <p className="text-gray-50">{`Issued ${month} ${year}`}</p>
+        <p className="text-gray-50">{`Credential ID ${credentialId}`}</p>
       </Link>
       <Link
         href={credentialUrl}
@@ -52,7 +52,7 @@ function InfoComponent(params: InfoComponentProps) {
             return (
               <button
                 key={skill.id}
-                className="hover-text text-base text-gray-50"
+                className="hover-text text-gray-50"
                 onClick={() => onScrollClick(`skill-${skill.id}`)}
               >
                 {skill.name}
@@ -86,8 +86,8 @@ export default function Item(params: Props) {
           </div>
           <div className="credential-item-item2">
             <Link href={credentialUrl} target="_blank" rel="noreferrer">
-              <p className="hover-text text-base font-semibold text-white">{name}</p>
-              <p className="text-base text-white">{nameOrganization}</p>
+              <p className="hover-text font-semibold">{name}</p>
+              <p>{nameOrganization}</p>
             </Link>
             <InfoComponent
               className="credential-info-component"

@@ -20,7 +20,7 @@ export default function Education(params: DivProps) {
             const mouse = mouses[index] ?? DEFAULT_SCALE;
 
             return (
-              <div key={item.id} className="col-span-12 h-fit">
+              <div key={item.id} className="col-span-12 h-fit md:col-span-10">
                 <Item {...item} mouse={mouse} />
               </div>
             );

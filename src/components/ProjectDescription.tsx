@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function AccountAbstractionDescription() {
   return (
-    <p className="text-base text-gray-50">
+    <p className="text-gray-50">
       Recovery Account Abstraction Wallet based on ERC04337 that uses zero-knowledge proof for
       hiding guardian's information.
     </p>
@@ -11,12 +11,12 @@ export function AccountAbstractionDescription() {
 }
 
 export function ProfileDescription() {
-  return <p className="text-base text-gray-50">My personal profile.</p>;
+  return <p className="text-gray-50">My personal profile.</p>;
 }
 
 export function EthGraphQuery() {
   return (
-    <p className="text-base text-gray-50">
+    <p className="text-gray-50">
       Simple package for creating query to{' '}
       <Link
         href="https://thegraph.com/"
@@ -32,12 +32,12 @@ export function EthGraphQuery() {
 }
 
 export function NextAppDescription() {
-  return <p className="text-base text-gray-50">My blog app</p>;
+  return <p className="text-gray-50">My blog app</p>;
 }
 
 export function LedCaroDescription() {
   return (
-    <p className="text-base text-gray-50">
+    <p className="text-gray-50">
       Simple{' '}
       <Image
         unoptimized={true}

@@ -16,7 +16,7 @@ export default function QuoteSpot() {
         className="container mx-auto flex justify-center md:max-w-[50rem]"
       >
         <VibeContent containerProps={{ className: 'p-[32px]' }}>
-          <p className="text-center text-[20px] font-medium text-white">
+          <p className="text-center text-[20px] font-medium">
             {
               'People who are unable to motivate themselves must be content with mediocrity no matter how impressive their other talents'
             }

@@ -20,18 +20,6 @@ export default function Item(params: EducationType & { mouse: PositionType }) {
     metadata,
   } = params;
 
-  function onScrollClick(id: string) {
-    const element = document.getElementById(id);
-    const position = element?.getBoundingClientRect();
-    if (position && typeof window !== 'undefined') {
-      window.scrollTo({
-        left: position.left,
-        top: position.top + window.scrollY - 60,
-        behavior: 'smooth',
-      });
-    }
-  }
-
   return (
     <VibeBox mouse={mouse}>
       <VibeContent containerProps={{ className: 'p-[1rem] w-full' }} id={`education-${id}`}>
@@ -43,15 +31,15 @@ export default function Item(params: EducationType & { mouse: PositionType }) {
           </div>
           <div className="w-[calc(100%-64px)]">
             <Link href={schoolUrl} target="_blank" rel="noreferrer">
-              <p className="hover-text text-base font-semibold text-white">{school}</p>
-              <p className="text-base text-white">
+              <p className="hover-text font-semibold">{school}</p>
+              <p>
                 {degree}, {fieldOfStudy}
               </p>
             </Link>
-            <p className="text-base text-gray-50">
+            <p className="text-gray-50">
               {startDate.year} - {endDate?.year && <span>{endDate.year}</span>}
             </p>
-            <p className="text-base text-white">Grade: {grade}</p>
+            <p>Grade: {grade}</p>
             {skills && (
               <div className="flex items-center gap-x-1">
                 <DiamondIcon width={16} height={16} />
@@ -60,22 +48,22 @@ export default function Item(params: EducationType & { mouse: PositionType }) {
                     const _max = skills.length - 1;
 
                     return (
-                      <div key={skill.id} className="flex items-center gap-x-2">
-                        <button
-                          className="hover-text text-base text-gray-50"
-                          onClick={() => onScrollClick(`skill-${skill.id}`)}
-                        >
-                          {skill.name}
-                        </button>
+                      <Link
+                        key={skill.id}
+                        className="flex items-center gap-x-2"
+                        target="_blank"
+                        href={skill.nameLink}
+                      >
+                        <p className="hover-text text-gray-50">{skill.name}</p>
                         {_max > index && <UnitIcon className="h-[5px] w-[5px]" />}
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
               </div>
             )}
             {metadata && (
-              <Link target="_blank" href={metadata.url} className="hover-text text-base text-white">
+              <Link target="_blank" href={metadata.url} className="hover-text">
                 {metadata.title}
               </Link>
             )}

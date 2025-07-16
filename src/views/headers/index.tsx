@@ -54,7 +54,7 @@ export default function Header() {
           onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
           <LogoIcon />
-          <p className="font-bold text-white">{MY_NAME}</p>
+          <p className="font-bold">{MY_NAME}</p>
         </button>
         <div className="hidden items-center gap-x-4 md:flex">
           {HeaderConfig.map((item) => {

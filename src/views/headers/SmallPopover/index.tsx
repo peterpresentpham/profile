@@ -35,7 +35,7 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
             onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
           >
             <LogoIcon />
-            <p className="font-bold text-white">{MY_NAME}</p>
+            <p className="font-bold">{MY_NAME}</p>
           </div>
           <CloseIcon width={18} height={18} onClick={onClose} />
           <ContactLine className="absolute top-[60px] right-[12px] h-[140px]" />

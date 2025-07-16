@@ -35,10 +35,7 @@ export default function ColorfulBox({ color = 'purple', ...props }: Props) {
       <div className="glowing-box-borders-masker">
         <div className="glowing-box-borders glowing-box-base-color-bg" style={_color} />
       </div>
-      <div
-        className="glowing-box-button glowing-box-button-base-color-bg text-white"
-        style={_color}
-      >
+      <div className="glowing-box-button glowing-box-button-base-color-bg" style={_color}>
         {props.children}
       </div>
     </div>

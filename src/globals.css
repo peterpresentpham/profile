@@ -12,7 +12,7 @@
     box-sizing: border-box;
   }
   body {
-    @apply bg-black-50;
+    @apply bg-black-50 text-white;
   }
 }
 .css-heading {

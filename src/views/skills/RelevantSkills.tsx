@@ -18,7 +18,7 @@ export default function RelevantSkills({ skills }: Props) {
               href={skill.nameLink}
               target="_blank"
               rel="noreferrer"
-              className="hover-text text-base text-gray-50"
+              className="hover-text text-gray-50"
             >
               {skill.name}
             </Link>

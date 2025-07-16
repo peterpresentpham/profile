@@ -19,7 +19,7 @@ export default function Certification(params: DivProps) {
             const mouse = mouses[index] ?? DEFAULT_SCALE;
 
             return (
-              <div key={index} className="col-span-12 h-fit sm:col-span-6">
+              <div key={index} className="col-span-12 h-fit md:col-span-6">
                 <Item {...item} mouse={mouse} />
               </div>
             );

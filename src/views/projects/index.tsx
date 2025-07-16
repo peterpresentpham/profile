@@ -19,7 +19,7 @@ function ProjectsLayout({ type, className }: ProjectLayoutProps) {
   return (
     <CommonContainer className={className} onMouseMove={onMouseMove}>
       <CssHeading title="projects" className="cursor-pointer" />
-      <div className="mt-4 grid grid-cols-12 gap-5">
+      <div className="mt-12 grid grid-cols-12 gap-5">
         {ProjectLayoutConfig[type].map((layout, index) => {
           return (
             <div

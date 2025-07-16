@@ -17,12 +17,7 @@ export default function Item(params: Props) {
         containerProps={{ className: 'p-[1rem] flex items-center gap-x-2' }}
       >
         {icon && <Image src={icon} alt={id} className="h-auto w-[24px]" />}
-        <Link
-          href={nameLink}
-          target="_blank"
-          rel="noreferrer"
-          className="hover-text text-base text-white"
-        >
+        <Link href={nameLink} target="_blank" rel="noreferrer" className="hover-text">
           {name}
         </Link>
       </VibeContent>

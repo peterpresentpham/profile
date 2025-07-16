@@ -14,12 +14,7 @@ export function HeaderItem({ title, active, imgClass, textProps, ...props }: Hea
   return (
     <div {...styleMerge({ className: 'flex items-center' }, props)}>
       <Image src={SharpImg} alt="sharp-img" className={twMerge('h-[16px] w-[16px]', imgClass)} />
-      <p
-        {...styleMerge(
-          { className: `text-base ${active ? 'font-medium text-white' : 'text-gray-50'}` },
-          textProps
-        )}
-      >
+      <p {...styleMerge({ className: `${active ? 'font-medium' : 'text-gray-50'}` }, textProps)}>
         {title}
       </p>
     </div>
