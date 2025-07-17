@@ -6,6 +6,7 @@ const ColorConfig: { [key1 in ButtonColorType]: { r: number; g: number; b: numbe
   purple: { r: 199, g: 120, b: 221 },
   gray: { r: 255, g: 255, b: 255 },
   orange: { r: 173, g: 102, b: 54 },
+  blue: { r: 28, g: 104, b: 243 },
 };
 
 interface Props extends DivProps {

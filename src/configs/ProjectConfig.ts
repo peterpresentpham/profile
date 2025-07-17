@@ -52,7 +52,7 @@ const { VercelSkill, Ethers, MUI, WagmiSkill, ViteSkill, TheGraphSkill, ShadcnSk
 export const ProjectConfig: Array<ProjectType> = [
   {
     id: 'profile',
-    technologies: [Next, React, VercelSkill],
+    technologies: [Next, React, VercelSkill, Tailwind],
     title: 'Personal profile',
     description: ProfileDescription,
     links: [
@@ -75,7 +75,7 @@ export const ProjectConfig: Array<ProjectType> = [
   {
     id: 'account-abstraction-app',
     technologies: [React, Ethers, MUI, WagmiSkill],
-    title: 'Account Abstraction App',
+    title: 'Recovery ERC-4337 Wallet',
     description: AccountAbstractionDescription,
     links: [
       {
@@ -97,13 +97,20 @@ export const ProjectConfig: Array<ProjectType> = [
         title: 'Bundler',
         to: 'https://github.com/phamhongphuc1999/bundler',
         symbol: 'Ψ',
+        color: 'blue',
+      },
+      {
+        id: 'arithmetic-circuit',
+        title: 'Arithmetic circuit',
+        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract/tree/main/circom',
+        symbol: 'φ',
         color: 'orange',
       },
     ],
   },
   {
     id: 'next-app',
-    technologies: [Next, ShadcnSkill, Tailwind],
+    technologies: [Next, React, ShadcnSkill, Tailwind],
     title: 'My blog app',
     description: NextAppDescription,
     links: [
@@ -149,7 +156,7 @@ export const ProjectConfig: Array<ProjectType> = [
         title: 'Npm package',
         to: 'https://www.npmjs.com/package/@peter-present/led-caro',
         symbol: 'Ω',
-        color: 'orange',
+        color: 'blue',
       },
     ],
   },
