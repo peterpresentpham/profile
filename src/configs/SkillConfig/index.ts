@@ -29,6 +29,7 @@ const {
   MobX,
   PrimeVue,
   Pinia,
+  ShadcnSkill,
 } = CoreSkills;
 
 export const SkillsLayoutConfig: {
@@ -87,7 +88,7 @@ export const SkillsConfig: Array<SkillsType> = [
         id: 'account-abstraction-app',
         to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
         mode: 'external',
-        title: 'Recovery Account Abstraction Wallet that uses zero-knowledge proof',
+        title: 'Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof',
       },
       {
         id: 'react-hook-utils',
@@ -105,7 +106,7 @@ export const SkillsConfig: Array<SkillsType> = [
   },
   {
     ...Next,
-    relevantSkills: [React, Redux, Ethers, AntDesign, MUI, Tailwind],
+    relevantSkills: [React, Redux, Ethers, AntDesign, MUI, ShadcnSkill, Tailwind],
     links: [
       {
         id: 'profile',
@@ -115,9 +116,9 @@ export const SkillsConfig: Array<SkillsType> = [
       },
       {
         id: 'document',
-        to: 'https://my-next-app-one-topaz.vercel.app/',
+        to: 'https://blog.peter-present.xyz/',
         mode: 'external',
-        title: 'My document',
+        title: 'My blog',
       },
     ],
   },
@@ -129,7 +130,7 @@ export const SkillsConfig: Array<SkillsType> = [
         id: 'account-abstraction-app',
         to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
         mode: 'external',
-        title: 'Recovery Account Abstraction Wallet that uses zero-knowledge proof',
+        title: 'Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof',
       },
       {
         id: 'account-abstraction-contract',
@@ -151,9 +152,9 @@ export const SkillsConfig: Array<SkillsType> = [
       },
       {
         id: 'snark',
-        to: 'https://my-next-app-one-topaz.vercel.app/',
+        to: 'https://blog.peter-present.xyz/snark',
         mode: 'external',
-        title: 'Zero-Knowledge Succinct Non-interactive Argument of Knowledge',
+        title: 'zk-SNARK',
       },
     ],
   },

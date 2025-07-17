@@ -1,11 +1,13 @@
+/* eslint-disable quotes */
 import Image from 'next/image';
 import Link from 'next/link';
 
 export function AccountAbstractionDescription() {
   return (
     <p className="text-gray-50">
-      Recovery Account Abstraction Wallet based on ERC04337 that uses zero-knowledge proof for
-      hiding guardian's information.
+      {
+        "Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof for hiding guardian's information."
+      }
     </p>
   );
 }

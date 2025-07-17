@@ -4,7 +4,7 @@ export default function CommonContainer(params: DivProps) {
   return (
     <div
       {...styleMerge(
-        { className: 'container mx-auto p-[1rem] sm:max-w-[55rem] md:max-w-[80rem] md:p-5' },
+        { className: 'container mx-auto p-4 sm:max-w-[55rem] md:max-w-[80rem] md:p-5' },
         params
       )}
     >

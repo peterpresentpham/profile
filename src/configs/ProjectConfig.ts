@@ -46,7 +46,8 @@ export const ProjectLayoutConfig: Type = {
   ],
 };
 
-const { VercelSkill, Ethers, MUI, WagmiSkill, ViteSkill, TheGraphSkill, ShadcnSkill } = CoreSkills;
+const { VercelSkill, Ethers, MUI, WagmiSkill, ViteSkill, TheGraphSkill, ShadcnSkill, Tailwind } =
+  CoreSkills;
 
 export const ProjectConfig: Array<ProjectType> = [
   {
@@ -102,7 +103,7 @@ export const ProjectConfig: Array<ProjectType> = [
   },
   {
     id: 'next-app',
-    technologies: [Next, ShadcnSkill],
+    technologies: [Next, ShadcnSkill, Tailwind],
     title: 'My blog app',
     description: NextAppDescription,
     links: [
@@ -112,6 +113,13 @@ export const ProjectConfig: Array<ProjectType> = [
         to: 'https://blog.peter-present.xyz/',
         symbol: 'δ',
         color: 'purple',
+      },
+      {
+        id: 'github',
+        title: 'github',
+        to: 'https://github.com/phamhongphuc1999/my-next-app',
+        symbol: 'β',
+        color: 'orange',
       },
     ],
   },
