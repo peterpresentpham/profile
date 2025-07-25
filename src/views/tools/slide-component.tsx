@@ -1,8 +1,8 @@
-import { twMerge } from '@peter-present/led-caro';
 import Image from 'next/image';
 import Link from 'next/link';
 import Marquee, { MarqueeProps } from 'react-fast-marquee';
 import { ToolType } from 'src/globals';
+import { cn } from 'src/utils';
 
 interface Props extends MarqueeProps {
   data: Array<ToolType>;
@@ -15,7 +15,7 @@ export default function SlideComponent({ data, ...props }: Props) {
       speed={50}
       autoFill={true}
       pauseOnHover={true}
-      className={twMerge('overlay relative cursor-pointer', props.className)}
+      className={cn('overlay relative cursor-pointer', props.className)}
     >
       {data.map((item) => {
         const isWhite = Boolean(item.isWhite);
@@ -23,7 +23,7 @@ export default function SlideComponent({ data, ...props }: Props) {
         return (
           <Link key={item.id} href={item.link} target="_blank" rel="noreferrer">
             <div
-              className={twMerge(
+              className={cn(
                 'mr-[4rem]',
                 isWhite
                   ? 'flex h-[100px] w-[100px] items-center justify-center rounded-[50%] bg-white'

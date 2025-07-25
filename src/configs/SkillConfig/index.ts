@@ -2,12 +2,12 @@ import { SkillsType } from 'src/globals';
 import {
   ApacheKafka,
   BlockchainSkill,
+  CoreSkills,
   Docker,
   DotNetApi,
   JavaSkill,
   Next,
   React,
-  CoreSkills,
   Vue,
 } from './CoreSkills';
 
@@ -95,12 +95,6 @@ export const SkillsConfig: Array<SkillsType> = [
         to: 'https://www.npmjs.com/package/@peter-present/react-hook-utils',
         mode: 'external',
         title: 'Simple package which provides some utility hooks.',
-      },
-      {
-        id: 'led caro',
-        to: 'https://www.npmjs.com/package/@peter-present/led-caro',
-        mode: 'external',
-        title: 'Simple package which draw caro.',
       },
     ],
   },

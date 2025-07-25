@@ -1,10 +1,9 @@
-import '@peter-present/led-caro/dist/assets/style.css';
 import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
 import 'react-modern-drawer/dist/index.css';
 import MetadataHead from 'src/components/MetadataHead';
-import 'src/globals.css';
 import 'src/styles/color-button.style.css';
+import 'src/styles/globals.css';
 import 'src/styles/vibe.style.css';
 
 const fira = Fira_Code({ subsets: ['latin'] });

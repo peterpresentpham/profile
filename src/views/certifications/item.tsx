@@ -1,11 +1,10 @@
 'use client';
 
-import { DivProps } from '@peter-present/led-caro';
 import Image from 'next/image';
 import Link from 'next/link';
 import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
-import { CredentialType, PositionType } from 'src/globals';
+import { CredentialType, DivProps, PositionType } from 'src/globals';
 
 type InfoComponentProps = {
   credentialId: string;

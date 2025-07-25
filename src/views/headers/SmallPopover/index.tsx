@@ -1,11 +1,10 @@
-import { twMerge } from '@peter-present/led-caro';
 import Drawer from 'react-modern-drawer';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { HeaderItem } from 'src/components/CssHeading';
 import { CloseIcon, LogoIcon } from 'src/components/icons';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
+import { cn } from 'src/utils';
 import ContactLine from '../ContactLine';
-import PopoverCaro from './PopoverCaro';
 
 interface Props {
   open: boolean;
@@ -22,13 +21,13 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
 
   return (
     <Drawer
-      className={twMerge('bg-black-50 h-screen w-screen transition-all duration-500', className)}
+      className={cn('h-screen w-screen transition-all duration-500', className)}
       open={open}
       onClose={onClose}
       direction="right"
       lockBackgroundScroll={true}
     >
-      <div className="shadow-md">
+      <div className="bg-black-50">
         <CommonContainer className="relative flex h-[60px] items-center justify-between sm:justify-end">
           <div
             className="flex items-center gap-x-2 sm:hidden"
@@ -41,7 +40,7 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
           <ContactLine className="absolute top-[60px] right-[12px] h-[140px]" />
         </CommonContainer>
       </div>
-      <CommonContainer className="bg-black-50 mx-auto mt-[1rem] flex h-[calc(100%-100px)] flex-col justify-between px-[1rem]">
+      <CommonContainer className="bg-black-50 mx-auto flex h-[calc(100%-60px)] flex-col justify-between px-[1rem]">
         <div>
           {HeaderConfig.map((item) => {
             return (
@@ -53,9 +52,6 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
               />
             );
           })}
-        </div>
-        <div className="mt-[1rem] flex justify-center">
-          <PopoverCaro />
         </div>
       </CommonContainer>
     </Drawer>

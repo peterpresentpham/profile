@@ -6,7 +6,7 @@ export interface Props {
 }
 
 export default function AppNextSeo(props: Props) {
-  const { title = 'Peter - Fullstack Developer', description = Description } = props;
+  const { title = 'Peter - Software Developer', description = Description } = props;
 
   return (
     <>

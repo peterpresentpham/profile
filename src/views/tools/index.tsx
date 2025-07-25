@@ -1,7 +1,7 @@
-import { DivProps } from '@peter-present/led-caro';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { LanguageConfig, ToolsConfig } from 'src/configs/constance';
+import { DivProps } from 'src/globals';
 import AnimatedString from './animated-string';
 import SlideComponent from './slide-component';
 

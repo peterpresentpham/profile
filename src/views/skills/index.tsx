@@ -1,10 +1,10 @@
 'use client';
 
-import { DivProps } from '@peter-present/led-caro';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { DEFAULT_SCALE } from 'src/configs/constance';
 import { SkillsConfig, SkillsLayoutConfig } from 'src/configs/SkillConfig';
+import { DivProps } from 'src/globals';
 import useVibeMouses from 'src/hooks/useVibeMouses';
 import Item from './item';
 

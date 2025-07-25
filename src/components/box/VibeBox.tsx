@@ -1,6 +1,6 @@
-import { DivProps, styleMerge } from '@peter-present/led-caro';
 import { CSSProperties } from 'react';
-import { PositionType } from 'src/globals';
+import { DivProps, PositionType } from 'src/globals';
+import { cn } from 'src/utils';
 
 interface VibeContentProps extends DivProps {
   mode?: 'normal' | 'simple';
@@ -10,17 +10,18 @@ interface VibeContentProps extends DivProps {
 export function VibeContent({ mode = 'normal', containerProps, ...props }: VibeContentProps) {
   return (
     <div
-      {...styleMerge(
-        {
-          className:
-            mode == 'normal'
-              ? 'vibe-content-container p-[1px]'
-              : 'simple-vibe-content-container p-[1px]',
-        },
-        props
+      {...props}
+      className={cn(
+        mode == 'normal'
+          ? 'vibe-content-container p-[1px]'
+          : 'simple-vibe-content-container p-[1px]',
+        props.className
       )}
     >
-      <div {...styleMerge({ className: 'vibe-content magical-borders-inner' }, containerProps)}>
+      <div
+        {...containerProps}
+        className={cn('vibe-content magical-borders-inner', containerProps?.className)}
+      >
         {props.children}
       </div>
     </div>
@@ -37,17 +38,15 @@ export default function VibeBox(params: Props) {
 
   return (
     <div
-      {...styleMerge(
+      {...props}
+      className={cn('vibe-container', props.className)}
+      style={
         {
-          className: 'vibe-container',
-          style: {
-            '--mouse-x': mouse.x,
-            '--mouse-y': mouse.y,
-            '--circle-size': `${circleSize}px`,
-          } as CSSProperties,
-        },
-        props
-      )}
+          '--mouse-x': mouse.x,
+          '--mouse-y': mouse.y,
+          '--circle-size': `${circleSize}px`,
+        } as CSSProperties
+      }
     >
       {props.children}
     </div>

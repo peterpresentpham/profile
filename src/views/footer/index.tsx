@@ -1,11 +1,12 @@
 'use client';
 
-import { DivProps, styleMerge } from '@peter-present/led-caro';
 import Link from 'next/link';
 import { useMemo } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { LogoIcon } from 'src/components/icons';
 import { ContactConfig, MY_NAME } from 'src/configs/constance';
+import { DivProps } from 'src/globals';
+import { cn } from 'src/utils';
 
 export default function Footer(props: DivProps) {
   const { currentHour, date } = useMemo(() => {
@@ -16,7 +17,7 @@ export default function Footer(props: DivProps) {
   }, []);
 
   return (
-    <div {...styleMerge({ className: 'h-[150px] border-t-[1px] border-t-gray-50' }, props)}>
+    <div {...props} className={cn('h-[150px] border-t-[1px] border-t-gray-50', props.className)}>
       <CommonContainer className="flex h-full flex-col justify-between">
         <div className="xs:flex-row flex flex-col items-center justify-between gap-3">
           <div className="xs:w-auto xs:flex-col flex w-full flex-row justify-between">
@@ -24,7 +25,7 @@ export default function Footer(props: DivProps) {
               <LogoIcon />
               <p className="text-[18px] font-bold">{MY_NAME}</p>
             </div>
-            <p>Fullstack developer</p>
+            <p>Software developer</p>
           </div>
           <div className="xs:w-auto xs:flex-col flex w-full flex-row justify-between">
             <p className="text-bold text-[18px]">Media</p>
@@ -48,7 +49,7 @@ export default function Footer(props: DivProps) {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <p className="text-gray-50">{`Hi, ${currentHour < 12 && currentHour > 5 ? 'Good morning' : currentHour >= 12 ? 'Good afternoon' : currentHour >= 19 && currentHour < 23 ? 'Good night' : 'Sleep peacefully'}`}</p>
+          <p className="text-gray-50">{`Hi, ${currentHour < 12 && currentHour > 5 ? 'Good morning' : currentHour >= 12 && currentHour < 19 ? 'Good afternoon' : currentHour >= 19 && currentHour < 23 ? 'Good night' : 'Sleep peacefully'}`}</p>
           <p className="text-gray-50">© Copyright {date}</p>
         </div>
       </CommonContainer>

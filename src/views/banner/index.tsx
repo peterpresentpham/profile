@@ -1,10 +1,10 @@
-import { DivProps, styleMerge } from '@peter-present/led-caro';
 import { Fira_Sans } from 'next/font/google';
 import Link from 'next/link';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import CssTooltip from 'src/components/CssTooltip';
 import { InfoIcon } from 'src/components/icons';
-import CaroSpot from './CaroSpot';
+import { DivProps } from 'src/globals';
+import { cn } from 'src/utils';
 import QuoteSpot from './QuoteSpot';
 import RectangleLine from './RectangleLine';
 
@@ -13,13 +13,11 @@ const fira = Fira_Sans({ weight: '400', subsets: ['latin'] });
 export default function Banner(params: DivProps) {
   return (
     <div
+      {...params}
       id="overview"
-      {...styleMerge(
-        {
-          className:
-            'relative container mx-auto mt-[-60px] min-h-[100vh] px-4 pt-[60px] md:max-w-[80rem] md:px-5',
-        },
-        params
+      className={cn(
+        'relative container mx-auto mt-[-60px] min-h-[100vh] px-4 pt-[60px] md:max-w-[80rem] md:px-5',
+        params.className
       )}
     >
       <div className="flex flex-wrap justify-between gap-4">
@@ -38,7 +36,7 @@ export default function Banner(params: DivProps) {
             </div>
             &nbsp;&nbsp;
             <p className="inline text-center text-[32px] leading-[34px] font-semibold md:text-start">
-              is a <span className="text-purple-50">Fullstack Developer</span>
+              is a <span className="text-purple-50">Software Developer</span>
             </p>
           </div>
           <p className="mt-4 text-center text-gray-50 md:text-start">
@@ -56,9 +54,6 @@ export default function Banner(params: DivProps) {
         </div>
         <div className="item2">
           <RectangleLine className="sticky top-0 hidden h-[260px] md:flex" />
-          <div className="flex w-full justify-center pt-[2rem] md:justify-end md:pt-[10rem]">
-            <CaroSpot />
-          </div>
         </div>
       </div>
       <QuoteSpot />

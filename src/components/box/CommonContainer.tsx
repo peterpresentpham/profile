@@ -1,14 +1,16 @@
-import { DivProps, styleMerge } from '@peter-present/led-caro';
+import { DivProps } from 'src/globals';
+import { cn } from 'src/utils';
 
-export default function CommonContainer(params: DivProps) {
+export default function CommonContainer(props: DivProps) {
   return (
     <div
-      {...styleMerge(
-        { className: 'container mx-auto p-4 sm:max-w-[55rem] md:max-w-[80rem] md:p-5' },
-        params
+      {...props}
+      className={cn(
+        'container mx-auto p-4 sm:max-w-[55rem] md:max-w-[80rem] md:p-5',
+        props.className
       )}
     >
-      {params?.children}
+      {props?.children}
     </div>
   );
 }

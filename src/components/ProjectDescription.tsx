@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 export function AccountAbstractionDescription() {
@@ -51,23 +50,6 @@ export function NextAppDescription() {
         className="inline-block"
       />{' '}
       My blog app.
-    </p>
-  );
-}
-
-export function LedCaroDescription() {
-  return (
-    <p className="text-gray-50">
-      Simple{' '}
-      <Image
-        unoptimized={true}
-        src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Jellyfish.png"
-        alt="jellyfish"
-        width="16"
-        height="16"
-        className="inline-block"
-      />{' '}
-      caro.
     </p>
   );
 }

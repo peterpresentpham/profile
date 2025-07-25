@@ -1,12 +1,11 @@
 import {
   AccountAbstractionDescription,
   EthGraphQuery,
-  LedCaroDescription,
   NextAppDescription,
   ProfileDescription,
 } from 'src/components/ProjectDescription';
 import { ProjectType } from 'src/globals';
-import { Next, React, CoreSkills } from './SkillConfig/CoreSkills';
+import { CoreSkills, Next, React } from './SkillConfig/CoreSkills';
 
 type Type = {
   [key: string]: Array<Array<{ index: number; layoutIndex: number }>>;
@@ -19,16 +18,12 @@ export const ProjectLayoutConfig: Type = {
       { index: 3, layoutIndex: 1 },
     ],
     [{ index: 1, layoutIndex: 2 }],
-    [
-      { index: 2, layoutIndex: 3 },
-      { index: 4, layoutIndex: 4 },
-    ],
+    [{ index: 2, layoutIndex: 3 }],
   ],
   sm: [
     [
       { index: 0, layoutIndex: 0 },
       { index: 2, layoutIndex: 1 },
-      { index: 4, layoutIndex: 2 },
     ],
     [
       { index: 1, layoutIndex: 3 },
@@ -41,7 +36,6 @@ export const ProjectLayoutConfig: Type = {
       { index: 1, layoutIndex: 1 },
       { index: 2, layoutIndex: 2 },
       { index: 3, layoutIndex: 3 },
-      { index: 4, layoutIndex: 4 },
     ],
   ],
 };
@@ -142,21 +136,6 @@ export const ProjectConfig: Array<ProjectType> = [
         to: 'https://www.npmjs.com/package/eth-graph-query',
         symbol: 'Σ',
         color: 'gray',
-      },
-    ],
-  },
-  {
-    id: 'led-caro',
-    technologies: [ViteSkill, React],
-    title: 'Led caro',
-    description: LedCaroDescription,
-    links: [
-      {
-        id: 'npm',
-        title: 'Npm package',
-        to: 'https://www.npmjs.com/package/@peter-present/led-caro',
-        symbol: 'Ω',
-        color: 'blue',
       },
     ],
   },

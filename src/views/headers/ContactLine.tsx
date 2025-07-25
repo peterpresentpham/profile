@@ -1,10 +1,11 @@
-import { DivProps, styleMerge } from '@peter-present/led-caro';
 import Link from 'next/link';
 import { ContactConfig } from 'src/configs/constance';
+import { DivProps } from 'src/globals';
+import { cn } from 'src/utils';
 
-export default function ContactLine(params: DivProps) {
+export default function ContactLine(props: DivProps) {
   return (
-    <div {...styleMerge({ className: 'flex w-[25px] flex-col items-center gap-2' }, params)}>
+    <div {...props} className={cn('flex w-[25px] flex-col items-center gap-2', props.className)}>
       <div className="h-full w-[1px] bg-gray-50" />
       {ContactConfig.map((item) => {
         const Icon = item.icon;
