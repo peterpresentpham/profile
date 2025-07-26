@@ -12,8 +12,12 @@
     "eslint": "bunx eslint --config ./eslint.config.js --cache --fix"
   },
   "dependencies": {
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
     "clsx": "^2.1.1",
     "lodash.throttle": "^4.1.1",
+    "motion": "^12.23.9",
     "next": "15.2.4",
     "next-sitemap": "^4.2.3",
     "react": "^19",

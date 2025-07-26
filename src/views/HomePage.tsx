@@ -1,3 +1,4 @@
+import Sparkles from 'src/components/sparkles';
 import Banner from './banner';
 import Certification from './certifications';
 import Education from './education';
@@ -11,13 +12,16 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <Banner />
-      <Projects className="pt-[4rem] pb-[4rem]" />
-      <Tools className="pt-[2rem] pb-[4rem]" />
-      <Skills className="pt-[2rem] pb-[4rem]" />
-      <Education className="pt-[2rem] pb-[4rem]" />
-      <Certification className="pt-[2rem] pb-[4rem]" />
-      <Footer />
+      <div className="relative">
+        <Banner />
+        <Projects className="pt-[4rem] pb-[4rem]" />
+        <Tools className="pt-[2rem] pb-[4rem]" />
+        <Skills className="pt-[2rem] pb-[4rem]" />
+        <Education className="pt-[2rem] pb-[4rem]" />
+        <Certification className="pt-[2rem] pb-[4rem]" />
+        <Footer />
+        <Sparkles />
+      </div>
     </>
   );
 }

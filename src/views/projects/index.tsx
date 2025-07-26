@@ -40,9 +40,9 @@ function ProjectsLayout({ type, className }: ProjectLayoutProps) {
   );
 }
 
-export default function Projects(params: DivProps) {
+export default function Projects(props: DivProps) {
   return (
-    <div {...params} id="projects">
+    <div {...props} id="projects">
       <ProjectsLayout type="md" className="hidden md:block" />
       <ProjectsLayout type="sm" className="hidden sm:block md:hidden" />
       <ProjectsLayout type="xs" className="block sm:hidden" />
