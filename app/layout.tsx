@@ -4,7 +4,6 @@ import 'react-modern-drawer/dist/index.css';
 import MetadataHead from 'src/components/MetadataHead';
 import 'src/styles/color-button.style.css';
 import 'src/styles/globals.css';
-import 'src/styles/vibe.style.css';
 
 const fira = Fira_Code({ subsets: ['latin'] });
 type Props = Readonly<{ children: ReactNode }>;

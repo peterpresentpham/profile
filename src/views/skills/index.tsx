@@ -1,11 +1,7 @@
-'use client';
-
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
-import { DEFAULT_SCALE } from 'src/configs/constance';
 import { SkillsConfig, SkillsLayoutConfig } from 'src/configs/SkillConfig';
 import { DivProps } from 'src/globals';
-import useVibeMouses from 'src/hooks/useVibeMouses';
 import Item from './item';
 
 type SkillsLayoutProps = {
@@ -14,10 +10,8 @@ type SkillsLayoutProps = {
 };
 
 function SkillsLayout({ type, className }: SkillsLayoutProps) {
-  const { mouses, onMouseMove } = useVibeMouses();
-
   return (
-    <CommonContainer className={className} onMouseMove={onMouseMove}>
+    <CommonContainer className={className}>
       <CssHeading title="skills" className="cursor-pointer" />
       <div className="mt-12 grid grid-cols-12 gap-5">
         {SkillsLayoutConfig[type].map((layout, index) => {
@@ -28,9 +22,8 @@ function SkillsLayout({ type, className }: SkillsLayoutProps) {
             >
               {layout.map((itemInfo) => {
                 const item = SkillsConfig[itemInfo.index];
-                const mouse = mouses[itemInfo.layoutIndex] ?? DEFAULT_SCALE;
 
-                return <Item key={item.id} mouse={mouse} {...item} />;
+                return <Item key={item.id} {...item} />;
               })}
             </div>
           );

@@ -1,11 +1,7 @@
-'use client';
-
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
-import { DEFAULT_SCALE } from 'src/configs/constance';
 import { ProjectConfig, ProjectLayoutConfig } from 'src/configs/ProjectConfig';
 import { DivProps } from 'src/globals';
-import useVibeMouses from 'src/hooks/useVibeMouses';
 import Item from './item';
 
 type ProjectLayoutProps = {
@@ -14,10 +10,8 @@ type ProjectLayoutProps = {
 };
 
 function ProjectsLayout({ type, className }: ProjectLayoutProps) {
-  const { mouses, onMouseMove } = useVibeMouses();
-
   return (
-    <CommonContainer className={className} onMouseMove={onMouseMove}>
+    <CommonContainer className={className}>
       <CssHeading title="projects" className="cursor-pointer" />
       <div className="mt-12 grid grid-cols-12 gap-5">
         {ProjectLayoutConfig[type].map((layout, index) => {
@@ -28,9 +22,8 @@ function ProjectsLayout({ type, className }: ProjectLayoutProps) {
             >
               {layout.map((itemInfo) => {
                 const item = ProjectConfig[itemInfo.index];
-                const mouse = mouses[itemInfo.layoutIndex] ?? DEFAULT_SCALE;
 
-                return <Item key={item.id} {...item} mouse={mouse} />;
+                return <Item key={item.id} {...item} />;
               })}
             </div>
           );

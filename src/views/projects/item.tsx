@@ -1,21 +1,16 @@
 import Link from 'next/link';
 import ColorfulBox from 'src/components/box/ColorfulBox';
-import VibeBox, { VibeContent } from 'src/components/box/VibeBox';
-import { PositionType, ProjectType } from 'src/globals';
+import { ProjectType } from 'src/globals';
 import RelevantSkills from '../skills/RelevantSkills';
 
-type Props = ProjectType & { mouse: PositionType };
-
-export default function Item(params: Props) {
-  const { technologies, title, description, links, mouse } = params;
+export default function Item(params: ProjectType) {
+  const { technologies, title, description, links } = params;
   const DescriptionComponent = description;
 
   return (
-    <VibeBox mouse={mouse}>
-      <VibeContent mode="simple">
-        <RelevantSkills skills={technologies} />
-      </VibeContent>
-      <VibeContent mode="simple" className="pt-0" containerProps={{ className: 'p-[1rem]' }}>
+    <div className="border border-gray-100">
+      <RelevantSkills skills={technologies} />
+      <div className="border-t border-gray-100 p-4">
         <p className="text-medium text-[24px]">{title}</p>
         <div className="mt-[1rem]">
           <DescriptionComponent />
@@ -34,7 +29,7 @@ export default function Item(params: Props) {
             })}
           </div>
         )}
-      </VibeContent>
-    </VibeBox>
+      </div>
+    </div>
   );
 }

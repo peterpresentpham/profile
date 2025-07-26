@@ -13,14 +13,14 @@ export default function HomePage() {
     <>
       <Header />
       <div className="relative">
-        <Banner />
-        <Projects className="pt-[4rem] pb-[4rem]" />
-        <Tools className="pt-[2rem] pb-[4rem]" />
-        <Skills className="pt-[2rem] pb-[4rem]" />
-        <Education className="pt-[2rem] pb-[4rem]" />
-        <Certification className="pt-[2rem] pb-[4rem]" />
-        <Footer />
         <Sparkles />
+        <Banner />
+        <Projects className="relative pt-[4rem] pb-[4rem]" />
+        <Tools className="relative pt-[2rem] pb-[4rem]" />
+        <Skills className="relative pt-[2rem] pb-[4rem]" />
+        <Education className="relative pt-[2rem] pb-[4rem]" />
+        <Certification className="relative pt-[2rem] pb-[4rem]" />
+        <Footer className="relative" />
       </div>
     </>
   );
