@@ -1,6 +1,5 @@
 import { Fira_Sans } from 'next/font/google';
 import Link from 'next/link';
-import BackgroundBeams from 'src/components/background-beams';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import CssTooltip from 'src/components/CssTooltip';
 import { InfoIcon } from 'src/components/icons';
@@ -13,9 +12,8 @@ const fira = Fira_Sans({ weight: '400', subsets: ['latin'] });
 
 export default function Banner(params: DivProps) {
   return (
-    <div {...params} id="overview" className={cn('relative min-h-[100vh]', params.className)}>
-      <BackgroundBeams />
-      <div className="relative container mx-auto mt-[-60px] px-4 pt-[60px] md:max-w-[80rem] md:px-5">
+    <div {...params} id="overview" className={cn('relative min-h-screen', params.className)}>
+      <div className="relative container mx-auto px-4 pt-[60px] md:max-w-[80rem] md:px-5">
         <div className="flex flex-wrap justify-between gap-4">
           <div className="item1 pt-[5rem] sm:pt-[10rem]">
             <div className="flex flex-wrap items-center justify-center md:block md:flex-nowrap">

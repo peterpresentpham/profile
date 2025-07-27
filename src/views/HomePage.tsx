@@ -1,4 +1,6 @@
-import Sparkles from 'src/components/sparkles';
+import BackgroundBeams from 'src/components/aceternity/background-beams';
+import ShootingStars from 'src/components/aceternity/ShootingStars';
+import Sparkles from 'src/components/aceternity/sparkles';
 import Banner from './banner';
 import Certification from './certifications';
 import Education from './education';
@@ -14,6 +16,8 @@ export default function HomePage() {
       <Header />
       <div className="relative">
         <Sparkles />
+        <ShootingStars className="h-screen" />
+        <BackgroundBeams />
         <Banner />
         <Projects className="relative pt-[4rem] pb-[4rem]" />
         <Tools className="relative pt-[2rem] pb-[4rem]" />

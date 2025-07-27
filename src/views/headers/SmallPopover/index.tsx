@@ -2,7 +2,7 @@ import Drawer from 'react-modern-drawer';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { HeaderItem } from 'src/components/CssHeading';
 import { CloseIcon, LogoIcon } from 'src/components/icons';
-import Sparkles from 'src/components/sparkles';
+import Sparkles from 'src/components/aceternity/sparkles';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
 import { cn } from 'src/utils';
 import ContactLine from '../ContactLine';

@@ -1,3 +1,4 @@
+import ShootingStars from 'src/components/aceternity/ShootingStars';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { SkillsConfig, SkillsLayoutConfig } from 'src/configs/SkillConfig';
@@ -36,9 +37,12 @@ function SkillsLayout({ type, className }: SkillsLayoutProps) {
 export default function Skills(params: DivProps) {
   return (
     <div {...params} id="skills">
-      <SkillsLayout type="md" className="hidden md:block" />
-      <SkillsLayout type="sm" className="hidden sm:block md:hidden" />
-      <SkillsLayout type="xs" className="block sm:hidden" />
+      <ShootingStars />
+      <div className="relative">
+        <SkillsLayout type="md" className="hidden md:block" />
+        <SkillsLayout type="sm" className="hidden sm:block md:hidden" />
+        <SkillsLayout type="xs" className="block sm:hidden" />
+      </div>
     </div>
   );
 }
