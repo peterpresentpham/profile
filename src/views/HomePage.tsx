@@ -19,11 +19,11 @@ export default function HomePage() {
         <ShootingStars className="h-screen" />
         <BackgroundBeams />
         <Banner />
-        <Projects className="relative pt-[4rem] pb-[4rem]" />
-        <Tools className="relative pt-[2rem] pb-[4rem]" />
-        <Skills className="relative pt-[2rem] pb-[4rem]" />
-        <Education className="relative pt-[2rem] pb-[4rem]" />
-        <Certification className="relative pt-[2rem] pb-[4rem]" />
+        <Projects className="relative py-16" />
+        <Tools className="relative pt-8 pb-16" />
+        <Skills className="relative pt-8 pb-16" />
+        <Education className="relative pt-8 pb-16" />
+        <Certification className="relative pt-8 pb-16" />
         <Footer className="relative" />
       </div>
     </>

@@ -42,14 +42,14 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
             <ContactLine className="absolute top-[60px] right-[12px] h-[140px]" />
           </CommonContainer>
         </div>
-        <CommonContainer className="bg-black-50 mx-auto flex h-[calc(100%-60px)] flex-col justify-between px-[1rem]">
+        <CommonContainer className="bg-black-50 mx-auto flex h-[calc(100%-60px)] flex-col justify-between px-4">
           <div>
             {HeaderConfig.map((item) => {
               return (
                 <HeaderItem
                   key={item.id}
                   title={item.title}
-                  className="mt-[1rem] cursor-pointer"
+                  className="mt-4 cursor-pointer"
                   onClick={() => onScroll(item.id)}
                 />
               );

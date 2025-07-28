@@ -4,7 +4,7 @@ import GlowingEffect from 'src/components/aceternity/glowing-effect';
 
 export default function QuoteSpot() {
   return (
-    <div className="relative container mx-auto mt-20 flex justify-center border border-gray-100 p-8 md:max-w-[50rem]">
+    <div className="relative container mx-auto mt-20 flex justify-center border border-gray-100 p-8 md:max-w-200">
       <GlowingEffect />
       <p className="text-center text-[20px] font-medium">
         {

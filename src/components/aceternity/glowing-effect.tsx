@@ -14,6 +14,7 @@ interface GlowingEffectProps {
   disabled?: boolean;
   movementDuration?: number;
   borderWidth?: number;
+  black?: string;
 }
 const GlowingEffect = memo(
   ({
@@ -26,6 +27,7 @@ const GlowingEffect = memo(
     movementDuration = 2,
     borderWidth = 1,
     disabled = false,
+    black = 'rgba(255, 255, 255, 0.4)',
   }: GlowingEffectProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const lastPosition = useRef({ x: 0, y: 0 });
@@ -118,7 +120,7 @@ const GlowingEffect = memo(
           ref={containerRef}
           style={
             {
-              '--black': 'rgba(255, 255, 255, 0.4)',
+              '--black': black,
               '--blur': `${blur}px`,
               '--spread': spread,
               '--start': '0',

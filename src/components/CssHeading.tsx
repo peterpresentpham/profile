@@ -38,7 +38,7 @@ export default function CssHeading({ title, ...props }: Props) {
         imgClass="w-[28px] h-[28px]"
         textProps={{ className: 'text-[32px]' }}
       />
-      <div className="h-[1px] w-full bg-purple-50" />
+      <div className="css-heading-line h-[0.5px] w-full" />
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default function Tools(params: DivProps) {
   return (
     <CommonContainer {...params} id="tools">
       <CssHeading title="tools" className="cursor-pointer" />
-      <div className="overlay relative my-[4rem] h-[0.5px]">
+      <div className="overlay relative my-16 h-[0.5px]">
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
@@ -23,7 +23,7 @@ export default function Tools(params: DivProps) {
         />
       </div>
       <SlideComponent data={LanguageConfig} />
-      <div className="overlay relative my-[4rem] h-[0.5px]">
+      <div className="overlay relative my-16 h-[0.5px]">
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}
@@ -48,7 +48,7 @@ export default function Tools(params: DivProps) {
         />
       </div>
       <SlideComponent data={ToolsConfig} direction="right" />
-      <div className="overlay relative mt-[4rem] h-[0.5px]">
+      <div className="overlay relative mt-16 h-[0.5px]">
         <AnimatedString
           lineWidth={200}
           lineProps={{ className: 'tool-animated-bg' }}

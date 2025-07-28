@@ -24,7 +24,7 @@ export default function SlideComponent({ data, ...props }: Props) {
           <Link key={item.id} href={item.link} target="_blank" rel="noreferrer">
             <div
               className={cn(
-                'mr-[4rem]',
+                'mr-16',
                 isWhite
                   ? 'flex h-[100px] w-[100px] items-center justify-center rounded-[50%] bg-white'
                   : ''

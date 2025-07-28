@@ -17,7 +17,7 @@ export default function Footer(props: DivProps) {
   }, []);
 
   return (
-    <div {...props} className={cn('h-[150px] border-t-[1px] border-t-gray-50', props.className)}>
+    <div id="footer" {...props} className={cn('h-[150px]', props.className)}>
       <CommonContainer className="flex h-full flex-col justify-between">
         <div className="xs:flex-row flex flex-col items-center justify-between gap-3">
           <div className="xs:w-auto xs:flex-col flex w-full flex-row justify-between">

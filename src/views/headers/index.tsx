@@ -46,7 +46,7 @@ export default function Header() {
     >
       <CommonContainer className="relative flex items-center justify-between">
         <ContactLine
-          className="absolute top-0 left-[-4rem] z-[400] hidden duration-1000 md:flex"
+          className="absolute top-0 -left-16 z-[400] hidden duration-1000 md:flex"
           style={position > 60 ? { height: '260px' } : { height: '200px' }}
         />
         <button

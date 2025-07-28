@@ -1,11 +1,17 @@
+import GlowingEffect from 'src/components/aceternity/glowing-effect';
 import { DivProps } from 'src/globals';
 import { cn } from 'src/utils';
 
 export default function RectangleLine(params: DivProps) {
   return (
-    <div {...params} className={cn('flex w-[40px] flex-col items-center', params.className)}>
-      <div className="h-[calc(100%-64px)] w-[1px] bg-gray-50" />
-      <div className="h-[64px] w-[40px] border-[1px] border-gray-50" />
+    <div
+      {...params}
+      className={cn('relative flex w-[40px] flex-col items-center', params.className)}
+    >
+      <div className="h-[calc(100%-64px)] w-[0.5px] bg-gray-100" />
+      <div className="relative h-[64px] w-10 border-[0.5px] border-gray-100">
+        <GlowingEffect />
+      </div>
     </div>
   );
 }

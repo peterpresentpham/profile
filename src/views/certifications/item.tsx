@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import GlowingEffect from 'src/components/aceternity/glowing-effect';
+import ColorfulBox from 'src/components/box/ColorfulBox';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
 import { CredentialType, DivProps } from 'src/globals';
 
@@ -35,14 +36,13 @@ function InfoComponent(params: InfoComponentProps) {
         <p className="text-gray-50">{`Issued ${month} ${year}`}</p>
         <p className="text-gray-50">{`Credential ID ${credentialId}`}</p>
       </Link>
-      <Link
-        href={credentialUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="border-[rgba(255, 255, 255, 0.5)] mt-4 mb-2 inline-flex cursor-pointer items-center gap-x-2 border-[1px] px-2 py-1"
-      >
-        <p className="text-gray-50">Show credential</p>
-        <RocketIcon width={16} height={16} />
+      <Link href={credentialUrl} target="_blank" rel="noreferrer">
+        <ColorfulBox color="gray" className="mt-4 mb-2">
+          <div className="inline-flex flex-nowrap items-center gap-x-2">
+            <p className="text-gray-50">Show credential</p>
+            <RocketIcon width={16} height={16} />
+          </div>
+        </ColorfulBox>
       </Link>
       <div className="flex items-center gap-x-1">
         <DiamondIcon width={16} height={16} />

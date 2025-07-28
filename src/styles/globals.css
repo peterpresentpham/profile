@@ -8,6 +8,7 @@
 
   --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards)
     linear infinite;
+  --animate-meteor-effect: meteor 5s linear infinite;
 }
 @layer base {
   * {
@@ -24,6 +25,19 @@
     transform: translate(calc(-50% - 0.5rem));
   }
 }
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
+  }
+}
 .css-heading {
   width: 30%;
   @media screen and (max-width: 760px) {
@@ -34,6 +48,9 @@
   }
   @media screen and (max-width: 400px) {
     width: 100%;
+  }
+  .css-heading-line {
+    background: linear-gradient(0.33332turn, #c778dd 60%, transparent);
   }
 }
 .css-heading:hover {
@@ -61,8 +78,17 @@
   cursor: pointer;
 }
 #header::before {
-  background: linear-gradient(90deg, #fff0, #ffffff29, #fff0);
+  background: linear-gradient(0.33332turn, transparent, rgb(199, 120, 221, 0.3), transparent);
   bottom: 0;
+  content: '';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+#footer::before {
+  background: linear-gradient(0.33332turn, transparent, rgb(199, 120, 221, 0.3), transparent);
+  top: 0;
   content: '';
   height: 1px;
   left: 0;
@@ -88,9 +114,7 @@
       justify-content: flex-end;
     }
     @media screen and (max-width: 960px) {
-      width: 100%;
-      justify-content: center;
-      padding-left: 0px;
+      display: none;
     }
   }
 }
