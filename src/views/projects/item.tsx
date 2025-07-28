@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import GlowingEffect from 'src/components/aceternity/glowing-effect';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import { ProjectType } from 'src/globals';
 import RelevantSkills from '../skills/RelevantSkills';
@@ -8,9 +9,13 @@ export default function Item(params: ProjectType) {
   const DescriptionComponent = description;
 
   return (
-    <div className="border border-gray-100">
-      <RelevantSkills skills={technologies} />
-      <div className="border-t border-gray-100 p-4">
+    <div>
+      <div className="relative border border-gray-100">
+        <GlowingEffect />
+        <RelevantSkills skills={technologies} />
+      </div>
+      <div className="relative border border-t-0 border-gray-100 p-4">
+        <GlowingEffect />
         <p className="text-medium text-[24px]">{title}</p>
         <div className="mt-[1rem]">
           <DescriptionComponent />

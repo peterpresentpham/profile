@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import GlowingEffect from 'src/components/aceternity/glowing-effect';
 import { DiamondIcon, UnitIcon } from 'src/components/icons';
 import { EducationType } from 'src/globals';
 
@@ -19,7 +20,8 @@ export default function Item(params: EducationType) {
   } = params;
 
   return (
-    <div id={`education-${id}`} className="flex w-full border border-gray-100 p-4">
+    <div id={`education-${id}`} className="relative flex w-full border border-gray-100 p-4">
+      <GlowingEffect />
       <div className="mr-4 w-[48px]">
         <Link href={schoolUrl} target="_blank" rel="noreferrer">
           <Image src={icon} alt={school} className="h-auto w-[48px]" />

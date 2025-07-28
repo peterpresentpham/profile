@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import GlowingEffect from 'src/components/aceternity/glowing-effect';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
 import { CredentialType, DivProps } from 'src/globals';
 
@@ -72,8 +73,9 @@ export default function Item(params: Props) {
   return (
     <div
       id={`certification-${id}`}
-      className="credential-magical-item border border-gray-100 p-[1rem]"
+      className="credential-magical-item relative border border-gray-100 p-4"
     >
+      <GlowingEffect />
       <div className="credential-item">
         <div className="credential-item-item1">
           <Link href={credentialUrl} target="_blank" rel="noreferrer">
