@@ -6,7 +6,7 @@ import { cn } from 'src/utils';
 export default function ContactLine(props: DivProps) {
   return (
     <div {...props} className={cn('flex w-[25px] flex-col items-center gap-2', props.className)}>
-      <div className="h-full w-[1px] bg-gray-50" />
+      <div className="h-full w-[0.5px] bg-gray-100" />
       {ContactConfig.map((item) => {
         const Icon = item.icon;
 

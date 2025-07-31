@@ -29,10 +29,11 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
       lockBackgroundScroll={true}
     >
       <div className="relative h-screen">
+        <Sparkles />
         <div className="bg-black-50">
-          <CommonContainer className="relative flex h-[60px] items-center justify-between sm:justify-end">
+          <CommonContainer className="relative flex h-[60px] items-center justify-between md:justify-end">
             <div
-              className="flex items-center gap-x-2 sm:hidden"
+              className="flex items-center gap-x-2 md:hidden"
               onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
             >
               <LogoIcon />
@@ -49,14 +50,13 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
                 <HeaderItem
                   key={item.id}
                   title={item.title}
-                  className="mt-4 cursor-pointer"
+                  className="relative mt-4 cursor-pointer"
                   onClick={() => onScroll(item.id)}
                 />
               );
             })}
           </div>
         </CommonContainer>
-        <Sparkles />
       </div>
     </Drawer>
   );

@@ -6,8 +6,8 @@ import CssTooltip from 'src/components/CssTooltip';
 import { InfoIcon } from 'src/components/icons';
 import { DivProps } from 'src/globals';
 import { cn } from 'src/utils';
+import LargeRectangleLine, { SmallRectangleLine } from './large-rectangle-line';
 import QuoteSpot from './QuoteSpot';
-import RectangleLine from './RectangleLine';
 
 const fira = Fira_Sans({ weight: '400', subsets: ['latin'] });
 
@@ -18,8 +18,8 @@ export default function Banner(params: DivProps) {
       id="overview"
       className={cn('relative min-h-screen', params.className)}
     >
-      <div className="flex flex-wrap justify-between gap-4">
-        <div className="item1 pt-20 sm:pt-40">
+      <div className="flex flex-wrap gap-4 pb-20 max-md:justify-between">
+        <div className="pt-20 sm:pt-30 md:w-1/2 md:pt-40 lg:w-1/3">
           <div className="flex flex-wrap items-center justify-center md:block md:flex-nowrap">
             <div className="relative inline-block">
               <p className="text-center text-[32px] leading-[34px] font-semibold md:text-start">
@@ -34,7 +34,7 @@ export default function Banner(params: DivProps) {
             </div>
             &nbsp;&nbsp;
             <p className="inline text-center text-[32px] leading-[34px] font-semibold md:text-start">
-              is a <span className="text-purple-50">Software Developer</span>
+              is a <span className="whitespace-nowrap text-purple-50">Software Developer</span>
             </p>
           </div>
           <p className="mt-4 text-center text-gray-50 md:text-start">
@@ -50,16 +50,10 @@ export default function Banner(params: DivProps) {
             </Link>
           </div>
         </div>
-        <div className="item2">
-          <RectangleLine className="sticky top-0 mr-2 h-[340px]" />
-          <RectangleLine className="sticky top-0 mr-2 h-[300px]" />
-          <RectangleLine className="sticky top-0 mr-2 h-[260px]" />
-          <RectangleLine className="sticky top-0 mr-2 h-[220px]" />
-          <RectangleLine className="sticky top-0 mr-2 h-[180px]" />
-          <RectangleLine className="sticky top-0 h-[140px]" />
-        </div>
+        <LargeRectangleLine className="max-md:hidden md:w-1/3" />
       </div>
       <QuoteSpot />
+      <SmallRectangleLine />
     </CommonContainer>
   );
 }
