@@ -39,9 +39,9 @@ export default function Item(params: EducationType) {
         </p>
         <p>Grade: {grade}</p>
         {skills && (
-          <div className="flex items-center gap-x-1">
-            <DiamondIcon width={16} height={16} />
-            <div className="flex items-center gap-x-4">
+          <div className="flex items-start gap-x-1">
+            <DiamondIcon width={16} height={16} className="mt-1" />
+            <div className="flex flex-wrap items-center gap-x-4">
               {skills.map((skill, index) => {
                 const _max = skills.length - 1;
 

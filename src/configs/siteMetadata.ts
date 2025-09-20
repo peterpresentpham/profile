@@ -10,5 +10,5 @@ export const siteMetadata = {
   twitterHandle: 'PhamHon08928762',
   icon: IconImg.src,
   image: ThumbImg.src,
-  keywords: '',
+  keywords: 'software,full stack,blockchain,smart contract,backend,frontend',
 };
