@@ -53,3 +53,7 @@ export function NextAppDescription() {
     </p>
   );
 }
+
+export function CaroDescription() {
+  return <p className="text-gray-50">Caro application.</p>;
+}

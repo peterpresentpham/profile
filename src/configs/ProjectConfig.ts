@@ -1,5 +1,6 @@
 import {
   AccountAbstractionDescription,
+  CaroDescription,
   EthGraphQuery,
   NextAppDescription,
   ProfileDescription,
@@ -17,13 +18,17 @@ export const ProjectLayoutConfig: Type = {
       { index: 0, layoutIndex: 0 },
       { index: 3, layoutIndex: 1 },
     ],
-    [{ index: 1, layoutIndex: 2 }],
-    [{ index: 2, layoutIndex: 3 }],
+    [
+      { index: 2, layoutIndex: 2 },
+      { index: 4, layoutIndex: 3 },
+    ],
+    [{ index: 1, layoutIndex: 4 }],
   ],
   sm: [
     [
       { index: 0, layoutIndex: 0 },
       { index: 2, layoutIndex: 1 },
+      { index: 4, layoutIndex: 2 },
     ],
     [
       { index: 1, layoutIndex: 3 },
@@ -36,6 +41,7 @@ export const ProjectLayoutConfig: Type = {
       { index: 1, layoutIndex: 1 },
       { index: 2, layoutIndex: 2 },
       { index: 3, layoutIndex: 3 },
+      { index: 4, layoutIndex: 4 },
     ],
   ],
 };
@@ -136,6 +142,21 @@ export const ProjectConfig: Array<ProjectType> = [
         to: 'https://www.npmjs.com/package/eth-graph-query',
         symbol: 'Σ',
         color: 'gray',
+      },
+    ],
+  },
+  {
+    id: 'caro',
+    technologies: [Next, React, ShadcnSkill, Tailwind],
+    title: 'Caro',
+    description: CaroDescription,
+    links: [
+      {
+        id: 'hosting',
+        title: 'live',
+        to: 'https://experiment.peter-present.xyz/caro',
+        symbol: 'η',
+        color: 'orange',
       },
     ],
   },
