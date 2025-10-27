@@ -42,11 +42,11 @@ export default function Header() {
   return (
     <div
       id="header"
-      className={`bg-black-50 fixed top-0 z-[1000000] h-[60px] w-screen shadow-md duration-500 ${position > 60 && 'translate-y-[-100%]'}`}
+      className={`bg-black-50 fixed top-0 z-1000000 h-[60px] w-screen shadow-md duration-500 ${position > 60 && '-translate-y-full'}`}
     >
       <CommonContainer className="relative flex items-center justify-between">
         <ContactLine
-          className="absolute top-0 -left-16 z-[400] hidden duration-1000 md:flex"
+          className="absolute top-0 -left-16 z-400 hidden duration-1000 md:flex"
           style={position > 60 ? { height: '260px' } : { height: '200px' }}
         />
         <button

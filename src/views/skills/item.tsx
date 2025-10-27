@@ -12,7 +12,7 @@ export default function Item(params: SkillsType) {
     <div id={`skill-${id}`}>
       <div className="relative flex items-center gap-x-2 border border-gray-100 p-4">
         <GlowingEffect />
-        {icon && <Image src={icon} alt={id} className="h-auto w-[24px]" />}
+        {icon && <Image src={icon} alt={id} className="h-auto w-6" />}
         <Link href={nameLink} target="_blank" rel="noreferrer" className="hover-text">
           {name}
         </Link>

@@ -26,7 +26,7 @@ export default function Item(params: ProjectType) {
               return (
                 <Link key={link.id} href={link.to} target="_blank" rel="noreferrer">
                   <ColorfulBox
-                    className="mr-[8px]"
+                    className="mr-2"
                     color={link.color}
                   >{`${link.symbol} ${link.title}`}</ColorfulBox>
                 </Link>

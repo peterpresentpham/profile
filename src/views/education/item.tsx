@@ -22,9 +22,9 @@ export default function Item(params: EducationType) {
   return (
     <div id={`education-${id}`} className="relative flex w-full border border-gray-100 p-4">
       <GlowingEffect />
-      <div className="mr-4 w-[48px]">
+      <div className="mr-4 w-12">
         <Link href={schoolUrl} target="_blank" rel="noreferrer">
-          <Image src={icon} alt={school} className="h-auto w-[48px]" />
+          <Image src={icon} alt={school} className="h-auto w-12" />
         </Link>
       </div>
       <div className="w-[calc(100%-64px)]">

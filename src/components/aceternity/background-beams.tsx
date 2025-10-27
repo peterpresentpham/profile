@@ -63,7 +63,7 @@ export default function BackgroundBeams(props: DivProps) {
     <div
       {...props}
       className={cn(
-        'absolute inset-0 flex h-screen w-full items-center justify-center [mask-size:40px] [mask-repeat:no-repeat]',
+        'absolute inset-0 flex h-screen w-full items-center justify-center mask-size-[40px] mask-no-repeat',
         props.className
       )}
     >

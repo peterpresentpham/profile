@@ -11,11 +11,11 @@ export default function QuoteSpot() {
           'People who are unable to motivate themselves must be content with mediocrity no matter how impressive their other talents'
         }
       </p>
-      <div className="absolute top-[-10px] left-[5%] z-[200] px-[5px]">
-        <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
+      <div className="absolute -top-2.5 left-[5%] z-200 px-[5px]">
+        <Image src={QuoteImg} alt="quote" className="h-5 w-auto" />
       </div>
-      <div className="absolute right-[5%] bottom-[-10px] z-[200] px-[5px]">
-        <Image src={QuoteImg} alt="quote" className="h-[20px] w-auto" />
+      <div className="absolute right-[5%] -bottom-2.5 z-200 px-[5px]">
+        <Image src={QuoteImg} alt="quote" className="h-5 w-auto" />
       </div>
     </div>
   );

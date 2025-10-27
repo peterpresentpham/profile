@@ -40,7 +40,7 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
               <p className="font-bold">{MY_NAME}</p>
             </div>
             <CloseIcon width={18} height={18} onClick={onClose} />
-            <ContactLine className="absolute top-[60px] right-[12px] h-[140px]" />
+            <ContactLine className="absolute top-[60px] right-3 h-[140px]" />
           </CommonContainer>
         </div>
         <CommonContainer className="bg-black-50 mx-auto flex h-[calc(100%-60px)] flex-col justify-between px-4">

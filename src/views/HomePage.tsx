@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import BackgroundBeams from 'src/components/aceternity/background-beams';
 import ShootingStars from 'src/components/aceternity/ShootingStars';
 import Sparkles from 'src/components/aceternity/sparkles';
@@ -12,7 +13,7 @@ import Tools from './tools';
 
 export default function HomePage() {
   return (
-    <>
+    <Fragment>
       <Header />
       <div className="relative">
         <Sparkles />
@@ -26,6 +27,6 @@ export default function HomePage() {
         <Certification className="relative pt-8 pb-16" />
         <Footer className="relative" />
       </div>
-    </>
+    </Fragment>
   );
 }

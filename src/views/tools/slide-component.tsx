@@ -33,7 +33,7 @@ export default function SlideComponent({ data, ...props }: Props) {
               <Image
                 src={item.icon}
                 alt={item.id}
-                className={isWhite ? 'h-auto w-[80px]' : 'h-auto w-[100px]'}
+                className={isWhite ? 'h-auto w-20' : 'h-auto w-[100px]'}
               />
             </div>
           </Link>

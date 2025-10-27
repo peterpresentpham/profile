@@ -27,9 +27,9 @@ export default function Banner(params: DivProps) {
               </p>
               <CssTooltip
                 title="Phạm Hồng Phúc"
-                className={`${fira.className} absolute top-0 right-[-16px]`}
+                className={`${fira.className} absolute top-0 right-4`}
               >
-                <InfoIcon className="h-[16px] w-[16px] cursor-pointer" />
+                <InfoIcon className="h-4 w-4 cursor-pointer" />
               </CssTooltip>
             </div>
             &nbsp;&nbsp;
@@ -40,7 +40,7 @@ export default function Banner(params: DivProps) {
           <p className="mt-4 text-center text-gray-50 md:text-start">
             with experience in developing, implementing, and optimizing web applications.
           </p>
-          <div className="mt-4 flex items-center justify-center gap-[8px] md:justify-start">
+          <div className="mt-4 flex items-center justify-center gap-2 md:justify-start">
             <Link
               href="https://www.linkedin.com/in/peter-present/"
               target="_blank"
