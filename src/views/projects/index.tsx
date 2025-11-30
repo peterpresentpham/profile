@@ -1,44 +1,28 @@
+import { ComponentProps } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
-import { ProjectConfig, ProjectLayoutConfig } from 'src/configs/ProjectConfig';
-import { DivProps } from 'src/globals';
+import { ProjectConfig } from 'src/configs/ProjectConfig';
 import Item from './item';
 
-type ProjectLayoutProps = {
-  type: 'md' | 'sm' | 'xs';
-  className?: string;
-};
-
-function ProjectsLayout({ type, className }: ProjectLayoutProps) {
+export default function Projects(props: ComponentProps<'div'>) {
   return (
-    <CommonContainer className={className}>
+    <CommonContainer {...props} id="projects">
       <CssHeading title="projects" className="cursor-pointer" />
-      <div className="mt-12 grid grid-cols-12 gap-5">
-        {ProjectLayoutConfig[type].map((layout, index) => {
-          return (
-            <div
-              key={index}
-              className="col-span-12 flex h-fit flex-col gap-5 sm:col-span-6 md:col-span-4"
-            >
-              {layout.map((itemInfo) => {
-                const item = ProjectConfig[itemInfo.index];
-
-                return <Item key={item.id} {...item} />;
-              })}
-            </div>
-          );
-        })}
+      <div className="mt-12 hidden columns-3 gap-5 md:block">
+        {ProjectConfig.map((item) => (
+          <Item key={item.id} {...item} className="mb-5 break-inside-avoid" />
+        ))}
+      </div>
+      <div className="mt-12 hidden columns-2 gap-5 sm:block md:hidden">
+        {ProjectConfig.map((item) => (
+          <Item key={item.id} {...item} className="mb-5 break-inside-avoid" />
+        ))}
+      </div>
+      <div className="mt-12 columns-1 gap-5 sm:hidden">
+        {ProjectConfig.map((item) => (
+          <Item key={item.id} {...item} className="mb-5 break-inside-avoid" />
+        ))}
       </div>
     </CommonContainer>
-  );
-}
-
-export default function Projects(props: DivProps) {
-  return (
-    <div {...props} id="projects">
-      <ProjectsLayout type="md" className="hidden md:block" />
-      <ProjectsLayout type="sm" className="hidden sm:block md:hidden" />
-      <ProjectsLayout type="xs" className="block sm:hidden" />
-    </div>
   );
 }

@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'motion/react';
+import { ComponentProps } from 'react';
 import { cn } from 'src/utils';
-import { DivProps } from 'src/globals';
 
 const paths = [
   'M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875',
@@ -58,7 +57,7 @@ const paths = [
   'M-37 -581C-37 -581 31 -176 495 -49C959 78 1027 483 1027 483',
 ];
 
-export default function BackgroundBeams(props: DivProps) {
+export default function BackgroundBeams(props: ComponentProps<'div'>) {
   return (
     <div
       {...props}

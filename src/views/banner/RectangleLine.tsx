@@ -1,8 +1,8 @@
+import { ComponentProps } from 'react';
 import GlowingEffect from 'src/components/aceternity/glowing-effect';
-import { DivProps } from 'src/globals';
 import { cn } from 'src/utils';
 
-export default function RectangleLine(params: DivProps) {
+export default function RectangleLine(params: ComponentProps<'div'>) {
   return (
     <div {...params} className={cn('relative flex w-10 flex-col items-center', params.className)}>
       <div className="h-[calc(100%-64px)] w-[0.5px] bg-gray-100" />

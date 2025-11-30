@@ -1,10 +1,10 @@
+import { ComponentProps } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { EducationConfig } from 'src/configs/EducationConfig';
-import { DivProps } from 'src/globals';
 import Item from './item';
 
-export default function Education(params: DivProps) {
+export default function Education(params: ComponentProps<'div'>) {
   return (
     <div {...params} id="education">
       <CommonContainer>

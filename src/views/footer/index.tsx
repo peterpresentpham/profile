@@ -1,14 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { ComponentProps, useMemo } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import { LogoIcon } from 'src/components/icons';
 import { ContactConfig, MY_NAME } from 'src/configs/constance';
-import { DivProps } from 'src/globals';
 import { cn } from 'src/utils';
 
-export default function Footer(props: DivProps) {
+export default function Footer(props: ComponentProps<'div'>) {
   const { currentHour, date } = useMemo(() => {
     const dt = new Date();
     const date = `${dt.getDate()} ${dt.toLocaleString('default', { month: 'short' })} ${dt.getFullYear()}`;

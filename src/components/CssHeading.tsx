@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { DivProps } from 'src/globals';
+import { ComponentProps, DetailedHTMLProps, HTMLAttributes } from 'react';
 import { cn } from 'src/utils';
 
-interface HeaderItemProps extends DivProps {
+interface HeaderItemProps extends ComponentProps<'div'> {
   title: string;
   active?: boolean;
   imgClass?: string;
@@ -24,7 +23,7 @@ export function HeaderItem({ title, active, imgClass, textProps, ...props }: Hea
   );
 }
 
-interface Props extends DivProps {
+interface Props extends ComponentProps<'div'> {
   title: string;
 }
 

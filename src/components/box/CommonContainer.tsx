@@ -1,7 +1,7 @@
-import { DivProps } from 'src/globals';
+import { ComponentProps } from 'react';
 import { cn } from 'src/utils';
 
-export default function CommonContainer(props: DivProps) {
+export default function CommonContainer(props: ComponentProps<'div'>) {
   return (
     <div
       {...props}

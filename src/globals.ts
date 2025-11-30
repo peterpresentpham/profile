@@ -1,7 +1,6 @@
 import { StaticImageData } from 'next/image';
-import { ComponentProps, FunctionComponent, SVGProps } from 'react';
+import { FunctionComponent, SVGProps } from 'react';
 
-export type DivProps = ComponentProps<'div'>;
 export type SvgPropsType = SVGProps<SVGSVGElement>;
 export type PositionType = { x: string; y: string };
 

@@ -1,9 +1,9 @@
 import Link from 'next/link';
+import { ComponentProps } from 'react';
 import { ContactConfig } from 'src/configs/constance';
-import { DivProps } from 'src/globals';
 import { cn } from 'src/utils';
 
-export default function ContactLine(props: DivProps) {
+export default function ContactLine(props: ComponentProps<'div'>) {
   return (
     <div {...props} className={cn('flex w-[25px] flex-col items-center gap-2', props.className)}>
       <div className="h-full w-[0.5px] bg-gray-100" />

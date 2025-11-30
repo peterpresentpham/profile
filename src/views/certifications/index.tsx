@@ -1,10 +1,10 @@
+import { ComponentProps } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { CredentialConfig } from 'src/configs/constance';
-import { DivProps } from 'src/globals';
 import Item from './item';
 
-export default function Certification(params: DivProps) {
+export default function Certification(params: ComponentProps<'div'>) {
   return (
     <div {...params} id="certification">
       <CommonContainer>

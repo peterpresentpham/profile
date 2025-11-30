@@ -1,17 +1,17 @@
 import { Fira_Sans } from 'next/font/google';
 import Link from 'next/link';
+import { ComponentProps } from 'react';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssTooltip from 'src/components/CssTooltip';
 import { InfoIcon } from 'src/components/icons';
-import { DivProps } from 'src/globals';
 import { cn } from 'src/utils';
 import LargeRectangleLine, { SmallRectangleLine } from './large-rectangle-line';
 import QuoteSpot from './QuoteSpot';
 
 const fira = Fira_Sans({ weight: '400', subsets: ['latin'] });
 
-export default function Banner(params: DivProps) {
+export default function Banner(params: ComponentProps<'div'>) {
   return (
     <CommonContainer
       {...params}

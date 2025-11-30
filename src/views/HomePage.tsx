@@ -1,15 +1,16 @@
-import { Fragment } from 'react';
+import { Fragment, lazy } from 'react';
 import BackgroundBeams from 'src/components/aceternity/background-beams';
 import ShootingStars from 'src/components/aceternity/ShootingStars';
 import Sparkles from 'src/components/aceternity/sparkles';
 import Banner from './banner';
-import Certification from './certifications';
-import Education from './education';
 import Footer from './footer';
 import Header from './headers';
-import Projects from './projects';
-import Skills from './skills';
-import Tools from './tools';
+
+const Projects = lazy(() => import('./projects'));
+const Tools = lazy(() => import('./tools'));
+const Skills = lazy(() => import('./skills'));
+const Education = lazy(() => import('./education'));
+const Certification = lazy(() => import('./certifications'));
 
 export default function HomePage() {
   return (

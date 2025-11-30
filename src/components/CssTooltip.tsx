@@ -1,7 +1,7 @@
-import { DivProps } from 'src/globals';
+import { ComponentProps } from 'react';
 import { cn } from 'src/utils';
 
-export default function CssTooltip(props: DivProps) {
+export default function CssTooltip(props: ComponentProps<'div'>) {
   return (
     <div
       {...props}

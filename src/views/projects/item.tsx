@@ -1,15 +1,18 @@
 import Link from 'next/link';
+import { ComponentProps } from 'react';
 import GlowingEffect from 'src/components/aceternity/glowing-effect';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import { ProjectType } from 'src/globals';
 import RelevantSkills from '../skills/RelevantSkills';
 
-export default function Item(params: ProjectType) {
-  const { technologies, title, description, links } = params;
+type Props = ComponentProps<'div'> & ProjectType;
+
+export default function Item(params: Props) {
+  const { technologies, title, description, links, ...props } = params;
   const DescriptionComponent = description;
 
   return (
-    <div>
+    <div {...props}>
       <div className="relative border border-gray-100">
         <GlowingEffect />
         <RelevantSkills skills={technologies} />

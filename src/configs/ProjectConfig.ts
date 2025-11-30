@@ -8,44 +8,6 @@ import {
 import { ProjectType } from 'src/globals';
 import { CoreSkills, Next, React } from './SkillConfig/CoreSkills';
 
-type Type = {
-  [key: string]: Array<Array<{ index: number; layoutIndex: number }>>;
-};
-
-export const ProjectLayoutConfig: Type = {
-  md: [
-    [
-      { index: 0, layoutIndex: 0 },
-      { index: 3, layoutIndex: 1 },
-    ],
-    [
-      { index: 2, layoutIndex: 2 },
-      { index: 4, layoutIndex: 3 },
-    ],
-    [{ index: 1, layoutIndex: 4 }],
-  ],
-  sm: [
-    [
-      { index: 0, layoutIndex: 0 },
-      { index: 2, layoutIndex: 1 },
-      { index: 4, layoutIndex: 2 },
-    ],
-    [
-      { index: 1, layoutIndex: 3 },
-      { index: 3, layoutIndex: 4 },
-    ],
-  ],
-  xs: [
-    [
-      { index: 0, layoutIndex: 0 },
-      { index: 1, layoutIndex: 1 },
-      { index: 2, layoutIndex: 2 },
-      { index: 3, layoutIndex: 3 },
-      { index: 4, layoutIndex: 4 },
-    ],
-  ],
-};
-
 const { VercelSkill, Ethers, MUI, WagmiSkill, ViteSkill, TheGraphSkill, ShadcnSkill, Tailwind } =
   CoreSkills;
 
@@ -69,42 +31,6 @@ export const ProjectConfig: Array<ProjectType> = [
         to: 'https://github.com/phamhongphuc1999/profile',
         symbol: 'Δ',
         color: 'purple',
-      },
-    ],
-  },
-  {
-    id: 'account-abstraction-app',
-    technologies: [React, Ethers, MUI, WagmiSkill],
-    title: 'Recovery ERC-4337 Wallet',
-    description: AccountAbstractionDescription,
-    links: [
-      {
-        id: 'frontend-github',
-        title: 'User Interface',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
-        symbol: 'ξ',
-        color: 'gray',
-      },
-      {
-        id: 'smart-contract',
-        title: 'Smart Contract',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract',
-        symbol: 'Ξ',
-        color: 'purple',
-      },
-      {
-        id: 'bundler',
-        title: 'Bundler',
-        to: 'https://github.com/phamhongphuc1999/bundler',
-        symbol: 'Ψ',
-        color: 'blue',
-      },
-      {
-        id: 'arithmetic-circuit',
-        title: 'Arithmetic circuit',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract/tree/main/circom',
-        symbol: 'φ',
-        color: 'orange',
       },
     ],
   },
@@ -156,6 +82,42 @@ export const ProjectConfig: Array<ProjectType> = [
         title: 'live',
         to: 'https://experiment.peter-present.xyz/caro',
         symbol: 'η',
+        color: 'orange',
+      },
+    ],
+  },
+  {
+    id: 'account-abstraction-app',
+    technologies: [React, Ethers, MUI, WagmiSkill],
+    title: 'Recovery ERC-4337 Wallet',
+    description: AccountAbstractionDescription,
+    links: [
+      {
+        id: 'frontend-github',
+        title: 'UI',
+        to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
+        symbol: 'ξ',
+        color: 'gray',
+      },
+      {
+        id: 'smart-contract',
+        title: 'Smart Contract',
+        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract',
+        symbol: 'Ξ',
+        color: 'purple',
+      },
+      {
+        id: 'bundler',
+        title: 'Bundler',
+        to: 'https://github.com/phamhongphuc1999/bundler',
+        symbol: 'Ψ',
+        color: 'blue',
+      },
+      {
+        id: 'arithmetic-circuit',
+        title: 'Arithmetic circuit',
+        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract/tree/main/circom',
+        symbol: 'φ',
         color: 'orange',
       },
     ],

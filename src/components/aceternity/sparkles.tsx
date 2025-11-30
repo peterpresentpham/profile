@@ -5,11 +5,10 @@ import type { Container, SingleOrMultiple } from '@tsparticles/engine';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import { motion, useAnimation } from 'motion/react';
-import { useEffect, useId, useState } from 'react';
-import { DivProps } from 'src/globals';
+import { ComponentProps, useEffect, useId, useState } from 'react';
 import { cn } from 'src/utils';
 
-interface ParticlesProps extends DivProps {
+interface ParticlesProps extends ComponentProps<'div'> {
   id?: string;
   background?: string;
   particleSize?: number;

@@ -1,48 +1,30 @@
+import { ComponentProps } from 'react';
 import ShootingStars from 'src/components/aceternity/ShootingStars';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
-import { SkillsConfig, SkillsLayoutConfig } from 'src/configs/SkillConfig';
-import { DivProps } from 'src/globals';
+import { SkillsConfig } from 'src/configs/SkillConfig';
 import Item from './item';
 
-type SkillsLayoutProps = {
-  type: 'md' | 'sm' | 'xs';
-  className?: string;
-};
-
-function SkillsLayout({ type, className }: SkillsLayoutProps) {
+export default function Skills(params: ComponentProps<'div'>) {
   return (
-    <CommonContainer className={className}>
+    <CommonContainer {...params} id="skills">
       <CssHeading title="skills" className="cursor-pointer" />
-      <div className="mt-12 grid grid-cols-12 gap-5">
-        {SkillsLayoutConfig[type].map((layout, index) => {
-          return (
-            <div
-              key={index}
-              className="col-span-12 flex h-fit flex-col gap-5 sm:col-span-6 md:col-span-4"
-            >
-              {layout.map((itemInfo) => {
-                const item = SkillsConfig[itemInfo.index];
-
-                return <Item key={item.id} {...item} />;
-              })}
-            </div>
-          );
-        })}
+      <ShootingStars />
+      <div className="mt-12 hidden columns-3 gap-5 md:block">
+        {SkillsConfig.map((item) => (
+          <Item key={item.id} {...item} className="mb-5 break-inside-avoid" />
+        ))}
+      </div>
+      <div className="mt-12 hidden columns-2 gap-5 sm:block md:hidden">
+        {SkillsConfig.map((item) => (
+          <Item key={item.id} {...item} className="mb-5 break-inside-avoid" />
+        ))}
+      </div>
+      <div className="mt-12 columns-1 gap-5 sm:hidden">
+        {SkillsConfig.map((item) => (
+          <Item key={item.id} {...item} className="mb-5 break-inside-avoid" />
+        ))}
       </div>
     </CommonContainer>
-  );
-}
-
-export default function Skills(params: DivProps) {
-  return (
-    <div {...params} id="skills">
-      <ShootingStars />
-      <div className="relative">
-        <SkillsLayout type="md" className="hidden md:block" />
-        <SkillsLayout type="sm" className="hidden sm:block md:hidden" />
-        <SkillsLayout type="xs" className="block sm:hidden" />
-      </div>
-    </div>
   );
 }

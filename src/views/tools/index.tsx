@@ -1,11 +1,11 @@
+import { ComponentProps } from 'react';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { LanguageConfig, ToolsConfig } from 'src/configs/constance';
-import { DivProps } from 'src/globals';
 import AnimatedString from './animated-string';
 import SlideComponent from './slide-component';
 
-export default function Tools(params: DivProps) {
+export default function Tools(params: ComponentProps<'div'>) {
   return (
     <CommonContainer {...params} id="tools">
       <CssHeading title="tools" className="cursor-pointer" />

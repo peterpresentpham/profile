@@ -2,17 +2,18 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { ComponentProps } from 'react';
 import GlowingEffect from 'src/components/aceternity/glowing-effect';
 import ColorfulBox from 'src/components/box/ColorfulBox';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
-import { CredentialType, DivProps } from 'src/globals';
+import { CredentialType } from 'src/globals';
 
 type InfoComponentProps = {
   credentialId: string;
   credentialUrl: string;
   skills: CredentialType['skills'];
   issueDate: CredentialType['issueDate'];
-} & DivProps;
+} & ComponentProps<'div'>;
 
 function InfoComponent(params: InfoComponentProps) {
   const { credentialId, credentialUrl, skills, issueDate, ...props } = params;

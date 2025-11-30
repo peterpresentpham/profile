@@ -1,5 +1,5 @@
-import { CSSProperties } from 'react';
-import { ButtonColorType, DivProps } from 'src/globals';
+import { ComponentProps, CSSProperties } from 'react';
+import { ButtonColorType } from 'src/globals';
 import { cn } from 'src/utils';
 
 const ColorConfig: { [key1 in ButtonColorType]: { r: number; g: number; b: number } } = {
@@ -9,7 +9,7 @@ const ColorConfig: { [key1 in ButtonColorType]: { r: number; g: number; b: numbe
   blue: { r: 28, g: 104, b: 243 },
 };
 
-interface Props extends DivProps {
+interface Props extends ComponentProps<'div'> {
   color?: ButtonColorType;
 }
 

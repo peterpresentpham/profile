@@ -1,8 +1,8 @@
-import { DivProps } from 'src/globals';
-import RectangleLine from './RectangleLine';
+import { ComponentProps } from 'react';
 import { cn } from 'src/utils';
+import RectangleLine from './RectangleLine';
 
-export default function LargeRectangleLine(props: DivProps) {
+export default function LargeRectangleLine(props: ComponentProps<'div'>) {
   return (
     <div {...props} className={cn('relative', props.className)}>
       <div className="absolute top-0 right-60 h-[calc(100%+80px)] w-10">

@@ -3,22 +3,12 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "src/*": [
-        "./src/*"
-      ],
-      "app/*": [
-        "./app/*"
-      ],
-      "public/*": [
-        "./public/*"
-      ]
+      "src/*": ["./src/*"],
+      "app/*": ["./app/*"],
+      "public/*": ["./public/*"]
     },
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -44,9 +34,5 @@
     "tailwind.config.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "out",
-    "dist"
-  ]
+  "exclude": ["node_modules", "out", "dist"]
 }

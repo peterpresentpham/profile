@@ -1,11 +1,10 @@
-import { CSSProperties } from 'react';
-import { DivProps } from 'src/globals';
+import { ComponentProps, CSSProperties } from 'react';
 import { cn } from 'src/utils';
 
-interface Props extends DivProps {
+interface Props extends ComponentProps<'div'> {
   lineWidth?: number;
-  lineProps?: DivProps;
-  animationProps?: DivProps;
+  lineProps?: ComponentProps<'div'>;
+  animationProps?: ComponentProps<'div'>;
 }
 
 export default function AnimatedString({
