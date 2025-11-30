@@ -25,15 +25,13 @@ export default function SlideComponent({ data, ...props }: Props) {
             <div
               className={cn(
                 'mr-16',
-                isWhite
-                  ? 'flex h-[100px] w-[100px] items-center justify-center rounded-[50%] bg-white'
-                  : ''
+                isWhite && 'flex h-20 w-20 items-center justify-center rounded-full bg-white'
               )}
             >
               <Image
                 src={item.icon}
                 alt={item.id}
-                className={isWhite ? 'h-auto w-20' : 'h-auto w-[100px]'}
+                className={isWhite ? 'h-auto w-15' : 'h-auto w-20'}
               />
             </div>
           </Link>

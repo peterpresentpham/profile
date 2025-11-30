@@ -20,13 +20,11 @@ export default function Item(params: EducationType) {
   } = params;
 
   return (
-    <div id={`education-${id}`} className="relative flex w-full border border-gray-100 p-4">
+    <div id={`education-${id}`} className="relative flex w-full gap-4 border border-gray-100 p-4">
       <GlowingEffect />
-      <div className="mr-4 w-12">
-        <Link href={schoolUrl} target="_blank" rel="noreferrer">
-          <Image src={icon} alt={school} className="h-auto w-12" />
-        </Link>
-      </div>
+      <Link href={schoolUrl} target="_blank" rel="noreferrer">
+        <Image src={icon} alt={school} className="h-auto w-12" />
+      </Link>
       <div className="w-[calc(100%-64px)]">
         <Link href={schoolUrl} target="_blank" rel="noreferrer">
           <p className="hover-text font-semibold">{school}</p>

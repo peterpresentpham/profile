@@ -46,11 +46,13 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "4.1.16",
     "typescript": "5.5.3",
-    "typescript-eslint": "^8.34.1"
+    "typescript-eslint": "^8.34.1",
+    "@types/bun": "latest"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
-  }
+  },
+  "module": "index.ts"
 }

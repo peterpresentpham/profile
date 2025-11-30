@@ -5,7 +5,6 @@ export type SvgPropsType = SVGProps<SVGSVGElement>;
 export type PositionType = { x: string; y: string };
 
 export type ToolType = { id: string; icon: StaticImageData; link: string; isWhite?: boolean };
-
 export type ButtonColorType = 'purple' | 'gray' | 'orange' | 'blue';
 export type SkillLinkMode = 'scroll' | 'external';
 export type SkillIdType =

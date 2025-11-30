@@ -27,7 +27,7 @@ export default function Banner(params: ComponentProps<'div'>) {
               </p>
               <CssTooltip
                 title="Phạm Hồng Phúc"
-                className={`${fira.className} absolute top-0 right-4`}
+                className={`${fira.className} absolute top-0 -right-2.5`}
               >
                 <InfoIcon className="h-4 w-4 cursor-pointer" />
               </CssTooltip>
