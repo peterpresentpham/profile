@@ -3,6 +3,7 @@ import {
   CaroDescription,
   EthGraphQuery,
   NextAppDescription,
+  PikachuDescription,
   ProfileDescription,
 } from 'src/components/ProjectDescription';
 import { ProjectType } from 'src/globals';
@@ -119,6 +120,21 @@ export const ProjectConfig: Array<ProjectType> = [
         to: 'https://github.com/phamhongphuc1999/account-abstraction-contract/tree/main/circom',
         symbol: 'φ',
         color: 'orange',
+      },
+    ],
+  },
+  {
+    id: 'pikachu',
+    technologies: [Next, React, ShadcnSkill, Tailwind],
+    title: 'Pikachu',
+    description: PikachuDescription,
+    links: [
+      {
+        id: 'hosting',
+        title: 'live',
+        to: 'https://experiment.peter-present.xyz/pikachu',
+        symbol: 'η',
+        color: 'gray',
       },
     ],
   },

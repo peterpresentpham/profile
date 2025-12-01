@@ -1,10 +1,20 @@
+'use client';
+
+import dynamic from 'next/dynamic';
 import { Fragment, lazy } from 'react';
-import BackgroundBeams from 'src/components/aceternity/background-beams';
-import ShootingStars from 'src/components/aceternity/ShootingStars';
-import Sparkles from 'src/components/aceternity/sparkles';
 import Banner from './banner';
 import Footer from './footer';
 import Header from './headers';
+
+const BackgroundBeams = dynamic(() => import('src/components/aceternity/background-beams'), {
+  ssr: false,
+});
+const ShootingStars = dynamic(() => import('src/components/aceternity/ShootingStars'), {
+  ssr: false,
+});
+const Sparkles = dynamic(() => import('src/components/aceternity/sparkles'), {
+  ssr: false,
+});
 
 const Projects = lazy(() => import('./projects'));
 const Tools = lazy(() => import('./tools'));

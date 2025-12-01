@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function AccountAbstractionDescription() {
   return (
@@ -42,11 +43,11 @@ export function EthGraphQuery() {
 export function NextAppDescription() {
   return (
     <p className="text-gray-50">
-      <img
+      <Image
         src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Locomotive.png"
         alt="Locomotive"
-        width="16"
-        height="16"
+        width={16}
+        height={16}
         className="inline-block"
       />{' '}
       My blog app.
@@ -56,4 +57,8 @@ export function NextAppDescription() {
 
 export function CaroDescription() {
   return <p className="text-gray-50">Caro application.</p>;
+}
+
+export function PikachuDescription() {
+  return <p className="text-gray-50">Pikachu game.</p>;
 }
