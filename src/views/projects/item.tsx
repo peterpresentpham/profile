@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ComponentProps } from 'react';
-import GlowingEffect from 'src/components/aceternity/glowing-effect';
 import ColorfulBox from 'src/components/box/ColorfulBox';
+import GlowingCard from 'src/components/GlowingCard';
 import { ProjectType } from 'src/globals';
 import RelevantSkills from '../skills/RelevantSkills';
 
@@ -13,12 +13,10 @@ export default function Item(params: Props) {
 
   return (
     <div {...props}>
-      <div className="relative border border-gray-100">
-        <GlowingEffect />
+      <GlowingCard className="p-4">
         <RelevantSkills skills={technologies} />
-      </div>
-      <div className="relative border border-t-0 border-gray-100 p-4">
-        <GlowingEffect />
+      </GlowingCard>
+      <GlowingCard className="border-t-0 p-4">
         <p className="text-medium text-[24px]">{title}</p>
         <div className="mt-4">
           <DescriptionComponent />
@@ -37,7 +35,7 @@ export default function Item(params: Props) {
             })}
           </div>
         )}
-      </div>
+      </GlowingCard>
     </div>
   );
 }

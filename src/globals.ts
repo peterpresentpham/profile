@@ -12,6 +12,7 @@ export type SkillIdType =
   | 'apache-kafka'
   | 'reactjs'
   | 'nextjs'
+  | 'nestjs'
   | 'docker'
   | 'dotnet-api'
   | 'java-spring'

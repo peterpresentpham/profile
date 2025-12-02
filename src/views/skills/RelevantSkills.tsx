@@ -10,7 +10,7 @@ export default function RelevantSkills({ skills }: Props) {
   const _max = skills.length - 1;
 
   return (
-    <div className="flex flex-wrap items-center gap-x-2 p-4">
+    <div className="flex flex-wrap items-center gap-x-2">
       {skills.map((skill, index) => {
         return (
           <div key={skill.id} className="flex items-center gap-x-2">

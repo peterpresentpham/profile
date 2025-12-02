@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import QuoteImg from 'public/quote.svg';
-import GlowingEffect from 'src/components/aceternity/glowing-effect';
+import GlowingCard from 'src/components/GlowingCard';
 
 export default function QuoteSpot() {
   return (
-    <div className="relative container mx-auto flex justify-center border border-gray-100 p-8 md:max-w-200">
-      <GlowingEffect />
+    <GlowingCard className="container mx-auto flex justify-center p-8 md:max-w-200">
       <p className="text-center text-[20px] font-medium">
         {
           'People who are unable to motivate themselves must be content with mediocrity no matter how impressive their other talents'
@@ -17,6 +16,6 @@ export default function QuoteSpot() {
       <div className="absolute right-[5%] -bottom-2.5 z-200 px-[5px]">
         <Image src={QuoteImg} alt="quote" className="h-5 w-auto" />
       </div>
-    </div>
+    </GlowingCard>
   );
 }

@@ -1,15 +1,5 @@
 import { SkillsType } from 'src/globals';
-import {
-  ApacheKafka,
-  BlockchainSkill,
-  CoreSkills,
-  Docker,
-  DotNetApi,
-  JavaSkill,
-  Next,
-  React,
-  Vue,
-} from './CoreSkills';
+import { CoreSkills } from './CoreSkills';
 
 const {
   Ethers,
@@ -30,6 +20,15 @@ const {
   PrimeVue,
   Pinia,
   ShadcnSkill,
+  React,
+  ApacheKafka,
+  BlockchainSkill,
+  Docker,
+  DotNetApi,
+  JavaSkill,
+  Nest,
+  Next,
+  Vue,
 } = CoreSkills;
 
 export const SkillsConfig: Array<SkillsType> = [
@@ -66,6 +65,17 @@ export const SkillsConfig: Array<SkillsType> = [
         to: 'https://blog.peter-present.xyz/',
         mode: 'external',
         title: 'My blog',
+      },
+    ],
+  },
+  {
+    ...Nest,
+    links: [
+      {
+        id: 'nest-container',
+        to: 'https://github.com/phamhongphuc1999/my-code/tree/main/nestjs-container',
+        mode: 'external',
+        title: 'My code',
       },
     ],
   },

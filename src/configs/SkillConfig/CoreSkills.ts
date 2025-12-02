@@ -7,6 +7,7 @@ import JavaSpringImg from 'public/skills/spring-boot.png';
 import VueImg from 'public/skills/vuejs.png';
 import DockerImg from 'public/tools/docker.svg';
 import { CoreSkillsType } from 'src/globals';
+import NestImg from 'public/skills/nestjs.svg';
 
 export const ApacheKafka: CoreSkillsType = {
   id: 'apache-kafka',
@@ -25,6 +26,12 @@ export const Next: CoreSkillsType = {
   name: 'Next',
   nameLink: 'https://nextjs.org/',
   icon: NextImg,
+};
+export const Nest: CoreSkillsType = {
+  id: 'nestjs',
+  name: 'Nest',
+  nameLink: 'https://nestjs.com/',
+  icon: NestImg,
 };
 export const Vue: CoreSkillsType = {
   id: 'vuejs',
@@ -170,6 +177,7 @@ export const CoreSkills = {
   ApacheKafka,
   React,
   Next,
+  Nest,
   Vue,
   Docker,
   DotNetApi,

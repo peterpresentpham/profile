@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ComponentProps } from 'react';
-import GlowingEffect from 'src/components/aceternity/glowing-effect';
 import ColorfulBox from 'src/components/box/ColorfulBox';
+import GlowingCard from 'src/components/GlowingCard';
 import { DiamondIcon, RocketIcon } from 'src/components/icons';
 import { CredentialType } from 'src/globals';
 
@@ -72,11 +72,7 @@ export default function Item(params: Props) {
   const { icon, name: nameOrganization } = issuingOrganization;
 
   return (
-    <div
-      id={`certification-${id}`}
-      className="credential-magical-item relative border border-gray-100 p-4"
-    >
-      <GlowingEffect />
+    <GlowingCard id={`certification-${id}`} className="credential-magical-item p-4">
       <div className="credential-item">
         <div className="credential-item-item1">
           <Link href={credentialUrl} target="_blank" rel="noreferrer">
@@ -104,6 +100,6 @@ export default function Item(params: Props) {
         skills={skills}
         issueDate={issueDate}
       />
-    </div>
+    </GlowingCard>
   );
 }
