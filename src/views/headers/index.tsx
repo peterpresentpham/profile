@@ -2,7 +2,6 @@
 
 import throttle from 'lodash.throttle';
 import { useCallback, useEffect, useState } from 'react';
-import CommonContainer from 'src/components/box/CommonContainer';
 import { HeaderItem } from 'src/components/CssHeading';
 import { LogoIcon, MenuIcon } from 'src/components/icons';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
@@ -44,7 +43,7 @@ export default function Header() {
       id="header"
       className={`bg-black-50 fixed top-0 z-1000000 h-[60px] w-screen shadow-md duration-500 ${position > 60 && '-translate-y-full'}`}
     >
-      <CommonContainer className="relative flex items-center justify-between">
+      <div className="relative container flex items-center justify-between">
         <ContactLine
           className="absolute top-0 -left-16 z-400 hidden duration-1000 md:flex"
           style={position > 60 ? { height: '260px' } : { height: '200px' }}
@@ -74,7 +73,7 @@ export default function Header() {
           height="18"
           onClick={() => setOpen(true)}
         />
-      </CommonContainer>
+      </div>
       <SmallPopover
         open={open}
         onClose={() => setOpen(false)}

@@ -1,5 +1,4 @@
 import { ComponentProps } from 'react';
-import CommonContainer from 'src/components/box/CommonContainer';
 import CssHeading from 'src/components/CssHeading';
 import { LanguageConfig, ToolsConfig } from 'src/configs/constance';
 import AnimatedString from './animated-string';
@@ -7,7 +6,7 @@ import SlideComponent from './slide-component';
 
 export default function Tools(params: ComponentProps<'div'>) {
   return (
-    <CommonContainer {...params} id="tools">
+    <div {...params} id="tools" className="container">
       <CssHeading title="tools" className="cursor-pointer" />
       <div className="overlay relative my-16 h-[0.5px]">
         <AnimatedString
@@ -61,6 +60,6 @@ export default function Tools(params: ComponentProps<'div'>) {
           animationProps={{ style: { animationDelay: '3s' } }}
         />
       </div>
-    </CommonContainer>
+    </div>
   );
 }

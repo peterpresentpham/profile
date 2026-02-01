@@ -1,8 +1,7 @@
 import Drawer from 'react-modern-drawer';
-import CommonContainer from 'src/components/box/CommonContainer';
+import Sparkles from 'src/components/aceternity/sparkles';
 import { HeaderItem } from 'src/components/CssHeading';
 import { CloseIcon, LogoIcon } from 'src/components/icons';
-import Sparkles from 'src/components/aceternity/sparkles';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
 import { cn } from 'src/utils';
 import ContactLine from '../ContactLine';
@@ -31,7 +30,7 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
       <div className="relative h-screen">
         <Sparkles />
         <div className="bg-black-50">
-          <CommonContainer className="relative flex h-[60px] items-center justify-between md:justify-end">
+          <div className="relative container flex h-[60px] items-center justify-between md:justify-end">
             <div
               className="flex items-center gap-x-2 md:hidden"
               onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
@@ -41,9 +40,9 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
             </div>
             <CloseIcon width={18} height={18} onClick={onClose} />
             <ContactLine className="absolute top-[60px] right-3 h-[140px]" />
-          </CommonContainer>
+          </div>
         </div>
-        <CommonContainer className="bg-black-50 mx-auto flex h-[calc(100%-60px)] flex-col justify-between px-4">
+        <div className="bg-black-50 container mx-auto flex h-[calc(100%-60px)] flex-col justify-between px-4">
           <div>
             {HeaderConfig.map((item) => {
               return (
@@ -56,7 +55,7 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
               );
             })}
           </div>
-        </CommonContainer>
+        </div>
       </div>
     </Drawer>
   );

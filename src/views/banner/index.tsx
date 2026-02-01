@@ -2,7 +2,6 @@ import { Fira_Sans } from 'next/font/google';
 import Link from 'next/link';
 import { ComponentProps } from 'react';
 import ColorfulBox from 'src/components/box/ColorfulBox';
-import CommonContainer from 'src/components/box/CommonContainer';
 import CssTooltip from 'src/components/CssTooltip';
 import { InfoIcon } from 'src/components/icons';
 import { cn } from 'src/utils';
@@ -13,10 +12,10 @@ const fira = Fira_Sans({ weight: '400', subsets: ['latin'] });
 
 export default function Banner(params: ComponentProps<'div'>) {
   return (
-    <CommonContainer
+    <div
       {...params}
       id="overview"
-      className={cn('relative min-h-screen', params.className)}
+      className={cn('relative container min-h-screen', params.className)}
     >
       <div className="flex flex-wrap gap-4 pb-20 max-md:justify-between">
         <div className="pt-20 sm:pt-30 md:w-1/2 md:pt-40 lg:w-1/3">
@@ -54,6 +53,6 @@ export default function Banner(params: ComponentProps<'div'>) {
       </div>
       <QuoteSpot />
       <SmallRectangleLine />
-    </CommonContainer>
+    </div>
   );
 }

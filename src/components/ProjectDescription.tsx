@@ -62,3 +62,7 @@ export function CaroDescription() {
 export function PikachuDescription() {
   return <p className="text-gray-50">Pikachu game.</p>;
 }
+
+export function ProcessDescription() {
+  return <p className="text-gray-50">Process Scheduler demo.</p>;
+}

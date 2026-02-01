@@ -4,6 +4,7 @@ import {
   EthGraphQuery,
   NextAppDescription,
   PikachuDescription,
+  ProcessDescription,
   ProfileDescription,
 } from 'src/components/ProjectDescription';
 import { ProjectType } from 'src/globals';
@@ -135,6 +136,21 @@ export const ProjectConfig: Array<ProjectType> = [
         to: 'https://experiment.peter-present.xyz/pikachu',
         symbol: 'η',
         color: 'gray',
+      },
+    ],
+  },
+  {
+    id: 'process-demo',
+    technologies: [Next, React, ShadcnSkill, Tailwind],
+    title: 'Process Scheduler demo',
+    description: ProcessDescription,
+    links: [
+      {
+        id: 'hosting',
+        title: 'live',
+        to: 'https://experiment.peter-present.xyz/process',
+        symbol: 'ξ',
+        color: 'blue',
       },
     ],
   },
