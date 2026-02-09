@@ -1,11 +1,13 @@
+/* eslint-disable quotes */
 import Link from 'next/link';
 import Image from 'next/image';
 
 export function AccountAbstractionDescription() {
   return (
     <p className="text-gray-50">
-      Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof for hiding
-      guardian's information. Read more detail{' '}
+      {
+        "Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof for hiding guardian's information. Read more detail "
+      }
       <Link
         href="https://blog.peter-present.xyz/master-thesis"
         target="_blank"
