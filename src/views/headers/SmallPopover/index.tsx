@@ -1,4 +1,4 @@
-import Drawer from 'react-modern-drawer';
+import { AnimatePresence, motion } from 'motion/react';
 import Sparkles from 'src/components/aceternity/sparkles';
 import { HeaderItem } from 'src/components/CssHeading';
 import { CloseIcon, LogoIcon } from 'src/components/icons';
@@ -20,43 +20,59 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
   }
 
   return (
-    <Drawer
-      className={cn('h-screen w-screen transition-all duration-500', className)}
-      open={open}
-      onClose={onClose}
-      direction="right"
-      lockBackgroundScroll={true}
-    >
-      <div className="relative h-screen">
-        <Sparkles />
-        <div className="bg-black-50">
-          <div className="relative container flex h-[60px] items-center justify-between md:justify-end">
-            <div
-              className="flex items-center gap-x-2 md:hidden"
-              onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
-            >
-              <LogoIcon />
-              <p className="font-bold">{MY_NAME}</p>
+    <AnimatePresence>
+      {open && (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 z-1000000 bg-black/50 backdrop-blur-sm"
+          />
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className={cn(
+              'bg-black-50 fixed top-0 right-0 z-1000001 h-screen w-screen shadow-xl',
+              className
+            )}
+          >
+            <div className="relative h-screen">
+              <Sparkles />
+              <div className="bg-black-50">
+                <div className="relative container flex h-[60px] items-center justify-between md:justify-end">
+                  <div
+                    className="flex items-center gap-x-2 md:hidden"
+                    onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
+                  >
+                    <LogoIcon />
+                    <p className="font-bold">{MY_NAME}</p>
+                  </div>
+                  <CloseIcon width={18} height={18} className="cursor-pointer" onClick={onClose} />
+                  <ContactLine className="absolute top-[60px] right-3 z-50 h-[140px]" />
+                </div>
+              </div>
+              <div className="bg-black-50 container mx-auto flex h-[calc(100%-60px)] flex-col justify-between px-4">
+                <div>
+                  {HeaderConfig.map((item) => {
+                    return (
+                      <HeaderItem
+                        key={item.id}
+                        title={item.title}
+                        className="relative mt-4 cursor-pointer"
+                        onClick={() => onScroll(item.id)}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-            <CloseIcon width={18} height={18} onClick={onClose} />
-            <ContactLine className="absolute top-[60px] right-3 h-[140px]" />
-          </div>
-        </div>
-        <div className="bg-black-50 container mx-auto flex h-[calc(100%-60px)] flex-col justify-between px-4">
-          <div>
-            {HeaderConfig.map((item) => {
-              return (
-                <HeaderItem
-                  key={item.id}
-                  title={item.title}
-                  className="relative mt-4 cursor-pointer"
-                  onClick={() => onScroll(item.id)}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </Drawer>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   );
 }

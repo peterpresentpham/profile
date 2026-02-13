@@ -1,6 +1,5 @@
 import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
-import 'react-modern-drawer/dist/index.css';
 import MetadataHead from 'src/components/MetadataHead';
 import 'src/styles/color-button.style.css';
 import 'src/styles/globals.css';

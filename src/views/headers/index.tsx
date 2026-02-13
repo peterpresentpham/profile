@@ -1,10 +1,10 @@
 'use client';
 
-import throttle from 'lodash.throttle';
 import { useCallback, useEffect, useState } from 'react';
 import { HeaderItem } from 'src/components/CssHeading';
 import { LogoIcon, MenuIcon } from 'src/components/icons';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
+import { throttle } from 'src/utils';
 import ContactLine from './ContactLine';
 import SmallPopover from './SmallPopover';
 
