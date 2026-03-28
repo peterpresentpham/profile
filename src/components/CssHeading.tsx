@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ComponentProps, DetailedHTMLProps, HTMLAttributes } from 'react';
+import { IMAGES } from 'src/configs/images';
 import { cn } from 'src/utils';
 
 interface HeaderItemProps extends ComponentProps<'div'> {
@@ -12,7 +13,7 @@ interface HeaderItemProps extends ComponentProps<'div'> {
 export function HeaderItem({ title, active, imgClass, textProps, ...props }: HeaderItemProps) {
   return (
     <div {...props} className={cn('flex items-center', props.className)}>
-      <Image src="/sharp.svg" alt="sharp" width={16} height={16} className={imgClass} />
+      <Image src={IMAGES.sharp} alt="sharp" width={16} height={16} className={imgClass} />
       <p
         {...textProps}
         className={cn(active ? 'font-medium' : 'text-gray-50', textProps?.className)}

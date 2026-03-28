@@ -14,7 +14,7 @@ export default function Item(params: Props) {
   return (
     <div id={`skill-${id}`} {...props}>
       <GlowingCard className="flex items-center gap-x-2 p-4">
-        {icon && <Image src={icon} alt={id} className="h-auto w-6" />}
+        {icon && <Image src={icon} alt={id} width={24} height={24} className="h-auto w-6" />}
         <Link href={nameLink} target="_blank" rel="noreferrer" className="hover-text">
           {name}
         </Link>

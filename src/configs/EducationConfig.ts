@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
-import HustImg from 'public/education/hust.png';
 import { EducationType } from 'src/globals';
 import { CoreSkills } from './SkillConfig/CoreSkills';
+import { IMAGES } from './images';
 
 export const EducationConfig: Array<EducationType> = [
   {
@@ -13,7 +13,7 @@ export const EducationConfig: Array<EducationType> = [
     startDate: { year: 2023 },
     endDate: { year: 2025 },
     grade: 'CH2022B',
-    icon: HustImg,
+    icon: IMAGES.education.hust,
     skills: [CoreSkills.AccountAbstraction, CoreSkills.Circom, CoreSkills.SoliditySmartContract],
     metadata: {
       url: 'https://blog.peter-present.xyz/master-thesis',
@@ -29,6 +29,6 @@ export const EducationConfig: Array<EducationType> = [
     startDate: { year: 2017 },
     endDate: { year: 2021 },
     grade: 'K62',
-    icon: HustImg,
+    icon: IMAGES.education.hust,
   },
 ];

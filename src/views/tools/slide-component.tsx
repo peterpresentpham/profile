@@ -31,6 +31,8 @@ export default function SlideComponent({ data, ...props }: Props) {
               <Image
                 src={item.icon}
                 alt={item.id}
+                width={isWhite ? 60 : 80}
+                height={isWhite ? 60 : 80}
                 className={isWhite ? 'h-auto w-15' : 'h-auto w-20'}
               />
             </div>

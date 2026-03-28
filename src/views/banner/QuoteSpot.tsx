@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import QuoteImg from 'public/quote.svg';
 import GlowingCard from 'src/components/GlowingCard';
+import { IMAGES } from 'src/configs/images';
 
 export default function QuoteSpot() {
   return (
@@ -11,10 +11,10 @@ export default function QuoteSpot() {
         }
       </p>
       <div className="absolute -top-2.5 left-[5%] z-200 px-[5px]">
-        <Image src={QuoteImg} alt="quote" className="h-5 w-auto" />
+        <Image src={IMAGES.quote} alt="quote" className="h-5 w-auto" width={20} height={20} />
       </div>
       <div className="absolute right-[5%] -bottom-2.5 z-200 px-[5px]">
-        <Image src={QuoteImg} alt="quote" className="h-5 w-auto" />
+        <Image src={IMAGES.quote} alt="quote" className="h-5 w-auto" width={20} height={20} />
       </div>
     </GlowingCard>
   );

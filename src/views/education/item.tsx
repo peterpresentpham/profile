@@ -22,7 +22,7 @@ export default function Item(params: EducationType) {
   return (
     <GlowingCard id={`education-${id}`} className="flex w-full gap-4 p-4">
       <Link href={schoolUrl} target="_blank" rel="noreferrer">
-        <Image src={icon} alt={school} className="h-auto w-12" />
+        <Image src={icon} alt={school} width={48} height={48} className="h-auto w-12" />
       </Link>
       <div className="w-[calc(100%-64px)]">
         <Link href={schoolUrl} target="_blank" rel="noreferrer">

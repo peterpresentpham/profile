@@ -4,7 +4,7 @@ import { FunctionComponent, SVGProps } from 'react';
 export type SvgPropsType = SVGProps<SVGSVGElement>;
 export type PositionType = { x: string; y: string };
 
-export type ToolType = { id: string; icon: StaticImageData; link: string; isWhite?: boolean };
+export type ToolType = { id: string; icon: string; link: string; isWhite?: boolean };
 export type ButtonColorType = 'purple' | 'gray' | 'orange' | 'blue';
 export type SkillLinkMode = 'scroll' | 'external';
 export type SkillIdType =
@@ -46,7 +46,7 @@ export interface CoreSkillsType {
   id: SkillIdType;
   name: string;
   nameLink: string;
-  icon?: StaticImageData;
+  icon?: string;
 }
 
 export type ProjectType = {
@@ -77,7 +77,7 @@ export type EducationType = {
   startDate: { year: number };
   endDate?: { year: number };
   grade: string;
-  icon: StaticImageData;
+  icon: string;
   skills?: Array<CoreSkillsType>;
   metadata?: { url: string; title: string };
 };
@@ -88,6 +88,6 @@ export type CredentialType = {
   credentialId: string;
   credentialUrl: string;
   skills: Array<{ id: SkillIdType; name: string }>;
-  issuingOrganization: { icon: StaticImageData; name: string };
+  issuingOrganization: { icon: string; name: string };
   issueDate: { month: string; year: number };
 };

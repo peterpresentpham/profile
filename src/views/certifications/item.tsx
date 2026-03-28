@@ -76,7 +76,7 @@ export default function Item(params: Props) {
       <div className="credential-item">
         <div className="credential-item-item1">
           <Link href={credentialUrl} target="_blank" rel="noreferrer">
-            <Image src={icon} alt={nameOrganization} className="h-12 w-12" />
+            <Image src={icon} alt={nameOrganization} width={48} height={48} className="h-12 w-12" />
           </Link>
         </div>
         <div className="credential-item-item2">

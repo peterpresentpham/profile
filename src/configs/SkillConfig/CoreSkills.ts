@@ -1,67 +1,59 @@
-import KafkaApacheImg from 'public/skills/apache-kafka.png';
-import BlockchainImg from 'public/skills/blockchain.png';
-import DotnetImg from 'public/skills/dotnet.png';
-import NextImg from 'public/skills/next.svg';
-import ReactImg from 'public/skills/react.svg';
-import JavaSpringImg from 'public/skills/spring-boot.png';
-import VueImg from 'public/skills/vuejs.png';
-import DockerImg from 'public/tools/docker.svg';
 import { CoreSkillsType } from 'src/globals';
-import NestImg from 'public/skills/nestjs.svg';
+import { IMAGES } from '../images';
 
 export const ApacheKafka: CoreSkillsType = {
   id: 'apache-kafka',
   name: 'Apache Kafka',
   nameLink: 'https://kafka.apache.org/',
-  icon: KafkaApacheImg,
+  icon: IMAGES.skill.kafka,
 };
 export const React: CoreSkillsType = {
   id: 'reactjs',
   name: 'React',
   nameLink: 'https://react.dev/',
-  icon: ReactImg,
+  icon: IMAGES.skill.react,
 };
 export const Next: CoreSkillsType = {
   id: 'nextjs',
   name: 'Next',
   nameLink: 'https://nextjs.org/',
-  icon: NextImg,
+  icon: IMAGES.skill.next,
 };
 export const Nest: CoreSkillsType = {
   id: 'nestjs',
   name: 'Nest',
   nameLink: 'https://nestjs.com/',
-  icon: NestImg,
+  icon: IMAGES.skill.nestjs,
 };
 export const Vue: CoreSkillsType = {
   id: 'vuejs',
   name: 'Vue',
   nameLink: 'https://vuejs.org/',
-  icon: VueImg,
+  icon: IMAGES.skill.vuejs,
 };
 export const Docker: CoreSkillsType = {
   id: 'docker',
   name: 'Docker',
   nameLink: 'https://www.docker.com/',
-  icon: DockerImg,
+  icon: IMAGES.tools.docker,
 };
 export const DotNetApi: CoreSkillsType = {
   id: 'dotnet-api',
   name: '.NET API',
   nameLink: 'https://dotnet.microsoft.com/en-us/apps/aspnet/apis',
-  icon: DotnetImg,
+  icon: IMAGES.skill['.net'],
 };
 export const JavaSkill: CoreSkillsType = {
   id: 'java-spring',
   name: 'Java Spring',
   nameLink: 'https://spring.io/projects/spring-boot',
-  icon: JavaSpringImg,
+  icon: IMAGES.skill['spring-boot'],
 };
 export const BlockchainSkill: CoreSkillsType = {
   id: 'blockchain',
   name: 'Blockchain',
   nameLink: '',
-  icon: BlockchainImg,
+  icon: IMAGES.skill.blockchain,
 };
 const Ethers: CoreSkillsType = {
   id: 'ethers',
