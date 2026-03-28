@@ -1,4 +1,3 @@
-import { StaticImageData } from 'next/image';
 import { FunctionComponent, SVGProps } from 'react';
 
 export type SvgPropsType = SVGProps<SVGSVGElement>;

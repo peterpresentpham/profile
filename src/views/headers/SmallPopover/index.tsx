@@ -35,6 +35,8 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            role="dialog"
+            aria-modal="true"
             className={cn(
               'bg-black-50 fixed top-0 right-0 z-1000001 h-screen w-screen shadow-xl',
               className
@@ -44,14 +46,18 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
               <Sparkles />
               <div className="bg-black-50">
                 <div className="relative container flex h-[60px] items-center justify-between md:justify-end">
-                  <div
+                  <button
+                    type="button"
+                    aria-label="Scroll to top"
                     className="flex items-center gap-x-2 md:hidden"
                     onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
                   >
                     <LogoIcon />
                     <p className="font-bold">{MY_NAME}</p>
-                  </div>
-                  <CloseIcon width={18} height={18} className="cursor-pointer" onClick={onClose} />
+                  </button>
+                  <button type="button" aria-label="Close menu" onClick={onClose}>
+                    <CloseIcon width={18} height={18} className="cursor-pointer" />
+                  </button>
                   <ContactLine className="absolute top-[60px] right-3 z-50 h-[140px]" />
                 </div>
               </div>

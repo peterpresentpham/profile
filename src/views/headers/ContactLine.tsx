@@ -16,6 +16,7 @@ export default function ContactLine(props: ComponentProps<'div'>) {
             href={item.to}
             target="_blank"
             rel="noreferrer"
+            aria-label={item.id}
             className="contact-icon cursor-pointer"
           >
             <Icon className="h-[25px] w-[25px]" />

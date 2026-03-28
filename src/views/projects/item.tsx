@@ -17,7 +17,7 @@ export default function Item(params: Props) {
         <RelevantSkills skills={technologies} />
       </GlowingCard>
       <GlowingCard className="border-t-0 p-4">
-        <p className="text-medium text-[24px]">{title}</p>
+        <p className="text-[24px] font-medium">{title}</p>
         <div className="mt-4">
           <DescriptionComponent />
         </div>

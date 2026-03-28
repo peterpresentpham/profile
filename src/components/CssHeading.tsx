@@ -1,5 +1,11 @@
 import Image from 'next/image';
-import { ComponentProps, DetailedHTMLProps, HTMLAttributes } from 'react';
+import {
+  ComponentProps,
+  DetailedHTMLProps,
+  HTMLAttributes,
+  KeyboardEvent,
+  MouseEvent,
+} from 'react';
 import { IMAGES } from 'src/configs/images';
 import { cn } from 'src/utils';
 
@@ -11,8 +17,29 @@ interface HeaderItemProps extends ComponentProps<'div'> {
 }
 
 export function HeaderItem({ title, active, imgClass, textProps, ...props }: HeaderItemProps) {
+  const { onClick, onKeyDown, className, ...rest } = props;
+  const isClickable = typeof onClick === 'function';
+
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    onKeyDown?.(event);
+    if (!event.defaultPrevented && isClickable && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      onClick?.(event as unknown as MouseEvent<HTMLDivElement>);
+    }
+  }
+
   return (
-    <div {...props} className={cn('flex items-center', props.className)}>
+    <div
+      {...rest}
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
+      role={isClickable ? 'button' : undefined}
+      tabIndex={isClickable ? 0 : undefined}
+      className={cn(
+        'flex items-center focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none',
+        className
+      )}
+    >
       <Image src={IMAGES.sharp} alt="sharp" width={16} height={16} className={imgClass} />
       <p
         {...textProps}

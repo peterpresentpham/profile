@@ -49,6 +49,7 @@ export default function Header() {
           style={position > 60 ? { height: '260px' } : { height: '200px' }}
         />
         <button
+          type="button"
           className="flex cursor-pointer items-center gap-x-2"
           onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
@@ -67,12 +68,14 @@ export default function Header() {
             );
           })}
         </div>
-        <MenuIcon
+        <button
+          type="button"
+          aria-label="Open menu"
           className="block md:hidden"
-          width="18"
-          height="18"
           onClick={() => setOpen(true)}
-        />
+        >
+          <MenuIcon width="18" height="18" />
+        </button>
       </div>
       <SmallPopover
         open={open}

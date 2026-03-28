@@ -18,6 +18,9 @@ export default function Item(params: EducationType) {
     skills,
     metadata,
   } = params;
+  const dateRange = endDate?.year
+    ? `${startDate.year} - ${endDate.year}`
+    : `${startDate.year} - Present`;
 
   return (
     <GlowingCard id={`education-${id}`} className="flex w-full gap-4 p-4">
@@ -31,9 +34,7 @@ export default function Item(params: EducationType) {
             {degree}, {fieldOfStudy}
           </p>
         </Link>
-        <p className="text-gray-50">
-          {startDate.year} - {endDate?.year && <span>{endDate.year}</span>}
-        </p>
+        <p className="text-gray-50">{dateRange}</p>
         <p>Grade: {grade}</p>
         {skills && (
           <div className="flex items-start gap-x-1">

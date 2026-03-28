@@ -29,7 +29,7 @@ export default function Footer(props: ComponentProps<'div'>) {
           <p>Software developer</p>
         </div>
         <div className="xs:w-auto xs:flex-col flex w-full flex-row justify-between">
-          <p className="text-bold text-[18px]">Media</p>
+          <p className="text-[18px] font-bold">Media</p>
           <div className="flex items-center gap-x-4">
             {ContactConfig.map((item) => {
               const Icon = item.icon;
@@ -40,6 +40,7 @@ export default function Footer(props: ComponentProps<'div'>) {
                   href={item.to}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={item.id}
                   className="contact-icon cursor-pointer"
                 >
                   <Icon className="h-[25px] w-[25px]" />

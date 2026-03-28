@@ -52,6 +52,7 @@ function InfoComponent(params: InfoComponentProps) {
             return (
               <button
                 key={skill.id}
+                type="button"
                 className="hover-text text-gray-50"
                 onClick={() => onScrollClick(`skill-${skill.id}`)}
               >
