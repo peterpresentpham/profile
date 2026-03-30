@@ -28,26 +28,23 @@ export default function Footer(props: ComponentProps<'div'>) {
           </div>
           <p>Software developer</p>
         </div>
-        <div className="xs:w-auto xs:flex-col flex w-full flex-row justify-between">
-          <p className="text-[18px] font-bold">Media</p>
-          <div className="flex items-center gap-x-4">
-            {ContactConfig.map((item) => {
-              const Icon = item.icon;
+        <div className="flex w-full justify-center gap-2 md:justify-end">
+          {ContactConfig.map((item) => {
+            const Icon = item.icon;
 
-              return (
-                <Link
-                  key={item.id}
-                  href={item.to}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={item.id}
-                  className="contact-icon cursor-pointer"
-                >
-                  <Icon className="h-[25px] w-[25px]" />
-                </Link>
-              );
-            })}
-          </div>
+            return (
+              <Link
+                key={item.id}
+                href={item.to}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={item.id}
+                className="contact-icon cursor-pointer"
+              >
+                <Icon className="h-[25px] w-[25px]" />
+              </Link>
+            );
+          })}
         </div>
       </div>
       <div className="flex flex-col items-center justify-center">

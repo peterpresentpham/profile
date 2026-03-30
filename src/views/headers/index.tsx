@@ -16,13 +16,13 @@ export default function Header() {
   const updateScrollDir = useCallback(
     throttle(() => {
       const scrollY = window.scrollY;
-      setPosition(scrollY);
+      setPosition((prev) => (prev === scrollY ? prev : scrollY));
     }, 200),
     []
   );
 
   useEffect(() => {
-    window.addEventListener('scroll', updateScrollDir);
+    window.addEventListener('scroll', updateScrollDir, { passive: true });
     return () => window.removeEventListener('scroll', updateScrollDir);
   }, [updateScrollDir]);
 

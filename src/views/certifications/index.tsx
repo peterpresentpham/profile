@@ -8,9 +8,9 @@ export default function Certification(params: ComponentProps<'div'>) {
     <div {...params} id="certification" className="container">
       <CssHeading title="certifications" className="cursor-pointer" />
       <div className="mt-12 grid grid-cols-12 gap-4">
-        {CredentialConfig.map((item, index) => {
+        {CredentialConfig.map((item) => {
           return (
-            <div key={index} className="col-span-12 h-fit md:col-span-6">
+            <div key={item.id} className="col-span-12 h-fit md:col-span-6">
               <Item {...item} />
             </div>
           );

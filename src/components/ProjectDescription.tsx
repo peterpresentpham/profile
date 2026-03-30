@@ -51,6 +51,7 @@ export function NextAppDescription() {
         width={16}
         height={16}
         className="inline-block"
+        unoptimized
       />{' '}
       My blog app.
     </p>
