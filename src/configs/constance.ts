@@ -71,7 +71,7 @@ export const CredentialConfig: Array<CredentialType> = [
     name: 'Apache Kafka Series - Learn Apache Kafka for Beginners v3',
     credentialId: 'UC-bb291460-3f7b-496e-94da-ed6090dbd63a',
     credentialUrl: 'https://www.udemy.com/certificate/UC-bb291460-3f7b-496e-94da-ed6090dbd63a/',
-    skills: [{ id: 'apache-kafka', name: 'Apache Kafka' }],
+    skills: [{ id: 'apacheKafka', name: 'Apache Kafka' }],
     issuingOrganization: { icon: IMAGES.certifications.udemy, name: 'Udemy' },
     issueDate: { month: 'Aug', year: 2024 },
   },

@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 import CssHeading from 'src/components/CssHeading';
-import { EducationConfig } from 'src/configs/EducationConfig';
+import { EducationConfig } from 'src/configs/SkillConfig';
 import Item from './item';
 
 export default function Education(params: ComponentProps<'div'>) {

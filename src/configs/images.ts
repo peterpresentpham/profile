@@ -20,7 +20,6 @@ export const IMAGES = {
     kafka: '/skills/apache-kafka.png',
     blockchain: '/skills/blockchain.png',
     '.net': '/skills/dotnet.png',
-    java: '/skills/java.webp',
     nestjs: '/skills/nestjs.svg',
     next: '/skills/next.svg',
     react: '/skills/react.svg',
