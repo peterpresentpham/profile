@@ -42,6 +42,6 @@ export const IMAGES = {
   'dark-sky': '/dark-sky.svg',
   quote: '/quote.svg',
   sharp: '/sharp.svg',
-  star: '/star.svg',
+  star: '/favicon.ico',
   thumbnail: '/thumbnail.webp',
 };
