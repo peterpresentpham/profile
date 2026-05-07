@@ -55,7 +55,8 @@ export default function ShootingStars({
   ...props
 }: Props) {
   const [star, setStar] = useState<ShootingStar | null>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     const createStar = () => {
@@ -72,42 +73,52 @@ export default function ShootingStars({
       setStar(newStar);
 
       const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
-      setTimeout(createStar, randomDelay);
+      timeoutRef.current = setTimeout(createStar, randomDelay);
     };
 
     createStar();
 
-    return () => {};
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, [minSpeed, maxSpeed, minDelay, maxDelay]);
 
   useEffect(() => {
     const moveStar = () => {
-      if (star) {
-        setStar((prevStar) => {
-          if (!prevStar) return null;
-          const newX = prevStar.x + prevStar.speed * Math.cos((prevStar.angle * Math.PI) / 180);
-          const newY = prevStar.y + prevStar.speed * Math.sin((prevStar.angle * Math.PI) / 180);
-          const newDistance = prevStar.distance + prevStar.speed;
-          const newScale = 1 + newDistance / 100;
-          if (
-            newX < -20 ||
-            newX > window.innerWidth + 20 ||
-            newY < -20 ||
-            newY > window.innerHeight + 20
-          ) {
-            return null;
-          }
-          return { ...prevStar, x: newX, y: newY, distance: newDistance, scale: newScale };
-        });
-      }
+      setStar((prevStar) => {
+        if (!prevStar) return null;
+        const newX = prevStar.x + prevStar.speed * Math.cos((prevStar.angle * Math.PI) / 180);
+        const newY = prevStar.y + prevStar.speed * Math.sin((prevStar.angle * Math.PI) / 180);
+        const newDistance = prevStar.distance + prevStar.speed;
+        const newScale = 1 + newDistance / 100;
+        if (
+          newX < -20 ||
+          newX > window.innerWidth + 20 ||
+          newY < -20 ||
+          newY > window.innerHeight + 20
+        ) {
+          return null;
+        }
+        return { ...prevStar, x: newX, y: newY, distance: newDistance, scale: newScale };
+      });
+      rafRef.current = requestAnimationFrame(moveStar);
     };
 
-    const animationFrame = requestAnimationFrame(moveStar);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [star]);
+    rafRef.current = requestAnimationFrame(moveStar);
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <svg {...props} ref={svgRef} className={cn('absolute inset-0 h-full w-full', props.className)}>
+    <svg
+      {...props}
+      className={cn('pointer-events-none absolute inset-0 h-full w-full', props.className)}
+    >
       {star && (
         <rect
           key={star.id}

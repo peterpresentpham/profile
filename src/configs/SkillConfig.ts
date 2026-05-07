@@ -1,15 +1,15 @@
 /* eslint-disable quotes */
-import { CoreSkillsType, EducationType, ProjectType, SkillIdType, SkillsType } from 'src/globals';
-import { IMAGES } from './images';
 import {
   AccountAbstractionDescription,
   CaroDescription,
-  EthGraphQuery,
+  FantasyWorldDescription,
   NextAppDescription,
   PikachuDescription,
   ProcessDescription,
   ProfileDescription,
 } from 'src/components/ProjectDescription';
+import { CoreSkillsType, EducationType, ProjectType, SkillIdType, SkillsType } from 'src/globals';
+import { IMAGES } from './images';
 
 export const SKILLS: Record<SkillIdType, CoreSkillsType> = {
   apacheKafka: {
@@ -176,7 +176,6 @@ const {
   theGraph,
   docker,
   vercel,
-  vite,
   wagmi,
 } = SKILLS;
 
@@ -256,15 +255,15 @@ export const ProjectConfig: Array<ProjectType> = [
     ],
   },
   {
-    id: 'eth-graph-query',
-    technologies: [vite, theGraph],
-    title: 'Eth graph query',
-    description: EthGraphQuery,
+    id: 'fantasy-world',
+    technologies: [next, react, vercel, tailwind],
+    title: 'Fantasy World',
+    description: FantasyWorldDescription,
     links: [
       {
-        id: 'npm',
-        title: 'Npm package',
-        to: 'https://www.npmjs.com/package/eth-graph-query',
+        id: 'hosting',
+        title: 'Live',
+        to: 'https://fantasy.peter-present.xyz/',
         symbol: 'Σ',
         color: 'gray',
       },

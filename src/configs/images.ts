@@ -44,4 +44,7 @@ export const IMAGES = {
   sharp: '/sharp.svg',
   star: '/favicon.ico',
   thumbnail: '/thumbnail.webp',
+  pikachu1: '/pikachu/pikachu1.png',
+  pikachu2: '/pikachu/pikachu2.png',
+  pikachu3: '/pikachu/pikachu3.png',
 };

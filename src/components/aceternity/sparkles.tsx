@@ -68,7 +68,7 @@ export default function Sparkles(params: ParticlesProps) {
         zIndex: 1,
       },
 
-      fpsLimit: 120,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: {

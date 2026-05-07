@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -6,7 +5,7 @@ export function AccountAbstractionDescription() {
   return (
     <p className="text-gray-50">
       {
-        "Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof for hiding guardian's information. Read more detail "
+        'ERC-4337 account abstraction wallet with social recovery, leveraging zero-knowledge proofs to preserve guardian privacy. Read more details '
       }
       <Link
         href="https://blog.peter-present.xyz/master-thesis"
@@ -22,22 +21,15 @@ export function AccountAbstractionDescription() {
 }
 
 export function ProfileDescription() {
-  return <p className="text-gray-50">My personal profile.</p>;
+  return <p className="text-gray-50">Personal portfolio and professional profile website.</p>;
 }
 
-export function EthGraphQuery() {
+export function FantasyWorldDescription() {
   return (
     <p className="text-gray-50">
-      Simple package for creating query to{' '}
-      <Link
-        href="https://thegraph.com/"
-        target="_blank"
-        rel="noreferrer"
-        className="text-purple-50 underline"
-      >
-        the GraphQL
-      </Link>
-      .
+      {
+        'Procedural fantasy world map generator with deterministic seeds, terrain simulation, hydrology, nations, and ethnic regions.'
+      }
     </p>
   );
 }
@@ -53,19 +45,23 @@ export function NextAppDescription() {
         className="inline-block"
         unoptimized
       />{' '}
-      My blog app.
+      Personal blog platform for sharing technical articles and notes.
     </p>
   );
 }
 
 export function CaroDescription() {
-  return <p className="text-gray-50">Caro application.</p>;
+  return <p className="text-gray-50">Interactive Caro (Gomoku) web application.</p>;
 }
 
 export function PikachuDescription() {
-  return <p className="text-gray-50">Pikachu game.</p>;
+  return <p className="text-gray-50">Browser-based Pikachu tile-matching game.</p>;
 }
 
 export function ProcessDescription() {
-  return <p className="text-gray-50">Process Scheduler demo.</p>;
+  return (
+    <p className="text-gray-50">
+      Process scheduling simulator for visualizing CPU scheduling behavior.
+    </p>
+  );
 }

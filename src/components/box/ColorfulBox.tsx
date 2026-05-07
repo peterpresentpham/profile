@@ -24,7 +24,7 @@ export default function ColorfulBox({ color = 'purple', ...props }: Props) {
     <div
       {...props}
       className={cn(
-        'relative isolate inline-block cursor-pointer overflow-hidden',
+        'group relative isolate inline-block cursor-pointer overflow-hidden',
         props.className
       )}
     >
@@ -40,6 +40,7 @@ export default function ColorfulBox({ color = 'purple', ...props }: Props) {
       <div className="glowing-box-button glowing-box-button-base-color-bg" style={_color}>
         {props.children}
       </div>
+      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
     </div>
   );
 }

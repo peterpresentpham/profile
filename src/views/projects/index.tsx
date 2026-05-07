@@ -1,3 +1,5 @@
+'use client';
+
 import { ComponentProps } from 'react';
 import CssHeading from 'src/components/CssHeading';
 import { ProjectConfig } from 'src/configs/SkillConfig';
