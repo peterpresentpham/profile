@@ -7,14 +7,10 @@ export default function Education(params: ComponentProps<'div'>) {
   return (
     <div {...params} id="education" className="container">
       <CssHeading title="education" className="cursor-pointer" />
-      <div className="mt-12 grid grid-cols-12 gap-4">
-        {EducationConfig.map((item) => {
-          return (
-            <div key={item.id} className="col-span-12 h-fit md:col-span-10">
-              <Item {...item} />
-            </div>
-          );
-        })}
+      <div className="mt-12 ml-3 space-y-6 border-l border-gray-100/20">
+        {EducationConfig.map((item) => (
+          <Item key={item.id} {...item} />
+        ))}
       </div>
     </div>
   );

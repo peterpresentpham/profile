@@ -32,7 +32,11 @@ export type SkillIdType =
   | 'wagmi'
   | 'vite'
   | 'theGraph'
-  | 'shadcn';
+  | 'shadcn'
+  | 'postgresql'
+  | 'typeorm'
+  | 'redis'
+  | 'socketIo';
 export type EducationId = 'hust-bachelor' | 'hust-master';
 export type CredentialId = 'apache-kafka';
 

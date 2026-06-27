@@ -1,23 +1,29 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { HeaderItem } from 'src/components/CssHeading';
 import { LogoIcon, MenuIcon } from 'src/components/icons';
 import { HeaderConfig, MY_NAME } from 'src/configs/constance';
+import { useActiveSection } from 'src/hooks/useActiveSection';
 import { throttle } from 'src/utils';
 import ContactLine from './ContactLine';
 import SmallPopover from './SmallPopover';
 
 export default function Header() {
-  const [position, setPosition] = useState(0);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const lastScrollY = useRef(0);
+  const activeSection = useActiveSection();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateScrollDir = useCallback(
     throttle(() => {
-      const scrollY = window.scrollY;
-      setPosition((prev) => (prev === scrollY ? prev : scrollY));
-    }, 200),
+      const current = window.scrollY;
+      setScrolled(current > 60);
+      setHidden(current > lastScrollY.current && current > 60);
+      lastScrollY.current = current;
+    }, 150),
     []
   );
 
@@ -41,12 +47,12 @@ export default function Header() {
   return (
     <div
       id="header"
-      className={`bg-black-50 fixed top-0 z-1000000 h-[60px] w-screen shadow-md duration-500 ${position > 60 && '-translate-y-full'}`}
+      className={`bg-black-50 fixed top-0 z-1000000 h-[60px] w-screen shadow-md transition-transform duration-500 ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <div className="relative container flex items-center justify-between">
         <ContactLine
           className="absolute top-0 -left-16 z-400 hidden duration-1000 md:flex"
-          style={position > 60 ? { height: '260px' } : { height: '200px' }}
+          style={scrolled ? { height: '260px' } : { height: '200px' }}
         />
         <button
           type="button"
@@ -62,6 +68,7 @@ export default function Header() {
               <HeaderItem
                 key={item.id}
                 title={item.title}
+                active={item.id === activeSection}
                 className="cursor-pointer"
                 onClick={() => onScrollClick(item.id)}
               />

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 'use client';
 
 import dynamic from 'next/dynamic';
@@ -12,10 +11,14 @@ const ShootingStars = dynamic(() => import('src/components/aceternity/ShootingSt
 const Sparkles = dynamic(() => import('src/components/aceternity/sparkles'), {
   ssr: false,
 });
+const ScrollScanBeam = dynamic(() => import('src/components/ScrollScanBeam'), {
+  ssr: false,
+});
 
 export default function BackgroundEffects() {
   return (
     <div className="pointer-events-none">
+      <ScrollScanBeam />
       <Sparkles />
       <ShootingStars className="h-screen" />
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -31,43 +34,6 @@ export default function BackgroundEffects() {
       <div className="beam-breathing">
         <BackgroundBeams />
       </div>
-      <style jsx>{`
-        .beam-breathing {
-          animation: beamBreathing 5.8s ease-in-out infinite;
-        }
-        .constellation-dot {
-          animation: constellationPulse 2.4s ease-in-out infinite;
-        }
-        .constellation-dot-delay {
-          animation: constellationPulse 3s ease-in-out infinite;
-          animation-delay: 300ms;
-        }
-        @keyframes beamBreathing {
-          0% {
-            opacity: 0.72;
-          }
-          50% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0.72;
-          }
-        }
-        @keyframes constellationPulse {
-          0% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.95;
-            transform: scale(1.35);
-          }
-          100% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-        }
-      `}</style>
     </div>
   );
 }

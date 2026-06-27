@@ -70,7 +70,7 @@ export default function CssHeading({ title, ...props }: Props) {
         title={title}
         active={true}
         imgClass="w-[28px] h-[28px]"
-        textProps={{ className: 'text-[32px]' }}
+        textProps={{ className: 'text-[32px] font-sans' }}
       />
       <div className="h-[0.5px] w-full bg-linear-[0.33332turn,var(--color-purple-50)_60%,transparent]" />
     </div>

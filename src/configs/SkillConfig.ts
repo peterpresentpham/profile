@@ -57,7 +57,7 @@ export const SKILLS: Record<SkillIdType, CoreSkillsType> = {
   blockchain: {
     id: 'blockchain',
     name: 'Blockchain',
-    nameLink: '',
+    nameLink: 'https://ethereum.org/en/developers/docs/intro-to-ethereum/',
     icon: IMAGES.skill.blockchain,
   },
   ethers: {
@@ -150,6 +150,26 @@ export const SKILLS: Record<SkillIdType, CoreSkillsType> = {
     name: 'shadcn/ui',
     nameLink: 'https://ui.shadcn.com/',
   },
+  postgresql: {
+    id: 'postgresql',
+    name: 'PostgreSQL',
+    nameLink: 'https://www.postgresql.org/',
+  },
+  typeorm: {
+    id: 'typeorm',
+    name: 'TypeORM',
+    nameLink: 'https://typeorm.io/',
+  },
+  redis: {
+    id: 'redis',
+    name: 'Redis',
+    nameLink: 'https://redis.io/',
+  },
+  socketIo: {
+    id: 'socketIo',
+    name: 'Socket.io',
+    nameLink: 'https://socket.io/',
+  },
 } as const;
 
 const {
@@ -177,6 +197,10 @@ const {
   docker,
   vercel,
   wagmi,
+  postgresql,
+  typeorm,
+  redis,
+  socketIo,
 } = SKILLS;
 
 export const EducationConfig: Array<EducationType> = [
@@ -387,16 +411,24 @@ export const SkillsConfig: Array<SkillsType> = [
         mode: 'external',
         title: 'My blog',
       },
+      {
+        id: 'fantasy-world',
+        to: 'https://fantasy.peter-present.xyz/',
+        mode: 'external',
+        title: 'Fantasy World',
+      },
     ],
   },
   {
     ...nest,
+    relevantSkills: [postgresql, typeorm, redis, socketIo, docker],
     links: [
       {
-        id: 'nest-container',
+        id: 'nest-project',
         to: 'https://github.com/phamhongphuc1999/nestjs-project',
         mode: 'external',
-        title: 'My code',
+        title:
+          'NestJS backend with PostgreSQL, Redis Cluster/Sentinel, WebSocket, JWT auth, and Swagger',
       },
     ],
   },

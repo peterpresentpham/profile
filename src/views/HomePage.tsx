@@ -11,6 +11,7 @@ const Tools = dynamic(() => import('./tools'));
 const Skills = dynamic(() => import('./skills'));
 const Education = dynamic(() => import('./education'));
 const Certification = dynamic(() => import('./certifications'));
+const Articles = dynamic(() => import('./articles'));
 
 export default function HomePage() {
   return (
@@ -33,6 +34,9 @@ export default function HomePage() {
         </SectionWrapper>
         <SectionWrapper>
           <Certification className="relative pt-8 pb-16" />
+        </SectionWrapper>
+        <SectionWrapper>
+          <Articles className="relative pt-8 pb-16" />
         </SectionWrapper>
         <Footer className="relative" />
       </div>

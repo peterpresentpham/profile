@@ -5,6 +5,7 @@
   --color-gray-100: #a9a3c247;
   --color-purple-50: #c778dd;
   --color-black-50: #0a0118;
+  --font-sans: var(--font-inter);
 
   --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards)
     linear infinite;
@@ -167,6 +168,26 @@
     transform: translateX(calc(50% + var(--width)));
   }
 }
+@keyframes beam-breathing {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes constellation-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.35);
+  }
+}
 .animated-string-line {
   transform: translateX(calc(-50% - var(--width)));
   animation: animated-string 8s infinite linear;
@@ -174,4 +195,14 @@
 }
 .tool-animated-bg {
   background: linear-gradient(0.33332turn, transparent, #c778dd, transparent);
+}
+.beam-breathing {
+  animation: beam-breathing 5.8s ease-in-out infinite;
+}
+.constellation-dot {
+  animation: constellation-pulse 2.4s ease-in-out infinite;
+}
+.constellation-dot-delay {
+  animation: constellation-pulse 3s ease-in-out infinite;
+  animation-delay: 300ms;
 }
