@@ -24,9 +24,10 @@ export default function Projects(props: ComponentProps<'div'>) {
       <div className="mt-6 flex flex-wrap gap-2">
         <button
           type="button"
+          aria-pressed={selected === null}
           onClick={() => setSelected(null)}
           className={cn(
-            'rounded-full border px-3 py-1 text-sm transition-colors duration-200',
+            'rounded-full border px-3 py-1 text-sm transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none',
             selected === null
               ? 'border-purple-50 bg-purple-50/10 text-purple-50'
               : 'border-gray-100 text-gray-50 hover:border-purple-50/60 hover:text-white'
@@ -38,9 +39,10 @@ export default function Projects(props: ComponentProps<'div'>) {
           <button
             key={tech.id}
             type="button"
+            aria-pressed={selected === tech.id}
             onClick={() => setSelected(selected === tech.id ? null : tech.id)}
             className={cn(
-              'rounded-full border px-3 py-1 text-sm transition-colors duration-200',
+              'rounded-full border px-3 py-1 text-sm transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none',
               selected === tech.id
                 ? 'border-purple-50 bg-purple-50/10 text-purple-50'
                 : 'border-gray-100 text-gray-50 hover:border-purple-50/60 hover:text-white'

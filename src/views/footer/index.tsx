@@ -24,7 +24,7 @@ export default function Footer(props: ComponentProps<'div'>) {
         <div className="xs:w-auto xs:flex-col flex w-full flex-row justify-between">
           <div className="flex items-center gap-x-2">
             <LogoIcon />
-            <p className="text-[18px] font-bold">{MY_NAME}</p>
+            <p className="text-lg font-bold">{MY_NAME}</p>
           </div>
           <p>Software developer</p>
         </div>

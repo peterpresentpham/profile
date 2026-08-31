@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx, { ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -6,14 +5,14 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function throttle<T extends (...args: any[]) => any>(
-  func: T,
+export function throttle<Args extends unknown[]>(
+  func: (...args: Args) => void,
   wait: number
-): (...args: Parameters<T>) => void {
+): (...args: Args) => void {
   let timeout: ReturnType<typeof setTimeout> | null = null;
   let previous = 0;
 
-  return function (this: any, ...args: Parameters<T>) {
+  return (...args: Args) => {
     const now = Date.now();
     const remaining = wait - (now - previous);
 
@@ -23,12 +22,12 @@ export function throttle<T extends (...args: any[]) => any>(
         timeout = null;
       }
       previous = now;
-      func.apply(this, args);
+      func(...args);
     } else if (!timeout) {
       timeout = setTimeout(() => {
         previous = Date.now();
         timeout = null;
-        func.apply(this, args);
+        func(...args);
       }, remaining);
     }
   };

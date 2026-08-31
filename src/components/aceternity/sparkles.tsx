@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import type { Container, IOptions, RecursivePartial, SingleOrMultiple } from '@tsparticles/engine';
@@ -79,7 +78,9 @@ export default function Sparkles(params: ParticlesProps) {
             enable: false,
             mode: 'repulse',
           },
-          resize: true as any,
+          resize: {
+            enable: true,
+          },
         },
         modes: {
           push: {

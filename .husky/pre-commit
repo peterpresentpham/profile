@@ -1,2 +1,1 @@
-bun run build
-bunx eslint --config ./eslint.config.js --cache --fix
+bunx tsc --noEmit && bunx eslint --config ./eslint.config.js --cache --fix

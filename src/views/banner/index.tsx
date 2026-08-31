@@ -43,7 +43,7 @@ export default function Banner(params: ComponentProps<'div'>) {
     >
       <div className="flex flex-wrap gap-4 pb-20 max-md:justify-between">
         <div className="pt-20 sm:pt-30 md:w-1/2 md:pt-40 lg:w-1/3">
-          <div className="flex flex-col items-center text-center font-sans text-[32px] leading-[40px] font-semibold md:items-start md:text-start">
+          <div className="text-heading flex flex-col items-center text-center font-sans font-semibold md:items-start md:text-start">
             <span>I am a</span>
             <RotatingRole />
           </div>

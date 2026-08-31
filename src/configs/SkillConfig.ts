@@ -250,7 +250,7 @@ export const ProjectConfig: Array<ProjectType> = [
       {
         id: 'github',
         title: 'github',
-        to: 'https://github.com/phamhongphuc1999/profile',
+        to: 'https://github.com/peterpresentpham/profile',
         symbol: 'Δ',
         color: 'purple',
       },
@@ -272,7 +272,7 @@ export const ProjectConfig: Array<ProjectType> = [
       {
         id: 'github',
         title: 'github',
-        to: 'https://github.com/phamhongphuc1999/my-next-app',
+        to: 'https://github.com/peterpresentpham/my-next-app',
         symbol: 'β',
         color: 'orange',
       },
@@ -317,28 +317,28 @@ export const ProjectConfig: Array<ProjectType> = [
       {
         id: 'frontend-github',
         title: 'UI',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
+        to: 'https://github.com/peterpresentpham/account-abstraction-app',
         symbol: 'ξ',
         color: 'gray',
       },
       {
         id: 'smart-contract',
         title: 'Smart Contract',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract',
+        to: 'https://github.com/peterpresentpham/account-abstraction-contract',
         symbol: 'Ξ',
         color: 'purple',
       },
       {
         id: 'bundler',
         title: 'Bundler',
-        to: 'https://github.com/phamhongphuc1999/bundler',
+        to: 'https://github.com/peterpresentpham/bundler',
         symbol: 'Ψ',
         color: 'blue',
       },
       {
         id: 'arithmetic-circuit',
         title: 'Arithmetic circuit',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract/tree/main/circom',
+        to: 'https://github.com/peterpresentpham/account-abstraction-contract/tree/main/circom',
         symbol: 'φ',
         color: 'orange',
       },
@@ -383,7 +383,7 @@ export const SkillsConfig: Array<SkillsType> = [
     links: [
       {
         id: 'account-abstraction-app',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
+        to: 'https://github.com/peterpresentpham/account-abstraction-app',
         mode: 'external',
         title: 'Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof',
       },
@@ -401,7 +401,7 @@ export const SkillsConfig: Array<SkillsType> = [
     links: [
       {
         id: 'profile',
-        to: 'https://github.com/phamhongphuc1999/profile',
+        to: 'https://github.com/peterpresentpham/profile',
         mode: 'external',
         title: 'My profile written by next',
       },
@@ -425,7 +425,7 @@ export const SkillsConfig: Array<SkillsType> = [
     links: [
       {
         id: 'nest-project',
-        to: 'https://github.com/phamhongphuc1999/nestjs-project',
+        to: 'https://github.com/peterpresentpham/nestjs-project',
         mode: 'external',
         title:
           'NestJS backend with PostgreSQL, Redis Cluster/Sentinel, WebSocket, JWT auth, and Swagger',
@@ -438,25 +438,25 @@ export const SkillsConfig: Array<SkillsType> = [
     links: [
       {
         id: 'account-abstraction-app',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-app',
+        to: 'https://github.com/peterpresentpham/account-abstraction-app',
         mode: 'external',
         title: 'Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof',
       },
       {
         id: 'account-abstraction-contract',
-        to: 'https://github.com/phamhongphuc1999/account-abstraction-contract',
+        to: 'https://github.com/peterpresentpham/account-abstraction-contract',
         mode: 'external',
         title: 'Account Abstraction Smart Contract',
       },
       {
         id: 'bundler',
-        to: 'https://github.com/phamhongphuc1999/bundler',
+        to: 'https://github.com/peterpresentpham/bundler',
         mode: 'external',
         title: 'ERC4337 Bundler',
       },
       {
         id: 'smart-contract-practice',
-        to: 'https://github.com/phamhongphuc1999/smart-contract-practice',
+        to: 'https://github.com/peterpresentpham/smart-contract-practice',
         mode: 'external',
         title: 'Smart Contract Practice',
       },
@@ -485,7 +485,7 @@ export const SkillsConfig: Array<SkillsType> = [
     links: [
       {
         id: 'user-api',
-        to: 'https://github.com/phamhongphuc1999/UserAPI',
+        to: 'https://github.com/peterpresentpham/UserAPI',
         mode: 'external',
         title: 'Simple API written by C# interacts with mongodb and mysql',
       },
@@ -497,7 +497,7 @@ export const SkillsConfig: Array<SkillsType> = [
     links: [
       {
         id: 'java-practice',
-        to: 'https://github.com/phamhongphuc1999/JavaPractice/tree/main/simple-api',
+        to: 'https://github.com/peterpresentpham/JavaPractice/tree/main/simple-api',
         mode: 'external',
         title: 'Simple API written by Java spring boot interacts with mysql',
       },
@@ -508,7 +508,7 @@ export const SkillsConfig: Array<SkillsType> = [
     links: [
       {
         id: 'java-practice',
-        to: 'https://github.com/phamhongphuc1999/JavaPractice',
+        to: 'https://github.com/peterpresentpham/JavaPractice',
         mode: 'external',
         title: 'Java practice with docker',
       },

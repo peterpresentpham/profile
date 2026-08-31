@@ -16,9 +16,17 @@ interface HeaderItemProps extends ComponentProps<'div'> {
   active?: boolean;
   imgClass?: string;
   textProps?: DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
+  showActiveIndicator?: boolean;
 }
 
-export function HeaderItem({ title, active, imgClass, textProps, ...props }: HeaderItemProps) {
+export function HeaderItem({
+  title,
+  active,
+  imgClass,
+  textProps,
+  showActiveIndicator,
+  ...props
+}: HeaderItemProps) {
   const { onClick, onKeyDown, className, ...rest } = props;
   const isClickable = typeof onClick === 'function';
 
@@ -38,7 +46,7 @@ export function HeaderItem({ title, active, imgClass, textProps, ...props }: Hea
       role={isClickable ? 'button' : undefined}
       tabIndex={isClickable ? 0 : undefined}
       className={cn(
-        'flex items-center focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none',
+        'relative flex items-center focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none',
         className
       )}
     >
@@ -49,6 +57,15 @@ export function HeaderItem({ title, active, imgClass, textProps, ...props }: Hea
       >
         {title}
       </p>
+      {showActiveIndicator && (
+        <span
+          aria-hidden
+          className={cn(
+            'absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-purple-50 transition-transform duration-300',
+            active && 'scale-x-100'
+          )}
+        />
+      )}
     </div>
   );
 }
@@ -62,7 +79,7 @@ export default function CssHeading({ title, ...props }: Props) {
     <div
       {...props}
       className={cn(
-        'group w-[30%] transition-all duration-500 hover:w-[40%] max-[760px]:w-[50%] max-[760px]:hover:w-[60%] max-[600px]:w-[80%] max-[600px]:hover:w-full max-[400px]:w-full',
+        'group w-[30%] origin-left transition-transform duration-500 hover:scale-x-[1.333] max-[760px]:w-[50%] max-[760px]:hover:scale-x-[1.2] max-[600px]:w-[80%] max-[600px]:hover:scale-x-[1.25] max-[400px]:w-full max-[400px]:hover:scale-x-100',
         props.className
       )}
     >
@@ -70,7 +87,7 @@ export default function CssHeading({ title, ...props }: Props) {
         title={title}
         active={true}
         imgClass="w-[28px] h-[28px]"
-        textProps={{ className: 'text-[32px] font-sans' }}
+        textProps={{ className: 'text-heading font-sans' }}
       />
       <div className="h-[0.5px] w-full bg-linear-[0.33332turn,var(--color-purple-50)_60%,transparent]" />
     </div>

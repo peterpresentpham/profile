@@ -18,7 +18,7 @@ export const ContactConfig: Array<{
   to: string;
   icon: FunctionComponent<SvgPropsType>;
 }> = [
-  { id: 'github', to: 'https://github.com/phamhongphuc1999', icon: GithubIcon },
+  { id: 'github', to: 'https://github.com/peterpresentpham', icon: GithubIcon },
   { id: 'linkin', to: 'https://www.linkedin.com/in/peter-present/', icon: LinkInIcon },
   { id: 'leetcode', to: 'https://leetcode.com/u/peter-present/', icon: LeetCodeIcon },
   { id: 'mail', to: 'mailto:phamhongphuc1999.mywork@gmail.com', icon: MailIcon },
@@ -52,7 +52,7 @@ export const ToolsConfig: Array<ToolType> = [
   { id: 'typescript', icon: IMAGES.tools.ts, link: 'https://www.typescriptlang.org/' },
   { id: 'mui', icon: IMAGES.tools.mui, link: 'https://mui.com/' },
   { id: 'tailwind', icon: IMAGES.tools.tailwindcss, link: 'https://tailwindcss.com/' },
-  { id: 'github', icon: IMAGES.tools.github, link: 'https://github.com/phamhongphuc1999' },
+  { id: 'github', icon: IMAGES.tools.github, link: 'https://github.com/peterpresentpham' },
   { id: 'gitlab', icon: IMAGES.tools.gitlab, link: 'https://gitlab.com/phamhongphuc1999' },
   { id: 'mysql', icon: IMAGES.tools.mysql, link: 'https://www.mysql.com/' },
   {

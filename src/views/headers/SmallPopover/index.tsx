@@ -28,7 +28,7 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-1000000 bg-black/50 backdrop-blur-sm"
+            className="fixed inset-0 z-[var(--z-overlay)] bg-black/50 backdrop-blur-sm"
           />
           <motion.div
             initial={{ x: '100%' }}
@@ -38,7 +38,7 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
             role="dialog"
             aria-modal="true"
             className={cn(
-              'bg-black-50 fixed top-0 right-0 z-1000001 h-screen w-screen shadow-xl',
+              'bg-black-50 fixed top-0 right-0 z-[var(--z-overlay-panel)] h-screen w-screen shadow-xl',
               className
             )}
           >
@@ -49,13 +49,18 @@ export default function SmallPopover({ open, onClose, onScrollClick, className }
                   <button
                     type="button"
                     aria-label="Scroll to top"
-                    className="flex items-center gap-x-2 md:hidden"
+                    className="flex items-center gap-x-2 focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none md:hidden"
                     onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
                   >
                     <LogoIcon />
                     <p className="font-bold">{MY_NAME}</p>
                   </button>
-                  <button type="button" aria-label="Close menu" onClick={onClose}>
+                  <button
+                    type="button"
+                    aria-label="Close menu"
+                    className="focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none"
+                    onClick={onClose}
+                  >
                     <CloseIcon width={18} height={18} className="cursor-pointer" />
                   </button>
                   <ContactLine className="absolute top-[60px] right-3 z-50 h-[140px]" />

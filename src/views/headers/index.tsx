@@ -47,16 +47,16 @@ export default function Header() {
   return (
     <div
       id="header"
-      className={`bg-black-50 fixed top-0 z-1000000 h-[60px] w-screen shadow-md transition-transform duration-500 ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
+      className={`bg-black-50 fixed top-0 z-[var(--z-header)] h-[60px] w-screen shadow-md transition-transform duration-500 ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <div className="relative container flex items-center justify-between">
         <ContactLine
-          className="absolute top-0 -left-16 z-400 hidden duration-1000 md:flex"
+          className="absolute top-0 -left-16 z-[var(--z-header-accent)] hidden duration-1000 md:flex"
           style={scrolled ? { height: '260px' } : { height: '200px' }}
         />
         <button
           type="button"
-          className="flex cursor-pointer items-center gap-x-2"
+          className="flex cursor-pointer items-center gap-x-2 focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none"
           onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
           <LogoIcon />
@@ -69,6 +69,7 @@ export default function Header() {
                 key={item.id}
                 title={item.title}
                 active={item.id === activeSection}
+                showActiveIndicator
                 className="cursor-pointer"
                 onClick={() => onScrollClick(item.id)}
               />
@@ -78,7 +79,7 @@ export default function Header() {
         <button
           type="button"
           aria-label="Open menu"
-          className="block md:hidden"
+          className="block focus-visible:ring-2 focus-visible:ring-purple-50/60 focus-visible:outline-none md:hidden"
           onClick={() => setOpen(true)}
         >
           <MenuIcon width="18" height="18" />

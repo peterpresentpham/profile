@@ -7,9 +7,19 @@
   --color-black-50: #0a0118;
   --font-sans: var(--font-inter);
 
+  --text-heading: 2rem;
+  --text-heading--line-height: 1.25;
+
   --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards)
     linear infinite;
   --animate-meteor-effect: meteor 5s linear infinite;
+}
+:root {
+  --z-decor: 10;
+  --z-header-accent: 20;
+  --z-header: 100;
+  --z-overlay: 110;
+  --z-overlay-panel: 120;
 }
 @layer base {
   * {
@@ -19,6 +29,16 @@
   }
   body {
     @apply bg-black-50 text-white;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 @keyframes scroll {
@@ -60,21 +80,26 @@
 }
 .contact-icon {
   path {
-    fill: #abb2bf;
+    fill: var(--color-gray-50);
   }
 }
 .contact-icon:hover {
   path {
-    fill: #c778dd;
+    fill: var(--color-purple-50);
   }
 }
 .hover-text:hover {
   text-decoration: underline;
-  color: #c778dd !important;
+  color: var(--color-purple-50) !important;
   cursor: pointer;
 }
 #header::before {
-  background: linear-gradient(0.33332turn, transparent, rgb(199, 120, 221, 0.3), transparent);
+  background: linear-gradient(
+    0.33332turn,
+    transparent,
+    color-mix(in srgb, var(--color-purple-50) 30%, transparent),
+    transparent
+  );
   bottom: 0;
   content: '';
   height: 1px;
@@ -83,7 +108,12 @@
   width: 100%;
 }
 #footer::before {
-  background: linear-gradient(0.33332turn, transparent, rgb(199, 120, 221, 0.3), transparent);
+  background: linear-gradient(
+    0.33332turn,
+    transparent,
+    color-mix(in srgb, var(--color-purple-50) 30%, transparent),
+    transparent
+  );
   top: 0;
   content: '';
   height: 1px;
@@ -103,7 +133,7 @@
   }
   .overlay::before,
   .overlay::after {
-    background: linear-gradient(to right, rgba(10, 1, 24, 1), rgba(10, 1, 24, 0));
+    background: linear-gradient(to right, var(--color-black-50), transparent);
     content: '';
     height: 100%;
     position: absolute;
@@ -116,12 +146,12 @@
     cursor: pointer;
     .skill-star-icon {
       path {
-        fill: #c778dd;
+        fill: var(--color-purple-50);
       }
     }
     .skill-link-text {
       text-decoration: underline;
-      color: #c778dd !important;
+      color: var(--color-purple-50) !important;
     }
   }
 }
@@ -194,7 +224,7 @@
   transition: all 1s;
 }
 .tool-animated-bg {
-  background: linear-gradient(0.33332turn, transparent, #c778dd, transparent);
+  background: linear-gradient(0.33332turn, transparent, var(--color-purple-50), transparent);
 }
 .beam-breathing {
   animation: beam-breathing 5.8s ease-in-out infinite;
