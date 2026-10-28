@@ -14,7 +14,7 @@ Live: https://peter-present.xyz/
 
 ## Run it
 
-Needs Node 20+.
+Needs Node 24 (see `.nvmrc`).
 
 ```shell
 npm install
