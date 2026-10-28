@@ -15,7 +15,13 @@ export const siteMetadata = {
     'zero-knowledge',
     'Hanoi',
   ],
-  icon: IMAGES.star,
+  icons: {
+    icon: [
+      { url: IMAGES.icon, type: 'image/svg+xml' },
+      { url: IMAGES.ico, sizes: '48x48' },
+    ],
+    apple: IMAGES.apple,
+  },
   image: {
     url: IMAGES.og,
     width: 1200,

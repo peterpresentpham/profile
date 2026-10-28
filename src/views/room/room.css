@@ -1,5 +1,6 @@
 /* Ported from concept/room2d-fullscreen.html — all rules are scoped to .room-root */
 
+@keyframes glb{50%{opacity:.72}}
 @keyframes tw{50%{opacity:.2}}
 
 @keyframes rain{from{transform:translateY(-30px)}to{transform:translateY(350px)}}
@@ -14,7 +15,6 @@
 
 @keyframes blink{50%{opacity:0}}
 
-@keyframes flick{0%,100%{transform:scale(1,1)}50%{transform:scale(.88,1.12)}}
 
 @keyframes sway{0%,100%{transform:rotate(-.5deg)}50%{transform:rotate(.7deg)}}
 
@@ -22,6 +22,16 @@
 
 @keyframes zz{from{opacity:0;transform:translate(0,0)}30%{opacity:.9}to{opacity:0;transform:translate(14px,-26px)}}
 
+@keyframes rgb{0%,100%{stroke:#ff6bd6}33%{stroke:#6bd6ff}66%{stroke:#8dffc9}}
+@keyframes wag{0%,100%{transform:rotate(0)}15%{transform:rotate(-16deg)}35%{transform:rotate(12deg)}55%{transform:rotate(-14deg)}75%{transform:rotate(8deg)}}
+@keyframes twitch{50%{transform:rotate(14deg)}}
+@keyframes twitchL{50%{transform:rotate(-14deg)}}
+@keyframes yawn{0%,100%{transform:scaleY(.15)}35%,65%{transform:scaleY(1.3)}}
+@keyframes cstretch{0%,100%{transform:none}25%,75%{transform:scale(1.12,.94)}}
+@keyframes hstretch{0%,100%{transform:none}25%,75%{transform:translate(-6px,3px)}}
+@keyframes bob{50%{transform:translateY(-2px)}}
+@keyframes heartUp{0%{opacity:0;transform:translateY(4px) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translateY(-22px) scale(1.2)}}
+@keyframes noteUp{0%{opacity:0;transform:translate(0,0) rotate(-8deg)}20%{opacity:.9}100%{opacity:0;transform:translate(7px,-26px) rotate(12deg)}}
 @keyframes dot{50%{transform:scale(1.6)}}
 
 @keyframes breathe{50%{transform:scaleY(1.05)}}
@@ -53,10 +63,25 @@
 & .steam{animation:steam 2.4s ease-out infinite}
 & .smk{animation:smoke 4.5s ease-out infinite}
 & .cursor{animation:blink 1.1s steps(1) infinite}
-& .flame{transform-box:fill-box;transform-origin:50% 100%;animation:flick .5s ease-in-out infinite}
 & .curt{transform-box:fill-box;transform-origin:50% 0;animation:sway 7s ease-in-out infinite}
 & .mote{animation:floaty 9s ease-in-out infinite}
 & .zz{animation:zz 3.2s ease-out infinite}
+& .rgb{animation:rgb 6s linear infinite}
+& #catEyesO,& #catMouth,& #catHeart{opacity:0}
+& #catHeart,& #catMouth{transform-box:fill-box;transform-origin:50% 50%}
+& #cat.awake #catEyesO{opacity:1}&  #cat.awake #catEyesC{opacity:0}
+& #catPupils{transition:transform .4s}
+& #catTail{transform-box:fill-box;transform-origin:0% 100%}& #earL,& #earR{transform-box:fill-box;transform-origin:50% 100%}
+& #cat.wag #catTail{animation:wag 1.6s ease-in-out}
+& #cat.twitch #earR{animation:twitch .5s}& #cat.twitchL #earL{animation:twitchL .5s}
+& #cat.yawn #catMouth{opacity:1;animation:yawn 1.6s ease-in-out}
+& .cstretch{transform-box:fill-box;transform-origin:100% 100%}
+& #cat.stretch .cstretch{animation:cstretch 2s ease-in-out}& #cat.stretch #catHead{animation:hstretch 2s ease-in-out}
+& #cat.walk #catIn{animation:bob .45s ease-in-out infinite}
+& #catHeart.on{animation:heartUp 1.6s ease-out}
+& #spkLed{fill:#5a3a4a;transition:fill .3s}& #speaker.on #spkLed{fill:#8dffc9}
+& #spkCone{transform-box:fill-box;transform-origin:50% 50%}
+& .note{opacity:0}& #speaker.on .note{animation:noteUp 2.6s ease-out infinite}
 & .notif{transform-box:fill-box;transform-origin:center;animation:dot 1.6s ease-in-out infinite}
 & .breathe{transform-box:fill-box;transform-origin:50% 100%;animation:breathe 3.4s ease-in-out infinite}
 & .aur{animation:aur 8s ease-in-out infinite}
@@ -65,10 +90,6 @@
 & #tip{position:fixed;z-index:40;pointer-events:none;background:#0a0118e6;border:1px solid var(--line);padding:4px 12px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;opacity:0;transform:translate(-50%,-140%);transition:opacity .15s}
 & #tip.on{opacity:1}
 & .hud{position:fixed;z-index:20}
-& #brand{top:14px;left:18px;pointer-events:none}
-& #brand b{font-size:17px}
-& #today{display:block;margin-top:2px;max-width:min(560px,62vw);font-size:12px;color:var(--muted);line-height:1.5}
-& #today em{font-style:normal;color:var(--text)}
 & #aboutBtn{top:14px;right:18px;background:#0a0118d9;border:1px solid var(--line);color:var(--text);border-radius:999px;padding:7px 16px;font:inherit;font-size:13px;cursor:pointer}
 & #aboutBtn:hover{background:#c778dd26;border-color:var(--accent)}
 & #bar{left:50%;bottom:14px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:#0a0118d9;backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:8px 10px 8px 16px;max-width:calc(100vw - 16px)}
@@ -110,8 +131,10 @@
 & #welcome.gone{opacity:0;pointer-events:none}
 & #welcome .card{width:min(520px,100%);max-height:88dvh;overflow-y:auto;background:#120826f5;border:1px solid var(--line);border-radius:20px;padding:30px 30px 26px;box-shadow:0 30px 80px #000c}
 & #welcome h2{font-size:32px;margin-right:0}
-@media(max-width:700px){& #panel{top:auto;width:100%;height:72dvh;border-left:0;border-top:1px solid var(--line);border-radius:18px 18px 0 0;transform:translateY(102%)}& #panel.open{transform:none}& #bar .ph, & #bar .sep, & #bar input[type=range]{display:none}& .trade{grid-template-columns:1fr}& #today{max-width:70vw}}
+@media(max-width:700px){& #panel{top:auto;width:100%;height:72dvh;border-left:0;border-top:1px solid var(--line);border-radius:18px 18px 0 0;transform:translateY(102%)}& #panel.open{transform:none}& #bar .ph, & #bar .sep, & #bar input[type=range]{display:none}& .trade{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){& *{animation:none!important;transition:none!important}}
 
 &:not([data-controls]) #bar{display:none}
+& .gl1{animation:glb 5.5s ease-in-out infinite}
+& .gl2{animation:glb 7.3s ease-in-out -2.6s infinite}
 }
