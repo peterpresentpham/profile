@@ -5,14 +5,18 @@
 - install
 
 ```shell
-bun install
+npm install
 ```
 
 - start
 
 ```shell
-bun dev
+npm run dev
 ```
+
+### Environment
+
+See `.env.example`. `NEXT_PUBLIC_SHOW_TIME_CONTROLS=true` shows the time/date preview bar (off by default).
 
 ### Host
 

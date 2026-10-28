@@ -1,1 +1,1 @@
-bunx tsc --noEmit && bunx eslint --config ./eslint.config.js --cache --fix
+npx tsc --noEmit && npm run eslint
