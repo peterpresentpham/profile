@@ -1,0 +1,9 @@
+Music used on the speaker in the room (both are free to use; re-encoded for the web with a short fade at each end):
+
+- J. S. Bach, Prelude No. 1 in C major, BWV 846 (Well-Tempered Clavier, Book 1)
+  performed by Kimiko Ishizaka, released under CC0.
+  https://commons.wikimedia.org/wiki/File:Kimiko_Ishizaka_-_Bach_-_Well-Tempered_Clavier,_Book_1_-_01_Prelude_No._1_in_C_major,_BWV_846.ogg
+
+- Erik Satie, Gymnopédie No. 1
+  performed by Robin Alciatore, from Musopen (musopen.org), released into the public domain.
+  https://commons.wikimedia.org/wiki/File:Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg

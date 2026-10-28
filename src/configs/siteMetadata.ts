@@ -1,13 +1,36 @@
 import { IMAGES } from './images';
 
 export const siteMetadata = {
-  title: 'Peter - Software Developer',
+  title: 'Peter — Software Developer',
   description:
-    'Software Developer dedicated to creating modern digital solutions. Experienced in web, backend, and blockchain development with a focus on performance and security.',
+    'A cosy interactive room that follows your clock. Peter is a software developer in Hanoi building web apps, backends, blockchain protocols and small browser games.',
   url: 'https://peter-present.xyz/',
-  siteName: 'Peter - Software Developer',
-  twitterHandle: 'PhamHon08928762',
-  icon: IMAGES.star,
-  image: IMAGES.thumbnail,
-  keywords: 'software,full stack,blockchain,smart contract,backend,frontend',
+  siteName: 'Peter',
+  twitterHandle: '@PhamHon08928762',
+  keywords: [
+    'software developer',
+    'full stack',
+    'blockchain',
+    'ERC-4337',
+    'zero-knowledge',
+    'Hanoi',
+  ],
+  icons: {
+    icon: [
+      { url: IMAGES.icon, type: 'image/svg+xml' },
+      { url: IMAGES.ico, sizes: '48x48' },
+    ],
+    apple: IMAGES.apple,
+  },
+  image: {
+    url: IMAGES.og,
+    width: 1200,
+    height: 630,
+    alt: 'A cosy room with a window onto today’s world',
+  },
+  links: {
+    github: 'https://github.com/peterpresentpham',
+    linkedin: 'https://www.linkedin.com/in/peter-present/',
+  },
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? 'GTM-W6VHX4S7',
 };

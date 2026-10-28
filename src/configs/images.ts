@@ -1,50 +1,9 @@
+// `?v=` busts caches: next.config.mjs serves these files with a one-year immutable cache, so bump it when you replace one.
+const V = '?v=2';
+
 export const IMAGES = {
-  certifications: {
-    udemy: '/certifications/udemy.png',
-  },
-  education: {
-    hust: '/education/hust.png',
-  },
-  language: {
-    circom: '/language/circom.svg',
-    'c++': '/language/cplusplus.svg',
-    'c#': '/language/csharp.svg',
-    'f#': '/language/fsharp.svg',
-    go: '/language/go.png',
-    java: '/language/java.svg',
-    js: '/language/js.webp',
-    python: '/language/python.svg',
-    solidity: '/language/solidity.svg',
-  },
-  skill: {
-    kafka: '/skills/apache-kafka.png',
-    blockchain: '/skills/blockchain.png',
-    '.net': '/skills/dotnet.png',
-    nestjs: '/skills/nestjs.svg',
-    next: '/skills/next.svg',
-    react: '/skills/react.svg',
-    'spring-boot': '/skills/spring-boot.png',
-    vuejs: '/skills/vuejs.png',
-  },
-  tools: {
-    docker: '/tools/docker.svg',
-    github: '/tools/github.webp',
-    gitlab: '/tools/gitlab.svg',
-    latex: '/tools/latex.svg',
-    mui: '/tools/materialui.svg',
-    mongodb: '/tools/mongodb.svg',
-    mysql: '/tools/mysql.svg',
-    tailwindcss: '/tools/tailwindcss.svg',
-    ts: '/tools/typescript.svg',
-    visualstudio: '/tools/visualstudio.svg',
-    vscode: '/tools/vscode.svg',
-  },
-  'dark-sky': '/dark-sky.svg',
-  quote: '/quote.svg',
-  sharp: '/sharp.svg',
-  star: '/favicon.ico',
-  thumbnail: '/thumbnail.webp',
-  pikachu1: '/pikachu/pikachu1.png',
-  pikachu2: '/pikachu/pikachu2.png',
-  pikachu3: '/pikachu/pikachu3.png',
+  icon: `/icon.svg${V}`,
+  ico: `/favicon.ico${V}`,
+  apple: `/apple-touch-icon.png${V}`,
+  og: `/og.jpg${V}`,
 };
