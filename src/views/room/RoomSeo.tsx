@@ -9,26 +9,45 @@ export default function RoomSeo() {
       </p>
       <ul>
         <li>
-          <a href="https://github.com/peterpresentpham/seen">Như Hôm Qua</a> — a game about a day
-          that repeats
+          <a
+            href="https://github.com/peterpresentpham/seen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Như Hôm Qua
+          </a>{' '}
+          — a game about a day that repeats
         </li>
         <li>
-          <a href="https://decipher.peter-present.xyz/">Decipher</a> — a new alien language every
-          day
+          <a href="https://decipher.peter-present.xyz/" target="_blank" rel="noopener noreferrer">
+            Decipher
+          </a>{' '}
+          — a new alien language every day
         </li>
         <li>
-          <a href="https://fantasy.peter-present.xyz/">Fantasy World</a> — procedural maps
+          <a href="https://fantasy.peter-present.xyz/" target="_blank" rel="noopener noreferrer">
+            Fantasy World
+          </a>{' '}
+          — procedural maps
         </li>
         <li>
-          <a href="https://blog.peter-present.xyz/master-thesis">
+          <a
+            href="https://blog.peter-present.xyz/master-thesis"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Recovery ERC-4337 wallet with zero-knowledge social recovery
           </a>
         </li>
         <li>
-          <a href="https://blog.peter-present.xyz/">Blog</a>
+          <a href="https://blog.peter-present.xyz/" target="_blank" rel="noopener noreferrer">
+            Blog
+          </a>
         </li>
         <li>
-          <a href="https://github.com/peterpresentpham">GitHub</a>
+          <a href="https://github.com/peterpresentpham" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
         </li>
       </ul>
     </div>

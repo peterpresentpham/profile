@@ -9,7 +9,7 @@ const fira = Fira_Code({ subsets: ['latin'] });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 type Props = Readonly<{ children: ReactNode }>;
 
-const { title, description, url, siteName, keywords, icon, image, twitterHandle, gtmId } =
+const { title, description, url, siteName, keywords, icons, image, twitterHandle, gtmId } =
   siteMetadata;
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   applicationName: siteName,
   authors: [{ name: 'Peter', url }],
   alternates: { canonical: '/' },
-  icons: { icon },
+  icons,
   openGraph: {
     type: 'website',
     url,
