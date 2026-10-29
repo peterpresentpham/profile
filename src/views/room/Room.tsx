@@ -11,6 +11,7 @@
 
 import { useEffect, useRef } from 'react';
 import { ROOM_HTML } from './markup';
+import { SCENES } from './scenes';
 import './room.css';
 
 function initRoom(root: HTMLElement): () => void {
@@ -36,14 +37,9 @@ const SPOTS = {
     <a class="btn" href="https://fantasy.peter-present.xyz/" target="_blank" rel="noopener noreferrer">Open the world</a>
     <p class="note">The valley outside is generated too: the weather, season, moon phase and visitors change every day.</p>`},
   clock:{label:'Wall clock — Như Hôm Qua',x:584,y:84,w:112,h:112,html:`
-    <div class="eyebrow">Game · "Như Hôm Qua" (Just Like Yesterday)</div><h2 id="ptitle">Every day repeats yesterday — unless you do something different.</h2>
-    <p>A short browser game that plays out on the phone and laptop screens of a young office worker. One run is a probation week, Monday to Saturday: on Friday evening HR says you didn't pass, and Saturday is the last day.</p>
-    <p>The core idea is <b class="w">wear</b>: seven slices of the day (alarm, commute, work, lunch, after work, family, night) each remember what you did yesterday. Repeat it and the slice wears down; do something genuinely different and it freshens — but "different" always costs time, money, energy or goodwill.</p>
-    <span class="tag">Svelte 5</span><span class="tag">TypeScript</span><span class="tag">Vitest</span><span class="tag">Vietnamese + English</span>
-    <h3>Rules I held myself to</h3>
-    <ul class="l"><li>Everything matches real life: payslips itemise every deduction and add up</li><li>No proper names — people are roles ("direct manager", "HR")</li><li>Sloppy play is punished harder than careful play</li><li>Balance tested by bulk simulation, not by feel</li></ul>
-    <a class="btn g" href="https://github.com/peterpresentpham/seen" target="_blank" rel="noopener noreferrer">Source</a>
-    <p class="note">Add the live URL once deployed.</p>`},
+    <div class="eyebrow">Game · Như Hôm Qua</div><h2 id="ptitle">Every day repeats yesterday, unless you do something different.</h2>
+    <p>A short browser game about a young office worker's probation week. Each part of the day remembers what you did yesterday: repeat it and it wears down, change it and it freshens, at a cost.</p>
+    <span class="tag">Svelte 5</span><span class="tag">TypeScript</span><span class="tag">Vietnamese + English</span>`},
   board:{label:'Caro board — Playground',x:82,y:556,w:262,h:140,html:`
     <div class="eyebrow">Small experiments</div><h2 id="ptitle">Things that run in your browser</h2>
     <div class="row">
@@ -72,10 +68,10 @@ const SPOTS = {
     </div>`},
   tablet:{label:'Stone tablet — Decipher',x:1040,y:206,w:100,h:124,html:`
     <div class="eyebrow">Game · Decipher</div><h2 id="ptitle">A new alien language every day.</h2>
-    <svg viewBox="0 0 640 110" style="width:100%;height:auto;margin:6px 0 2px;display:block" role="img" aria-label="Carved on the tablet: đèn nhỏ và những đứa con của biển"><use href="#rg0" transform="translate(40,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg1" transform="translate(110,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg2" transform="translate(180,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg3" transform="translate(250,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg4" transform="translate(320,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg5" transform="translate(390,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg6" transform="translate(460,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg7" transform="translate(530,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/></svg><p style="font-size:12px;margin-bottom:14px">Carved on the tablet: <i>“đèn nhỏ và những đứa con của biển”</i> — the title of a novel by Annet Schaap.</p><p>Each day's language is generated entirely by algorithm from the UTC date — no backend. You read sentences carved on stone tablets (with translations), work out what each symbol means and how the grammar works, solve puzzles, and finally write a whole passage back in the alien script.</p>
+    <svg viewBox="0 0 640 110" style="width:100%;height:auto;margin:6px 0 2px;display:block" role="img" aria-label="Carved on the tablet: đèn nhỏ và những đứa con của biển"><use href="#rg0" transform="translate(40,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg1" transform="translate(110,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg2" transform="translate(180,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg3" transform="translate(250,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg4" transform="translate(320,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg5" transform="translate(390,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg6" transform="translate(460,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/><use href="#rg7" transform="translate(530,84) scale(.052,-.052)" fill="#8f8a96" opacity=".9"/></svg><p>Each day's language is generated entirely by algorithm from the UTC date — no backend. You read sentences carved on stone tablets (with translations), work out what each symbol means and how the grammar works, solve puzzles, and finally write a whole passage back in the alien script.</p>
     <p>Two modes: <b class="w">easy</b> (fewer words, three puzzles, earlier hints) and <b class="w">advanced</b> (full vocabulary, four puzzles).</p>
     <span class="tag">Procedural generation</span><span class="tag">Web Audio</span><span class="tag">No backend</span>
-    <a class="btn" href="https://decipher.peter-present.xyz/" target="_blank" rel="noopener noreferrer">Play today's language</a><a class="btn g" href="https://github.com/peterpresentpham/decipher" target="_blank" rel="noopener noreferrer">Source</a>`},
+    <a class="btn" href="https://decipher.peter-present.xyz/" target="_blank" rel="noopener noreferrer">Play today's language</a>`},
   desk:{label:'Computer — Workbench',x:694,y:310,w:188,h:128,html:`
     <div class="eyebrow">Workbench</div><h2 id="ptitle">What I build with day to day</h2>
     <div class="row">
@@ -110,6 +106,9 @@ function noise(seed){const r=rng(hash(seed)),N=128,g=Array.from({length:N*N},()=
   return(x,y)=>{const xi=Math.floor(x),yi=Math.floor(y),fx=sm(x-xi),fy=sm(y-yi),a=at(xi,yi),b=at(xi+1,yi),c=at(xi,yi+1),d=at(xi+1,yi+1);return a+(b-a)*fx+(c-a)*fy+(a-b-c+d)*fx*fy}}
 function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent&&parent.appendChild(e);return e}
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// phones and touch screens: lighter effects and fewer per-frame updates (the full scene is heavy for a mobile GPU)
+const lite=matchMedia('(max-width: 820px), (pointer: coarse)').matches;
+root.classList.toggle('room-lite',lite);
 const pad=n=>String(n).padStart(2,'0'), ymd=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 
 /* ============ static scene parts ============ */
@@ -310,7 +309,7 @@ function buildPlant(season){
   draw($('plantLeaves'),false);draw($('plantShadow'),true);
 }
 function buildView(c){
-  buildPlant(c.season);
+  buildPlant(c.season);buildFloorLeaves(c);
   const r=rng(hash('view'+c.date)),fr=rng(hash('valley-fixed')),P=PAL[c.season];V={};
   ['cloudsFar','cloudsNear','precip','particles','village','trees','meadow','lakeFx','boat','branch','rare'].forEach(id=>$(id).replaceChildren());vis.replaceChildren();
   $('midRidge').dataset.c=P.mid;$('nearRidge').dataset.c=P.near;$('farRidge').dataset.c=c.season==='winter'?'#9fb0cc':'#7f8fb8';
@@ -403,21 +402,21 @@ function applyTime(){
   if(V.ufoGlow)V.ufoGlow.setAttribute('opacity',Math.pow(1-d,1.4));
   // light shaft through the window
   const moonUp=d<.5,pp=moonUp?mp:sp,sl=clamp(wx==='clear'?1:wx==='partly'?.7:.12)*(moonUp?.18*illum:d)*smooth(pp>0&&pp<1?Math.sin(Math.PI*pp)*3:0);
-  const skewT=`translate(0,390) skewX(${lerp(30,-30,clamp(pp))}) translate(0,-390)`;$('shaftSkew').setAttribute('transform',skewT);$('rugSunSkew').setAttribute('transform',skewT);$('rugSun').style.opacity=sl*.55;
+  const skewT=`translate(0,390) skewX(${lerp(30,-30,clamp(pp))}) translate(0,-390)`;$('shaftSkew').setAttribute('transform',skewT);$('rugSunSkew').setAttribute('transform',skewT);$('rugSun').style.opacity=sl*.55;$('floorSunSkew').setAttribute('transform',skewT);$('floorSun').style.opacity=sl*.45;
   setCatTarget(!moonUp&&sl>.3?clamp(468+Math.tan(lerp(30,-30,clamp(pp))*Math.PI/180)*260,380,650)-520:0);   // the cat naps in the patch of sun on the rug
   $('shaftG0').style.opacity=sl;$('plantShadow').style.opacity=sl*.3;$('shaftG0').style.color=moonUp?'#a9c4ff':'#fff';
   $('shaftG0').querySelectorAll('polygon').forEach(p=>p.setAttribute('fill',moonUp?'#9db8ff':'url(#shaftG)'));
   $('motes').style.opacity=sl*1.1;
   $('golden').style.opacity=clamp(g)*.5;
   // inside lights
-  lampOn=lampOverride===null?(dark>.35&&t>12&&t<22.5):lampOverride;   // default: on when dark, off after 22:30
-  $('dark').style.opacity=dark*.8;$('mLamp').style.opacity=lampOn?1:0;$('gLamp').style.opacity=lampOn?.4+dark*.5:0;$('lampMotes').style.opacity=lampOn?1:0;$('cone').style.opacity=lampOn?.3+dark*.7:0;$('bulb').style.opacity=lampOn?1:0;
+  lampOn=lampOverride===null?(dark>.35&&t>12&&t<21):lampOverride;   // default: on when dark, off after 21:00
+  $('dark').style.opacity=dark*.8;$('mLamp').style.opacity=lampOn?1:0;$('gLamp').style.opacity=lampOn?.4+dark*.5:0;$('lampMotes').style.opacity=lampOn?1:0;$('fpLamp').style.opacity=lampOn?.35+dark*.55:0;$('cone').style.opacity=lampOn?.3+dark*.7:0;$('bulb').style.opacity=lampOn?1:0;
   $('shade').setAttribute('fill',lampOn?'#ffd36b':'#e9b44c');
   $('gMon').style.opacity=.12+dark*.7;$('mMon').style.opacity=.5+dark*.3;$('mWin').style.opacity=(1-d)*.3*clear;
   $('zz').style.opacity=dark>.4?1:0;
-  ceilOn=ceilOverride===null?(t>=18&&t<22.5):ceilOverride;   // default: on 18:00–22:30
-  $('mCeil').style.opacity=ceilOn?1:0;$('gCeil').style.opacity=ceilOn?.28+dark*.32:0;$('cCone').style.opacity=ceilOn?.08+dark*.1:0;
-  const lit=lampOn||ceilOn;$('dark').style.opacity=dark*.8;$('glow').style.opacity=lit?0:dark;if(!lit){$('gMon').style.opacity=.04+dark*.22;$('mMon').style.opacity=.3}$('mWash').style.opacity=$('gMon').style.opacity;   // all lights off: only the glow stickers light the room
+  ceilOn=ceilOverride===null?(t>=18&&t<21):ceilOverride;   // default: on 18:00–21:00
+  $('mCeil').style.opacity=ceilOn?1:0;$('fpCeil').style.opacity=ceilOn?.25+dark*.45:0;$('gCeil').style.opacity=ceilOn?.28+dark*.32:0;$('cCone').style.opacity=ceilOn?.08+dark*.1:0;
+  const lit=lampOn||ceilOn;$('dark').style.opacity=dark*.8;const glowOp=dark*(ceilOn?0:lampOn?.5:1);$('glow').style.opacity=glowOp;const ffOp=lit?0:dark;$('fireflies').style.opacity=ffOp;$('fireflies').style.display=ffOp>.3?'':'none';$('glow').style.display=glowOp>.01?'':'none';$('dark').style.display=dark>.01?'':'none';if(!lit){$('gMon').style.opacity=.04+dark*.22;$('mMon').style.opacity=.3}$('mWash').style.opacity=$('gMon').style.opacity;   // all lights off: only the glow stickers light the room
   document.querySelectorAll('.cb').forEach(e=>e.style.opacity=ceilOn?1:0);document.querySelectorAll('.cf').forEach(e=>e.setAttribute('opacity',ceilOn?1:0));
   SPOTS.lamp.node.setAttribute('aria-pressed',lampOn);SPOTS.ceiling.node.setAttribute('aria-pressed',ceilOn);
   const H=Math.floor(t),M=(t-H)*60;
@@ -432,6 +431,7 @@ const smooth=x=>ss(0,1,x);
 function setDate(d){curDate=d;cfg=dayCfg(d);phase=moonPhase(d);$('dateIn').value=cfg.date;buildView(cfg);applyTime()}
 /* wall clock: sweeping second hand; every so often it runs back one beat and returns to the right time ("just like yesterday") */
 let rewind=null;
+const handT={};
 function drawClock(now=performance.now()){
   const d=new Date(),h=auto?d.getHours()+d.getMinutes()/60+(d.getSeconds()+d.getMilliseconds()/1000)/3600:t;
   let hA=(h%12)*30,mA=(h%1)*360,sA=((h*3600)%60)*6;
@@ -440,13 +440,50 @@ function drawClock(now=performance.now()){
     if(rewind){const p=(now-rewind.t0)/2600;if(p>=1)rewind=null;else{const k=Math.sin(Math.PI*p);sA-=k*72;mA-=k*6;hA-=k*.5}}
   }
   $('steamG').style.opacity=h<16?.6:Math.max(.15,.6-(h-16)*.12);   // the coffee cools towards the evening
-  const rot=(id,a)=>{$(id).setAttribute('transform',`rotate(${a.toFixed(2)})`)};
-  rot('hHand',hA);rot('mHand',mA);rot('sHand',reduce?0:sA);rot('hLume',hA);rot('mLume',mA);
-  $('sLume').setAttribute('transform',`rotate(${reduce?0:sA})`);
+  const rot=(id,a)=>{const v=`rotate(${a.toFixed(1)})`;if(handT[id]!==v){handT[id]=v;$(id).setAttribute('transform',v)}};
+  rot('hHand',hA);rot('mHand',mA);rot('sHand',reduce?0:sA);rot('hLume',hA);rot('mLume',mA);rot('sLume',reduce?0:sA);
 }
 const nowHours=()=>{const n=new Date();return n.getHours()+n.getMinutes()/60};
 
 /* ============ animation (clouds, visitors, boat, parallax) ============ */
+// a few fireflies drift through the room when every light is off
+(function buildFireflies(){
+  const r=rng(909),g=$('fireflies'),n=lite?4:7;
+  for(let i=0;i<n;i++){
+    const x=90+r()*1020,y=150+r()*400,s=.8+r()*.6;
+    const f=el('g',{class:'ff '+'abc'[i%3]},el('g',{transform:`translate(${x.toFixed(0)} ${y.toFixed(0)})`},g));
+    const w=el('g',{},f);   // the CSS drift moves .ff, the blink fades its child
+    el('circle',{r:(9*s).toFixed(1),fill:'url(#ffG)'},w);el('circle',{r:(1.5*s).toFixed(1),fill:'#f6ffc0'},w);
+    f.style.animationDelay=(-r()*17)+'s';f.style.animationDuration=(15+r()*9)+'s';w.style.animationDelay=(-r()*3)+'s';w.style.animationDuration=(2.6+r()*2)+'s'}
+})();
+/* floor: every plank gets its own tone, grain, knots and scratches; the boards are staggered per row */
+(function buildFloor(){
+  const r=rng(303),g=$('floorDeco'),tones=[['#fff',.05],['#fff',.09],['#000',.05],['#000',.09],['#d79a5c',.1],['#4a2f1a',.1]];
+  for(let row=0;row<8;row++){
+    const y=526+row*42;let x=-700-r()*240;
+    el('rect',{x:-700,y:y+1,width:2500,height:1.4,fill:'#fff',opacity:.07},g);
+    while(x<1800){
+      const w=170+r()*130,[c,o]=tones[Math.floor(r()*tones.length)];
+      el('rect',{x,y,width:w,height:42,fill:c,opacity:o},g);
+      el('rect',{x:x+w-2,y,width:2,height:42,fill:'#000',opacity:.2},g);el('rect',{x:x+w,y,width:1.2,height:42,fill:'#fff',opacity:.08},g);
+      for(let k=0;k<(lite?2:4);k++){
+        const gy=y+5+r()*32,gx=x+6+r()*(w*.3),l=w*(.35+r()*.5),a=(r()-.5)*2.4;
+        el('path',{d:`M${gx.toFixed(1)} ${gy.toFixed(1)}q${(l/3).toFixed(1)} ${a.toFixed(1)} ${(l/2).toFixed(1)} 0t${(l/2).toFixed(1)} ${(-a).toFixed(1)}`,fill:'none',stroke:r()<.7?'#3b2414':'#f0c58a','stroke-width':.6,opacity:(.1+r()*.12).toFixed(2)},g)}
+      if(r()<.16){const kx=x+30+r()*(w-60),ky=y+10+r()*22;el('ellipse',{cx:kx,cy:ky,rx:4.4,ry:2.6,fill:'#4a2f1a',opacity:.4},g);el('ellipse',{cx:kx,cy:ky,rx:8,ry:4.6,fill:'none',stroke:'#4a2f1a','stroke-width':.7,opacity:.3},g)}
+      if(r()<.2){const sx=x+10+r()*(w-40),sy=y+6+r()*28,a=(r()-.5)*.5;el('line',{x1:sx,y1:sy,x2:sx+10+r()*16,y2:sy+a*14,stroke:'#f3d9b0','stroke-width':.8,opacity:.28},g)}
+      x+=w}
+  }
+})();
+// what the season carries in from the window: leaves, petals, snow-melt
+function buildFloorLeaves(c){
+  const g=$('floorLeaves');g.replaceChildren();const r=rng(hash('floor'+c.date)),s=c.season;
+  const K={autumn:{n:11,col:['#d9692b','#c4452d','#e8a23a','#a8571f'],sh:'M0 0Q5-4 11 0Q5 4 0 0Z'},spring:{n:9,col:['#f7b6cf','#ffd3e2','#fff'],sh:'M0 0Q3-3 6 0Q3 3 0 0Z'},summer:{n:4,col:['#5fa56a','#79c47e'],sh:'M0 0Q4-3 8 0Q4 3 0 0Z'},winter:{n:6,col:['#bcd8ee','#d9ecf8'],sh:''}}[s];
+  for(let i=0;i<K.n;i++){
+    let x,y,t=0;do{x=60+r()*1000;y=548+r()*210;t++}while(t<20&&((x>200&&x<740&&y>596&&y<700)||(x>840&&x<990&&y>650&&y<720)));
+    const col=K.col[Math.floor(r()*K.col.length)],a=r()*360,k=.8+r()*.7;
+    if(s==='winter')el('ellipse',{cx:x,cy:y,rx:6+r()*9,ry:1.6+r()*1.8,fill:col,opacity:.35},g);
+    else el('path',{d:K.sh,transform:`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${a.toFixed(0)}) scale(${k.toFixed(2)} ${(k*.5).toFixed(2)})`,fill:col,opacity:.9},g)}
+}
 function moveClouds(dt){
   (V.clouds||[]).forEach(g=>{let x=+g.dataset.x+(+g.dataset.sp)*dt;if(x>540)x=-60;if(x<-60)x=540;g.dataset.x=x;g.setAttribute('transform',`translate(${x},${g.dataset.y})`)});
   const c=cfg;if(V.g){
@@ -467,7 +504,7 @@ function moveClouds(dt){
   if(V.boat){const x=V.bx+Math.sin(performance.now()/9000)*18;V.boat.setAttribute('transform',`translate(${x},${246+Math.sin(performance.now()/900)*1.3})`)}
 }
 const mouse={x:0,y:0},par={x:0,y:0};
-function parallax(){par.x+=(mouse.x-par.x)*.06;par.y+=(mouse.y-par.y)*.06;
+function parallax(){if(Math.abs(mouse.x-par.x)<.0004&&Math.abs(mouse.y-par.y)<.0004)return;par.x+=(mouse.x-par.x)*.06;par.y+=(mouse.y-par.y)*.06;
   [['Lsky',3],['Lfar',6],['Lmid',10],['Lvis',9],['Llake',12],['Lnear',17],['Lweather',17],['Lfg',30]].forEach(([id,f])=>$(id).setAttribute('transform',`translate(${(-par.x*f).toFixed(2)},${(-par.y*f*.4).toFixed(2)})`))}
 let last=performance.now();
 /* cat: idle behaviours, naps in the window light, peeks at the lamps, purrs when clicked */
@@ -529,20 +566,34 @@ function musicTick(dt){
 listen('pagehide',()=>song&&song.pause());
 const onVis=()=>{if(!song)return;if(document.hidden)song.pause();else if(musicOn)song.play().catch(()=>{})};
 document.addEventListener('visibilitychange',onVis);L.push(()=>document.removeEventListener('visibilitychange',onVis));
-(function loop(now){raf=requestAnimationFrame(loop);const dt=Math.min((now-last)/1000,.1);last=now;musicTick(dt);if(!reduce){moveClouds(dt);moveCat(dt)}drawClock(now);gameTick(dt);parallax()})(last);
+let frame=0,lagDt=0;
+(function loop(now){raf=requestAnimationFrame(loop);const dt=Math.min((now-last)/1000,.1);last=now;frame++;
+  musicTick(dt);if(!reduce)moveCat(dt);
+  lagDt+=dt;
+  if(!lite||frame%2===0){const d=lagDt;lagDt=0;if(!reduce)moveClouds(d);drawClock(now);gameTick(d)}   // half rate on phones
+  parallax()})(last);
 
 /* ============ camera: fill the whole screen; pan on narrow screens ============ */
 let vw=innerWidth,vh=innerHeight,S=1,panX=520;const CY=372;
 function fit(){vw=innerWidth;vh=innerHeight;const sFit=Math.min(vw/1200,(vh-70)/760);S=Math.max(sFit,vh/820);
-  const W=vw/S,H=vh/S;let cx=600;const narrow=W<1200;if(narrow)cx=clamp(panX,W/2,1200-W/2),panX=cx;
-  $('scene').setAttribute('viewBox',`${cx-W/2} ${CY-H/2} ${W} ${H}`);$('scene').setAttribute('preserveAspectRatio','none');
+  const W=vw/S,H=vh/S,narrow=W<1200,sc=$('scene'),M=40;
+  if(narrow){
+    // the whole room is laid out once; dragging only slides it with a GPU transform (no repaint)
+    panX=clamp(panX,W/2,1200-W/2);
+    sc.setAttribute('viewBox',`${-M} ${CY-H/2} ${1200+2*M} ${H}`);
+    sc.style.cssText=`width:${(1200+2*M)*S}px;height:${vh}px;right:auto;will-change:transform`;placePan();
+  }else{
+    sc.setAttribute('viewBox',`${600-W/2} ${CY-H/2} ${W} ${H}`);sc.style.cssText='';
+  }
+  sc.setAttribute('preserveAspectRatio','none');
   $('panhint').style.display=narrow?'block':'none'}
+function placePan(){$('scene').style.transform=`translate3d(${(-(panX-vw/S/2+40)*S).toFixed(1)}px,0,0)`}
 listen('resize',fit);fit();
 let down=false,sx=0,sy=0,lx=0;
 $('scene').addEventListener('pointerdown',e=>{down=true;dragMoved=false;sx=lx=e.clientX;sy=e.clientY});
-listen('pointermove',e=>{mouse.x=e.clientX/innerWidth-.5;mouse.y=e.clientY/innerHeight-.5;if(!down)return;
+listen('pointermove',e=>{if(e.pointerType!=='touch'){mouse.x=e.clientX/innerWidth-.5;mouse.y=e.clientY/innerHeight-.5}if(!down)return;
   if(!dragMoved&&Math.hypot(e.clientX-sx,e.clientY-sy)>6){dragMoved=true;$('scene').classList.add('drag');$('panhint').style.opacity=0}
-  if(dragMoved&&vw/S<1200){panX-=(e.clientX-lx)/S;fit()}lx=e.clientX});
+  if(dragMoved&&vw/S<1200){const W=vw/S;panX=clamp(panX-(e.clientX-lx)/S,W/2,1200-W/2);placePan()}lx=e.clientX});
 listen('pointerup',()=>{down=false;$('scene').classList.remove('drag');setTimeout(()=>dragMoved=false,0)});
 // a click anywhere outside the drawer closes it (hotspots keep opening their own panel; a pan drag doesn't count)
 listen('click',e=>{if(!panel.classList.contains('open')||Math.hypot(e.clientX-sx,e.clientY-sy)>6)return;if(e.target.closest&&e.target.closest('#panel,.hot,#bar,#welcome'))return;closePanel()});
@@ -550,14 +601,20 @@ listen('click',e=>{if(!panel.classList.contains('open')||Math.hypot(e.clientX-sx
 /* ============ UI ============ */
 function toggleLamp(){lampOverride=!lampOn;applyTime();catPeek()}
 function toggleCeil(){ceilOverride=!ceilOn;applyTime();catPeek()}
-function activate(id){const s=SPOTS[id];if(s.lamp){track('room_lamp_toggle',{lamp:'desk'});return toggleLamp()}if(s.ceil){track('room_lamp_toggle',{lamp:'ceiling'});return toggleCeil()}if(s.game)return gameJump();if(s.cat)return petCat();if(s.music)return toggleMusic();track('room_object_open',{object:id});openPanel(id==='notebook'?ABOUT(false):s.html)}
-const panel=$('panel');
-function openPanel(html){$('pbody').innerHTML=html;panel.scrollTop=0;panel.classList.add('open')}
-const closePanel=()=>panel.classList.remove('open');
+function activate(id){const s=SPOTS[id];if(s.lamp){track('room_lamp_toggle',{lamp:'desk'});return toggleLamp()}if(s.ceil){track('room_lamp_toggle',{lamp:'ceiling'});return toggleCeil()}if(s.game)return gameJump();if(s.cat)return petCat();if(s.music)return toggleMusic();track('room_object_open',{object:id});curObj=id;openPanel(id==='notebook'?ABOUT(false):s.html)}
+const panel=$('panel');let curObj='';
+// each drawer sits on its own small animated scene (scenes.ts), pinned to the bottom edge and faded out towards the top
+function buildPanelBg(k){
+  const g=$('pbg');g.replaceChildren();const scene=SCENES[k];if(!scene)return;
+  const W=panel.clientWidth||440,H=panel.clientHeight||800,h=Math.min(W*360/440,H*.75),svg=el('svg',{viewBox:'0 0 440 360',preserveAspectRatio:'xMidYMax slice',width:W,height:h},g);
+  svg.style.top=(H-h-26)+'px';svg.innerHTML=scene()
+}
+function openPanel(html){panel.dataset.k=curObj;buildPanelBg(curObj);$('pbody').innerHTML=html;panel.scrollTop=0;panel.classList.add('open')}
+const closePanel=()=>{if(panel.classList.contains('open'))track('room_object_close',{object:curObj});panel.classList.remove('open')};
 $('close').onclick=closePanel;listen('keydown',e=>{if(e.key==='Escape')closePanel();if((e.key==='ArrowUp'||e.key===' ')&&!panel.classList.contains('open')&&(G.idle<6||document.activeElement===SPOTS.game.node)){e.preventDefault();gameJump()}});
-$('aboutBtn').onclick=()=>{track('room_object_open',{object:'about'});openPanel(ABOUT(false))};
+$('aboutBtn').onclick=()=>{track('room_object_open',{object:'about'});curObj='about';openPanel(ABOUT(false))};
 function showWelcome(){$('wbody').innerHTML=ABOUT(true);$('enter').onclick=hideWelcome}
-function hideWelcome(){$('welcome').classList.add('gone');try{localStorage.setItem('introSeen2d','1')}catch(e){}}
+function hideWelcome(){if(!$('welcome').classList.contains('gone'))track('room_welcome_enter');$('welcome').classList.add('gone');try{localStorage.setItem('introSeen2d','1')}catch(e){}}
 $('welcome').addEventListener('click',e=>{if(e.target===$('welcome'))hideWelcome()});
 $('slider').addEventListener('input',e=>{auto=false;$('nowBtn').classList.remove('on');t=+e.target.value;lampOverride=null;ceilOverride=null;applyTime()});
 $('nowBtn').onclick=()=>{auto=true;$('nowBtn').classList.add('on');lampOverride=null;t=nowHours();$('slider').value=t;ceilOverride=null;setDate(new Date())};
@@ -571,7 +628,8 @@ if(!reduce)catTimer=setTimeout(catIdle,3000);
 showWelcome();try{if(localStorage.getItem('introSeen2d')==='1')$('welcome').classList.add('gone')}catch(e){}
 /* glow-in-the-dark stickers on the wall and ceiling only. Furniture is excluded so they read as "behind" it. */
 (function buildGlow(){
-  const core=$('glowCore'),halo=$('glowHalo'),r=rng(77),G='#8dffc9';
+  if(lite){const u=$('glow').querySelector(':scope > use');if(u)u.remove()}   // the blurred copy is the costliest part of the layer
+  const core=$('glowCore'),halo=$('glowHalo'),r=rng(77),G='#ffd98a';
   const rect=k=>{const q=SPOTS[k];return[q.x,q.y,q.x+q.w,q.y+q.h]};
   const wallBoxes=['window','clock','cork','shelf','desk','lamp','phone','notebook','speaker','ceiling'].map(rect).map(b=>[b[0]-12,b[1]-12,b[2]+12,b[3]+12]).concat([[14,36,632,418],[600,300,1190,530]]);
   const inBox=(bs,x,y,m)=>bs.some(b=>x>b[0]-m&&x<b[2]+m&&y>b[1]-m&&y<b[3]+m);
@@ -591,7 +649,7 @@ showWelcome();try{if(localStorage.getItem('introSeen2d')==='1')$('welcome').clas
   let mx=830,my=16;const MR=26;if(!wallFree(mx,my,MR)){mx=1230;my=60}
   el('circle',{cx:mx,cy:my,r:150,fill:'url(#moonHalo)'},halo);
   el('circle',{cx:mx,cy:my,r:MR,fill:'url(#moonG)'},core);
-  [[-8,-6,6],[7,4,8],[-4,11,4],[10,-10,3.5],[-14,6,3]].forEach(([dx,dy,cr])=>el('circle',{cx:mx+dx,cy:my+dy,r:cr,fill:'#3fc690',opacity:.55},core));
+  [[-8,-6,6],[7,4,8],[-4,11,4],[10,-10,3.5],[-14,6,3]].forEach(([dx,dy,cr])=>el('circle',{cx:mx+dx,cy:my+dy,r:cr,fill:'#d99a3a',opacity:.55},core));
   // evenly spread (dart throwing keeps a minimum gap, so nothing clumps) over every free wall/ceiling area,
   // a little denser near the ceiling
   const spread=(free,bounds,gap,tries,make)=>{
@@ -604,9 +662,9 @@ showWelcome();try{if(localStorage.getItem('introSeen2d')==='1')$('welcome').clas
       if(r()<.12)make(x+(r()-.5)*16,y+(r()-.5)*16);   // the odd sticker pair
     }
   };
-  spread(wallFree,[-140,-90,1460,512],y=>17+Math.max(0,y)/40,12000,(x,y)=>{if(wallFree(x,y,2))put(x,y,.75+r()*.5,1,r()<.5?gA:gB)});
+  spread(wallFree,[-140,-90,1460,512],y=>(17+Math.max(0,y)/40)*(lite?1.45:1),12000,(x,y)=>{if(wallFree(x,y,2))put(x,y,.75+r()*.5,1,r()<.5?gA:gB)});
 })();
-const onLink=e=>{const a=e.target.closest&&e.target.closest('a[href]');if(!a)return;const h=a.getAttribute('href')||'';if(/^(https?:|mailto:)/.test(h))track('outbound_click',{link_url:h,link_domain:h.startsWith('mailto:')?'mailto':new URL(h).hostname})};
+const onLink=e=>{const a=e.target.closest&&e.target.closest('a[href]');if(!a)return;const h=a.getAttribute('href')||'';if(/^(https?:|mailto:)/.test(h))track('outbound_click',{from_object:panel.classList.contains('open')?curObj:'welcome',link_url:h,link_domain:h.startsWith('mailto:')?'mailto':new URL(h).hostname})};
 root.addEventListener('click',onLink);L.push(()=>root.removeEventListener('click',onLink));
 return()=>{cancelAnimationFrame(raf);timers.forEach(clearInterval);clearTimeout(catTimer);clearTimeout(awakeT);if(song)song.pause();if(actx)actx.close().catch(()=>{});L.forEach(f=>f());document.body.style.background='';root.innerHTML=''};
 }
