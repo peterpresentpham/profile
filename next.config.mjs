@@ -30,6 +30,16 @@ export default (phase) => {
             },
           ],
         },
+        {
+          // Not fingerprinted, so a shorter cache than the rule above: a replaced file shows up within a day.
+          source: '/:all*.(webp|mp3|opus)',
+          headers: [
+            {
+              key: 'Cache-Control',
+              value: 'public, max-age=86400, stale-while-revalidate=604800',
+            },
+          ],
+        },
       ];
     },
   };

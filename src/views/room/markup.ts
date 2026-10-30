@@ -1,4 +1,6 @@
 // Static scene markup (SVG room + HUD), ported from the concept file.
+import { OUTSIDE_HTML } from '../outside/markup';
+
 export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A cosy room whose window shows today's world">
   <defs>
     <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f6baa"/><stop offset=".6" stop-color="#9884c0"/><stop offset="1" stop-color="#8672b0"/></linearGradient>
@@ -55,7 +57,6 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
     <clipPath id="rugClip"><ellipse cx="470" cy="648" rx="248" ry="41"/></clipPath>
     <linearGradient id="brassG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d58b"/><stop offset="1" stop-color="#b8892f"/></linearGradient>
     <linearGradient id="bezelG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34305a"/><stop offset="1" stop-color="#17152c"/></linearGradient>
-    <linearGradient id="mugG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fffdf6"/><stop offset=".6" stop-color="#f1ebdb"/><stop offset="1" stop-color="#d6cfbd"/></linearGradient>
     <filter id="blur6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
     <filter id="blur14" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
     <clipPath id="winClip"><rect x="82" y="72" width="476" height="316" rx="3"/></clipPath>
@@ -63,7 +64,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
       <rect x="-3000" y="-2000" width="7200" height="4400" fill="#fff"/>
       <circle id="mLamp" class="fx" cx="660" cy="400" r="360" fill="url(#holeG)" style="opacity:0"/>
       <circle id="mMon" cx="788" cy="376" r="290" fill="url(#holeG)" style="opacity:.6"/>
-      <circle id="mWin" cx="320" cy="260" r="330" fill="url(#holeG)" style="opacity:.3"/>
+      <circle id="mWin" cx="284" cy="260" r="330" fill="url(#holeG)" style="opacity:.3"/>
       <circle id="mCeil" class="fx" cx="600" cy="260" r="1500" fill="url(#holeG)" style="opacity:0"/>
     </mask>
   </defs>
@@ -78,9 +79,20 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
   <rect x="-3000" y="526" width="7200" height="1500" fill="url(#floorG)"/>
   <rect x="-3000" y="526" width="7200" height="1500" fill="url(#planks)"/>
   <g id="floorDeco" pointer-events="none"></g>
-  <g id="floorSun" style="opacity:0;mix-blend-mode:screen" filter="url(#blur6)"><g id="floorSunSkew"><polygon points="82,526 316,526 340,830 40,830" fill="#ffe9b0" opacity=".55"/><polygon points="324,526 558,526 640,830 350,830" fill="#ffe9b0" opacity=".55"/></g></g>
+  <g id="floorSun" style="opacity:0;mix-blend-mode:screen" filter="url(#blur6)"><g id="floorSunSkew"><polygon points="46,526 280,526 304,830 4,830" fill="#ffe9b0" opacity=".55"/><polygon points="288,526 522,526 604,830 314,830" fill="#ffe9b0" opacity=".55"/></g></g>
   <g id="floorLeaves" pointer-events="none"></g>
-  <g id="slippers" pointer-events="none" transform="translate(30 -52)"><ellipse cx="884" cy="746" rx="40" ry="7" fill="#000" opacity=".22"/><g transform="translate(868 742) rotate(-8)"><ellipse rx="17" ry="7.5" fill="#b9566a"/><ellipse cx="5" cy="-.6" rx="10" ry="4.4" fill="#4a2230"/><ellipse rx="17" ry="7.5" fill="none" stroke="#f2dfe6" stroke-width="1.6" stroke-opacity=".7"/></g><g transform="translate(900 746) rotate(6)"><ellipse rx="17" ry="7.5" fill="#b9566a"/><ellipse cx="5" cy="-.6" rx="10" ry="4.4" fill="#4a2230"/><ellipse rx="17" ry="7.5" fill="none" stroke="#f2dfe6" stroke-width="1.6" stroke-opacity=".7"/></g></g>
+  <!-- a Kindle lying on the floor (it took the slippers' place): an easter egg, see views/outside -->
+  <g id="kindle" pointer-events="none" transform="translate(914 694) rotate(-10)">
+    <ellipse cx="0" cy="7" rx="36" ry="7" fill="#000" opacity=".24"/>
+    <ellipse class="star" cx="0" cy="0" rx="34" ry="12" fill="url(#ffG)" opacity=".55"/>
+    <g transform="skewX(-16) scale(1 .62)">
+      <rect x="-24" y="-18" width="48" height="36" rx="4" fill="#23262f"/><rect x="-24" y="-18" width="48" height="36" rx="4" fill="none" stroke="#5a6072" stroke-opacity=".7"/>
+      <rect x="-20" y="-14" width="40" height="28" rx="1.5" fill="#e8e4d6"/>
+      <rect x="-16" y="-10" width="22" height="2" fill="#4a463c" opacity=".85"/>
+      <g fill="#6b665a" opacity=".7"><rect x="-16" y="-5" width="32" height="1.4"/><rect x="-16" y="-1.6" width="30" height="1.4"/><rect x="-16" y="1.8" width="32" height="1.4"/><rect x="-16" y="5.2" width="26" height="1.4"/><rect x="-16" y="8.6" width="31" height="1.4"/></g>
+    </g>
+    <path d="M-22 -9L8 -11" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" fill="none"/>
+  </g>
   <rect x="-3000" y="526" width="7200" height="30" fill="url(#skirtG)"/>
   <rect x="-3000" y="-2000" width="7200" height="2526" fill="url(#wallLight)"/>
 
@@ -103,9 +115,10 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
     <g transform="translate(676 671) scale(1 .4)"><path d="M-10 2Q-9 -4 -2 -4Q3 -7 8 -3Q12 0 9 3Q0 5 -10 2Z" fill="#e9dcb0" opacity=".6"/></g>
     <g transform="translate(676 668)"><path d="M-2.4 0L2.4 0L1.6 -13L-1.6 -13Z" fill="#f4efe6" opacity=".85"/><path d="M-1.9 -5L1.9 -5L2.1 -8L-2.1 -8Z" fill="#c0504d" opacity=".9"/><rect x="-2" y="-16.5" width="4" height="3.6" fill="#ffe9a0"/><path d="M-2.6 -16.5L0 -19.5L2.6 -16.5Z" fill="#c0504d"/></g>
     <g id="rugFibres" stroke-linecap="round"></g>
-    <g clip-path="url(#rugClip)"><g id="rugSun" filter="url(#blur6)" style="opacity:0;mix-blend-mode:screen"><g id="rugSunSkew"><polygon points="82,390 316,390 330,760 52,760" fill="#ffe9b0" opacity=".7"/><polygon points="324,390 558,390 620,760 340,760" fill="#ffe9b0" opacity=".7"/></g></g></g>
+    <g clip-path="url(#rugClip)"><g id="rugSun" filter="url(#blur6)" style="opacity:0;mix-blend-mode:screen"><g id="rugSunSkew"><polygon points="46,390 280,390 294,760 16,760" fill="#ffe9b0" opacity=".7"/><polygon points="288,390 522,390 584,760 304,760" fill="#ffe9b0" opacity=".7"/></g></g></g>
   </g>
 
+  <g id="windowSet" transform="translate(-36 0)">   <!-- window, sill plant, rod and curtains slide left together; keep light patches below in step -->
   <!-- ===== WINDOW (the star of the room) ===== -->
   <g class="obj" data-obj="window">
     <rect x="66" y="56" width="508" height="348" rx="10" fill="#f0e6d4" stroke="#cdbd9f" stroke-width="2"/>
@@ -141,6 +154,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
   <rect x="26" y="44" width="588" height="9" rx="4" fill="#3a2d58"/><circle cx="26" cy="48" r="8" fill="#5b4890"/><circle cx="614" cy="48" r="8" fill="#5b4890"/>
   <g class="curt"><path d="M38 52H126L116 398Q82 408 38 398Z" fill="url(#curtG)"/><path d="M62 52L58 400M86 52L88 402M108 52L106 400" stroke="#000" stroke-opacity=".16" stroke-width="3" fill="none"/></g>
   <g class="curt" style="animation-delay:-3s"><path d="M514 52H602V398Q558 408 524 398Z" fill="url(#curtG)"/><path d="M536 52L534 400M558 52L562 402M582 52L580 400" stroke="#000" stroke-opacity=".16" stroke-width="3" fill="none"/></g>
+  </g>
 
   <!-- ===== CLOCK ===== -->
   <g class="obj" data-obj="clock">
@@ -166,7 +180,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
   </g>
 
   <!-- ===== CORKBOARD ===== -->
-  <g class="obj" data-obj="cork">
+  <g class="obj" data-obj="cork" transform="translate(944 68) scale(.88) translate(-944 -68)">
     <rect x="700" y="82" width="244" height="198" rx="7" fill="#000" opacity=".28" filter="url(#soft2)"/>
     <rect x="696" y="76" width="244" height="198" rx="7" fill="url(#woodFrameG)"/>
     <rect x="697" y="77" width="242" height="196" rx="6" fill="none" stroke="#fff" stroke-opacity=".28"/>
@@ -212,7 +226,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
     </g>
     <g id="books"></g>
     <!-- model ship -->
-    <g>
+    <g id="t_ship">
       <rect x="1121" y="183" width="30" height="5" rx="1" fill="#5e3d29"/>
       <path d="M1113 170H1157L1149 183H1121Z" fill="#7a4a2c"/><path d="M1113 170H1157L1156 173H1114Z" fill="#c0504d"/><path d="M1121 183H1149L1150 181H1120Z" fill="#000" opacity=".2"/>
       <g fill="#ffe9a0"><circle cx="1127" cy="177" r="1.2"/><circle cx="1135" cy="177" r="1.2"/><circle cx="1143" cy="177" r="1.2"/></g>
@@ -222,7 +236,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
       <path d="M1130 170L1114 168M1146 170L1157 168" stroke="#4a301f" stroke-width=".8" fill="none"/>
     </g>
     <!-- lantern -->
-    <g>
+    <g id="t_lantern">
       <rect x="1144" y="323" width="16" height="5" rx="1.5" fill="#3a3042"/>
       <rect x="1146.5" y="299" width="11" height="24" rx="2" fill="#ffe9a0" opacity=".5"/><rect x="1146.5" y="299" width="11" height="24" rx="2" fill="none" stroke="#3a3042" stroke-width="1.6"/><path d="M1152 299V323" stroke="#3a3042" stroke-width=".8" opacity=".6"/>
       <path d="M1145 299H1159L1156 294H1148Z" fill="#3a3042"/><path d="M1148 294Q1152 284 1156 294" fill="none" stroke="#3a3042" stroke-width="1.4"/>
@@ -242,7 +256,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
       <path d="M2 92Q4.5 89 7 92T12 92T17 92T20 92" fill="none" stroke="#8fc5e8" stroke-width="1.2"/><path d="M2 97Q4.5 94 7 97T12 97T17 97T20 97" fill="none" stroke="#8fc5e8" stroke-width="1.2" opacity=".6"/>
     </g>
     <!-- conch -->
-    <g>
+    <g id="t_conch">
       <path d="M1135 466Q1133 452 1145 448Q1158 450 1157 462Q1150 467 1135 466Z" fill="#f0c9a8"/><path d="M1156 455L1161 447L1153 451Z" fill="#e3b08a"/>
       <path d="M1139 460Q1146 453 1153 457M1141 464Q1148 458 1155 462" fill="none" stroke="#c98f6b" stroke-width="1.2"/><path d="M1135 466Q1146 468 1157 462" fill="none" stroke="#fff" stroke-opacity=".5"/>
     </g>
@@ -284,30 +298,36 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
     <polygon points="708,324 800,324 740,420 708,420" fill="#fff" opacity=".04"/><path d="M712 326H748L722 360Q714 362 712 352Z" fill="#fff" opacity=".07"/><rect x="708" y="324" width="160" height="96" rx="3" fill="none" stroke="#000" stroke-opacity=".5"/>
     <circle cx="788" cy="425.2" r="1" fill="#fff" opacity=".25"/><circle class="notif" cx="863" cy="425.2" r="1.3" fill="#ffd98a"/>
     <!-- desk mat, keyboard, mouse -->
+    <g id="t_kb">
     <rect x="722" y="436" width="124" height="5" rx="2" fill="#2a2548"/><rect x="722" y="436" width="124" height="1.4" rx=".7" fill="#fff" opacity=".25"/><path d="M725 439.2H843" stroke="#8b7bd8" stroke-width=".6" stroke-dasharray="2 1.4" opacity=".7"/>
     <path d="M738 430.5H810L814 436.5H733Z" fill="#3a3358"/><path d="M738 430.5H810L810.8 431.5H737.2Z" fill="#fff" opacity=".15"/>
     <path d="M739 432.2H809" stroke="#cfc6ee" stroke-width="1.5" stroke-dasharray="4.2 1.3"/><path d="M737.6 434.6H811" stroke="#cfc6ee" stroke-width="1.5" stroke-dasharray="4.8 1.3" stroke-dashoffset="2"/>
     <rect x="798" y="431.4" width="4" height="1.6" rx=".4" fill="#c778dd"/><rect x="745" y="433.8" width="9" height="1.6" rx=".4" fill="#ffd98a"/>
     <rect x="822" y="429" width="10" height="8" rx="4" fill="#3a3358"/><rect x="822" y="429" width="10" height="3" rx="1.5" fill="#fff" opacity=".18"/><path d="M827 429v3.4" stroke="#000" stroke-opacity=".4" stroke-width=".6"/>
-    <!-- mug on a saucer -->
-    <ellipse cx="971" cy="440.5" rx="21" ry="3.2" fill="#000" opacity=".25"/><ellipse cx="971" cy="439" rx="20" ry="3" fill="#e8e2d4"/><ellipse cx="971" cy="438.4" rx="20" ry="2.3" fill="#fff" opacity=".4"/>
-    <path d="M984 421h7a6 6 0 0 1 0 13h-7" fill="none" stroke="#f4efe6" stroke-width="4"/><path d="M984 421h7a6 6 0 0 1 4 1.6" fill="none" stroke="#fff" stroke-width="1" opacity=".6"/>
-    <rect x="958" y="414" width="26" height="26" rx="5" fill="url(#mugG)"/><rect x="958" y="423" width="26" height="4.4" fill="#4b3a66"/>
-    <g fill="#f4e6c8"><path d="M964 425.2l1.4-1.6 1.4 1.6-1.4 1.6z"/><path d="M970 425.2l1.4-1.6 1.4 1.6-1.4 1.6z"/><path d="M976 425.2l1.4-1.6 1.4 1.6-1.4 1.6z"/></g>
-    <rect x="961" y="417" width="3" height="21" rx="1.5" fill="#fff" opacity=".55"/>
-    <ellipse cx="971" cy="414.2" rx="13" ry="3.2" fill="#f4efe6"/><ellipse cx="971" cy="414.6" rx="11" ry="2.4" fill="#4a2c1c"/><ellipse cx="968" cy="414.2" rx="4" ry=".8" fill="#9a6a45" opacity=".6"/>
-    <g id="steamG" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".6"><path class="steam" d="M966 410q-5-6 0-12q5-6 0-12"/><path class="steam" style="animation-delay:-1.2s" d="M972 410q5-7 0-13q-4-6 1-11"/><path class="steam" style="animation-delay:-.6s;animation-duration:3s" d="M977 410q-4-6 0-11"/></g>
+    </g>
+      <!-- picture frame standing on the desk: a click lifts the photo to the middle of the screen (toys.ts) -->
+      <g id="t_frame" transform="translate(960 441) scale(.8) translate(-646 -296)">
+    <path d="M660 264L678 298H660Z" fill="#4a301f"/>
+    <rect x="613" y="223" width="72" height="80" rx="3" fill="#000" opacity=".3" filter="url(#soft2)"/>
+    <rect x="610" y="216" width="72" height="80" rx="3" fill="#7a5236"/><rect x="610" y="216" width="72" height="80" rx="3" fill="none" stroke="#c99a64" stroke-opacity=".55"/>
+    <rect x="616" y="222" width="60" height="68" fill="#f3ead8"/>
+    <clipPath id="frameClip"><rect x="620" y="226" width="52" height="52" rx="2"/></clipPath>
+    <g clip-path="url(#frameClip)">
+      <image id="frA" href="/frame-relieve.webp" x="620" y="226" width="52" height="52" preserveAspectRatio="xMidYMid slice"/>
+      <image id="frB" href="/frame-sulky.webp" x="620" y="226" width="52" height="52" preserveAspectRatio="xMidYMid slice" opacity="0"/>
+    </g>
+    <rect x="632" y="282" width="28" height="4.5" rx="1" fill="#c9a96a"/><rect x="632" y="282" width="28" height="1.4" rx=".7" fill="#fff" opacity=".35"/>
+    <path d="M622 228 L646 228 L624 262Z" fill="#fff" opacity=".16" pointer-events="none"/>
+      </g>
   </g>
   <g class="obj" data-obj="phone"><rect x="846" y="434" width="34" height="6" rx="3" fill="#1c1830"/><rect x="849" y="435" width="20" height="3.5" rx="1.5" fill="#4b6fd0"/><circle class="notif" cx="877" cy="434" r="4" fill="#ff6b8a"/></g>
-  <g class="obj" data-obj="notebook">
+  <g class="obj" data-obj="notebook" transform="translate(657 441) scale(.72) translate(-888 -444)">
     <polygon points="888,441 944,441 938,427 894,427" fill="#c0504d"/><polygon points="888,441 944,441 944,444 888,444" fill="#f4efe6"/>
     <text x="916" y="437" font-family="Georgia,serif" font-size="7" font-weight="700" fill="#f4e6c8" text-anchor="middle">about me</text>
   </g>
-  <!-- speaker on a wall shelf: its cone rocks with the music once it is switched on -->
-  <g id="speaker" class="obj" data-obj="speaker">
-    <rect x="886" y="394" width="66" height="5" rx="1.5" fill="#000" opacity=".25" filter="url(#soft2)"/>
-    <rect x="884" y="392" width="66" height="5" rx="1.5" fill="url(#woodG)"/><rect x="884" y="392" width="66" height="1.6" rx=".8" fill="#fff" opacity=".4"/>
-    <path d="M891 397V408L902 397Z" fill="#a8744a"/><path d="M943 397V408L932 397Z" fill="#a8744a"/>
+  <!-- speaker on the top shelf of the bookshelf (it took the place of three books): its cone rocks with the music once it is switched on -->
+  <g id="speaker" class="obj" data-obj="speaker" transform="translate(1058 188) scale(1.1) translate(-918 -392)">
+    <ellipse cx="918" cy="393" rx="26" ry="2.6" fill="#000" opacity=".3" filter="url(#soft2)"/>
     <g id="spkBody">
       <rect x="898" y="346" width="44" height="46" rx="5" fill="#000" opacity=".25" transform="translate(1.5 2)"/>
       <rect x="896" y="344" width="44" height="48" rx="5" fill="url(#bezelG)"/><rect x="896.5" y="344.5" width="43" height="47" rx="4.5" fill="none" stroke="#fff" stroke-opacity=".16"/>
@@ -378,7 +398,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
 
   <!-- ===== LIGHT: window shaft, dust, golden hour ===== -->
   <g id="shaftG0" style="mix-blend-mode:screen" class="fx" filter="url(#blur14)">
-    <g id="shaftSkew"><polygon points="82,390 316,390 330,760 52,760" fill="url(#shaftG)"/><polygon points="324,390 558,390 620,760 340,760" fill="url(#shaftG)"/></g>
+    <g id="shaftSkew"><polygon points="46,390 280,390 294,760 16,760" fill="url(#shaftG)"/><polygon points="288,390 522,390 584,760 304,760" fill="url(#shaftG)"/></g>
   </g>
   <g id="motes" fill="#fff6d0" class="fx"></g>
   <rect id="golden" class="fx" x="-3000" y="-2000" width="7200" height="4400" fill="#ff9a4d" style="opacity:0;mix-blend-mode:soft-light"/>
@@ -405,7 +425,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
   <!-- ===== LIGHT: night ===== -->
   <rect id="dark" x="-3000" y="-2000" width="7200" height="4400" fill="#05041a" mask="url(#darkMask)" style="opacity:0"/>
   <!-- glow-in-the-dark stickers on the wall/ceiling, only when every light is off (built in engine.ts) -->
-  <g id="glow" class="fx" style="opacity:0"><g id="glowHalo"></g><use href="#glowCore" filter="url(#glowF)" opacity="1"/><g id="glowCore"><g id="boardLume" stroke="#ffd98a" opacity=".85"><g stroke-width="1.6" stroke-linecap="round" fill="none"><path d="M172.8 573.3l5.6 4.5M178.4 573.3l-5.6 4.5" stroke="#ffd98a"/><path d="M195.0 582.3l6.8 5.4M201.8 582.3l-6.8 5.4" stroke="#ffd98a"/><path d="M220.4 591.3l8.0 6.4M228.4 591.3l-8.0 6.4" stroke="#ffd98a"/><path d="M245.3 582.3l6.8 5.4M252.1 582.3l-6.8 5.4" stroke="#ffd98a"/><ellipse cx="199.2" cy="575.5" rx="3.0" ry="2.4" stroke="#ffd98a"/><ellipse cx="223.6" cy="585.0" rx="3.6" ry="2.9" stroke="#ffd98a"/><ellipse cx="173.3" cy="585.0" rx="3.6" ry="2.9" stroke="#ffd98a"/><ellipse cx="251.1" cy="594.5" rx="4.2" ry="3.4" stroke="#ffd98a"/><ellipse cx="144.2" cy="594.5" rx="4.2" ry="3.4" stroke="#ffd98a"/></g></g><g id="kbLume" fill="none" stroke-width="1.6" stroke-linecap="round"><path class="rgb" d="M734 437.2H813"/><path class="rgb" style="animation-delay:-2s" d="M739 432.2H809" stroke-width=".8" opacity=".7"/></g><g id="shelfLume" fill="#ffd98a"><g id="shelfDots"></g><g transform="rotate(-4 1090 280)" opacity=".9"><use href="#rg0" transform="translate(1058.9,236.9) scale(0.015,-0.015)" /><use href="#rg1" transform="translate(1084.9,236.9) scale(0.015,-0.015)" /><use href="#rg2" transform="translate(1110.9,236.9) scale(0.015,-0.015)" /><use href="#rg3" transform="translate(1058.9,266.9) scale(0.015,-0.015)" /><use href="#rg4" transform="translate(1084.9,266.9) scale(0.015,-0.015)" /><use href="#rg5" transform="translate(1110.9,266.9) scale(0.015,-0.015)" /><use href="#rg6" transform="translate(1071.9,296.9) scale(0.015,-0.015)" /><use href="#rg7" transform="translate(1097.9,296.9) scale(0.015,-0.015)" /><use href="#rg0" transform="translate(1058,236) scale(0.015,-0.015)" /><use href="#rg1" transform="translate(1084,236) scale(0.015,-0.015)" /><use href="#rg2" transform="translate(1110,236) scale(0.015,-0.015)" /><use href="#rg3" transform="translate(1058,266) scale(0.015,-0.015)" /><use href="#rg4" transform="translate(1084,266) scale(0.015,-0.015)" /><use href="#rg5" transform="translate(1110,266) scale(0.015,-0.015)" /><use href="#rg6" transform="translate(1071,296) scale(0.015,-0.015)" /><use href="#rg7" transform="translate(1097,296) scale(0.015,-0.015)" /></g><g transform="translate(1074 355)" fill="#ffe9a0"><rect x="8.6" y="31" width="4.8" height="6"/><path d="M8.6 31L1.5 26.5V36L8.6 34Z" opacity=".4"/><path d="M13.4 31L20.5 26.5V36L13.4 34Z" opacity=".4"/><g fill="#ffd98a"><circle cx="5" cy="17" r=".8"/><circle cx="16" cy="21" r=".7"/><circle cx="11" cy="14" r=".6"/></g></g><g fill="#ffe9a0"><path d="M1152 321Q1147 314 1152 305Q1157 314 1152 321Z"/></g></g><g id="corkLume" fill="#ffd98a"><g transform="rotate(5 878 133)"><circle cx="854.4" cy="124.6" r=".8"/><circle cx="857.6" cy="124.6" r=".8"/><circle cx="876.4" cy="124.6" r=".8"/><circle cx="879.6" cy="124.6" r=".8"/><circle cx="898.4" cy="124.6" r=".8"/><circle cx="901.6" cy="124.6" r=".8"/></g><g transform="rotate(-2 816 221)"><path transform="translate(816 223) scale(1.05)" d="M-6 3 L-1 8 L8 -4" fill="none" stroke="#ffd98a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g></g><g id="clockLume" transform="translate(640 140)"><g id="lumeDots"></g><g id="hLume"><path d="M0 -22 L1.5 -5 L-1.5 -5Z" fill="#ffd98a"/></g><g id="mLume"><path d="M0 -35 L1 -5 L-1 -5Z" fill="#ffd98a"/></g><circle cy="-31" r="1.4" fill="#ffd98a" id="sLume"/></g></g></g>
+  <g id="glow" class="fx" style="opacity:0"><g id="glowHalo"></g><use href="#glowCore" filter="url(#glowF)" opacity="1"/><g id="glowCore"><g id="boardLume" stroke="#ffd98a" opacity=".85"><g stroke-width="1.6" stroke-linecap="round" fill="none"><path d="M172.8 573.3l5.6 4.5M178.4 573.3l-5.6 4.5" stroke="#ffd98a"/><path d="M195.0 582.3l6.8 5.4M201.8 582.3l-6.8 5.4" stroke="#ffd98a"/><path d="M220.4 591.3l8.0 6.4M228.4 591.3l-8.0 6.4" stroke="#ffd98a"/><path d="M245.3 582.3l6.8 5.4M252.1 582.3l-6.8 5.4" stroke="#ffd98a"/><ellipse cx="199.2" cy="575.5" rx="3.0" ry="2.4" stroke="#ffd98a"/><ellipse cx="223.6" cy="585.0" rx="3.6" ry="2.9" stroke="#ffd98a"/><ellipse cx="173.3" cy="585.0" rx="3.6" ry="2.9" stroke="#ffd98a"/><ellipse cx="251.1" cy="594.5" rx="4.2" ry="3.4" stroke="#ffd98a"/><ellipse cx="144.2" cy="594.5" rx="4.2" ry="3.4" stroke="#ffd98a"/></g></g><g id="kbLume" fill="none" stroke-width="1.6" stroke-linecap="round"><path class="rgb" d="M734 437.2H813"/><path class="rgb" style="animation-delay:-2s" d="M739 432.2H809" stroke-width=".8" opacity=".7"/></g><g id="shelfLume" fill="#ffd98a"><g id="shelfDots"></g><g transform="rotate(-4 1090 280)" opacity=".9"><use href="#rg0" transform="translate(1058.9,236.9) scale(0.015,-0.015)" /><use href="#rg1" transform="translate(1084.9,236.9) scale(0.015,-0.015)" /><use href="#rg2" transform="translate(1110.9,236.9) scale(0.015,-0.015)" /><use href="#rg3" transform="translate(1058.9,266.9) scale(0.015,-0.015)" /><use href="#rg4" transform="translate(1084.9,266.9) scale(0.015,-0.015)" /><use href="#rg5" transform="translate(1110.9,266.9) scale(0.015,-0.015)" /><use href="#rg6" transform="translate(1071.9,296.9) scale(0.015,-0.015)" /><use href="#rg7" transform="translate(1097.9,296.9) scale(0.015,-0.015)" /><use href="#rg0" transform="translate(1058,236) scale(0.015,-0.015)" /><use href="#rg1" transform="translate(1084,236) scale(0.015,-0.015)" /><use href="#rg2" transform="translate(1110,236) scale(0.015,-0.015)" /><use href="#rg3" transform="translate(1058,266) scale(0.015,-0.015)" /><use href="#rg4" transform="translate(1084,266) scale(0.015,-0.015)" /><use href="#rg5" transform="translate(1110,266) scale(0.015,-0.015)" /><use href="#rg6" transform="translate(1071,296) scale(0.015,-0.015)" /><use href="#rg7" transform="translate(1097,296) scale(0.015,-0.015)" /></g><g transform="translate(1074 355)" fill="#ffe9a0"><rect x="8.6" y="31" width="4.8" height="6"/><path d="M8.6 31L1.5 26.5V36L8.6 34Z" opacity=".4"/><path d="M13.4 31L20.5 26.5V36L13.4 34Z" opacity=".4"/><g fill="#ffd98a"><circle cx="5" cy="17" r=".8"/><circle cx="16" cy="21" r=".7"/><circle cx="11" cy="14" r=".6"/></g></g><g fill="#ffe9a0"><path d="M1152 321Q1147 314 1152 305Q1157 314 1152 321Z"/></g></g><g id="corkLume" fill="#ffd98a" transform="translate(944 68) scale(.88) translate(-944 -68)"><g transform="rotate(5 878 133)"><circle cx="854.4" cy="124.6" r=".8"/><circle cx="857.6" cy="124.6" r=".8"/><circle cx="876.4" cy="124.6" r=".8"/><circle cx="879.6" cy="124.6" r=".8"/><circle cx="898.4" cy="124.6" r=".8"/><circle cx="901.6" cy="124.6" r=".8"/></g><g transform="rotate(-2 816 221)"><path transform="translate(816 223) scale(1.05)" d="M-6 3 L-1 8 L8 -4" fill="none" stroke="#ffd98a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g></g><g id="clockLume" transform="translate(640 140)"><g id="lumeDots"></g><g id="hLume"><path d="M0 -22 L1.5 -5 L-1.5 -5Z" fill="#ffd98a"/></g><g id="mLume"><path d="M0 -35 L1 -5 L-1 -5Z" fill="#ffd98a"/></g><circle cy="-31" r="1.4" fill="#ffd98a" id="sLume"/></g></g></g>
   <g id="fireflies" style="opacity:0;display:none;mix-blend-mode:screen" pointer-events="none"></g>
   <g style="mix-blend-mode:screen">
     <polygon id="cone" class="fx" points="630,382 698,382 770,442 566,442" fill="url(#coneG)" style="opacity:0"/>
@@ -424,7 +444,6 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
 <div id="vig"></div>
 <div id="tip"></div>
 
-<button class="hud" id="aboutBtn" type="button">About me</button>
 <div class="hud" id="panhint">← drag to look around →</div>
 <div class="hud" id="bar">
   <span class="t" id="tt">--:--</span><span class="ph" id="ph"></span>
@@ -437,4 +456,6 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
 </div>
 
 <aside id="panel" role="dialog" aria-labelledby="ptitle"><div id="pbg" aria-hidden="true"></div><button id="close" aria-label="Close">✕</button><div id="pbody" class="body"></div></aside>
-<div id="welcome"><div class="card body" id="wbody"></div></div>`;
+<div id="welcome"><div class="card body" id="wbody"></div></div>
+${OUTSIDE_HTML}
+<div id="photo" aria-hidden="true"><div id="phBg"></div><div id="photoCard" tabindex="0" role="button" aria-label="Turn the picture over"><span id="phKey"></span><div id="photoFlip"><img id="photoA" alt="A girl meditating calmly next to her sleeping cat, smiling with her eyes closed" decoding="async"><img id="photoB" alt="The same girl, now frowning with her eyes closed" decoding="async"></div><p id="phCap"></p><small>Click the picture to turn it over · Esc to put it back</small></div></div>`;

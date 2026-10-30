@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   description,
   keywords,
   applicationName: siteName,
-  authors: [{ name: 'Peter', url }],
-  alternates: { canonical: '/' },
+  authors: [{ name: 'Peter Present', url }],
+  alternates: { canonical: url },
   icons,
   openGraph: {
     type: 'website',

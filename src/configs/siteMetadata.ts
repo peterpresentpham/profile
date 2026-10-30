@@ -1,11 +1,15 @@
 import { IMAGES } from './images';
 
 export const siteMetadata = {
-  title: 'Peter — Software Developer',
+  title: 'Peter Present — Software Developer',
   description:
-    'A cosy interactive room that follows your clock. Peter is a software developer in Hanoi building web apps, backends, blockchain protocols and small browser games.',
+    'A cosy interactive room that follows your clock. Peter Present is a software developer building web apps, backends, blockchain protocols and small browser games.',
   url: 'https://peter-present.xyz/',
-  siteName: 'Peter',
+  // the same address without the trailing slash, which is how Next.js writes the canonical and og:url tags
+  origin: 'https://peter-present.xyz',
+  siteName: 'Peter Present',
+  // bump when the content changes in a way worth telling crawlers about (used as the sitemap's lastModified)
+  updated: '2026-10-30',
   twitterHandle: '@PhamHon08928762',
   keywords: [
     'software developer',
@@ -13,7 +17,9 @@ export const siteMetadata = {
     'blockchain',
     'ERC-4337',
     'zero-knowledge',
-    'Hanoi',
+    'interactive portfolio',
+    'browser games',
+    'procedural generation',
   ],
   icons: {
     icon: [

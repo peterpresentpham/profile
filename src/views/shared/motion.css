@@ -1,0 +1,27 @@
+/* Looping scene motion shared by the drawer backgrounds (#pbg, room/scenes.ts) and the Kindle scene (#outside, outside/scene.ts). */
+
+@keyframes scdrift{from{transform:translate(var(--fx,-30px),var(--fy,0px))}to{transform:translate(var(--tx,30px),var(--ty,0px))}}
+@keyframes scbob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(3px) rotate(1.5deg)}}
+@keyframes sctw{0%,100%{opacity:var(--o1,.25)}50%{opacity:var(--o2,1)}}
+@keyframes scrise{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:.7}100%{transform:translateY(var(--ry,-70px)) scale(1.6);opacity:0}}
+@keyframes scsweep{from{transform:rotate(var(--a1,-24deg))}to{transform:rotate(var(--a2,24deg))}}
+@keyframes scrip{0%{transform:scale(.2);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+@keyframes scspin{to{transform:rotate(360deg)}}
+@keyframes scsway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes scbl{0%,40%,100%{opacity:1}50%,90%{opacity:.15}}
+@keyframes scwav{from{transform:translateX(0)}to{transform:translateX(-44px)}}
+@keyframes scaur{0%,100%{opacity:.25;transform:skewX(-6deg) translateX(-8px)}50%{opacity:.6;transform:skewX(6deg) translateX(8px)}}
+
+.room-root{
+& :is(#pbg,#outside) .d{animation:scdrift var(--t,40s) ease-in-out infinite alternate}
+& :is(#pbg,#outside) .bob{animation:scbob var(--t,5s) ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+& :is(#pbg,#outside) .tw{animation:sctw var(--t,3s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+& :is(#pbg,#outside) .rise{animation:scrise var(--t,6s) ease-out infinite;animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
+& :is(#pbg,#outside) .sw{animation:scsweep var(--t,9s) ease-in-out infinite alternate}
+& :is(#pbg,#outside) .rip{animation:scrip var(--t,4s) ease-out infinite;animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
+& :is(#pbg,#outside) .spin{animation:scspin var(--t,20s) linear infinite;transform-box:fill-box;transform-origin:center}
+& :is(#pbg,#outside) .sway{animation:scsway var(--t,4s) ease-in-out infinite;animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:50% 100%}
+& :is(#pbg,#outside) .bl{animation:scbl var(--t,6s) steps(1) infinite;animation-delay:var(--dl,0s)}
+& :is(#pbg,#outside) .wav{animation:scwav var(--t,6s) linear infinite}
+& :is(#pbg,#outside) .aur{animation:scaur var(--t,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+}
