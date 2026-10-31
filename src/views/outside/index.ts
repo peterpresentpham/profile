@@ -69,6 +69,15 @@ export function createOutside(rt) {
     cap.textContent = `Home, across the lake · ${WEATHER[st.cfg.weather]} · click the house to go home`;
     hots();
   };
+  // building the scene is the biggest piece of work in the click, so it is done as soon as the pointer or a finger is on the Kindle
+  let warm = '';
+  const keyOf = () => `${st.cfg.date}|${st.t}|${st.lampOn}|${st.ceilOn}`;
+  const prewarm = (e) => {
+    if (st.outsideOpen || busy || !(e.target.closest && e.target.closest('.hot[aria-label="Kindle"]')) || warm === keyOf()) return;
+    paint();
+    warm = keyOf();
+  };
+  ['pointerover', 'pointerdown', 'focusin'].forEach((t) => listen(t, prewarm));
   let pend = 0;
   slider.addEventListener('input', () => {
     if (busy) return;
@@ -81,27 +90,38 @@ export function createOutside(rt) {
     rt.api.time.apply();
     if (!pend) pend = requestAnimationFrame(() => { pend = 0; paint(); place(); });
   });
-  // Smoothness: the heavy parts are kept off the transition. The scene is built and laid out while still clipped to
-  // nothing, every animation (room and scene) is paused while the iris moves, and once the scene covers the screen the
-  // room underneath stays frozen (animations paused, frame loop idle, see Room.tsx) for as long as the scene is open. Nothing is
-  // hidden, torn down or rebuilt at the end of a transition, because each of those costs a long frame of its own.
-  const root = rt.root, raf2 = (fn) => requestAnimationFrame(() => requestAnimationFrame(fn));
-  const radius = () => Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy));
+  // The transition only animates opacity and transform, which the browser runs on the compositor without touching the main
+  // thread. (A growing clip-path, the earlier iris, is repainted by the main thread on every frame and stuttered; so does anything
+  // that restyles the whole page at the start or end, so nothing here toggles classes on the room.) It goes in two beats so the
+  // room and the scene are never on screen together: the room dims into the dark backdrop, then the scene comes up out of it.
+  const raf2 = (fn) => requestAnimationFrame(() => requestAnimationFrame(fn));
+  let anims = [];
+  const play = (shown, done) => {
+    const kids = [...ov.children], fade = (el, o, k) => el.animate(shown ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 1 }, { opacity: 0 }], { fill: 'both', ...o });
+    const dim = shown ? { duration: 320, easing: 'ease-in' } : { duration: 320, delay: 240, easing: 'ease-out' };
+    const lift = shown ? { duration: 560, delay: 280, easing: 'ease-out' } : { duration: 280, easing: 'ease-in' };
+    anims = [fade(ov, dim), ...kids.map((k) => fade(k, lift))];
+    anims.push(svg.animate(shown ? [{ transform: 'scale(1.06)' }, { transform: 'scale(1)' }] : [{ transform: 'scale(1)' }, { transform: 'scale(1.06)' }], { fill: 'both', ...lift }));
+    Promise.all(anims.map((a) => a.finished)).then(done, () => {});
+  };
+  const clear = () => {
+    anims.forEach((a) => a.cancel());   // only these; ov.getAnimations() would also kill the scene's own looping animations
+    anims = [];
+    [ov, ...ov.children].forEach((el) => (el.style.opacity = ''));
+  };
   function open(toy) {
     if (st.outsideOpen || busy) return;
     st.outsideOpen = true;
     busy = true;
     from = toy;
     track('room_easter_egg_open', { egg: 'outside' });
-    paint();
+    if (warm !== keyOf()) paint();
+    warm = '';
     slider.value = st.t;
     const r = toy.rect.getBoundingClientRect();
-    cx = r.left + r.width / 2;
-    cy = r.top + r.height / 2;
+    svg.style.transformOrigin = `${r.left + r.width / 2}px ${r.top + r.height / 2}px`;   // the scene grows out of the Kindle
     const settle = () => {
-      ov.getAnimations().forEach((a) => a.cancel());
-      ov.style.clipPath = ov.style.opacity = '';
-      ov.classList.remove('hold');
+      clear();
       busy = false;
     };
     if (reduce) {
@@ -109,14 +129,11 @@ export function createOutside(rt) {
       place();
       settle();
     } else {
-      ov.style.clipPath = lite ? '' : `circle(0px at ${cx}px ${cy}px)`;
-      ov.style.opacity = lite ? '0' : '';
-      ov.classList.add('on', 'hold');
-      root.classList.add('out-busy');
+      [ov, ...ov.children].forEach((el) => (el.style.opacity = '0'));
+      ov.classList.add('on');
       raf2(() => {
         place();
-        const a = ov.animate(lite ? [{ opacity: 0 }, { opacity: 1 }] : [{ clipPath: `circle(0px at ${cx}px ${cy}px)` }, { clipPath: `circle(${radius()}px at ${cx}px ${cy}px)` }], { duration: lite ? 380 : 900, easing: lite ? 'ease-out' : 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' });
-        a.onfinish = settle;
+        play(true, settle);
       });
     }
     home.focus({ preventScroll: true });
@@ -125,20 +142,14 @@ export function createOutside(rt) {
     if (!st.outsideOpen || busy) return;
     busy = true;
     const done = () => {
-      ov.getAnimations().forEach((a) => a.cancel());
-      ov.style.clipPath = ov.style.opacity = '';
-      ov.classList.remove('on', 'hold');
-      root.classList.remove('out-busy');
+      clear();
+      ov.classList.remove('on');
       st.outsideOpen = false;
       busy = false;
       if (from) from.rect.focus({ preventScroll: true });
     };
     if (reduce) return done();
-    ov.classList.add('hold');
-    raf2(() => {
-      const a = ov.animate(lite ? [{ opacity: 1 }, { opacity: 0 }] : [{ clipPath: `circle(${radius()}px at ${cx}px ${cy}px)` }, { clipPath: `circle(0px at ${cx}px ${cy}px)` }], { duration: lite ? 300 : 650, easing: lite ? 'ease-in' : 'cubic-bezier(.5,0,.8,.4)', fill: 'forwards' });
-      a.onfinish = done;
-    });
+    play(false, done);
   }
   home.addEventListener('click', close);
   listen('resize', () => st.outsideOpen && place());

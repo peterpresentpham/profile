@@ -43,7 +43,6 @@ export function createScene(rt) {
 
     s += `<defs><linearGradient id="oSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${st.GS.top}"/><stop offset="1" stop-color="${st.GS.hor}"/></linearGradient>
       <linearGradient id="oFogW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${S.hor}" stop-opacity="0"/><stop offset="1" stop-color="${S.hor}" stop-opacity="1"/></linearGradient>
-      <linearGradient id="oFog" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${S.hor}" stop-opacity="0"/><stop offset=".5" stop-color="${S.hor}" stop-opacity=".9"/><stop offset="1" stop-color="${S.hor}" stop-opacity=".3"/></linearGradient>
       <radialGradient id="oVig" cx=".5" cy=".55" r=".75"><stop offset=".62" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".5"/></radialGradient>
       <linearGradient id="oHz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb070" stop-opacity="0"/><stop offset="1" stop-color="#ffb070" stop-opacity=".9"/></linearGradient>
       <clipPath id="oLake"><rect x="-10" y="${BANK}" width="500" height="120"/></clipPath></defs>`;
@@ -56,10 +55,13 @@ export function createScene(rt) {
 
     const starOp = Math.pow(dark, 1.4) * (wx === 'clear' ? 1 : wx === 'partly' ? 0.5 : wx === 'fog' ? 0.2 : 0);
     if (starOp > 0.02) {
-      s += `<g opacity="${f(starOp)}">`;
-      for (let i = 0, n = lite ? 40 : 80; i < n; i++)
-        s += `<circle class="tw" cx="${f(r() * 480)}" cy="${f(r() * 110)}" r="${f(0.4 + r() * 0.9)}" fill="#fff" style="--t:${f(2 + r() * 3)}s;--dl:${f(-r() * 4)}s;--o1:.2"/>`;
-      s += '</g>';
+      // twinkling is animated per group of stars, not per star: a hundred separate animations cost the main thread on every frame
+      const buckets = ['', '', '', '', '', ''];
+      for (let i = 0, n = lite ? 40 : 80; i < n; i++) {
+        buckets[i % 6] += `<circle cx="${f(r() * 480)}" cy="${f(r() * 110)}" r="${f(0.4 + r() * 0.9)}"/>`;
+        r(); r();
+      }
+      s += `<g opacity="${f(starOp)}" fill="#fff">${buckets.map((b, i) => `<g class="tw" style="--t:${f(2.2 + i * 0.55)}s;--dl:${f(-i * 0.8)}s;--o1:.2">${b}</g>`).join('')}</g>`;
     }
     if (c.rare === 'aurora' && dark > 0.3) {
       s += `<g style="mix-blend-mode:screen" opacity="${f(Math.pow(dark, 2))}">`;
@@ -102,7 +104,6 @@ export function createScene(rt) {
         x += 40;
       }
     }
-    s += `<rect x="-10" y="104" width="500" height="50" fill="url(#oFog)" opacity="${wx === 'fog' ? 0.12 : 0.4}"/>`;
     // a rainbow stands opposite the sun, so with the sun behind you it is in front of you: the day after rain, in the daytime
     const yest = new Date(st.curDate);
     yest.setDate(yest.getDate() - 1);
@@ -113,7 +114,6 @@ export function createScene(rt) {
     s += `<path d="${poly(yMead)}" fill="${tint(P.mid, 0.5)}"/>`;
     s += decor();
     s += `<rect x="-10" y="${BANK}" width="500" height="120" fill="url(#waterG)"/><rect x="-10" y="${BANK}" width="500" height="120" fill="url(#oSky)" opacity=".28"/>`;
-    s += `<rect x="-10" y="${BANK - 12}" width="500" height="22" fill="url(#oFog)" opacity="${wx === 'fog' ? 0 : 0.18}"/>`;
 
     // the house: tiny, one big window facing the lake (the room is only a part of it)
     const wall = tint(mix('#eadcc0', '#ffc88a', S.g * 0.35), 0.45), roof = tint('#2a8f9a', 0.35), wood = tint('#6a4026', 0.4);
@@ -150,7 +150,12 @@ export function createScene(rt) {
     // reflections: the bank, the trees, the house and its lit window
     s += `<g clip-path="url(#oLake)" opacity="${f((snowy ? 0.13 : 0.22) + dark * 0.06)}"><g transform="translate(0 ${2 * BANK - 2}) scale(1 -1)">${trees.map((q) => tree(...q)).join('')}<g transform="translate(${HX} ${HY})">${house(false)}</g></g></g>`;
     if (lampLit) s += `<g opacity="${f(0.25 + dark * 0.55)}">${[0, 1, 2, 3, 4].map((i) => `<rect class="star" x="${f(HX - 5 - i * 0.7)}" y="${f(BANK + 6 + i * 4.5)}" width="${f(7 + i * 1.4)}" height="1.4" fill="#ffd98a" style="animation-delay:${f(-i * 0.5)}s"/>`).join('')}</g>`;
-    for (let i = 0; i < 18; i++) s += `<rect class="star" x="${f(r() * 470)}" y="${f(BANK + 6 + r() * 66)}" width="${f(10 + r() * 22)}" height="1.1" fill="#fff" opacity=".3" style="animation-delay:${f(-r() * 3)}s"/>`;
+    const glints = ['', '', '', '', '', ''];   // shimmer per group, not per glint (see the stars)
+    for (let i = 0; i < 18; i++) {
+      glints[i % 6] += `<rect x="${f(r() * 470)}" y="${f(BANK + 6 + r() * 66)}" width="${f(10 + r() * 22)}" height="1.1"/>`;
+      r();
+    }
+    s += `<g fill="#fff" opacity=".3">${glints.map((g, i) => `<g class="star" style="animation-delay:${f(-i * 0.55)}s">${g}</g>`).join('')}</g>`;
     const bx = 120 + r() * 240, by = BANK + 28 + r() * 10;
     if (c.boat)
       s += `<g transform="translate(${f(bx)} ${f(by)})"><g id="oSailGo" data-x="${f(bx)}"><g class="d" style="--fx:-18px;--tx:18px;--t:22s"><path d="M-9 0h18l-3.4 4h-11.2z" fill="${tint('#6b4a35', 0.1)}"/><line x1="0" y1="0" x2="0" y2="-15" stroke="${tint('#3a2d22', 0.1)}" stroke-width=".9"/><path d="M.8 -14L8 -3H.8z" fill="${tint('#f6f0e0', 0.2)}"/><path d="M-.7 -11L-6 -3H-.7z" fill="${tint('#eadfc4', 0.2)}"/></g></g><rect id="oSail" x="-24" y="-18" width="48" height="28" fill="none"/></g>`;

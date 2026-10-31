@@ -38,3 +38,7 @@ next-env.d.ts
 yarn.lock
 .eslintcache
 .env
+
+# test output
+/test-reports/
+/playwright-report/
