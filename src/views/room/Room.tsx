@@ -98,10 +98,12 @@ function initRoom(root: HTMLElement): () => void {
   $('slider').value = st.t;
   api.time.setDate(new Date());
   api.cat.start();
-  api.ui.showWelcome();
+  let seen = false;
   try {
-    if (localStorage.getItem('introSeen2d') === '1') $('welcome').classList.add('gone');
+    seen = localStorage.getItem('introSeen2d') === '1';
   } catch (e) {}
+  if (seen) $('welcome').classList.add('gone');
+  else api.ui.showWelcome();
   buildGlow(lite, SPOTS);
   const onLink = (e) => {
     const a = e.target.closest && e.target.closest('a[href]');

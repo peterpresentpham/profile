@@ -1,9 +1,9 @@
 /* eslint-disable */
 // @ts-nocheck
-import { $, el } from '../shared/helpers';
+import { $, el, freezeRoom, hitBox } from '../shared/helpers';
 
 export function createToys(rt){
-const {st,track,reduce,listen}=rt;
+const {st,track,reduce,listen,timers}=rt;
 const hots=$('hots'),tip=$('tip');
 /* ============ small toys: every decorative object wiggles, hops or rocks when clicked ============ */
 const fxl=el('g',{'pointer-events':'none'});$('dark').parentNode.insertBefore(fxl,$('dark'));
@@ -11,7 +11,8 @@ const WIG=[{transform:'rotate(0)'},{transform:'rotate(-7deg)'},{transform:'rotat
 const HOP=[{transform:'translateY(0) scale(1,1)'},{transform:'translateY(0) scale(1.07,.88)',offset:.2},{transform:'translateY(-10px) scale(.96,1.06)',offset:.5},{transform:'translateY(0) scale(1.05,.93)',offset:.78},{transform:'translateY(0) scale(1,1)'}];
 const ROCK=[{transform:'rotate(0)'},{transform:'rotate(-9deg)'},{transform:'rotate(8deg)'},{transform:'rotate(-5deg)'},{transform:'rotate(0)'}];
 const BOUNCE=[{transform:'scale(1,1)'},{transform:'scale(1.03,.88)',offset:.3},{transform:'scale(.99,1.07)',offset:.6},{transform:'scale(1,1)'}];
-const MOVES={wig:[WIG,650],hop:[HOP,550],rock:[ROCK,800],bounce:[BOUNCE,550]};
+const PULL=[{transform:'translateY(0) scale(1,1)'},{transform:'translateY(7px) scale(1.04,1.05)',offset:.35},{transform:'translateY(7px) scale(1.04,1.05)',offset:.7},{transform:'translateY(0) scale(1,1)'}];
+const MOVES={wig:[WIG,650],hop:[HOP,550],rock:[ROCK,800],bounce:[BOUNCE,550],pull:[PULL,900]};
 const TOYS=[
   {id:'plant',sel:'#plant',label:'Plant',fx:'wig',p:'petal'},
   {id:'sill',sel:'#sillThings',label:'Little plant',fx:'wig',p:'leaf',top:1},
@@ -23,6 +24,7 @@ const TOYS=[
   {id:'jar',sel:'#clayCorner > g:nth-of-type(1)',label:'Clay jar',fx:'wig',p:'puff'},
   {id:'bowl',sel:'#clayCorner > g:nth-of-type(2)',label:'Bowl of stones',fx:'wig',p:'spark'},
   {id:'frame',sel:'#t_frame',label:'Picture frame — take a closer look',fx:'photo',p:'spark',top:1},
+  {id:'drawer',sel:'#t_drawer',label:'Desk drawers — Workbench',fx:'pull',p:'puff',fixed:[860,476,978,626]},   // the drawers open the Workbench drawer, since the monitor is the game
   {id:'rug',sel:'#rug',label:'Rug',fx:'bounce',p:'puff',fixed:[212,606,728,696]},   // its group also holds the sun patch, so the box is set by hand
 ];
 function burst(kind,x,y){
@@ -49,7 +51,7 @@ function paintFrame(){$('frA').setAttribute('opacity',st.photoAfter?0:1);$('frB'
 function openPhoto(t){
   if(st.photoOpen||phBusy)return;phToy=t;loadPhoto();st.photoOpen=true;tip.classList.remove('on');
   track('room_toy_click',{object:t.id,action:'open'});
-  paintPhoto();ph.classList.add('on');t.wrap.style.opacity=0;
+  paintPhoto();ph.classList.add('on');freezeRoom(true);t.wrap.style.opacity=0;
   const r=t.rect.getBoundingClientRect(),c=card.getBoundingClientRect();
   requestAnimationFrame(()=>ph.classList.add('bg'));
   if(!reduce){phBusy=true;card.animate([{transform:`translate(${r.left-c.left}px,${r.top-c.top}px) scale(${r.width/c.width})`,opacity:.7},{transform:'none',opacity:1}],{duration:480,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=()=>phBusy=false}
@@ -57,7 +59,7 @@ function openPhoto(t){
 }
 function closePhoto(){
   const t=phToy;if(!st.photoOpen||phBusy||!t)return;phBusy=true;paintFrame();ph.classList.remove('bg');
-  const done=()=>{card.getAnimations().forEach(a=>a.cancel());ph.classList.remove('on');t.wrap.style.opacity='';st.photoOpen=false;phBusy=false;t.rect.focus({preventScroll:true})};
+  const done=()=>{card.getAnimations().forEach(a=>a.cancel());ph.classList.remove('on');freezeRoom(false);t.wrap.style.opacity='';st.photoOpen=false;phBusy=false;t.rect.focus({preventScroll:true})};
   if(reduce)return done();
   const r=t.rect.getBoundingClientRect(),c=card.getBoundingClientRect();
   card.animate([{transform:'none',opacity:1},{transform:`translate(${r.left-c.left}px,${r.top-c.top}px) scale(${r.width/c.width})`,opacity:.7}],{duration:380,easing:'cubic-bezier(.5,0,.8,.4)',fill:'forwards'}).onfinish=done;
@@ -83,6 +85,7 @@ TOYS.forEach(t=>{
   r.addEventListener('mouseenter',on);r.addEventListener('mousemove',on);r.addEventListener('focus',()=>on());r.addEventListener('mouseleave',off);r.addEventListener('blur',off);
   const act=()=>{if(st.dragMoved)return;if(t.fx==='photo'){openPhoto(t);return}off();track('room_toy_click',{object:t.id});
     if(t.fx==='outside'){rt.api.outside.open(t);return}
+    if(t.fx==='pull'){const go=()=>rt.api.ui.activate('desk');if(reduce)return go();const[kf,ms]=MOVES.pull;t.wrap.animate(kf,{duration:ms,easing:'ease-in-out'});timers.push(setTimeout(go,380));return}
     if(!reduce){const[kf,ms]=MOVES[t.fx];t.wrap.animate(kf,{duration:ms,easing:'ease-in-out'})}
     const b=t.box;if(b)burst(t.p,(b[0]+b[2])/2,b[1]+(b[3]-b[1])*.25)};
   r.addEventListener('click',act);r.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act()}});
@@ -94,7 +97,7 @@ function placeToys(){
     const n=t.wrap;let b,m;if(!t.fixed){b=n.getBBox();m=$('scene').getScreenCTM().inverse().multiply(n.getScreenCTM());if(!b.width&&!b.height)return}   // scene units: undo the viewBox mapping that getCTM would include
     const xs=[],ys=[];if(!t.fixed)[[b.x,b.y],[b.x+b.width,b.y],[b.x,b.y+b.height],[b.x+b.width,b.y+b.height]].forEach(([x,y])=>{xs.push(m.a*x+m.c*y+m.e);ys.push(m.b*x+m.d*y+m.f)});
     const[x0,y0,x1,y1]=t.fixed||[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)],P=t.fixed?0:6;t.box=[x0,y0,x1,y1];
-    t.rect.setAttribute('x',x0-P);t.rect.setAttribute('y',y0-P);t.rect.setAttribute('width',Math.max(24,x1-x0+2*P));t.rect.setAttribute('height',Math.max(24,y1-y0+2*P))})
+    hitBox(t.rect,x0-P,y0-P,x1-x0+2*P,y1-y0+2*P,st.hitMin||24)})
 }
 return {place:placeToys};
 }

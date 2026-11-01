@@ -1,4 +1,8 @@
-/** Server-rendered text for crawlers and no-JS visitors; the room itself is client-only. */
+/**
+ * Server-rendered text for crawlers, screen readers and no-JS visitors; the room itself is client-only.
+ * The links are visually hidden, so they are kept out of the Tab order: sighted keyboard users would otherwise lose the
+ * focus ring on them before reaching the room.
+ */
 export default function RoomSeo() {
   return (
     <div className="sr-only">
@@ -15,6 +19,7 @@ export default function RoomSeo() {
       <ul>
         <li>
           <a
+            tabIndex={-1}
             href="https://github.com/peterpresentpham/seen"
             target="_blank"
             rel="noopener noreferrer"
@@ -26,7 +31,12 @@ export default function RoomSeo() {
           in Vietnamese and English.
         </li>
         <li>
-          <a href="https://decipher.peter-present.xyz/" target="_blank" rel="noopener noreferrer">
+          <a
+            tabIndex={-1}
+            href="https://decipher.peter-present.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Decipher
           </a>{' '}
           — a new alien language every day, generated entirely from the UTC date with no backend.
@@ -34,7 +44,12 @@ export default function RoomSeo() {
           passage back in the alien script.
         </li>
         <li>
-          <a href="https://fantasy.peter-present.xyz/" target="_blank" rel="noopener noreferrer">
+          <a
+            tabIndex={-1}
+            href="https://fantasy.peter-present.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Fantasy World
           </a>{' '}
           — a procedural fantasy world map generator with deterministic seeds, terrain simulation,
@@ -42,6 +57,7 @@ export default function RoomSeo() {
         </li>
         <li>
           <a
+            tabIndex={-1}
             href="https://experiment.peter-present.xyz/blog/master-thesis"
             target="_blank"
             rel="noopener noreferrer"
@@ -62,18 +78,18 @@ export default function RoomSeo() {
       <h2>Elsewhere</h2>
       <ul>
         <li>
-          <a href="https://blog.peter-present.xyz/" target="_blank" rel="noopener noreferrer">
-            Blog
-          </a>{' '}
-          — notes on account abstraction, social recovery and zero-knowledge proofs
-        </li>
-        <li>
-          <a href="https://github.com/peterpresentpham" target="_blank" rel="noopener noreferrer">
+          <a
+            tabIndex={-1}
+            href="https://github.com/peterpresentpham"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             GitHub
           </a>
         </li>
         <li>
           <a
+            tabIndex={-1}
             href="https://www.linkedin.com/in/peter-present/"
             target="_blank"
             rel="noopener noreferrer"

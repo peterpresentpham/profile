@@ -72,3 +72,25 @@ test('contact drawer has an email and the GitHub and LinkedIn links', async ({ p
   await expect(page.locator('#pbody a[href*="github.com/peterpresentpham"]')).toHaveCount(1);
   await expect(page.locator('#pbody a[href*="linkedin.com/in/peter-present"]')).toHaveCount(1);
 });
+
+test('the desk drawers open the Workbench drawer, while the monitor still plays the game', async ({
+  page,
+}) => {
+  const errs = watchErrors(page);
+  await openRoom(page);
+  await press(byLabel(page, 'Desk drawers — Workbench'));
+  await expect(panel(page)).toHaveClass(/open/);
+  await expect(page.locator('#pbody h2')).toHaveText('What I build with day to day');
+  await page.keyboard.press('Escape');
+  await expect(panel(page)).not.toHaveClass(/open/);
+  await press(byLabel(page, 'Play the game — click, tap or Space'));
+  await expect(panel(page)).not.toHaveClass(/open/);
+  expect(errs).toEqual([]);
+});
+
+test('the desk drawers can be opened from the keyboard', async ({ page }) => {
+  await openRoom(page);
+  await byLabel(page, 'Desk drawers — Workbench').focus();
+  await page.keyboard.press('Enter');
+  await expect(panel(page)).toHaveClass(/open/);
+});

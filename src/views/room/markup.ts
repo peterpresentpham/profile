@@ -1,7 +1,7 @@
 // Static scene markup (SVG room + HUD), ported from the concept file.
 import { OUTSIDE_HTML } from '../outside/markup';
 
-export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A cosy room whose window shows today's world">
+export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid meet" role="group" aria-label="A cosy room whose window shows today's world">
   <defs>
     <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f6baa"/><stop offset=".6" stop-color="#9884c0"/><stop offset="1" stop-color="#8672b0"/></linearGradient>
     <radialGradient id="wallLight" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
@@ -282,11 +282,11 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
     <rect x="612" y="464" width="16" height="176" fill="#a8744a"/><rect x="612" y="464" width="4" height="176" fill="#fff" opacity=".2"/><rect x="623" y="464" width="5" height="176" fill="#000" opacity=".16"/>
     <rect x="962" y="464" width="16" height="176" fill="#a8744a"/><rect x="962" y="464" width="4" height="176" fill="#fff" opacity=".2"/>
     <rect x="860" y="476" width="118" height="150" fill="#b98258"/><rect x="860" y="476" width="4" height="150" fill="#fff" opacity=".18"/><rect x="974" y="476" width="4" height="150" fill="#000" opacity=".16"/>
-    <rect x="870" y="488" width="98" height="52" rx="3" fill="#a8744a"/><rect x="870" y="488" width="98" height="2.5" rx="1" fill="#fff" opacity=".28"/><rect x="870" y="488" width="98" height="52" rx="3" fill="none" stroke="#000" stroke-opacity=".16"/>
+    <g id="t_drawer"><rect x="870" y="488" width="98" height="52" rx="3" fill="#a8744a"/><rect x="870" y="488" width="98" height="2.5" rx="1" fill="#fff" opacity=".28"/><rect x="870" y="488" width="98" height="52" rx="3" fill="none" stroke="#000" stroke-opacity=".16"/>
     <rect x="906" y="509" width="26" height="7" rx="3.5" fill="url(#brassG)"/><rect x="908" y="510" width="22" height="1.5" rx=".7" fill="#fff" opacity=".6"/>
     <rect x="868" y="548" width="102" height="7" fill="#2a1a12"/><g transform="rotate(-4 895 548)"><rect x="880" y="543" width="34" height="8" fill="#f4efe6"/><path d="M883 546H907" stroke="#9a93b0" stroke-width=".8"/></g>
     <rect x="870" y="554" width="98" height="48" rx="3" fill="#a8744a"/><rect x="870" y="554" width="98" height="2.5" rx="1" fill="#fff" opacity=".28"/><rect x="870" y="554" width="98" height="48" rx="3" fill="none" stroke="#000" stroke-opacity=".16"/>
-    <rect x="906" y="575" width="26" height="7" rx="3.5" fill="url(#brassG)"/><rect x="908" y="576" width="22" height="1.5" rx=".7" fill="#fff" opacity=".6"/>
+    <rect x="906" y="575" width="26" height="7" rx="3.5" fill="url(#brassG)"/><rect x="908" y="576" width="22" height="1.5" rx=".7" fill="#fff" opacity=".6"/></g>
     <rect x="590" y="440" width="410" height="26" rx="5" fill="url(#woodG)"/>
     <g stroke="#7a4a2a" stroke-opacity=".14" stroke-width=".8" fill="none"><path d="M598 447q60-3 120 0t120 0t120 0t30 0"/><path d="M596 454q70 3 140 0t140 0t110 0"/><path d="M604 460q80-2 160 0t160 0t60 0"/></g>
     <rect x="590" y="440" width="410" height="4" rx="2" fill="#fff" opacity=".42"/><rect x="590" y="462" width="410" height="4" fill="#000" opacity=".12"/>
@@ -443,8 +443,10 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
 </svg>
 <div id="vig"></div>
 <div id="tip"></div>
+<div id="live" role="status" aria-live="polite"></div>
 
-<div class="hud" id="panhint">← drag to look around →</div>
+<div class="hud" id="panhint">← drag or use the arrows →</div>
+<button class="hud panb" id="panL" type="button" aria-label="Look left">‹</button><button class="hud panb" id="panR" type="button" aria-label="Look right">›</button>
 <div class="hud" id="bar">
   <span class="t" id="tt">--:--</span><span class="ph" id="ph"></span>
   <input id="slider" type="range" min="0" max="24" step="0.05" aria-label="Time of day">
@@ -455,7 +457,7 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
   <button id="dNext" type="button" aria-label="Next day">›</button>
 </div>
 
-<aside id="panel" role="dialog" aria-labelledby="ptitle"><div id="pbg" aria-hidden="true"></div><button id="close" aria-label="Close">✕</button><div id="pbody" class="body"></div></aside>
+<aside id="panel" role="dialog" aria-labelledby="ptitle" inert><div id="pbg" aria-hidden="true"></div><button id="close" aria-label="Close">✕</button><div id="pbody" class="body"></div></aside>
 <div id="welcome"><div class="card body" id="wbody"></div></div>
 ${OUTSIDE_HTML}
-<div id="photo" aria-hidden="true"><div id="phBg"></div><div id="photoCard" tabindex="0" role="button" aria-label="Turn the picture over"><span id="phKey"></span><div id="photoFlip"><img id="photoA" alt="A girl meditating calmly next to her sleeping cat, smiling with her eyes closed" decoding="async"><img id="photoB" alt="The same girl, now frowning with her eyes closed" decoding="async"></div><p id="phCap"></p><small>Click the picture to turn it over · Esc to put it back</small></div></div>`;
+<div id="photo" role="dialog" aria-modal="true" aria-label="Picture frame, close up"><div id="phBg"></div><div id="photoCard" tabindex="0" role="button" aria-label="Turn the picture over"><span id="phKey"></span><div id="photoFlip"><img id="photoA" alt="A girl meditating calmly next to her sleeping cat, smiling with her eyes closed" decoding="async"><img id="photoB" alt="The same girl, now frowning with her eyes closed" decoding="async"></div><p id="phCap"></p><small>Click the picture to turn it over · Esc to put it back</small></div></div>`;

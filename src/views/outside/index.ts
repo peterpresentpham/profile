@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 import './outside.css';
-import { $ } from '../shared/helpers';
+import { $, freezeRoom } from '../shared/helpers';
 import { WEATHER } from '../shared/world';
 import { createScene } from './scene';
 
@@ -114,6 +114,7 @@ export function createOutside(rt) {
     st.outsideOpen = true;
     busy = true;
     from = toy;
+    freezeRoom(true);
     track('room_easter_egg_open', { egg: 'outside' });
     if (warm !== keyOf()) paint();
     warm = '';
@@ -144,6 +145,7 @@ export function createOutside(rt) {
     const done = () => {
       clear();
       ov.classList.remove('on');
+      freezeRoom(false);
       st.outsideOpen = false;
       busy = false;
       if (from) from.rect.focus({ preventScroll: true });

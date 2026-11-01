@@ -41,11 +41,9 @@ export const makeSpots = () => ({
     <a class="btn" href="https://experiment.peter-present.xyz/blog/master-thesis" target="_blank" rel="noopener noreferrer">Read the thesis</a><a class="btn g" href="https://github.com/peterpresentpham/account-abstraction-app" target="_blank" rel="noopener noreferrer">UI</a><a class="btn g" href="https://github.com/peterpresentpham/account-abstraction-contract" target="_blank" rel="noopener noreferrer">Contracts</a><a class="btn g" href="https://github.com/peterpresentpham/bundler" target="_blank" rel="noopener noreferrer">Bundler</a>
     <p class="note">Draft: decisions inferred from the project description — rewrite in your own words.</p>`},
   shelf:{label:'Bookshelf — Writing',x:1004,y:38,w:178,h:580,html:`
-    <div class="eyebrow">Writing</div><h2 id="ptitle">Notes to myself, in public</h2>
+    <div class="eyebrow">Writing</div><h2 id="ptitle">A thesis, in public</h2>
     <div class="row">
       <a href="https://experiment.peter-present.xyz/blog/master-thesis" target="_blank" rel="noopener noreferrer"><span>Account Abstraction Wallet with Social Recovery (ZK)</span><span>Thesis</span></a>
-      <a href="https://blog.peter-present.xyz/snark" target="_blank" rel="noopener noreferrer"><span>zk-SNARK, explained</span><span>Note</span></a>
-      <a href="https://blog.peter-present.xyz/" target="_blank" rel="noopener noreferrer"><span>All posts</span><span>→</span></a>
     </div>`},
   tablet:{label:'Stone tablet — Decipher',x:1040,y:206,w:100,h:124,html:`
     <div class="eyebrow">Game · Decipher</div><h2 id="ptitle">A new alien language every day.</h2>
@@ -57,7 +55,6 @@ export const makeSpots = () => ({
     <div class="eyebrow">Workbench</div><h2 id="ptitle">What I build with day to day</h2>
     <div class="row">
       <a href="https://github.com/peterpresentpham/profile" target="_blank" rel="noopener noreferrer"><span>This profile site</span><span>Next · React · Tailwind</span></a>
-      <a href="https://blog.peter-present.xyz/" target="_blank" rel="noopener noreferrer"><span>Blog platform</span><span>Next · shadcn</span></a>
       <a href="https://github.com/peterpresentpham/nestjs-project" target="_blank" rel="noopener noreferrer"><span>NestJS backend</span><span>PostgreSQL · Redis · WebSocket · JWT</span></a>
       <a href="https://www.npmjs.com/package/@peter-present/react-hook-utils" target="_blank" rel="noopener noreferrer"><span>react-hook-utils</span><span>npm package</span></a>
     </div>
@@ -67,7 +64,7 @@ export const makeSpots = () => ({
   phone:{label:'Phone — Say hi',x:838,y:420,w:52,h:26,html:`
     <div class="eyebrow">Say hi</div><h2 id="ptitle">Found something you like?</h2>
     <p>Happy to talk about any of this — games, languages, ZK, or why days feel the same.</p>
-    <a class="btn" href="mailto:phamhongphuc1999.mywork@gmail.com">Email</a><a class="btn g" href="https://github.com/peterpresentpham" target="_blank" rel="noopener noreferrer">GitHub</a><a class="btn g" href="https://www.linkedin.com/in/peter-present/" target="_blank" rel="noopener noreferrer">LinkedIn</a>`},
+    <a class="btn" href="mailto:phamhongphuc.present@gmail.com">Email</a><a class="btn g" href="https://github.com/peterpresentpham" target="_blank" rel="noopener noreferrer">GitHub</a><a class="btn g" href="https://www.linkedin.com/in/peter-present/" target="_blank" rel="noopener noreferrer">LinkedIn</a>`},
   lamp:{label:'Lamp — toggle light',x:604,y:326,w:112,h:122,lamp:true},
   ceiling:{label:'Chandelier — toggle light',x:528,y:-14,w:144,h:76,ceil:true},
   cat:{label:'Cat — say hi',x:462,y:626,w:122,h:62,cat:true},

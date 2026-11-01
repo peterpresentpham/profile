@@ -12,7 +12,7 @@ const wantSong=()=>st.t>=5&&st.t<18?'day':'night';
 function setSong(k){songKey=k;song.src=`${MUSIC[k]}.${song.canPlayType('audio/ogg; codecs="opus"')?'ogg':'mp3'}`;song.play().catch(()=>{})}
 function toggleMusic(){
   musicOn=!musicOn;track('room_music_toggle',{state:musicOn?'on':'off'});
-  $('speaker').classList.toggle('on',musicOn);SPOTS.speaker.node.setAttribute('aria-pressed',musicOn);
+  $('speaker').classList.toggle('on',musicOn);rt.api.ui&&rt.api.ui.say(musicOn?(wantSong()==='day'?'Music on: Bach, Prelude in C':'Music on: Satie, Gymnopédie No. 1'):'Music off');SPOTS.speaker.node.setAttribute('aria-pressed',musicOn);
   if(!musicOn)return;
   if(!song){
     song=new Audio();song.loop=true;

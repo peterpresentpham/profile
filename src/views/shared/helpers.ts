@@ -12,4 +12,8 @@ export function noise(seed){const r=rng(hash(seed)),N=128,g=Array.from({length:N
   return(x,y)=>{const xi=Math.floor(x),yi=Math.floor(y),fx=sm(x-xi),fy=sm(y-yi),a=at(xi,yi),b=at(xi+1,yi),c=at(xi,yi+1),d=at(xi+1,yi+1);return a+(b-a)*fx+(c-a)*fy+(a-b-c+d)*fx*fy}}
 export function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent&&parent.appendChild(e);return e}
 export const pad=n=>String(n).padStart(2,'0'), ymd=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+// A full-screen overlay (Kindle scene, photo) makes the room behind it inert: no Tab stops, no clicks, hidden from screen readers.
+export const freezeRoom=on=>{for(const id of['scene','bar','panL','panR']){const e=$(id);if(e)on?e.setAttribute('inert',''):e.removeAttribute('inert')}};
+// Sets a hit area's box, grown (around its centre) to at least `m` scene units on each side so a finger or a pointer can hit it.
+export const hitBox=(r,x,y,w,h,m=0)=>{const nw=Math.max(w,m),nh=Math.max(h,m);r.setAttribute('x',x-(nw-w)/2);r.setAttribute('y',y-(nh-h)/2);r.setAttribute('width',nw);r.setAttribute('height',nh)};
 export const nowHours=()=>{const n=new Date();return n.getHours()+n.getMinutes()/60};

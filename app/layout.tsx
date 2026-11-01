@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Fira_Code, Inter } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { ReactNode } from 'react';
 import { siteMetadata } from 'src/configs/siteMetadata';
 import 'src/styles/globals.css';
 
-const fira = Fira_Code({ subsets: ['latin'] });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 type Props = Readonly<{ children: ReactNode }>;
 
@@ -47,7 +46,7 @@ const gtmSnippet = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':ne
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
-      <body className={fira.className}>
+      <body>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
