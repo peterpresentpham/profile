@@ -61,7 +61,7 @@
 & #live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* one clear keyboard focus ring everywhere: a solid 3px gold line (3:1 or better against the dark UI and the scene) */
 & .hot:focus-visible{stroke:var(--accent);stroke-width:3;stroke-dasharray:none;fill:#e8b64c1f}
-& :is(button,a,input,[tabindex="0"]):focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+& :is(button,a,input,[tabindex="0"]):not(.hot):focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 & #photoCard:focus-visible{outline:none}
 & .obj{transition:filter .25s}
 & .obj.hov{filter:brightness(1.14) drop-shadow(0 0 5px #ffffff66)}

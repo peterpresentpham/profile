@@ -1,19 +1,19 @@
 /* eslint-disable */
-// @ts-nocheck
 import { clamp, mix, rng, hash } from '../shared/helpers';
 import { PAL, cloudPath, dayCfg } from '../shared/world';
 import { rY, valleyLayout } from '../shared/valley';
+import type { Rt } from '../shared/types';
 
 // The Kindle scene: the house seen from the village shore, across the lake. It is the reverse of what the room's window shows
 // (same lake, mountains, season, weather, visitors and boat), and the house's one big window looks back at you.
 // Pure drawing: `createScene(rt)` returns a function that turns the room's current state into SVG markup. Everything that is
 // randomness (flowers, mist, sheep...) comes from streams seeded by the date, so the same day always looks the same.
-const f = (n) => n.toFixed(1);
+const f = (n: number) => n.toFixed(1);
 
-export function createScene(rt) {
+export function createScene(rt: Rt) {
   const { st, lite } = rt;
 
-  const tint = (hex, k) => {   // same colour grading as the window view in the room
+  const tint = (hex: string, k: number) => {   // same colour grading as the window view in the room
     const { d, g, dim, hor } = st.S_;
     let c = mix(hex, hor, k * 0.55 * (dim < 1 ? 1.3 : 1));
     c = mix(c, '#101a36', (1 - d) * (0.42 + 0.28 * (1 - k)));
@@ -28,15 +28,15 @@ export function createScene(rt) {
     const snowy = season === 'winter' || wx === 'snow';
     const clear = wx === 'clear' ? 1 : wx === 'partly' ? 0.7 : wx === 'fog' ? 0.25 : 0.08;
     const lampLit = st.lampOn || st.ceilOn;
-    const mx = (x) => 476 - x;   // the viewer faces the other way, so the window's left-right is mirrored
-    const poly = (fn, x0 = -10, x1 = 490) => {
+    const mx = (x: number) => 476 - x;   // the viewer faces the other way, so the window's left-right is mirrored
+    const poly = (fn: (x: number) => number, x0 = -10, x1 = 490) => {
       let p = `M${x0} 290`;
       for (let x = x0; x <= x1; x += 6) p += ` L${x} ${f(fn(x))}`;
       return `${p} L${x1} 290Z`;
     };
-    const yFar = (x) => 134 - (150 - rY.far(mx(x))) * 0.78;
-    const yHill = (x) => 150 - (206 - rY.mid(mx(x) + 60)) * 0.5;
-    const yMead = (x) => 164 + (rY.near(mx(x)) - 239) * 0.28;
+    const yFar = (x: number) => 134 - (150 - rY.far(mx(x))) * 0.78;
+    const yHill = (x: number) => 150 - (206 - rY.mid(mx(x) + 60)) * 0.5;
+    const yMead = (x: number) => 164 + (rY.near(mx(x)) - 239) * 0.28;
     const BANK = 178;   // where the meadow meets the lake
     const HX = 240, HY = Math.min(yMead(HX) + 5, 172);   // the house, a long way off, set back from the bank
     let s = '';
@@ -74,7 +74,7 @@ export function createScene(rt) {
     }
 
     // visitors of the day: the ones that pass the window, now seen from the other side
-    const drift = (inner, x, y, dx, secs) => `<g transform="translate(${f(x)} ${f(y)})"><g class="d" style="--fx:${-dx}px;--tx:${dx}px;--t:${secs}s">${inner}</g></g>`;
+    const drift = (inner: string, x: number, y: number, dx: number, secs: number) => `<g transform="translate(${f(x)} ${f(y)})"><g class="d" style="--fx:${-dx}px;--tx:${dx}px;--t:${secs}s">${inner}</g></g>`;
     if (c.visitor === 'balloon')
       s += drift(`<ellipse rx="9" ry="11" fill="${tint('#d9483a', 0.1)}"/><path d="M-3 -10Q-9 0 -3 10M3 -10Q9 0 3 10" stroke="${tint('#f3e4b8', 0.1)}" stroke-width="2" fill="none"/><rect x="-2.6" y="14" width="5.2" height="4" fill="${tint('#8a5a3a', 0.1)}"/><path d="M-5 9L-2 14M5 9L2 14" stroke="#3a2d22" stroke-width=".6"/>`, 130 + r() * 220, 44 + r() * 26, -36 * c.wind, 46);
     if (c.visitor === 'birds') {
@@ -117,7 +117,7 @@ export function createScene(rt) {
 
     // the house: tiny, one big window facing the lake (the room is only a part of it)
     const wall = tint(mix('#eadcc0', '#ffc88a', S.g * 0.35), 0.45), roof = tint('#2a8f9a', 0.35), wood = tint('#6a4026', 0.4);
-    const house = (live) => {
+    const house = (live: boolean) => {
       let h = `<rect x="-6.5" y="-8" width="13" height="8" fill="${wall}"/><polygon points="-8,-8 0,-14 8,-8" fill="${roof}"/>`;
       if (snowy) h += `<polyline points="-8,-8 0,-14 8,-8" fill="none" stroke="#fff" stroke-width="1.3" stroke-linejoin="round" opacity=".9"/>`;
       h += `<rect x="3.6" y="-13" width="1.7" height="3.6" fill="${tint('#8a4a3a', 0.4)}"/>`;
@@ -132,8 +132,8 @@ export function createScene(rt) {
     if (lampLit) s += `<ellipse cx="${HX - 2}" cy="${HY - 5}" rx="${f(8 + dark * 6)}" ry="${f(5 + dark * 3)}" fill="url(#ffG)" opacity="${f(0.35 + dark * 0.65)}"/>`;
 
     // bank trees: the window's own trees, mirrored and seen from afar
-    const bankY = (xw) => BANK - 1 + (rY.near(xw) - 239) * 0.08;
-    const tree = (x, y, sz, col, pine) => {
+    const bankY = (xw: number) => BANK - 1 + (rY.near(xw) - 239) * 0.08;
+    const tree = (x: number, y: number, sz: number, col: string, pine: boolean) => {
       const k = tint(col, 0.4);
       if (pine) {
         let o = `<polygon points="${f(x - sz * 0.32)},${f(y)} ${f(x)},${f(y - sz)} ${f(x + sz * 0.32)},${f(y)}" fill="${k}"/><polygon points="${f(x - sz * 0.26)},${f(y - sz * 0.35)} ${f(x)},${f(y - sz * 1.2)} ${f(x + sz * 0.26)},${f(y - sz * 0.35)}" fill="${k}"/>`;
@@ -142,7 +142,7 @@ export function createScene(rt) {
       }
       return `<rect x="${f(x - 0.7)}" y="${f(y - sz * 0.3)}" width="1.4" height="${f(sz * 0.3)}" fill="${tint('#5e3d29', 0.4)}"/><ellipse cx="${f(x)}" cy="${f(y - sz * 0.62)}" rx="${f(sz * 0.38)}" ry="${f(sz * 0.42)}" fill="${k}"/>`;
     };
-    const trees = L.trees.filter((q) => Math.abs(mx(q.x) - HX) > 12).map((q) => [mx(q.x), bankY(q.x), q.s * 0.55, q.col, q.pine]);
+    const trees = L.trees.filter((q) => Math.abs(mx(q.x) - HX) > 12).map((q): [number, number, number, string, boolean] => [mx(q.x), bankY(q.x), q.s * 0.55, q.col, q.pine]);
     s += `<rect x="-10" y="${BANK - 3}" width="500" height="5" fill="${tint(mix(P.near, '#000000', 0.12), 0.45)}"/>`;
     s += `<path d="M${HX - 3} ${BANK - 1}h6v2h-6z" fill="${tint('#8a6a44', 0.4)}"/>`;
     s += trees.map((q) => tree(...q)).join('');
@@ -207,10 +207,10 @@ export function createScene(rt) {
     // the meadow and hills behind the house: flowers, bushes, sheep, a path, a fence, and what each season leaves there
     function decor() {
       let o = '';
-      const dot = (x, y, rr, col, op = 1) => `<circle cx="${f(x)}" cy="${f(y)}" r="${f(rr)}" fill="${tint(col, 0.35)}" opacity="${op}"/>`;
-      const inMead = () => { const x = 6 + rf() * 468; return [x, yMead(x) + 3 + rf() * (BANK - yMead(x) - 7)]; };
-      const inHill = () => { const x = 6 + rf() * 468; return [x, yHill(x) + 4 + rf() * Math.max(2, yMead(x) - yHill(x) - 6)]; };
-      const flowers = { spring: ['#ffffff', '#ffd3e2', '#f7b6cf', '#ffe27a'], summer: ['#ffffff', '#ffd84a', '#ff8ab0', '#b58aff', '#ff7a5a'] }[season];
+      const dot = (x: number, y: number, rr: number, col: string, op = 1) => `<circle cx="${f(x)}" cy="${f(y)}" r="${f(rr)}" fill="${tint(col, 0.35)}" opacity="${op}"/>`;
+      const inMead = (): [number, number] => { const x = 6 + rf() * 468; return [x, yMead(x) + 3 + rf() * (BANK - yMead(x) - 7)]; };
+      const inHill = (): [number, number] => { const x = 6 + rf() * 468; return [x, yHill(x) + 4 + rf() * Math.max(2, yMead(x) - yHill(x) - 6)]; };
+      const flowers = { spring: ['#ffffff', '#ffd3e2', '#f7b6cf', '#ffe27a'], summer: ['#ffffff', '#ffd84a', '#ff8ab0', '#b58aff', '#ff7a5a'] }[season as 'spring' | 'summer'];
       // distant hills: speckles of colour and small bushes
       for (let i = 0, n = lite ? 40 : 90; i < n; i++) {
         const [x, y] = inHill();
@@ -287,7 +287,7 @@ export function createScene(rt) {
 
     // the shore: a mailbox (write to me) and a signpost to the other places
     function signs() {
-      const wood = tint('#8a6a44', 0.1), arm = (y, w, dir, col) => `<polygon points="${dir > 0 ? `104,${y} ${104 + w},${y} ${108 + w},${y + 2.2} ${104 + w},${y + 4.4} 104,${y + 4.4}` : `104,${y} ${104 - w},${y} ${100 - w},${y + 2.2} ${104 - w},${y + 4.4} 104,${y + 4.4}`}" fill="${tint(col, 0.1)}"/>`;
+      const wood = tint('#8a6a44', 0.1), arm = (y: number, w: number, dir: number, col: string) => `<polygon points="${dir > 0 ? `104,${y} ${104 + w},${y} ${108 + w},${y + 2.2} ${104 + w},${y + 4.4} 104,${y + 4.4}` : `104,${y} ${104 - w},${y} ${100 - w},${y + 2.2} ${104 - w},${y + 4.4} 104,${y + 4.4}`}" fill="${tint(col, 0.1)}"/>`;
       let o = `<rect x="102.8" y="232" width="2.4" height="32" fill="${wood}"/>${arm(234, 17, 1, '#c9854a')}${arm(240.5, 15, -1, '#6a9a7a')}${arm(247, 16, 1, '#8a7ab8')}`;
       o += `<rect id="oSign0" x="100" y="232" width="26" height="8" fill="none"/><rect id="oSign1" x="84" y="239" width="24" height="8" fill="none"/><rect id="oSign2" x="100" y="245.5" width="26" height="8" fill="none"/>`;
       o += `<rect x="383.2" y="246" width="1.8" height="14" fill="${wood}"/><rect x="377" y="239" width="14" height="8" rx="3" fill="${tint('#3a6ea5', 0.1)}"/><rect x="376.6" y="244.4" width="14.8" height="1.2" fill="${tint('#2b5280', 0.1)}"/><rect x="390" y="235" width="1.2" height="6" fill="${tint('#d9483a', 0.1)}"/><rect x="390" y="235" width="4" height="2.4" fill="${tint('#d9483a', 0.1)}"/>`;

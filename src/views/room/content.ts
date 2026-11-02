@@ -1,11 +1,9 @@
 /* eslint-disable */
-// @ts-nocheck
 // Text and hot areas of the drawers. `makeSpots` returns a fresh object per room because the engine stores DOM nodes on it.
-export const ABOUT = (welcome)=>`
+export const ABOUT = (welcome:boolean)=>`
   <div class="eyebrow">${welcome?'Welcome':'About me'}</div><h2 id="ptitle">Hi, I'm Peter.</h2>
   <p>I write software — web apps, backends, blockchain protocols — and I keep making small worlds: maps that generate themselves, a game about days that repeat, a language that doesn't exist yet.</p>
   <p>This room is where I keep them. <b class="w">The window shows today's world</b> and changes a little every day; the room follows your clock, so the lamp comes on when it gets dark where you are.</p>
-  <p class="note">Draft. Add a few lines in your own voice here: what you care about, what you're curious about, what you do away from the keyboard.</p>
   ${welcome?'':`<p><a class="btn" href="mailto:phamhongphuc.present@gmail.com">Email</a><a class="btn g" href="https://github.com/peterpresentpham" target="_blank" rel="noopener noreferrer">GitHub</a><a class="btn g" href="https://www.linkedin.com/in/peter-present/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>`}
   ${welcome?'':'<p class="note">Music on the speaker: Bach, Prelude in C (Kimiko Ishizaka, CC0) in the daytime; Satie, Gymnopédie No. 1 (Robin Alciatore via Musopen, public domain) at night.</p>'}
   ${welcome?'<div style="margin-top:18px"><button class="btn" id="enter" type="button">Come in →</button></div>':''}`;
@@ -38,8 +36,7 @@ export const makeSpots = () => ({
     <div class="trade"><div class="g"><b>Gain</b>Identities stay hidden</div><div class="c"><b>Cost</b>Heavier proofs; circuit needs audit</div></div>
     <p><b class="w">Verify on-chain.</b> No off-chain service can approve a recovery.</p>
     <div class="trade"><div class="g"><b>Gain</b>No trusted relayer</div><div class="c"><b>Cost</b>More gas</div></div>
-    <a class="btn" href="https://experiment.peter-present.xyz/blog/master-thesis" target="_blank" rel="noopener noreferrer">Read the thesis</a><a class="btn g" href="https://github.com/peterpresentpham/account-abstraction-app" target="_blank" rel="noopener noreferrer">UI</a><a class="btn g" href="https://github.com/peterpresentpham/account-abstraction-contract" target="_blank" rel="noopener noreferrer">Contracts</a><a class="btn g" href="https://github.com/peterpresentpham/bundler" target="_blank" rel="noopener noreferrer">Bundler</a>
-    <p class="note">Draft: decisions inferred from the project description — rewrite in your own words.</p>`},
+    <a class="btn" href="https://experiment.peter-present.xyz/blog/master-thesis" target="_blank" rel="noopener noreferrer">Read the thesis</a><a class="btn g" href="https://github.com/peterpresentpham/account-abstraction-app" target="_blank" rel="noopener noreferrer">UI</a><a class="btn g" href="https://github.com/peterpresentpham/account-abstraction-contract" target="_blank" rel="noopener noreferrer">Contracts</a><a class="btn g" href="https://github.com/peterpresentpham/bundler" target="_blank" rel="noopener noreferrer">Bundler</a>`},
   shelf:{label:'Bookshelf — Writing',x:1004,y:38,w:178,h:580,html:`
     <div class="eyebrow">Writing</div><h2 id="ptitle">A thesis, in public</h2>
     <div class="row">

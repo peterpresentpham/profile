@@ -313,8 +313,8 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
     <rect x="616" y="222" width="60" height="68" fill="#f3ead8"/>
     <clipPath id="frameClip"><rect x="620" y="226" width="52" height="52" rx="2"/></clipPath>
     <g clip-path="url(#frameClip)">
-      <image id="frA" href="/frame-relieve.webp" x="620" y="226" width="52" height="52" preserveAspectRatio="xMidYMid slice"/>
-      <image id="frB" href="/frame-sulky.webp" x="620" y="226" width="52" height="52" preserveAspectRatio="xMidYMid slice" opacity="0"/>
+      <image id="frA" href="/photo/calm-frame.webp" x="620" y="226" width="52" height="52" preserveAspectRatio="xMidYMid slice"/>
+      <image id="frB" href="/photo/fake-calm-frame.webp" x="620" y="226" width="52" height="52" preserveAspectRatio="xMidYMid slice" opacity="0"/>
     </g>
     <rect x="632" y="282" width="28" height="4.5" rx="1" fill="#c9a96a"/><rect x="632" y="282" width="28" height="1.4" rx=".7" fill="#fff" opacity=".35"/>
     <path d="M622 228 L646 228 L624 262Z" fill="#fff" opacity=".16" pointer-events="none"/>
@@ -460,4 +460,4 @@ export const ROOM_HTML = `<svg id="scene" viewBox="0 0 1200 760" preserveAspectR
 <aside id="panel" role="dialog" aria-labelledby="ptitle" inert><div id="pbg" aria-hidden="true"></div><button id="close" aria-label="Close">✕</button><div id="pbody" class="body"></div></aside>
 <div id="welcome"><div class="card body" id="wbody"></div></div>
 ${OUTSIDE_HTML}
-<div id="photo" role="dialog" aria-modal="true" aria-label="Picture frame, close up"><div id="phBg"></div><div id="photoCard" tabindex="0" role="button" aria-label="Turn the picture over"><span id="phKey"></span><div id="photoFlip"><img id="photoA" alt="A girl meditating calmly next to her sleeping cat, smiling with her eyes closed" decoding="async"><img id="photoB" alt="The same girl, now frowning with her eyes closed" decoding="async"></div><p id="phCap"></p><small>Click the picture to turn it over · Esc to put it back</small></div></div>`;
+<div id="photo" role="dialog" aria-modal="true" aria-label="Picture frame, close up"><div id="phBg"></div><div id="photoCard" tabindex="0" role="button" aria-label="Turn the picture over"><span id="phKey"></span><div id="photoFlip"><img id="photoA" alt="A girl meditating calmly next to her sleeping cat, smiling with her eyes closed" decoding="async"><img id="photoB" alt="The same girl, now squeezing her eyes shut and smiling through gritted teeth, trying hard to look calm" decoding="async"></div><p id="phCap"></p><small>Click the picture to turn it over · Esc to put it back</small></div></div>`;

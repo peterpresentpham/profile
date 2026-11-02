@@ -1,5 +1,4 @@
 /* eslint-disable */
-// @ts-nocheck
 // Full-screen interactive room. The scene is built imperatively by `initRoom`, ported from
 // concept/room2d-fullscreen.html; it owns everything under `root` and returns its own teardown.
 //
@@ -12,6 +11,8 @@
 import { useEffect, useRef } from 'react';
 import { ROOM_HTML } from './markup';
 import { $, nowHours } from '../shared/helpers';
+import { dayCfg } from '../shared/world';
+import type { Api, Rt, RoomState, ViewState } from '../shared/types';
 import { makeSpots } from './content';
 import { setupRidges } from './view';
 import { buildDecor, buildFireflies, buildFloor, buildGlow } from './decor';
@@ -33,16 +34,16 @@ import './room.css';
 //   rt.api  the other modules' public functions (filled in below, called lazily at runtime)
 function initRoom(root: HTMLElement): () => void {
   root.innerHTML = ROOM_HTML;
-  const track = (event, p = {}) => {
+  const track: Rt['track'] = (event, p = {}) => {
     try {
       (window.dataLayer = window.dataLayer || []).push({ event, ...p });
     } catch (e) {}
   };
-  const L = [], timers = [];
+  const L: Rt['L'] = [], timers: Rt['timers'] = [];
   let raf = 0;
-  const listen = (t, f) => {
-    addEventListener(t, f);
-    L.push(() => removeEventListener(t, f));
+  const listen: Rt['listen'] = (t, f) => {
+    addEventListener(t, f as EventListener);
+    L.push(() => removeEventListener(t, f as EventListener));
   };
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // phones and touch screens: lighter effects and fewer per-frame updates (the full scene is heavy for a mobile GPU)
@@ -50,18 +51,18 @@ function initRoom(root: HTMLElement): () => void {
   root.classList.toggle('room-lite', lite);
 
   const SPOTS = makeSpots();
-  const st = {
+  const st: RoomState = {
     t: 12, auto: true, lampOverride: null, ceilOverride: null, ceilOn: false, lampOn: false, dark: 0,
     curDate: new Date(), S_: { d: 1, g: 0, dim: 1, hor: '#a7d8f5' }, GS: { top: '#3b8fe0', hor: '#a7d8f5', d: 1 },
-    cfg: null, phase: 0, V: {}, dragMoved: false, curObj: '', photoOpen: false, photoAfter: false, outsideOpen: false,
+    cfg: dayCfg(new Date()), phase: 0, V: {} as ViewState, dragMoved: false, curObj: '', photoOpen: false, photoAfter: false, outsideOpen: false,
   };
-  const rt = { root, st, SPOTS, track, L, timers, listen, reduce, lite, api: {} };
+  const rt: Rt = { root, st, SPOTS, track, L, timers, listen, reduce, lite, api: {} as Api };
   const api = rt.api;
 
   api.game = createGame(rt);
   buildDecor(api.game.build);
   api.ui = createUI(rt);
-  buildHotspots(rt, (id) => api.ui.activate(id));
+  buildHotspots(rt, (id: string) => api.ui.activate(id));
   api.outside = createOutside(rt);
   api.toys = createToys(rt);
   setupRidges();
@@ -95,7 +96,7 @@ function initRoom(root: HTMLElement): () => void {
   api.camera = createCamera(rt);
 
   st.t = nowHours();
-  $('slider').value = st.t;
+  $<HTMLInputElement>('slider').value = String(st.t);
   api.time.setDate(new Date());
   api.cat.start();
   let seen = false;
@@ -105,8 +106,8 @@ function initRoom(root: HTMLElement): () => void {
   if (seen) $('welcome').classList.add('gone');
   else api.ui.showWelcome();
   buildGlow(lite, SPOTS);
-  const onLink = (e) => {
-    const a = e.target.closest && e.target.closest('a[href]');
+  const onLink = (e: MouseEvent) => {
+    const a = (e.target as Element | null)?.closest?.('a[href]');
     if (!a) return;
     const h = a.getAttribute('href') || '';
     if (/^(https?:|mailto:)/.test(h))
